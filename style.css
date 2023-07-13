@@ -2,3 +2,9 @@
     color: red;
     font-size: 18px;
 }
+
+.contact.cv {
+    color: lightblue;
+    font-size: 12px;
+    text-decoration: none;
+}
