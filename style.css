@@ -10,15 +10,17 @@ img {
     width: 700px;
 }
 
+.content a {
+    color: lightblue;
+    font-size: 17px;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
 .name {
     color: red;
     font-size: 18px;
 }
 
-.contact-cv {
-    color: lightblue;
-    font-size: 12px;
-    text-decoration: none;
-    text-transform: uppercase;
-}
+
 
