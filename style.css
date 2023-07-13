@@ -3,8 +3,9 @@
     font-size: 18px;
 }
 
-.contact.cv {
+.contact-cv {
     color: lightblue;
     font-size: 12px;
     text-decoration: none;
+    text-transform: uppercase;
 }
