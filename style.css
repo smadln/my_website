@@ -17,6 +17,10 @@ img {
     text-transform: lowercase;
 }
 
+.content a:hover {
+    color: red;
+}
+
 .name {
     color: red;
     font-size: 18px;
