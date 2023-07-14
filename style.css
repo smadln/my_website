@@ -31,7 +31,10 @@ img {
     font-size: 18px;
 }
 
-
+.page a {
+    text-decoration: none;
+    color: red
+}
 
 
 
