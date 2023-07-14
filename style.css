@@ -31,10 +31,15 @@ img {
     font-size: 18px;
 }
 
-.page a {
+.page a:active {
     text-decoration: none;
-    color: red
+    color: red;
 }
+
+
+
+
+
 
 
 
