@@ -21,12 +21,13 @@ img {
     font-size: 17px;
     text-decoration: none;
     text-transform: lowercase;
-    font-family: Georgia, Tahoma, Verdana;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .content a:hover {
     color: rgb(188, 130, 188);
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    text-transform: lowercase
 }
 
 .name {
