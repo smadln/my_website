@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <title>Iterations</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            background: black;
+            mix-blend-mode: screen;
+        }
+    </style>
+ </head>
+ <body>
+    <div class="iterations-video">
+        <video id="myVideo" height="1000px" loop>
+            <source src="iterations_crop.mp4" type="video/mp4" />
+        </video>
+
+        <script>
+            var video = document.getElementById("myVideo");
+
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+            </script>
+    <div class="text">
+        <p>press on the center of the page</p>
+    </div>
+    </div>
+ </body>
+</html>
+
