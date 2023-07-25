@@ -64,14 +64,7 @@ video {
     filter:brightness(105%);
 }
 
-.text:hover {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    text-decoration: none;
-    text-align: left;
-    text-shadow: 0 0 10px #fff, 0 0 15px #fff;
-}
+
 
 
 
