@@ -7,17 +7,17 @@ html {
 }
 
 body {
-    background: radial-gradient(
-        farthest-corner at 70px 50px,
-        rgb(255, 255, 110) 0%,
-        lightyellow 20%
-        );
+    background: white
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 img {
     width: 350px;
+    background-image: radial-gradient(
+        rgb(255, 255, 110) 0%,
+        white 70%
+        );
 }
 
 .content a {
