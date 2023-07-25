@@ -47,6 +47,31 @@ img {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+video::-webkit-media-controls-start-playback-button {
+    display: none;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:-1; 
+    /*to edit the opacity effect change the percentage below */
+    filter:opacity(100%);
+    transform: translateX() translateY();
+    filter:contrast(10);
+    filter:saturate();
+    filter:brightness(105%);
+}
+
+.text:hover {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: left;
+    text-shadow: 0 0 10px #fff, 0 0 15px #fff;
+}
 
 
 
