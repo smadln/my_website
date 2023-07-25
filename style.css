@@ -8,9 +8,9 @@ html {
 
 body {
     background: radial-gradient(
-        farthest-corner at 40px 40px,
+        farthest-corner at 70px 50px,
         rgb(255, 255, 110) 0%,
-        lightyellow 100%
+        lightyellow 20%
         );
     background-repeat: no-repeat;
     background-size: cover;
