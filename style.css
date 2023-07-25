@@ -7,7 +7,11 @@ html {
 }
 
 body {
-    background: linear-gradient(rgb(255, 255, 110), lightyellow);
+    background: radial-gradient(
+        farthest-corner at 40px 40px,
+        rgb(255, 255, 110) 0%,
+        lightyellow 100%
+        );
     background-repeat: no-repeat;
     background-size: cover;
 }
