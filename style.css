@@ -15,21 +15,22 @@ body {
     background-attachment: fixed;
 }
 
-img {
+#image1 {
+    width: 200px;
+    left: 595px;
+    z-index: -1;
     background-image: radial-gradient(
         lightyellow 0%,
         lightblue 70%
         );
 }
 
-#image1 {
-    width: 200px;
-    left: 595px;
-    z-index: -1;
-}
-
 #image2 {
     width: 150px;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
 }
 
 
