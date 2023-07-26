@@ -13,7 +13,7 @@ body {
 }
 
 img {
-    width: 350px;
+    width: 120px;
     background-image: radial-gradient(
         rgb(255, 255, 110) 0%,
         white 70%
