@@ -29,8 +29,15 @@ img {
 }
 
 #image2 {
-    width: 70px;
+    width: 100px;
 }
+
+#image3 {
+    width: 70px;
+    left: 595px;
+    z-index: -1;
+}
+
 
 .content a {
     color: grey;
