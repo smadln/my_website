@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background: rgb(255, 255, 110);
+    background: lightblue;
     min-height: 100vh;
     max-width: 400px;
     background-size: cover;
@@ -17,13 +17,15 @@ body {
 
 img {
     background-image: radial-gradient(
-        white 0%,
-        rgb(255, 255, 110) 70%
+        lightyellow 0%,
+        lightblue 70%
         );
 }
 
 #image1 {
     width: 120px;
+    left: 595px;
+    z-index: -1;
 }
 
 #image2 {
