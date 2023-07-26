@@ -23,17 +23,17 @@ img {
 }
 
 #image1 {
-    width: 120px;
+    width: 70px;
     left: 595px;
     z-index: -1;
 }
 
 #image2 {
-    width: 100px;
+    width: 50px;
 }
 
 #image3 {
-    width: 70px;
+    width: 30px;
     left: 595px;
     z-index: -1;
 }
