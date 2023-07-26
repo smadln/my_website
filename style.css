@@ -7,13 +7,11 @@ html {
 }
 
 body {
-    background: white
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: white,
 }
 
 img {
-    width: 120px;
+    width: 150px;
     background-image: radial-gradient(
         rgb(255, 255, 110) 0%,
         white 70%
