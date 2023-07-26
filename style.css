@@ -29,11 +29,11 @@ img {
 }
 
 #image2 {
-    width: 50px;
+    width: 150px;
 }
 
 #image3 {
-    width: 30px;
+    width: 200px;
     left: 595px;
     z-index: -1;
 }
