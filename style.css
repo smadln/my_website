@@ -16,7 +16,7 @@ body {
 }
 
 #image1 {
-    width: 200px;
+    width: 150px;
     left: 595px;
     z-index: -1;
     background-image: radial-gradient(
