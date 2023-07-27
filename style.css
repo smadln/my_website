@@ -61,7 +61,7 @@ body {
 
 .page a:active {
     text-decoration: none;
-    color: rgb(188, 130, 188)ed;
+    color: grey;
     font-family: Georgia, Tahoma, Verdana;
 }
 
