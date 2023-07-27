@@ -71,16 +71,11 @@ video::-webkit-media-controls-start-playback-button {
 
 video {
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index:-1; 
-    /*to edit the opacity effect change the percentage below */
-    filter:opacity(100%);
-    transform: translateX() translateY();
-    filter:contrast(10);
-    filter:saturate();
-    filter:brightness(105%);
-}
+    top: 50%;
+    left: 50%;
+    z-index:-1;
+    transform: translateX(-50%) translateY(-50%);
+  }
 
 #png1 {
     position:absolute;
