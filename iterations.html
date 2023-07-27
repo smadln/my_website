@@ -7,19 +7,25 @@
     <style>
         html {
             height: 100%;
+            margin: 0;
+            padding: 0;
         }
         body {
             background: black;
             mix-blend-mode: screen;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 400%;
+            max-width: 400vh;
         }
+       
     </style>
  </head>
  <body>
     <div class="iterations-video">
-        <video id="myVideo" height="1000px" loop>
-            <source src="iterations_crop.mp4" type="video/mp4" />
+        <video id="myVideo" width="800" height="450" loop>
+        <source src="iterations_crop.mp4" type="video/mp4"/>
         </video>
-
         <script>
             var video = document.getElementById("myVideo");
 
