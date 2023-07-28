@@ -15,7 +15,7 @@ body {
     background-attachment: fixed;
 }
 
-#image1 {
+#image1,#image3 {
     width: 300px;
     left: 595px;
     z-index: -1;
@@ -77,99 +77,7 @@ video {
     transform: translateX(-50%) translateY(-50%);
   }
 
-#png1 {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:0;
-}
 
-#png2 {
-    position:absolute;
-    top: 100vh;
-    left:0;
-    z-index:1;
-    opacity:70%;
-}
-
-#png3 {
-    position:absolute;
-    top: 200vh;
-    left:0;
-    z-index:1;
-    opacity:70%;
-}
-
-#png4 {
-    position:absolute;
-    top: 300vh;
-    left:0;
-    z-index:1;
-}
-
-#png5 {
-    position:absolute;
-    top: 400vh;
-    left:0;
-    z-index:1;
-    opacity:70%;
-}
-
-#png6 {
-    position:absolute;
-    top: 480vh;
-    left:0;
-    z-index:1;
-}
-
-#png7 {
-    position:absolute;
-    top: 580vh;
-    left:0;
-    z-index:1;
-}
-
-#png8 {
-    position:absolute;
-    top: 680vh;
-    left:0;
-    z-index:1;
-}
-
-#png9 {
-    position:absolute;
-    top: 800vh;
-    left:0;
-    z-index:1;
-}
-
-#png10 {
-    position:absolute;
-    top: 900vh;
-    left:0;
-    z-index:1;
-}
-
-#png11 {
-    position:absolute;
-    top: 1000vh;
-    left:0;
-    z-index:1;
-}
-
-#png12 {
-    position:absolute;
-    top: 1100vh;
-    left:0;
-    z-index:1;
-}
-
-#png13 {
-    position:absolute;
-    top: 0vh;
-    left:0;
-    z-index:1;
-}
 
 
 
