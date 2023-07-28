@@ -15,7 +15,13 @@ body {
     background-attachment: fixed;
 }
 
-#image1,#image3 {
+.ikebana {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;;
+}
+
+#image1 {
     width: 300px;
     left: 595px;
     z-index: -1;
@@ -25,8 +31,18 @@ body {
         );
 }
 
+#image3 {
+    width: 240px;
+    left: 595px;
+    z-index: -1;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+
 #image2 {
-    width: 250px;
+    width: 350px;
     background-image: radial-gradient(
         lightyellow 0%,
         lightblue 75%
