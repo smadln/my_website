@@ -62,6 +62,26 @@ body {
 }
 
 #image5 {
+    width: 300px;
+    left: 595px;
+    z-index: -1;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+
+#image6 {
+    width: 300px;
+    left: 595px;
+    z-index: -1;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+
+#image8 {
     width: 350px;
     background-image: radial-gradient(
         lightyellow 0%,
