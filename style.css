@@ -31,6 +31,16 @@ body {
         );
 }
 
+#image2 {
+    width: 300px;
+    left: 595px;
+    z-index: -1;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+
 #image3 {
     width: 300px;
     left: 595px;
