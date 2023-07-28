@@ -32,7 +32,7 @@ body {
 }
 
 #image3 {
-    width: 240px;
+    width: 300px;
     left: 595px;
     z-index: -1;
     background-image: radial-gradient(
@@ -41,7 +41,7 @@ body {
         );
 }
 
-#image2 {
+#image5 {
     width: 350px;
     background-image: radial-gradient(
         lightyellow 0%,
