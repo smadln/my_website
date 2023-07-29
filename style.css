@@ -141,7 +141,27 @@ video {
     align-items: center;
     transition: opacity .2s;
   }
-
+  .control-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    opacity: .8;
+    transition: all .2s;
+  }
+  
+  .control-button:hover {
+    opacity: 1;
+  }
+  
+  .control-button svg {
+    stroke: #fff;
+    fill: transparent;
+  }
+  .control-button.play-button {
+    height: 40px;
+    width: 40px;
+  }
+  
 
 
 
