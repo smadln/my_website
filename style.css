@@ -132,7 +132,15 @@ video {
     z-index:-1;
     transform: translateX(-50%) translateY(-50%);
   }
-
+  .controls {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, #000);
+    align-items: center;
+    transition: opacity .2s;
+  }
 
 
 
