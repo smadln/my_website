@@ -21,6 +21,12 @@ body {
     column-gap: 5px;;
 }
 
+.ikebana2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;;
+}
+
 #image1 {
     width: 300px;
     left: 595px;
@@ -81,8 +87,48 @@ body {
         );
 }
 
+#image7 {
+    width: 300px;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 75%
+        );
+}
+
 #image8 {
-    width: 350px;
+    width: 300px;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 75%
+        );
+}
+
+#image9 {
+    width: 300px;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 75%
+        );
+}
+
+#image10 {
+    width: 300px;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 75%
+        );
+}
+
+#image11 {
+    width: 300px;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 75%
+        );
+}
+
+#image12 {
+    width: 300px;
     background-image: radial-gradient(
         lightyellow 0%,
         lightblue 75%
