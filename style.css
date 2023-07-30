@@ -9,7 +9,7 @@ html {
 body {
     background: lightblue;
     min-height: 100vh;
-    max-width: 400vh;
+    max-width: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
