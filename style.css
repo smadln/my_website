@@ -137,7 +137,7 @@ body {
 
 .content a {
     color: grey;
-    font-size: 17px;
+    font-size: 15px;
     text-decoration: none;
     text-transform: lowercase;
     font-family: Georgia, Tahoma, Verdana;
@@ -145,7 +145,7 @@ body {
 
 .content a:hover {
     color: rgb(143, 132, 227);
-    font-size: 17px;
+    font-size: 15px;
     text-transform: lowercase
 }
 
