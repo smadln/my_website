@@ -135,6 +135,14 @@ body {
         );
 }
 
+#image13 {
+    width: 300px;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 75%
+        );
+}
+
 .content a {
     color: grey;
     font-size: 15px;
