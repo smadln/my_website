@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Parallax Scroll Example</title>
+    <script src="script.js"></script>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #ffffff;
+        }
+        .app {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .scroll-bound {
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .content {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        video {
+            display: block;
+            width: 100%;
+            transform: translateZ(0);
+            object-fit: cover;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="scroll-bound" id="bound-one">
+            <div class="content">
+                <video width="600" autoplay muted loop controls>
+                    <source src="https://cdn.ananaspizza.de/file/malte-image-store/v9-webm.webm" type="video/webm">
+                    Your browser does not support the HTML5 Video element.
+                </video>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
