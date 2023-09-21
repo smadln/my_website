@@ -238,6 +238,10 @@ video {
         font-size: 14px;
     }
 
+    .title p {
+        font-size: 16px;  /* maintain the same size as desktop */
+    }
+        /* other existing rules... */
 
     .menu {
         right: 20px;
