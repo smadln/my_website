@@ -8,6 +8,17 @@ html {
     margin: 0%;
 }
 
+.title p {
+    font-size: 18px;  /* or whatever size you want */
+    font-family: Georgia, Tahoma, Verdana;  /* or whatever font you want */
+    color: rgb(255, 255, 110);  /* or whatever color you want */
+}
+
+.title p a:hover {
+    color: rgb(143, 132, 227);
+    font-family: Georgia, Tahoma, Verdana;
+} 
+
 body {
     background: lightblue;
     min-height: 100vh;
