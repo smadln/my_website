@@ -8,17 +8,6 @@ html {
     margin: 0%;
 }
 
-.title p {
-    font-size: 18px;  /* or whatever size you want */
-    font-family: Georgia, Tahoma, Verdana;  /* or whatever font you want */
-    color: rgb(255, 255, 110);  /* or whatever color you want */
-}
-
-.title p a:hover {
-    color: rgb(143, 132, 227);
-    font-family: Georgia, Tahoma, Verdana;
-} 
-
 body {
     background: lightblue;
     min-height: 100vh;
@@ -238,11 +227,6 @@ video {
         font-size: 14px;
     }
 
-    .title p {
-        font-size: 16px;  /* maintain the same size as desktop */
-    }
-        /* other existing rules... */
-
     .menu {
         right: 20px;
     }
@@ -256,24 +240,9 @@ video {
         flex-direction: column;
         align-items: center;
     }
-
-    .hamburger, .cross {
-        top: 10px;
-        right: 10px;
-    }
-
+    
     .menu ul {
         margin: 20px;
     }
 }
-
-  
-
-
-
-
-
-
-
-
 
