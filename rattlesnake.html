@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <title>Iterations</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: black;
+            mix-blend-mode: screen;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden; /* Hide scrollbars */
+        }
+       
+    </style>
+ </head>
+ <body>
+    <div class="rattlesnake-video">
+        <video id="myVideo" width="800" height="" loop>
+        <source src="rattlesnake_feedback.mp4" type="video/mp4"/>
+        </video>
+        <script>
+            var video = document.getElementById("myVideo");
+
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        </script>
+        <div class="controls">
+            <button class="play-button control-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>    
+    </div>
+    <!-- Move the script at the end of the body -->
+ <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const playButton = document.querySelector(".play-button");
+        const video = document.getElementById("myVideo");
+        const videoContainer = document.querySelector(".iterations-video");
+
+        const play = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+            </svg>`;
+        const pause = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>`;
+
+        playButton.addEventListener("click", function () {
+            if (video.paused) {
+                video.play();
+                videoContainer.classList.add("playing");
+                playButton.innerHTML = pause;
+            } else {
+                video.pause();
+                videoContainer.classList.remove("playing");
+                playButton.innerHTML = play;
+            }
+        });
+    });
+ </script>
+</body>
+</html>
+
