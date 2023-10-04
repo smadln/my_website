@@ -12,13 +12,25 @@
     <link rel="icon" type="image/png" href="favicon.png">
  </head>
     <style>
-        .minkprotea {
+        body, html {
+            height: 100%;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Center vertically in the viewport */
-            background: transparent;
-            margin-top: -80px;
+            background: #ddd6ca; /* Add a background color for visualization */
+        }
+
+        .minkprotea {
+            text-align: center; /* Center the image horizontally */
+            max-width: 60%; /* Adjust max-width to your preference */
+            max-height: 60%; /* Adjust max-height to your preference */
+        }
+
+        img {
+            max-width: 100%; /* Make the image responsive within its container */
+            max-height: 100%; /* Ensure the image doesn't exceed its container's height */
+            display: inline-block; /* Ensure the image is displayed as a block-level element */
         }
     </style>
  <body>
