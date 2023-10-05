@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
+    <title>White Horse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+ </head>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ddd6ca; /* Add a background color for visualization */
+        }
+
+        .whitehorse {
+            text-align: center; /* Center the image horizontally */
+            max-width: 60%; /* Adjust max-width to your preference */
+            max-height: 60%; /* Adjust max-height to your preference */
+        }
+
+        img {
+            max-width: 100%; /* Make the image responsive within its container */
+            max-height: 100%; /* Ensure the image doesn't exceed its container's height */
+            display: inline-block; /* Ensure the image is displayed as a block-level element */
+            background-image: radial-gradient(
+            lightyellow 0%,
+            #ddd6ca 70%
+            );
+        }
+    </style>
+ <body>
+    <div class="whitehorse">
+        <img 
+        src="white_horse_edit_4.png"
+        alt="White Horse" 
+        id="whitehorse"
+        > 
+     </div>
+ </body>   
+ <script>
+    var url = window.location.href;
+    if (url.endsWith('index')) {
+        // Remove 'index' from the URL
+        var newUrl = url.substring(0, url.lastIndexOf('index'));
+        history.replaceState({}, '', newUrl);
+    } else if (url.endsWith('.html')) {
+        // Remove '.html' from the URL
+        history.replaceState({}, '', url.substring(0, url.length - 5));
+    }
+ </script>
+</html>
+
