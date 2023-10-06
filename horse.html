@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="whitehorse">
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,16 +15,17 @@
         body, html {
             height: 100%;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background: #c0e8fa; /* Add a background color for visualization */
+            position: relative; /* Allow for absolute positioning of child elements */
         }
 
         .whitehorse {
             text-align: center; /* Center the image horizontally */
             max-width: 100%; /* Adjust max-width to your preference */
             max-height: 100%; /* Adjust max-height to your preference */
+            position: absolute; /* Position it relative to the closest positioned ancestor */
+            bottom: 0; /* Stick it to the bottom of the viewport */
+            width: 100%; /* Take full width */
         }
 
         img {
