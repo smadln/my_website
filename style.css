@@ -252,8 +252,9 @@ video {
     box-sizing: border-box;
 }
 
-#whitehorse body, #whitehorse html {
+#whitehorse html, #whitehorse body {
     height: 100%;
+    min-height: 100%;
     background: #c0e8fa; /* Add a background color for visualization */
     position: relative; /* Allow for absolute positioning of child elements */
     overflow-x: hidden;
@@ -272,6 +273,6 @@ video {
 #whitehorse img {
     max-width: 200vh; /* Make the image responsive within its container */
     max-height: 100%; /* Ensure the image doesn't exceed its container's height */
-    display: inline-block; /* Ensure the image is displayed as a block-level element */
+    display: block; /* Ensure the image is displayed as a block-level element */
     background: transparent;
 }
