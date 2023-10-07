@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* ... [The rest of your styles] ... */
+
+        li {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .year {
+            flex: 0 0 50px; /* This reserves a space of 50 pixels for the year. Adjust as needed */
+            margin-right: 20px; /* Space between year and content. Adjust as needed */
+        }
+
+        .info {
+            flex: 1; /* Allows the content to take up the rest of the space */
+        }
+
+    </style>
+</head> 
+<body>
+    <div class="page">
+        <p><a href="index.html">Sarah Madeline</a></p>
+        <div class="cv">
+            <p>cv</p>
+            <div class="text">
+                <p><mark style="background-color: lightblue; color: rgb(143, 132, 227);"> Selected Exhibitions + Screenings</mark></p>
+                <ul>
+                    <li><span class="year">2023</span><span class="info">[Upcoming] <em>Iterations</em>, Soro-sorO #3 at The Wrong Biennale</span></li>
+                    <li><span class="year">2021</span><span class="info"><em>Salvaged</em>, Hallucinea Film Festival, Paris, France</span></li>
+                    <!-- ... [Continue in the same format for the other list items] ... -->
+                </ul>
+                <!-- ... [Continue with the rest of your content] ... -->
+            </div>    
+        </div>            
+    </div>
+</body>
+<script>
+    var url = window.location.href;
+    if(url.endsWith('.html')) {
+        history.replaceState({}, '', url.substring(0, url.length - 5));
+    }
+</script>
+</html>
