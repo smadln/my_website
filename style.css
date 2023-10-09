@@ -151,6 +151,7 @@ body {
     text-decoration: none;
     text-transform: lowercase;
     font-family: Georgia, Tahoma, Verdana;
+    padding-left: 0px;
 }
 
 .content a:hover {
@@ -163,6 +164,7 @@ body {
     color: rgb(255, 255, 110);
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
+    padding-left: 10px;
 }
 
 .screenings {
