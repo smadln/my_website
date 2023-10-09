@@ -17,21 +17,31 @@ body {
     background-attachment: fixed;
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+}
+
 .ikebana {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5px;;
+    column-gap: 5px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
 }
 
 .ikebana2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5px;;
+    column-gap: 5px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
 }
 
 #image1 {
     width: 300px;
-    left: 595px;
     z-index: -1;
     background-image: radial-gradient(
         lightyellow 0%,
@@ -41,7 +51,6 @@ body {
 
 #image2 {
     width: 300px;
-    left: 595px;
     z-index: -1;
     background-image: radial-gradient(
         lightyellow 0%,
@@ -51,7 +60,6 @@ body {
 
 #image3 {
     width: 300px;
-    left: 595px;
     z-index: -1;
     background-image: radial-gradient(
         lightyellow 0%,
@@ -61,7 +69,6 @@ body {
 
 #image4 {
     width: 300px;
-    left: 595px;
     z-index: -1;
     background-image: radial-gradient(
         lightyellow 0%,
@@ -71,7 +78,6 @@ body {
 
 #image5 {
     width: 300px;
-    left: 595px;
     z-index: -1;
     background-image: radial-gradient(
         lightyellow 0%,
@@ -81,7 +87,6 @@ body {
 
 #image6 {
     width: 300px;
-    left: 595px;
     z-index: -1;
     background-image: radial-gradient(
         lightyellow 0%,
