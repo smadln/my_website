@@ -45,7 +45,7 @@ body {
 .ikebana2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5px;
+    column-gap: 20px;
     margin: 0 auto;
     width: 100%;
     align-items: center;
