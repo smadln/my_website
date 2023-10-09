@@ -31,6 +31,10 @@ body {
     height: 80vh;  /* Adjust based on your needs */
 }
 
+.redmaple-container {
+    padding-left: 100px;
+}
+
 .ikebana {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
