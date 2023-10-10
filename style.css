@@ -276,17 +276,26 @@ video {
         padding-right: 10px;
     }
 
-    /* Adjustments for the images */
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+
+    .center-container {
+        width: 100%; /* Set the container to full width */
+        padding: 0 5px; /* Some padding to ensure content doesn't touch the edges */
+    }
+
     .ikebana {
-        grid-template-columns: repeat(3, 1fr); /* This ensures equal width for all three columns */
+        grid-template-columns: repeat(3, 1fr); 
         column-gap: 5px; 
-        width: 100%; /* Ensure the container takes the full width */
-        padding: 0 5px; /* Add some padding to prevent images touching the screen edge */
+        width: 100%; /* Ensure it takes the full width of its container */
     }
 
     .ikebana img {
-        width: calc((100% - 10px) / 3); /* Adjust the width to fit three images with some margin */
-        margin: 5px auto; 
+        width: 100%; /* Set image width to 100% of its container */
+        max-width: calc((100% - 2*5px)/3); /* Subtracting the total gap and dividing by 3 */
+        margin: 5px 0; /* Vertical margin */
     }
 }
 
