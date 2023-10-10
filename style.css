@@ -278,15 +278,15 @@ video {
 
     /* Adjustments for the images */
     .ikebana {
-        grid-template-columns: 1fr 1fr 1fr; /* Remain with three columns */
-        column-gap: 5px; /* Adjust the gap between images */
-        margin-top: 10px;
-        margin-bottom: 10px;
+        grid-template-columns: repeat(3, 1fr); /* This ensures equal width for all three columns */
+        column-gap: 5px; 
+        width: 100%; /* Ensure the container takes the full width */
+        padding: 0 5px; /* Add some padding to prevent images touching the screen edge */
     }
 
     .ikebana img {
-        width: calc(33% - 10px); /* Adjust the width to fit three images with some margin */
-        margin: 5px auto; /* Centering the image horizontally */
+        width: calc((100% - 10px) / 3); /* Adjust the width to fit three images with some margin */
+        margin: 5px auto; 
     }
 }
 
