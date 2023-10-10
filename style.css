@@ -23,6 +23,10 @@ body {
 }
 
 .center-container {
+    position: absolute;      /* Added this */
+    top: 50%;                /* Added this */
+    left: 50%;               /* Added this */
+    transform: translate(-50%, -50%); /* Added this */
     display: flex;
     flex-direction: column;
     align-items: center;
