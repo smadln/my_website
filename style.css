@@ -275,6 +275,19 @@ video {
     .cv {
         padding-right: 10px;
     }
+
+    /* Adjustments for the images */
+    .ikebana {
+        grid-template-columns: 1fr 1fr 1fr; /* Remain with three columns */
+        column-gap: 5px; /* Adjust the gap between images */
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .ikebana img {
+        width: calc(33% - 10px); /* Adjust the width to fit three images with some margin */
+        margin: 5px auto; /* Centering the image horizontally */
+    }
 }
 
 #whitehorse * {
