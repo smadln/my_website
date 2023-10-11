@@ -68,3 +68,13 @@ video {
     width: 80%;
     height: 80%;
   } 
+
+#rattlesnake .description {
+    flex-shrink: 0;  /* Prevent the text box from shrinking */
+    height: 20vh; /* Reduced to compensate for the larger image */
+    color: white;
+    background-color: black;
+    text-align: left;
+    overflow-y: auto;
+    width: 100%;  /* Make it span the entire width of the .whitehorse container */
+}
