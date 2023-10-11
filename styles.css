@@ -30,33 +30,33 @@ body {
 }
 
 #whitehorse .whitehorse {
-    text-align: center; /* Center the image and text horizontally */
-    max-width: 100%; 
-    max-height: 100%; 
-    position: relative; /* Not absolute. Let it flow naturally in the document */
+    text-align: center;
+    position: relative;
     width: 100%;
-}
-
-#whitehorse .description {
-    color: white;
-    background-color: black;
-    text-align: left;
-    margin-top: 0;
-    padding-top: 0;
-    width: 100%; /* Make the width of the text background span the entire screen width */
-    max-height: 100%;
-    padding-left: 0; /* Remove any left padding */
-    padding-right: 0; /* Remove any right padding */
-    margin-left: 0; /* Remove any left margin */
-    margin-right: 0; /* Remove any right margin */
+    height: 100vh;  /* 100% of the viewport height */
+    display: flex;  /* Use Flexbox */
+    flex-direction: column;  /* Stack children vertically */
+    justify-content: center;  /* Center children vertically */
+    align-items: center;  /* Center children horizontally */
 }
 
 #whitehorse img {
-    max-width: 100%; /* Make the image responsive within its container */
-    max-height: 100%; /* Ensure the image doesn't exceed its container's height */
-    display: block; /* Ensure the image is displayed as a block-level element */
-    background: transparent;
-    margin-bottom: 0;  /* Remove bottom margin from the image */
+    flex-grow: 1;  /* Allow the image to grow and take available space */
+    object-fit: contain;  /* Keeps aspect ratio */
+    height: auto;
+    max-height: 80vh; /* Try a larger value */
+    width: auto;
+    max-width: 100%;
+}
+
+#whitehorse .description {
+    flex-shrink: 0;  /* Prevent the text box from shrinking */
+    height: 20vh; /* Reduced to compensate for the larger image */
+    color: white;
+    background-color: black;
+    text-align: left;
+    overflow-y: auto;
+    width: 100%;  /* Make it span the entire width of the .whitehorse container */
 }
 
 video {
