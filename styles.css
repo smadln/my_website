@@ -1,6 +1,6 @@
 html {
     height: 100%;
-    background-color: lightblue;
+    background-color: rgb(182, 219, 255);
     margin: 0;   /* Remove any default margins */
     padding: 0;  /* Remove any default padding */
     /* ... (keep the rest of your body and html styles) ... */
@@ -44,6 +44,7 @@ body {
     margin-top: 0;
     padding-top: 0;
     width: 100%; /* Make the width of the text background span the entire screen width */
+    max-height: 100%;
     padding-left: 0; /* Remove any left padding */
     padding-right: 0; /* Remove any right padding */
     margin-left: 0; /* Remove any left margin */
@@ -51,9 +52,19 @@ body {
 }
 
 #whitehorse img {
-    max-width: 200vh; /* Make the image responsive within its container */
+    max-width: 100%; /* Make the image responsive within its container */
     max-height: 100%; /* Ensure the image doesn't exceed its container's height */
     display: block; /* Ensure the image is displayed as a block-level element */
     background: transparent;
     margin-bottom: 0;  /* Remove bottom margin from the image */
 }
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index:-1;
+    transform: translateX(-50%) translateY(-50%);
+    width: 80%;
+    height: 80%;
+  } 
