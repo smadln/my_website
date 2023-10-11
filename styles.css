@@ -1,4 +1,4 @@
-body, html {
+html {
     height: 100%;
     background-color: lightblue;
     margin: 0;   /* Remove any default margins */
@@ -8,6 +8,13 @@ body, html {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+body {
+    background: rgb(182, 219, 255);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; /* Hide scrollbars */
 }
         
 #whitehorse * {
