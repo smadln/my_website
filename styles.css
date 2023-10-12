@@ -1,5 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 html {
     height: 100%;
+    width: 100%;
     background-color: rgb(182, 219, 255);
     margin: 0;   /* Remove any default margins */
     padding: 0;  /* Remove any default padding */
@@ -11,6 +18,8 @@ html {
 }
 
 body {
+    height: 100%;
+    width: 100%;
     background: rgb(182, 219, 255);
     background-repeat: no-repeat;
     background-size: cover;
@@ -59,34 +68,6 @@ body {
     width: 100%;  /* Make it span the entire width of the .whitehorse container */
 }
 
-.myVideo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;  /* hide overflow */
-}
-
-video {
-    object-fit: contain;
-    max-width: 90%;
-    max-height: 80vh; /* Adjust based on your needs */
-    z-index: 0;
-    margin-bottom: 10px; /* Optional, adds some space between video and text */
-}
-
-.textBackground {
-    background-color: black; /* Set background color to black */
-    width: 100%;  /* Full width */
-    min-height: calc(100vh - 80vh);  /* Take up the remaining vertical space */
-    color: white;  /* Text color */
-    flex-grow: 1;  /* Take up remaining space */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #rattlesnake .description {
     flex-shrink: 0;  /* Prevent the text box from shrinking */
     height: 20vh; /* Reduced to compensate for the larger image */
@@ -96,4 +77,45 @@ video {
     overflow-y: auto;
     font-family: "Fira Code";
     width: 100%;  /* Make it span the entire width of the .whitehorse container */
+}
+
+/* New Black Background Style */
+.blackBackground {
+    background-color: black; /* Black background */
+    width: 100%; /* Full width */
+    flex-grow: 1;  /* Take up remaining space */
+}
+
+/* Existing myVideo Style (add margin and padding) */
+.myVideo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    overflow: hidden;  /* hide overflow */
+    margin: 0;  /* Added */
+    padding: 0;  /* Added */
+}
+
+/* Video specific style */
+video {
+    object-fit: contain;
+    max-width: 90%;
+    max-height: 80vh; /* Adjust based on your needs */
+    z-index: 0;
+    display: block;  /* Added */
+    margin: 0;  /* Added */
+    padding: 0;  /* Added */
+}
+
+/* Text Background Style (add margin and padding) */
+.textBackground {
+    width: 100%;  /* Full width */
+    color: white;  /* Text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;  /* Added */
+    padding: 0;  /* Added */
 }
