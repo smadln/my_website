@@ -25,6 +25,52 @@ body {
     background-size: cover;
     overflow: hidden; /* Hide scrollbars */
 }
+
+#sentenced * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#sentenced html, #sentenced body {
+    margin: 0;   /* Remove any default margins */
+    padding: 0;  /* Remove any default padding */
+    /* ... (keep the rest of your body and html styles) ... */
+}
+
+#sentenced .sentenced {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;  /* 100% of the viewport height */
+    display: flex;  /* Use Flexbox */
+    flex-direction: column;  /* Stack children vertically */
+    justify-content: center;  /* Center children vertically */
+    align-items: center;  /* Center children horizontally */
+}
+
+#sentenced img {
+    flex-grow: 1;  /* Allow the image to grow and take available space */
+    object-fit: contain;  /* Keeps aspect ratio */
+    height: auto;
+    max-height: 80vh; /* Try a larger value */
+    width: auto;
+    max-width: 100%;
+}
+
+#sentenced .description {
+    flex-shrink: 0;  /* Prevent the text box from shrinking */
+    height: 20vh; /* Reduced to compensate for the larger image */
+    color: white;
+    background-color: black;
+    text-align: left;
+    overflow-y: auto;
+    width: 100%;  /* Make it span the entire width of the .whitehorse container */
+}
+
+
+
+/**/
         
 #whitehorse * {
     margin: 0;
