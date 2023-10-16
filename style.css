@@ -338,11 +338,17 @@ video {
   
   #interactive-img2 {
     top: 45%;
-    left: 30%;
+    left: 35%;
   }
   
   #interactive-img3 {
+    top: 45%;
+    left: 65%;
+  }
+
+  #interactive-img4 {
     top: 75%;
     left: 50%;
   }
+
   
