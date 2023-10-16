@@ -320,10 +320,9 @@ video {
     margin-bottom: 0;  /* Remove bottom margin from the image */
 }
 
-#interactive-img {
+  .interactive-img {
     position: absolute;
     left: 0;
-    top: 50%;
     width: 200px;
     height: auto;
     cursor: grab;
@@ -331,4 +330,17 @@ video {
         lightyellow 0%,
         lightblue 70%
         );
-  }  
+  }
+  
+  #interactive-img1 {
+    top: 20%;
+  }
+  
+  #interactive-img2 {
+    top: 50%;
+  }
+  
+  #interactive-img3 {
+    top: 80%;
+  }
+  
