@@ -12,7 +12,29 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <div class="container" id="container">
+        <div class="name">
+            <p>Sarah Madeline</p>
+            <div class="content">
+                <p><a href="./about.html">about</a>
+                <br><a href="./cv.html">cv</a>
+                <br><a href="./contact.html">contact</a>
+                <p></p>   
+            </div>   
+        </div>     
+    </div>
   <img id="interactive-img" src="red_orchid.png" alt="Interactive Image">
   <script src="script.js"></script>
 </body>
+<script>
+    var url = window.location.href;
+    if (url.endsWith('index')) {
+        // Remove 'index' from the URL
+        var newUrl = url.substring(0, url.lastIndexOf('index'));
+        history.replaceState({}, '', newUrl);
+    } else if (url.endsWith('.html')) {
+        // Remove '.html' from the URL
+        history.replaceState({}, '', url.substring(0, url.length - 5));
+    }
+ </script>
 </html>
