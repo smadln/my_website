@@ -324,7 +324,7 @@ video {
     position: absolute;
     left: 0;
     top: 50%;
-    width: 300px;
+    width: 200px;
     height: auto;
     cursor: grab;
     background-image: radial-gradient(
