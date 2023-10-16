@@ -322,7 +322,6 @@ video {
 
   .interactive-img {
     position: absolute;
-    left: 0;
     width: 200px;
     height: auto;
     cursor: grab;
@@ -334,13 +333,16 @@ video {
   
   #interactive-img1 {
     top: 15%;
+    left: 50%;
   }
   
   #interactive-img2 {
     top: 45%;
+    left: 30%;
   }
   
   #interactive-img3 {
     top: 75%;
+    left: 50%;
   }
   
