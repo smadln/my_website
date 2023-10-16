@@ -319,3 +319,12 @@ video {
     background: transparent;
     margin-bottom: 0;  /* Remove bottom margin from the image */
 }
+
+#interactive-img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100px;
+    height: auto;
+    cursor: grab;
+  }  
