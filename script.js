@@ -1,6 +1,12 @@
 let img = document.getElementById("interactive-img");
+let imgWidth = img.offsetWidth;
 let movingRight = true;
 let isDragging = false;
+
+// Update the image width dynamically in case of window resizing
+window.addEventListener("resize", () => {
+    imgWidth = img.offsetWidth;
+});
 
 // Move the image automatically
 setInterval(() => {
@@ -12,15 +18,18 @@ setInterval(() => {
       position -= 1;
     }
 
-    if (position >= window.innerWidth - 100) {
-      movingRight = false;
+    // Keep image within bounds
+    if (position >= window.innerWidth - imgWidth) {
+        movingRight = false;
+        position = window.innerWidth - imgWidth;  // Correct the position
     }
-    if (position <= 0) {
-      movingRight = true;
+      if (position <= 0) {
+        movingRight = true;
+        position = 0;  // Correct the position
     }
-
-    img.style.left = position + "px";
-  }
+  
+      img.style.left = position + "px";
+    }
 }, 20);
 
 // Make the image draggable
