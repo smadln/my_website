@@ -365,3 +365,68 @@ video {
     top: 75%;
     left: 20%;
   }
+
+#image14, #image15, #image16, #image17, #image18, #image19 {
+    position: absolute;  /* Add this line */
+    /* ... (rest of your styles) ... */
+}
+
+#image14 {
+    width: 150px;
+    top: 12%;
+    left: 15%;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+
+#image15 {
+    width: 150px;
+    top: 40%;
+    left: 10%;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+
+#image16 {
+    width: 150px;
+    top: 55%;
+    left: 65%;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+
+#image17 {
+    width: 150px;
+    top: 55%;
+    left: 20%;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+
+#image18 {
+    width: 150px;
+    top: 65%;
+    left: 10%;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+
+#image19 {
+    width: 150px;
+    top: 75%;
+    left: 35%;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
