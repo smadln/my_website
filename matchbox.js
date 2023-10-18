@@ -16,4 +16,3 @@ const registerVideo = (bound, video) => {
 
 
 registerVideo("#bound-one", "#bound-one video");
-

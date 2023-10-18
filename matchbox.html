@@ -3,13 +3,29 @@
 <head>
     <meta charset="utf-8">
     <title>Parallax Scroll Example</title>
-    <script src="script.js"></script>
     <style>
         * { box-sizing: border-box; }
         body {
 	        margin: 0;
 	        font-family: sans-serif;
 	        font-size: 1.4rem;
+        }
+
+        /* Hide the default scrollbar */
+        body::-webkit-scrollbar {
+            width: 0.5em;
+        }
+
+        /* Track */
+        body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        /* Handle */
+        body::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            /* You can adjust the width and color of the custom scrollbar here */
+            border-radius: 0;
         }
 
         #bound-one {
