@@ -148,7 +148,7 @@ body {
   z-index: 10;
 }
 
-#sandtextureContainer {
+#sandTextureContainer {
   -webkit-perspective: 30;
   perspective: 30;
   -webkit-perspective-origin: 50% -12%;
@@ -162,7 +162,7 @@ body {
   z-index: 25;
 }
 
-#sandMiddle {
+#sandTextureMiddle {
   position: absolute;
   top: 0px;
   left: -50%;
@@ -178,7 +178,7 @@ body {
   -webkit-transform: rotateX(45deg); 
 }
 
-#sandMiddleThin {
+#sandTextureMiddleThin {
   position: absolute;
   bottom: 0px;
   left: 0px;
