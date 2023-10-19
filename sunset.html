@@ -11,34 +11,26 @@
     <link rel="stylesheet" href="sunset.css">
     <link rel="icon" type="image/png" href="favicon.png">
   </head> 
- <body style="width: 100%; height: 100%; margin: 0; padding: 0" onmouseup="stopMove();" onresize="windowResize();">
-  <div id="sun" onmousedown="startMove();" onmouseup="stopMove();">
-  </div>
-  <div id="sunDay" onmousedown="startMove();" onmouseup="stopMove();">
-  </div>
-  <div id="sunSet" onmousedown="startMove();" onmouseup="stopMove();">
-  </div>
-  <div id="sky" onmousedown="startMove();" onmouseup="stopMove();">
-  </div>
-  <div id="horizon" onmousedown="startMove();" onmouseup="stopMove();"></div>
-  <div id="horizonNight" onmousedown="startMove();" onmouseup="stopMove();"></div>
-  <div id="skyline">
-    <div id="line" onmousedown="startMove();" onmouseup="stopMove();">
-  </div>
-  </div>
-  <div id="division" onmousedown="startDraggingDivision();" onmouseup="stopMove();">
-  </div>
-  <div id="sand" onmousedown="startMove();" onmouseup="stopMove();"></div>
-  <div id="sandTextureContainer" onmousedown="startMove();" onmouseup="stopMove();">
-    <div id="sandTextureMiddle" onmousedown="startMove();" onmouseup="stopMove();">
+  <body style="width: 100%; height: 100%; margin: 0; padding: 0" onmouseup="stopMove();" onresize="windowResize();">
+    <div id="sun" class="movable"></div>
+    <div id="sunDay" class="movable"></div>
+    <div id="sunSet" class="movable"></div>
+    <div id="sky" class="movable"></div>
+    <div id="horizon" class="movable"></div>
+    <div id="horizonNight" class="movable"></div>
+    <div id="skyline">
+      <div id="line" class="movable"></div>
     </div>
-  </div>
-  <div id="sandDistance"  onmousedown="startMove();" onmouseup="stopMove();"></div>
-  <div id="darknessOverlaySky"  onmousedown="startMove();" onmouseup="stopMove();"></div>
-  <div id="darknessOverlay"></div>
-  <div id="sandtextureContainer">
- </div>
-  <div id="sandtexture"></div>
-  <script src="sunset.js"></script>
- </body>
+    <div id="division" class="movable" onmousedown="startDraggingDivision();" onmouseup="stopMove();"></div>
+    <div id="sand" class="movable"></div>
+    <div id="sandTextureContainer" class="movable">
+      <div id="sandTextureMiddle" class="movable"></div>
+    </div>
+    <div id="sandDistance" class="movable"></div>
+    <div id="darknessOverlaySky" class="movable"></div>
+    <div id="darknessOverlay"></div>
+    <div id="sandtextureContainer"></div>
+    <div id="sandtexture"></div>
+    <script src="sunset.js"></script>
+  </body>  
 </html>
