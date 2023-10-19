@@ -33,13 +33,12 @@ document.addEventListener('mousemove', function(e){
       
       var sky = document.getElementById("sun");
       var sand = document.getElementById("sand");
-      var sandHeight = water.clientHeight;
+      var sandHeight = sand.clientHeight;
       var skyHeight = sky.clientHeight;
       var skyRatio = mouse.y / skyHeight;
       var sandRatio = sandHeight / myHeight;
       document.getElementById("darknessOverlay").style.opacity = Math.min((mouse.y-(myHeight/2)) / (myHeight/2), 1);
       document.getElementById("darknessOverlaySky").style.opacity = Math.min((mouse.y-(myHeight*7/10)) / (myHeight-(myHeight*7/10)), 1);
-      document.getElementById("moon").style.opacity = Math.min((mouse.y-(myHeight*9/10)) / (myHeight-(myHeight*9/10)), 0.65);
       document.getElementById("horizonNight").style.opacity = (mouse.y-(myHeight*4/5)) / (myHeight-(myHeight*4/5));
 
       document.getElementById("sandDistance").style.opacity = (mouse.y/myHeight+0.6);
@@ -71,13 +70,13 @@ document.addEventListener('mousemove', function(e){
 
     } else if (mouseIsDownDivision) {
       var sunElement = document.getElementById("sun");
-      var water = document.getElementById("water");
+      var sand = document.getElementById("sand");
       var division = document.getElementById("division");
       sunElement.style.height = (mouse.y).toString() + "px";
       document.getElementById("sunDay").style.height = (mouse.y).toString() + "px";
       division.style.top = (mouse.y).toString() + "px";
-      var waterHeight = myHeight-mouse.y;
-      water.style.height = waterHeight.toString() + "px";
+      var sandHeight = myHeight-mouse.y;
+      sand.style.height = sandrHeight.toString() + "px";
 
       document.getElementById("sun").style.height = (mouse.y).toString() + "px";
       document.getElementById("sunDay").style.height = (mouse.y).toString() + "px";
