@@ -430,3 +430,13 @@ video {
         lightblue 70%
         );
 }
+
+.mantis {
+    position: absolute;
+}
+
+#mantis {
+    width: 150px;
+    top: 75%;
+    left: 35%;
+}
