@@ -431,12 +431,9 @@ video {
         );
 }
 
-.mantis {
-    position: absolute;
-}
-
 #mantis {
-    width: 150px;
-    top: 75%;
+    position: absolute;
+    width: 100px;
+    top: 55%;
     left: 35%;
 }
