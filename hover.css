@@ -18,13 +18,14 @@ body {
 }
 
 #image20 {
-    width: 150px;
-    top: 75%;
-    left: 35%;
+    width: 175px;
+    top: 5%;
+    left: 85%;
+    position: absolute;
     background-image: radial-gradient(
         lightyellow 0%,
         lightblue 70%
-        );
+    );
 }
 
 .container {
