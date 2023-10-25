@@ -7,7 +7,7 @@
     <meta http-equiv='cache-control' content='no-cache'> 
     <meta http-equiv='expires' content='0'> 
     <meta http-equiv='pragma' content='no-cache'>
-    <title>Sarah Madeline</title>
+    <title>Mantis</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
@@ -31,16 +31,53 @@
       id="mantis"
       > 
    </div>
- </body>
  <script>
-   var url = window.location.href;
-   if (url.endsWith('index')) {
-       // Remove 'index' from the URL
-       var newUrl = url.substring(0, url.lastIndexOf('index'));
-       history.replaceState({}, '', newUrl);
-   } else if (url.endsWith('.html')) {
-       // Remove '.html' from the URL
-       history.replaceState({}, '', url.substring(0, url.length - 5));
-   }
- </script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const imgElement = document.getElementById("mantis");
+        let distanceMultiplier = 1;  // Initialize the distance multiplier
+
+        imgElement.addEventListener("mouseover", function (event) {
+            // Increase the distance multiplier each time
+            distanceMultiplier += 0.2;
+
+            // Generate random offsets between -50 and +50 pixels for both top and left
+            const topOffset = Math.floor(Math.random() * 101 - 50) * distanceMultiplier;
+            const leftOffset = Math.floor(Math.random() * 101 - 50) * distanceMultiplier;
+
+            // Get current position
+            const currentTop = parseInt(window.getComputedStyle(imgElement).getPropertyValue("top"));
+            const currentLeft = parseInt(window.getComputedStyle(imgElement).getPropertyValue("left"));
+
+            // Calculate new position
+            let newTop = currentTop + topOffset;
+            let newLeft = currentLeft + leftOffset;
+
+            // Get viewport dimensions
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            // Check boundaries and adjust the new position if needed
+            if (newTop < 0) newTop = 0;
+            if (newLeft < 0) newLeft = 0;
+            if (newTop + imgElement.offsetHeight > viewportHeight) newTop = viewportHeight - imgElement.offsetHeight;
+            if (newLeft + imgElement.offsetWidth > viewportWidth) newLeft = viewportWidth - imgElement.offsetWidth;
+
+            // Update the position
+            imgElement.style.top = `${newTop}px`;
+            imgElement.style.left = `${newLeft}px`;
+        });
+    });
+ </script>      
+ <script>
+    var url = window.location.href;
+    if (url.endsWith('index')) {
+        // Remove 'index' from the URL
+        var newUrl = url.substring(0, url.lastIndexOf('index'));
+        history.replaceState({}, '', newUrl);
+    } else if (url.endsWith('.html')) {
+        // Remove '.html' from the URL
+        history.replaceState({}, '', url.substring(0, url.length - 5));
+    }
+  </script>
+ </body>
 </html> 
