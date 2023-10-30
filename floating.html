@@ -29,8 +29,20 @@
         alt="Red orchid" 
         id="floating-image"
         > 
-    </div>      
-<script>
+    </div>
+ <script>
+    const floatingImage = document.getElementById('floating-image');
+
+    function updateImagePosition(event) {
+        const x = event.clientX;
+        const y = event.clientY;
+        floatingImage.style.left = `${x}px`;
+        floatingImage.style.top = `${y}px`;
+    }
+
+    document.addEventListener('mousemove', updateImagePosition);
+ </script>      
+ <script>
     var url = window.location.href;
     if (url.endsWith('index')) {
         // Remove 'index' from the URL
@@ -40,6 +52,6 @@
         // Remove '.html' from the URL
         history.replaceState({}, '', url.substring(0, url.length - 5));
     }
-</script>     
+ </script>     
 </body>
 </html>
