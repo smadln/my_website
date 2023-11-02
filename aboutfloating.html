@@ -65,17 +65,13 @@
             <br>
         </div>   
         <div class="redmaple-container">
-            <div class="ikebana3">
-                <img 
-                src="red_maple.png"
-                alt="red maple sapling" 
-                id="redmaple"
-                > 
+            <div class="ikebana3" id="redmaple-wrapper">
+                <img src="red_maple.png" alt="red maple sapling" id="redmaple"> 
             </div>
         </div>
     </div>
   <script>
-    const floatingImage = document.getElementById('redmaple');
+    const floatingImage = document.getElementById('redmaple-wrapper');
     
     function updateImagePosition(event) {
         const x = event.clientX + 20;  // Adding 20 pixel offset to x-coordinate
