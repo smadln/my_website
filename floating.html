@@ -34,8 +34,8 @@
     const floatingImage = document.getElementById('floating-image');
 
     function updateImagePosition(event) {
-        const x = event.clientX + 70;  // Adding 20 pixel offset to x-coordinate
-        const y = event.clientY + 70;  // Adding 20 pixel offset to y-coordinate
+        const x = event.clientX + 20;  // Adding 20 pixel offset to x-coordinate
+        const y = event.clientY + 20;  // Adding 20 pixel offset to y-coordinate
         floatingImage.style.left = `${x}px`;
         floatingImage.style.top = `${y}px`;
     }
