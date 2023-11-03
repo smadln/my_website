@@ -11,24 +11,42 @@
     <link rel="stylesheet" href="lunarmoth.css">
     <link rel="icon" type="image/png" href="favicon.png">
  </head> 
- <body>
+<body>
     <img src="green_moth.png" alt="Green Lunar Moth" id="green-moth">   
-  <script>
-   document.addEventListener("DOMContentLoaded", function () {
-      const cursor = document.querySelector(".custom-cursor");
-    
-      document.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-      });
-    });
- </script>     
- <script>
-   var url = window.location.href;
-   if(url.endsWith('.html')) {
-       history.replaceState({}, '', url.substring(0, url.length - 5));
-   }
- </script> 
- <div class="custom-cursor"></div>    
+    <script>
+        const floatingImage = document.getElementById('green-moth');
+
+        let aimlessMove;
+
+        function updateImagePosition(event) {
+            const x = event.clientX + 20;  
+            const y = event.clientY + 20;  
+            floatingImage.style.left = `${x}px`;
+            floatingImage.style.top = `${y}px`;
+            clearInterval(aimlessMove);
+            aimlessMove = setInterval(aimlessDrift, 4000);  // Restart aimless drifting
+        }
+
+        function aimlessDrift() {
+            const x = Math.random() * (window.innerWidth - 100);  // Subtracting 100 to prevent the image from going off-screen
+            const y = Math.random() * (window.innerHeight - 100); 
+            floatingImage.style.left = `${x}px`;
+            floatingImage.style.top = `${y}px`;
+        }
+
+        document.addEventListener('mousemove', updateImagePosition);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const cursor = document.querySelector(".custom-cursor");
+
+            document.addEventListener("mousemove", (e) => {
+                cursor.style.left = e.clientX + "px";
+                cursor.style.top = e.clientY + "px";
+            });
+
+            aimlessMove = setInterval(aimlessDrift, 4000);  // 4 seconds interval
+        });
+  </script> 
+    <div class="custom-cursor"></div>    
  </body>
 </html>
