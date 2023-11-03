@@ -1,0 +1,13 @@
+body {
+  cursor: none; /* Hide the default cursor */
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FF5733, transparent);
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
