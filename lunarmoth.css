@@ -6,7 +6,7 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: radial-gradient(circle, #FF5733, transparent);
+  background: radial-gradient(circle, lightyellow, transparent);
   position: absolute;
   pointer-events: none;
   transform: translate(-50%, -50%);
