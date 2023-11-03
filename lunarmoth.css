@@ -1,5 +1,6 @@
 body {
   cursor: none; /* Hide the default cursor */
+  background-color: black;
 }
 
 .custom-cursor {
