@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+    <style>
+        body {
+            font-size: 14px;
+            background: lightblue;
+            background-repeat: no-repeat;
+            min-height: 100%;
+            max-width: 65vh;
+            background-size: cover;
+            background-attachment: fixed;
+            padding-left: 10px;
+        }
+        .page a {
+            color: rgb(255, 255, 110);
+            text-decoration: none;
+            font-size: 18px;
+            font-family: Georgia, Tahoma, Verdana;
+            margin-top: 2%;
+        }
+        .page a:hover {
+            color: rgb(143, 132, 227);
+            font-family: Georgia, Tahoma, Verdana;
+        } 
+        
+        .page .about {
+            color: grey; 
+            font-size: 15px; 
+            font-family: Georgia, Tahoma, Verdana; 
+        }
+        
+        .statement {
+            color: grey; 
+            font-size: 13.5px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 6%;
+            
+        }
+    </style>
+ <body>
+    <div class="page">
+        <p><a href="index.html">Sarah Madeline</a></p>
+        <div class="statement">
+            <p>Sarah Madeline is a Canadian artist and writer based in Aliso Viejo, California. 
+                Madeline was chief editor and contributing writer for <em>SCAN</em>, a contemporary art 
+                publication at the University of Manitoba. She later became head curator at The Sunroom 
+                Artspace in Winnipeg, Manitoba, Treaty 1 territory. She has since moved to California to 
+                continue her practice.
+            </p>
+            </p>Madeline’s work sifts through new and obsolete technology, to fuse the distinct qualities 
+            of each to one another. She utilizes analog and digital processes to reflect on flux and temporality, 
+            which are key elements in her practice. Sound, image, and natural materials are often present in her work 
+            to synthesize physical and virtual spaces. Madeline incorporates each medium to harness a balance between 
+            analyzing the past and anticipating the future.
+            </p>
+            <br>
+            <br>
+        </div>   
+        <div class="redmaple-container">
+            <div class="ikebana3">
+                <img 
+                src="red_maple_ascii.png"
+                alt="red maple ascii" 
+                id="red-maple-ascii"
+                > 
+            </div>
+        </div>
+    </div>
+ </body>
+ <script>
+    var url = window.location.href;
+    if(url.endsWith('.html')) {
+        history.replaceState({}, '', url.substring(0, url.length - 5));
+    }
+ </script>
+</html>
+
