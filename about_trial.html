@@ -36,11 +36,11 @@
             </div>
         </div>
     </div>
+    <script>
+        var url = window.location.href;
+        if(url.endsWith('.html')) {
+            history.replaceState({}, '', url.substring(0, url.length - 5));
+        }
+     </script>
  </body>
- <script>
-    var url = window.location.href;
-    if(url.endsWith('.html')) {
-        history.replaceState({}, '', url.substring(0, url.length - 5));
-    }
- </script>
 </html>
