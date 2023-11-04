@@ -1,0 +1,10 @@
+#red-maple-sapling {
+    width: 300px;
+    background-image: radial-gradient(
+        lightyellow 0%,
+        lightblue 70%
+        );
+}
+#red-maple-ascii {
+    width: 300px;
+}
