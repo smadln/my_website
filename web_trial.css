@@ -1,8 +1,3 @@
-* {
-    line-height: 1.5;
-    
-}
-
 html {
     height: 100%;
     margin: 0%;
@@ -25,6 +20,35 @@ a {
     cursor: url('sunset_hover.png'), auto; /* Custom cursor for all links */
 }
 
+.content p {
+    margin: 0; /* This removes the default top and bottom margins from the paragraph tags */
+    padding: 0; /* If you also want to remove any default padding */
+}
+
+.content a {
+    color: grey;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-family: Georgia, Tahoma, Verdana;
+    padding-left: 0px;
+    display: block; /* This will treat each link as a block-level element */
+    margin-bottom: 0.1em; /* Adjust this value to control the space between the links */
+}
+
+.content a:hover {
+    color: rgb(143, 132, 227);
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.name {
+    color: rgb(255, 255, 110);
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    padding-left: 10px;
+}
+
 .page a {
     position: fixed;
     top: 5%;
@@ -34,6 +58,7 @@ a {
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
 }
+
 .page a:hover {
     color: rgb(143, 132, 227);
     font-family: Georgia, Tahoma, Verdana;
@@ -53,28 +78,7 @@ a {
     color: grey; 
     font-size: 13.5px;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.content a {
-    color: grey;
-    font-size: 15px;
-    text-decoration: none;
-    text-transform: lowercase;
-    font-family: Georgia, Tahoma, Verdana;
-    padding-left: 0px;
-}
-
-.content a:hover {
-    color: rgb(143, 132, 227);
-    font-size: 15px;
-    text-transform: lowercase
-}
-
-.name {
-    color: rgb(255, 255, 110);
-    font-size: 18px;
-    font-family: Georgia, Tahoma, Verdana;
-    padding-left: 10px;
+    line-height: 1.5;
 }
 
 #red-maple-sapling {
