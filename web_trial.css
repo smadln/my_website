@@ -66,3 +66,39 @@ body {
     margin-right: 50%;
     width: 200px;
 }
+
+@media screen and (max-width: 768px) {
+    .statement {
+        padding-right: 20px;
+        font-size: 14px;
+    }
+
+    .menu {
+        right: 20px;
+    }
+
+    .name {
+        font-size: 16px;
+        margin-right: 0;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul {
+        margin: 20px;
+    }
+
+    .cv {
+        padding-right: 10px;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+
+    
+}
