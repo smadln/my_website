@@ -83,21 +83,19 @@ a {
 
 #red-maple-sapling {
     position: absolute;
-    top: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Start at the center of the page horizontally */
+    transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
     width: 450px;
-    background-image: radial-gradient(
-        lightyellow 0%,
-        transparent 70%
-        );
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
+
 
 #red-maple-ascii {
     position: absolute;
-    top: 55%;
-    margin-left: 50%;
-    margin-right: 50%;
+    top: 35%;
+    margin-left: 70%;
+    margin-right: 70%;
     width: 200px;
 }
 
