@@ -21,6 +21,10 @@ html, body {
     cursor: url('sunset_cursor.png'), auto; /* Custom cursor for the whole page */
 }
 
+a {
+    cursor: url('sunset_cursor.png'), auto; /* Custom cursor for all links */
+}
+
 .page a {
     position: fixed;
     top: 5%;
