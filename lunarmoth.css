@@ -1,11 +1,6 @@
 html, body {
-    cursor: url('data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIiBmb250LXNpemU9IjMwIiBmaWxsPSJ5ZWxsb3ciPiYjMTAwMjI7PC90ZXh0Pgo8L3N2Zz4K'), auto; /* Custom cursor for the whole page */
+    cursor: url('light.png'), auto; /* Custom cursor for the whole page */
     background-color: black;
-}
-
-.custom-cursor {
-    /* No need to set the background or size since we are not using this div as a visual cursor anymore */
-    display: none; /* You can also completely remove this class from your HTML and CSS if it's not used for anything else */
 }
 
 #green-moth {
