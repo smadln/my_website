@@ -22,7 +22,7 @@ html, body {
 }
 
 a {
-    cursor: url('sunset_cursor.png'), auto; /* Custom cursor for all links */
+    cursor: url('sunset_hover.png'), auto; /* Custom cursor for all links */
 }
 
 .page a {
