@@ -13,11 +13,11 @@ body {
 }
 
 html, body {
-    cursor: url('sunset_cursor_3.png'), auto; /* Custom cursor for the whole page */
+    cursor: url('generic-cursor_4.png'), auto; /* Custom cursor for the whole page */
 }
 
 a {
-    cursor: url('sunset_hover.png'), auto; /* Custom cursor for all links */
+    cursor: url('generic-cursor_3.png'), auto; /* Custom cursor for all links */
 }
 
 .content p {
