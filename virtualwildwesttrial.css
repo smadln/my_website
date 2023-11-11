@@ -1,6 +1,8 @@
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0; /* Ensure there's no padding on the body */
+    box-sizing: border-box; /* This ensures that border and padding are included in the width */
 }
   
 .center-container {
@@ -12,23 +14,22 @@ html, body {
   
 .video-box {
     border: 3px solid rgb(230, 255, 172);
-    padding: 0px;
-    /* Your other styles */
+    padding: 0; /* Remove padding to ensure content stretches to borders */
+    background: black; /* Set background to black to extend it behind the video and text */
 }
-
+  
 .video-box video {
     width: 100%; /* make video responsive within the container */
     display: block;
+    margin: 0; /* Remove default margin */
 }
-
+  
 .video-text {
-    flex-shrink: 0;  /* Prevent the text box from shrinking */
-    height: 20vh; /* Reduced to compensate for the larger image */
+    margin: 0; /* Remove default margin */
     color: white;
-    background-color: black;
-    text-align: left;
-    overflow-y: auto;
-    width: 100%;  /* Make it span the entire width of the .whitehorse container */
+    text-align: left; 
+    width: 100%; /* Make it span the entire width of the .video-box container */
     font-family: "Fira Code";
+    padding: 10px 0; /* Add padding to top and bottom if needed */
 }
   
