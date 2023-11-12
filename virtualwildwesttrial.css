@@ -46,5 +46,6 @@ html, body {
     font-family: "Fira Code";
     margin: 0; /* Removes default margin */
     padding: 10px 0; /* Adds padding to the top and bottom of the text */
+    padding-left: 10px;
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
-  
