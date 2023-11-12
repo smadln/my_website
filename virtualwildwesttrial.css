@@ -41,7 +41,7 @@ html, body {
 .video-text {
     color: white;
     background-color: black;
-    text-align: center;
+    text-align: left;
     width: 100%; /* Text block fills the width of the .video-box */
     font-family: "Fira Code";
     margin: 0; /* Removes default margin */
