@@ -1,35 +1,51 @@
 html, body {
     height: 100%;
     margin: 0;
-    padding: 0; /* Ensure there's no padding on the body */
-    box-sizing: border-box; /* This ensures that border and padding are included in the width */
-}
+    padding: 0;
+    box-sizing: border-box;
+    display: flex; /* Added flex display */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background: rgb(182, 219, 255); /* Moved background to the body */
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   
-.center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
+  .center-container {
+    max-width: 80%; /* or any percentage or fixed width you prefer */
+    max-height: 80vh; /* or any percentage or fixed height you prefer */
+    margin: auto; /* This will keep the container centered */
+    display: flex; /* Flexbox will work within this container as well */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    width: 100%; /* This ensures it does not exceed the width of its parent */
+  }
   
-.video-box {
+  .video-box {
+    width: 100%; /* Adjust width as needed */
+    max-width: 640px; /* Adjust based on your preferred maximum size */
+    height: auto; /* This will maintain the aspect ratio of the content */
     border: 3px solid rgb(230, 255, 172);
-    padding: 0; /* Remove padding to ensure content stretches to borders */
-    background: black; /* Set background to black to extend it behind the video and text */
-}
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Adds shadow for depth */
+    display: flex; /* Use flexbox to arrange children */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+  }
   
-.video-box video {
-    width: 100%; /* make video responsive within the container */
+  .video-box video {
+    width: 100%; /* Ensure video fills the width of the .video-box */
+    height: auto; /* Maintain aspect ratio */
     display: block;
-    margin: 0; /* Remove default margin */
-}
+  }
   
-.video-text {
-    margin: 0; /* Remove default margin */
+  .video-text {
     color: white;
-    text-align: left; 
-    width: 100%; /* Make it span the entire width of the .video-box container */
+    background-color: black;
+    text-align: center;
+    width: 100%; /* Text block fills the width of the .video-box */
     font-family: "Fira Code";
-    padding: 10px 0; /* Add padding to top and bottom if needed */
-}
+    margin: 0; /* Removes default margin */
+    padding: 10px 0; /* Adds padding to the top and bottom of the text */
+  }
   
