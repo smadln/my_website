@@ -27,7 +27,6 @@ html, body {
     max-width: 640px; /* Adjust based on your preferred maximum size */
     height: auto; /* This will maintain the aspect ratio of the content */
     border: 3px solid rgb(230, 255, 172);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Adds shadow for depth */
     display: flex; /* Use flexbox to arrange children */
     flex-direction: column; /* Stack children vertically */
     justify-content: center; /* Center children vertically */
