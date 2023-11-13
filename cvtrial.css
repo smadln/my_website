@@ -46,8 +46,8 @@ html, body {
     width: 80%; /* Sets the width of the cv container to 80% of the page */
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
-    background-color: rgb(182, 182, 232);
-    border: 5px solid blue;
+    background: linear-gradient(#d6ec9e, 10%, #ffffff);
+    border: 2px solid rgb(240, 240, 240);
 }
 
 /* Additional styles to ensure everything is visible and aligned */
