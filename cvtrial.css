@@ -16,14 +16,15 @@ html, body {
 }
 
 .cv {
+    max-width: 600px; /* or any other value you prefer */
+    margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will align items in the center horizontally within the .cv container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
     background: #fff; /* Optional: Sets a white background for the cv container */
     padding: 20px; /* Adds padding inside the cv container */
-    margin-top: 50px; /* Adds space above the cv container */
     width: 80%; /* Sets the width of the cv container to 80% of the page */
-    margin-left: auto; /* Centers the cv container */
-    margin-right: auto; /* Centers the cv container */
-    display: block; /* Ensures the cv container is a block-level element */
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
 }
