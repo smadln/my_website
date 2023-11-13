@@ -42,11 +42,11 @@ html, body {
     align-items: center; /* This will align items in the center horizontally within the .cv container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
     background: #fff; /* Optional: Sets a white background for the cv container */
-    padding: 20px; /* Adds padding inside the cv container */
+    padding: 10px; /* Adds padding inside the cv container */
     width: 80%; /* Sets the width of the cv container to 80% of the page */
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
-    background: linear-gradient(#d6ec9e, 10%, #ffffff);
+    background: #efffc6;
     border: 2px solid rgb(240, 240, 240);
 }
 
@@ -54,7 +54,7 @@ html, body {
 .cv-text {
     width: 100%; /* It will take the full width of the parent element */
     max-width: 600px; /* Adjust this value to make the container narrower */
-    margin: 20px 0; /* Adds margin above and below the cv-text */
+    margin: 10px 0; /* Adds margin above and below the cv-text */
 }
 
 /* Ensure ul elements within .cv-text do not exceed the width of their container */
