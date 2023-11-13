@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex; /* Added flex display */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background: rgb(182, 219, 255); /* Moved background to the body */
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+.page {
+    max-width: 80%; /* or any percentage or fixed width you prefer */
+    max-height: 80vh; /* or any percentage or fixed height you prefer */
+    margin: auto; /* This will keep the container centered */
+    display: flex; /* Flexbox will work within this container as well */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    width: 100%; /* This ensures it does not exceed the width of its parent */
+}
+  
+.text {
+    width: 100%; /* Adjust width as needed */
+    max-width: 1000px; /* Adjust based on your preferred maximum size */
+    height: auto; /* This will maintain the aspect ratio of the content */
+    border: 3px solid rgb(230, 255, 172);
+    display: flex; /* Use flexbox to arrange children */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+}
+  
+.video-text {
+    color: white;
+    background-color: black;
+    text-align: left;
+    width: 100%; /* Text block fills the width of the .video-box */
+    font-family: "Fira Code";
+    margin: 0; /* Removes default margin */
+    padding: 10px 0; /* Adds padding to the top and bottom of the text */
+    padding-left: 10px;
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
