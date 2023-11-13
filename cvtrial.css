@@ -21,7 +21,7 @@ html, body {
     text-align: left; /* Aligns the text to the left */
     width: 100%; /* Ensures the header spans the full width */
     padding-left: 10px; /* Adjust padding as needed */
-    color: rgb(143, 132, 227);
+    color: rgb(182, 182, 232);
     text-decoration: none;
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
@@ -46,7 +46,7 @@ html, body {
     width: 80%; /* Sets the width of the cv container to 80% of the page */
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
-    background-color: ;
+    background-color: rgb(182, 182, 232);
     border: 5px solid blue;
 }
 
