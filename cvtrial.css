@@ -1,45 +1,48 @@
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex; /* Added flex display */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    background: rgb(182, 219, 255); /* Moved background to the body */
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
+    background-color: lightblue;
+}
+
 .page {
-    max-width: 80%; /* or any percentage or fixed width you prefer */
-    max-height: 80vh; /* or any percentage or fixed height you prefer */
-    margin: auto; /* This will keep the container centered */
-    display: flex; /* Flexbox will work within this container as well */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    width: 100%; /* This ensures it does not exceed the width of its parent */
+    width: 100%;
+    text-align: left; /* Centers the .page content */
+    position: relative; /* Sets the .page div as a reference for absolute positioning */
 }
-  
-.text {
-    width: 100%; /* Adjust width as needed */
-    max-width: 1000px; /* Adjust based on your preferred maximum size */
-    height: auto; /* This will maintain the aspect ratio of the content */
-    border: 3px solid rgb(230, 255, 172);
-    display: flex; /* Use flexbox to arrange children */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center children vertically */
+
+.page a {
+    position: absolute; /* Positions the link absolutely relative to .page */
+    top: 0; /* Positions the link at the top of .page */
+    left: 0; /* Positions the link at the left of .page */
+    padding: 10px; /* Adds some padding for aesthetics */
 }
-  
-.video-text {
-    color: white;
-    background-color: black;
-    text-align: left;
-    width: 100%; /* Text block fills the width of the .video-box */
-    font-family: "Fira Code";
-    margin: 0; /* Removes default margin */
-    padding: 10px 0; /* Adds padding to the top and bottom of the text */
-    padding-left: 10px;
-    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+
+.cv {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+    background: #fff; /* Optional: Sets a white background for the cv container */
+    padding: 20px; /* Adds padding inside the cv container */
+    margin-top: 50px; /* Adds space above the cv container */
+    width: 80%; /* Sets the width of the cv container to 80% of the page */
+    margin-left: auto; /* Centers the cv container */
+    margin-right: auto; /* Centers the cv container */
+    display: block; /* Ensures the cv container is a block-level element */
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    align-items: center; /* Centers items horizontally if the container is wider than the content */
+}
+
+/* Additional styles to ensure everything is visible and aligned */
+.cv-text {
+    width: 100%; /* It will take the full width of the parent element */
+    max-width: 600px; /* Adjust this value to make the container narrower */
+    margin: 20px 0; /* Adds margin above and below the cv-text */
+}
+
+/* Ensure ul elements within .cv-text do not exceed the width of their container */
+.cv-text ul {
+    max-width: 100%;
+    padding: 0; /* Resets any padding to ensure alignment */
+}
+
+/* Ensure li elements within .cv-text are properly aligned */
+.cv-text li {
+    justify-content: space-between; /* Spreads out the year and info */
+    padding: 5px 0; /* Adds padding above and below each li for readability */
 }
