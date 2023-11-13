@@ -11,7 +11,9 @@ html, body {
     text-decoration: none;
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
-    padding-left: 10px;
+    position: fixed;
+    top: 4%;
+    left: 2%;
 }
 
 .header a:hover {
@@ -23,11 +25,10 @@ html, body {
     text-decoration: none;
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
-    padding-left: 10px;
 }
 
 .cv-container {
-    margin-top: 50px; /* This pushes the .cv-container down the page */
+    margin-top: 10px; /* This pushes the .cv-container down the page */
     width: 100%; /* This ensures it takes up the full width */
     display: flex;
     justify-content: center; /* This centers the .cv content horizontally */
