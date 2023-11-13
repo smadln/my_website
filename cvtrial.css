@@ -2,17 +2,35 @@ html, body {
     background-color: lightblue;
 }
 
-.page {
-    width: 100%;
-    text-align: left; /* Centers the .page content */
-    position: relative; /* Sets the .page div as a reference for absolute positioning */
+.header a {
+    /* This class is for the top part of the page where the Sarah Madeline link is */
+    text-align: left; /* Aligns the text to the left */
+    width: 100%; /* Ensures the header spans the full width */
+    padding-left: 10px; /* Adjust padding as needed */
+    color: rgb(255, 255, 110);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    padding-left: 10px;
 }
 
-.page a {
-    position: absolute; /* Positions the link absolutely relative to .page */
-    top: 0; /* Positions the link at the top of .page */
-    left: 0; /* Positions the link at the left of .page */
-    padding: 10px; /* Adds some padding for aesthetics */
+.header a:hover {
+    /* This class is for the top part of the page where the Sarah Madeline link is */
+    text-align: left; /* Aligns the text to the left */
+    width: 100%; /* Ensures the header spans the full width */
+    padding-left: 10px; /* Adjust padding as needed */
+    color: rgb(143, 132, 227);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    padding-left: 10px;
+}
+
+.cv-container {
+    margin-top: 50px; /* This pushes the .cv-container down the page */
+    width: 100%; /* This ensures it takes up the full width */
+    display: flex;
+    justify-content: center; /* This centers the .cv content horizontally */
 }
 
 .cv {
