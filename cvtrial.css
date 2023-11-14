@@ -47,7 +47,7 @@ html, body {
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
     background: transparent;
-    border-top: 2px solid rgb(240, 240, 240);
+    border-top: transparent;
 }
 
 /* Additional styles to ensure everything is visible and aligned */
