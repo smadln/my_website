@@ -41,7 +41,6 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center; /* This will align items in the center horizontally within the .cv container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
     background: #fff; /* Optional: Sets a white background for the cv container */
     padding: 10px; /* Adds padding inside the cv container */
     width: 80%; /* Sets the width of the cv container to 80% of the page */
@@ -84,14 +83,13 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center; /* This will align items in the center horizontally within the .cv container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
     background: #fff; /* Optional: Sets a white background for the cv container */
     padding: 10px; /* Adds padding inside the cv container */
     width: 80%; /* Sets the width of the cv container to 80% of the page */
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
     background: #ecffc6;
-    border: 2px solid rgb(240, 240, 240);
+    border-top: 2px solid rgb(213, 134, 255);
     color: grey;
     font-size: 14px; 
     font-family: Arial, Helvetica, sans-serif;
@@ -111,7 +109,6 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Aligns content to the left */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
     background: #fff; /* Optional: Sets a white background for the cv container */
     padding: 10px; /* Adds padding inside the cv container */
     width: 80%; /* Sets the width of the cv container to 80% of the page */
