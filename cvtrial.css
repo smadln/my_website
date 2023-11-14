@@ -21,7 +21,7 @@ html, body {
     text-align: left; /* Aligns the text to the left */
     width: 100%; /* Ensures the header spans the full width */
     padding-left: 10px; /* Adjust padding as needed */
-    color: rgb(182, 182, 232);
+    color: rgb(143, 132, 227);
     text-decoration: none;
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
@@ -78,7 +78,7 @@ html, body {
 .statement {
     max-width: 600px; /* or any other value you prefer */
     margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
-    margin-top: 0px; /* Reduce this value to decrease the gap */
+    margin-top: 20px; /* Reduce this value to decrease the gap */
     margin-bottom: 0; /* Set to 0 to eliminate bottom margin */
     display: flex;
     flex-direction: column;
@@ -89,10 +89,11 @@ html, body {
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
     background: transparent;
-    border-top: 2px solid rgb(213, 134, 255);
+    border-top: 2px solid rgb(255, 255, 110);
     color: grey;
     font-size: 14px; 
     font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
 }
 
 .contact-container {
@@ -105,7 +106,7 @@ html, body {
 .email {
     max-width: 600px; /* or any other value you prefer */
     margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
-    margin-top: 0px; /* Reduce this value to decrease the gap */
+    margin-top: 20px; /* Reduce this value to decrease the gap */
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Aligns content to the left */
@@ -114,7 +115,7 @@ html, body {
     width: 80%; /* Sets the width of the cv container to 80% of the page */
     justify-content: flex-start; /* Aligns children to the start of the container */
     background: transparent;
-    border-top: 2px solid rgb(240, 240, 240);
+    border-top: 2px solid rgb(255, 255, 110);
     color: grey;
     font-size: 14px; 
     font-family: Arial, Helvetica, sans-serif;
