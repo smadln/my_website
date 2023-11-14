@@ -46,7 +46,7 @@ html, body {
     width: 80%; /* Sets the width of the cv container to 80% of the page */
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
-    background: #efffc6;
+    background: transparent;
     border-top: 2px solid rgb(240, 240, 240);
 }
 
@@ -88,7 +88,7 @@ html, body {
     width: 80%; /* Sets the width of the cv container to 80% of the page */
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
-    background: #ecffc6;
+    background: transparent;
     border-top: 2px solid rgb(213, 134, 255);
     color: grey;
     font-size: 14px; 
@@ -113,7 +113,7 @@ html, body {
     padding: 10px; /* Adds padding inside the cv container */
     width: 80%; /* Sets the width of the cv container to 80% of the page */
     justify-content: flex-start; /* Aligns children to the start of the container */
-    background: #ecffc6;
+    background: transparent;
     border-top: 2px solid rgb(240, 240, 240);
     color: grey;
     font-size: 14px; 
