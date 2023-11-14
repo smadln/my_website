@@ -121,26 +121,21 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.yellow-orchid {
-    text-align: center; /* This will center the image horizontally */
+.images-container {
+    display: flex; /* This will lay out its children in a row */
+    justify-content: center; /* This will center the children horizontally */
+    align-items: center; /* This will center the children vertically */
+    gap: 20px; /* This adds some space between the images */
 }
 
 .yellow-orchid img {
-    display: block; /* This will ensure the image is treated as a block-level element, which can be centered with text-align */
     width: 200px; /* Your desired width */
-    height: 200px; /* Your desired height */
     margin: auto; /* This will center the image horizontally within the .ascii-orchid div */
     background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
 
-.ascii-plant {
-    text-align: center; /* This will center the image horizontally */
-}
-
 .ascii-plant img {
-    display: block; /* This will ensure the image is treated as a block-level element, which can be centered with text-align */
     width: 200px; /* Your desired width */
-    height: 200px; /* Your desired height */
     margin: auto; /* This will center the image horizontally within the .ascii-orchid div */
 }
 
