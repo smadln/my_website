@@ -156,3 +156,39 @@ html, body {
     width: 100px;
     height: auto; /* Keep the aspect ratio */
 }
+
+.image-container {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px auto; /* Adjust the margin to control the vertical space */
+}
+
+.vegetation {
+    position: absolute;
+    top: 0;
+    left: 60%; /* This centers the images within the images-container */
+    z-index: 0; /* Ensure this image is below the other image */
+    transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
+}
+
+.ascii-vegetation {
+    position: absolute;
+    top: 0;
+    left: 50%; /* This centers the images within the images-container */
+    z-index: 2; /* Ensure this image is above the yellow orchid */
+    transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
+}
+
+.vegetation img {
+    display: block;
+    width: 150px;
+    height: auto; /* Keep the aspect ratio */
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
+
+.ascii-vegetation img {
+    display: block;
+    width: 100px;
+    height: auto; /* Keep the aspect ratio */
+}
