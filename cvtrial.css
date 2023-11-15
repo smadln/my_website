@@ -78,7 +78,7 @@ html, body {
 .statement {
     max-width: 600px; /* or any other value you prefer */
     margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
-    margin-top: 20px; /* Reduce this value to decrease the gap */
+    margin-top: 150px; /* Reduce this value to decrease the gap */
     margin-bottom: 0; /* Set to 0 to eliminate bottom margin */
     display: flex;
     flex-direction: column;
@@ -89,7 +89,7 @@ html, body {
     justify-content: flex-start; /* Aligns children to the start of the container */
     align-items: center; /* Centers items horizontally if the container is wider than the content */
     background: transparent;
-    border-top: 2px solid rgb(255, 255, 110);
+    border-top: transparent;
     color: grey;
     font-size: 14px; 
     font-family: Arial, Helvetica, sans-serif;
@@ -115,27 +115,44 @@ html, body {
     width: 80%; /* Sets the width of the cv container to 80% of the page */
     justify-content: flex-start; /* Aligns children to the start of the container */
     background: transparent;
-    border-top: 2px solid rgb(255, 255, 110);
+    border-top: transparent;
     color: grey;
     font-size: 14px; 
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .images-container {
-    display: flex; /* This will lay out its children in a row */
-    justify-content: center; /* This will center the children horizontally */
-    align-items: center; /* This will center the children vertically */
-    gap: 20px; /* This adds some space between the images */
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px auto; /* Adjust the margin to control the vertical space */
+}
+
+.yellow-orchid {
+    position: absolute;
+    top: 0;
+    left: 60%; /* This centers the images within the images-container */
+    z-index: 0; /* Ensure this image is below the other image */
+    transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
+}
+
+.ascii-plant {
+    position: absolute;
+    top: 0;
+    left: 50%; /* This centers the images within the images-container */
+    z-index: 2; /* Ensure this image is above the yellow orchid */
+    transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
 }
 
 .yellow-orchid img {
-    width: 200px; /* Your desired width */
-    margin: auto; /* This will center the image horizontally within the .ascii-orchid div */
+    display: block;
+    width: 150px;
+    height: auto; /* Keep the aspect ratio */
     background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
 
 .ascii-plant img {
-    width: 200px; /* Your desired width */
-    margin: auto; /* This will center the image horizontally within the .ascii-orchid div */
+    display: block;
+    width: 100px;
+    height: auto; /* Keep the aspect ratio */
 }
-
