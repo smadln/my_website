@@ -106,7 +106,7 @@ html, body {
 .email {
     max-width: 600px; /* or any other value you prefer */
     margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
-    margin-top: 150px; /* Reduce this value to decrease the gap */
+    margin-top: 170px; /* Reduce this value to decrease the gap */
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Aligns content to the left */
@@ -175,9 +175,9 @@ html, body {
 .ascii-branch {
     position: absolute;
     top: 0;
-    left: 50%; /* This centers the images within the images-container */
+    left: 70%; /* This centers the images within the images-container */
     z-index: 2; /* Ensure this image is above the yellow orchid */
-    transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
+    transform: translateX(-70%, -20%); /* Adjust horizontal centering due to absolute positioning */
 }
 
 .branch img {
