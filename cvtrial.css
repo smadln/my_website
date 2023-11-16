@@ -106,7 +106,7 @@ html, body {
 .email {
     max-width: 600px; /* or any other value you prefer */
     margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
-    margin-top: 170px; /* Reduce this value to decrease the gap */
+    margin-top: 180px; /* Reduce this value to decrease the gap */
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Aligns content to the left */
@@ -119,6 +119,17 @@ html, body {
     color: grey;
     font-size: 14px; 
     font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5px;
+}
+
+.email ul {
+    max-width: 100%;
+    padding: 0; /* Resets any padding to ensure alignment */
+}
+
+.email li {
+    justify-content: space-between; /* Spreads out the year and info */
+    padding: 10px 0; /* Adds padding above and below each li for readability */
 }
 
 .images-container {
