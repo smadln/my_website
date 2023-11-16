@@ -164,7 +164,7 @@ html, body {
     margin: 20px auto; /* Adjust the margin to control the vertical space */
 }
 
-.vegetation {
+.branch {
     position: absolute;
     top: 0;
     left: 60%; /* This centers the images within the images-container */
@@ -172,7 +172,7 @@ html, body {
     transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
 }
 
-.ascii-vegetation {
+.ascii-branch {
     position: absolute;
     top: 0;
     left: 50%; /* This centers the images within the images-container */
@@ -180,14 +180,14 @@ html, body {
     transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
 }
 
-.vegetation img {
+.branch img {
     display: block;
-    width: 200px;
+    width: 180px;
     height: auto; /* Keep the aspect ratio */
     background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
 
-.ascii-vegetation img {
+.ascii-branch img {
     display: block;
     width: 100px;
     height: auto; /* Keep the aspect ratio */
