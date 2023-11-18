@@ -96,6 +96,10 @@ html, body {
     line-height: 1.5;
 }
 
+.statement p {
+    margin-bottom: 0px; /* Adjust this value to reduce the space between paragraphs */
+}
+
 .contact-container {
     width: 100%; /* This ensures it takes up the full width */
     display: flex;
