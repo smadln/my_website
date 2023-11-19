@@ -222,7 +222,7 @@ html, body {
     line-height: 45px;
     position: fixed;
     top: 25px; /* Adjusted to match the container's top position */
-    right: 30px; /* Adjusted to match the container's right position */
+    right: 2%; /* Adjusted to match the container's right position */
     padding: 0px;
     border: 0;
     cursor: pointer;

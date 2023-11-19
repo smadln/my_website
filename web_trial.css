@@ -104,7 +104,7 @@ a {
 .dropdown {
     position: fixed;
     top: 25px; /* Position from the top */
-    right: 35px; /* Position from the right */
+    right: 2%; /* Position from the right */
     z-index: 1000; /* Lower z-index than the image but high enough to stay on top of other content */
 }
 
@@ -114,7 +114,7 @@ a {
     line-height: 45px;
     position: fixed;
     top: 25px; /* Adjusted to match the container's top position */
-    right: 30px; /* Adjusted to match the container's right position */
+    right: 2%; /* Adjusted to match the container's right position */
     padding: 0px;
     border: 0;
     cursor: pointer;
