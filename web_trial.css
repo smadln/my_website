@@ -92,6 +92,21 @@ a {
     background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
 
+.tamagotchi img {
+    background:none;
+    position:fixed;
+    top: 35px;
+    right: 30px;
+    line-height:45px;
+    padding:0px 15px 0px 15px;
+    border:0;
+    font-size:2em;
+    font-weight: 400;
+    cursor:pointer;
+    outline:none;
+    z-index:10000000000000;
+    width: 200px;
+}
 
 #red-maple-ascii {
     position: absolute;
