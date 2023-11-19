@@ -103,7 +103,7 @@ a {
 /* Style for the dropdown container matching the image position */
 .dropdown {
     position: fixed;
-    top: 35px; /* Position from the top */
+    top: 25px; /* Position from the top */
     right: 30px; /* Position from the right */
     z-index: 1000; /* Lower z-index than the image but high enough to stay on top of other content */
 }
@@ -113,7 +113,7 @@ a {
     background: none;
     line-height: 45px;
     position: fixed;
-    top: 35px; /* Adjusted to match the container's top position */
+    top: 25px; /* Adjusted to match the container's top position */
     right: 30px; /* Adjusted to match the container's right position */
     padding: 0px;
     border: 0;
