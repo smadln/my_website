@@ -27,6 +27,22 @@ html, body {
     font-family: Georgia, Tahoma, Verdana;
 }
 
+.tamagotchi img {
+    background:none;
+    position:fixed;
+    top: 35px;
+    right: 30px;
+    line-height:45px;
+    padding:0px 15px 0px 15px;
+    border:0;
+    font-size:2em;
+    font-weight: 400;
+    cursor:pointer;
+    outline:none;
+    z-index:10000000000000;
+    width: 200px;
+}
+
 .cv-container {
     margin-top: 10px; /* This pushes the .cv-container down the page */
     width: 100%; /* This ensures it takes up the full width */
