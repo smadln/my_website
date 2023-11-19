@@ -129,7 +129,6 @@ a {
     position: absolute;
     background-color: transparent;
     min-width: 160px; /* Set a minimum width for the dropdown items */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1000; /* Should be less than the image to ensure the image is clickable */
     top: 8%; /* Height of the image plus a little extra space */
     right: 0; /* Aligns the content to the right edge of the image */
@@ -138,7 +137,7 @@ a {
 /* Ensure links in the dropdown content take full width and are styled appropriately */
 .dropdown-content a {
     color: grey;
-    padding: 12px 16px;
+    padding: 5px 10px;
     text-decoration: none;
     display: block;
     text-align: left; /* Align text to the left */
