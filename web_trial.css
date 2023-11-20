@@ -156,6 +156,24 @@ a {
     display: block;
 }
 
+/* Add this new class for your specific ul */
+.horizontal-list {
+    padding-left: 0; /* Remove default padding */
+    list-style: none; /* Remove default list styling */
+}
+
+/* Target the li elements within your new class */
+.horizontal-list li {
+    display: inline-block; /* Display list items side by side */
+    margin-right: 10px; /* Adjust the right margin for space between items */
+}
+
+/* Now target the a elements within the li elements of your new class */
+.horizontal-list li a {
+    display: inline; /* This overrides the 'display: block;' from .content a */
+    margin-bottom: 0; /* If you want to remove any margins below the links */
+    /* Other styling properties like padding, color, etc., can go here */
+}
 
 @media screen and (max-width: 768px) {
     .statement {
