@@ -79,8 +79,8 @@ html, body {
 .statement {
     max-width: 600px; /* or any other value you prefer */
     margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
-    margin-top: 150px; /* Reduce this value to decrease the gap */
-    margin-bottom: 0; /* Set to 0 to eliminate bottom margin */
+    margin-top: 100px; /* Reduce this value to decrease the gap */
+    margin-bottom: 20px; /* Set to 0 to eliminate bottom margin */
     display: flex;
     flex-direction: column;
     align-items: center; /* This will align items in the center horizontally within the .cv container */
