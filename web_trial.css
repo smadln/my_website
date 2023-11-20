@@ -113,7 +113,7 @@ a {
     background: none;
     line-height: 45px;
     position: fixed;
-    top: 25px; /* Adjusted to match the container's top position */
+    top: 20px; /* Adjusted to match the container's top position */
     right: 2%; /* Adjusted to match the container's right position */
     padding: 0px;
     border: 0;
@@ -130,7 +130,7 @@ a {
     background-color: transparent;
     min-width: 160px; /* Set a minimum width for the dropdown items */
     z-index: 1000; /* Should be less than the image to ensure the image is clickable */
-    top: 70px; /* Adjust this value to match the actual height of your image */
+    top: 60px; /* Adjust this value to match the actual height of your image */
     right: 0; /* Aligns the content to the right edge of the image */
     width: 100%; /* You can set a specific width or percentage if needed */
 }
