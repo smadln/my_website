@@ -1,15 +1,20 @@
-#yellow-ascii, #blue-ascii {
-  position: absolute;
+.ascii-container {
+    position: relative;
+    height: 100vh;
 }
 
 #yellow-ascii {
-    top: 50px; /* Adjust as needed */
-    left: 30px; /* Adjust as needed */
+    position: absolute;
     width: 400px;
-}
-  
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 30%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+} 
+
 #blue-ascii {
-    top: 150px; /* Adjust as needed */
-    left: 60px; /* Adjust as needed */
+    position: absolute;
     width: 400px;
-}  
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 60%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
