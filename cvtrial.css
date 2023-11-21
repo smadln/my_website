@@ -134,7 +134,12 @@ html, body {
 
 .email li {
     justify-content: space-between; /* Spreads out the year and info */
-    padding: 10px 0; /* Adds padding above and below each li for readability */
+    padding: 0px 0; /* Adds padding above and below each li for readability */
+}
+
+.email a {
+    color: rgb(143, 132, 227);
+    text-decoration: none;
 }
 
 .images-container {
