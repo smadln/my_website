@@ -1,0 +1,13 @@
+#yellow-ascii, #blue-ascii {
+  position: absolute;
+}
+
+#yellow-ascii {
+  top: 50%;
+  left: 30%;
+}
+  
+#blue-ascii {
+  top: 50%;
+  left: 60%;
+}
