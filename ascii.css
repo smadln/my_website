@@ -3,13 +3,13 @@
 }
 
 #yellow-ascii {
-  top: 50%;
-  left: 30%;
-  width: 400px;
+    top: 50px; /* Adjust as needed */
+    left: 30px; /* Adjust as needed */
+    width: 400px;
 }
   
 #blue-ascii {
-  top: 50%;
-  left: 60%;
-  width: 400px;
-}
+    top: 150px; /* Adjust as needed */
+    left: 60px; /* Adjust as needed */
+    width: 400px;
+}  
