@@ -165,13 +165,15 @@ a {
 /* Target the li elements within your new class */
 .horizontal-list li {
     display: inline-block; /* Display list items side by side */
-    margin-right: 10px; /* Adjust the right margin for space between items */
+    margin-right: 0px; /* Adjust the right margin for space between items */
+    padding-right: 0;
 }
 
 /* Now target the a elements within the li elements of your new class */
 .horizontal-list li a {
     display: inline; /* This overrides the 'display: block;' from .content a */
     margin-bottom: 0; /* If you want to remove any margins below the links */
+    padding: 0;
     /* Other styling properties like padding, color, etc., can go here */
 }
 
