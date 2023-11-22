@@ -111,7 +111,7 @@ html, body {
 .email {
     max-width: 600px; /* or any other value you prefer */
     margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
-    margin-top: 180px; /* Reduce this value to decrease the gap */
+    margin-top: 130px; /* Reduce this value to decrease the gap */
     margin-bottom: 0px;
     display: flex;
     flex-direction: column;
@@ -196,7 +196,7 @@ html, body {
 
 .tamagotchi img {
     display: block;
-    width: 150px;
+    width: 130px;
     height: auto; /* Keep the aspect ratio */
 }
 
