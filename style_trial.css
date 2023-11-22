@@ -191,5 +191,41 @@ canvas {
         padding: 0;
     }
 
+    .redmaple-container {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        margin: 20px auto; /* Adjust the margin to control the vertical space */
+    }
+    
+    .red-maple {
+        position: absolute;
+        top: 0;
+        left: 60%; /* This centers the images within the images-container */
+        z-index: 0; /* Ensure this image is below the other image */
+        transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
+    }
+    
+    .maple-ascii {
+        position: absolute;
+        top: 0;
+        left: 50%; /* This centers the images within the images-container */
+        z-index: 2; /* Ensure this image is above the yellow orchid */
+        transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
+    }
+    
+    .red-maple img {
+        display: block;
+        width: 150px;
+        height: auto; /* Keep the aspect ratio */
+        background-image: radial-gradient(lightyellow 0%, transparent 70%);
+    }
+    
+    .maple-ascii img {
+        display: block;
+        width: 100px;
+        height: auto; /* Keep the aspect ratio */
+    }
+
 
 }
