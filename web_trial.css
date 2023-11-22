@@ -183,10 +183,21 @@ canvas {
     right: 2%; /* Adjusted to match the container's right position */
     padding: 0px;
     border: 0;
-    cursor: pointer;
     outline: none;
     z-index: 1001; /* Ensure the image is above the dropdown content */
     width: 70px; /* Image width */
+}
+
+#gradientCanvas {
+    position: fixed;
+    top: 20px; /* Adjusted to match the container's top position */
+    right: 2%; /* Adjusted to match the container's right position */
+    padding: 0px;
+    border: 0;
+    outline: none;
+    z-index: 1001; /* Ensure the canvas is above the dropdown content */
+    width: 30px; /* Set the width and height to create a square canvas */
+    height: 30px; /* Set the same value for height to create a square canvas */
 }
 
 @media screen and (max-width: 768px) {
