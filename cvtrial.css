@@ -186,7 +186,7 @@ html, body {
     margin: 20px auto; /* Adjust the margin to control the vertical space */
 }
 
-.branch {
+.tamagotchi {
     position: absolute;
     top: 0;
     left: 60%; /* This centers the images within the images-container */
@@ -194,23 +194,9 @@ html, body {
     transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
 }
 
-.ascii-branch {
-    position: absolute;
-    top: 0;
-    left: 70%; /* This centers the images within the images-container */
-    z-index: 2; /* Ensure this image is above the yellow orchid */
-    transform: translateX(-70%, -20%); /* Adjust horizontal centering due to absolute positioning */
-}
-
-.branch img {
+.tamagotchi img {
     display: block;
     width: 150px;
-    height: auto; /* Keep the aspect ratio */
-}
-
-.ascii-branch img {
-    display: block;
-    width: 80px;
     height: auto; /* Keep the aspect ratio */
 }
 
