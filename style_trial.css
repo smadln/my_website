@@ -100,58 +100,40 @@ a {
     width: 200px;
 }
 
-
 /* Add this new class for your specific ul */
 .horizontal-list {    
     padding-left: 0; /* Remove default padding */
     list-style: none; /* Remove default list styling */
-    top: 20px; /* Adjusted to match the container's top position */
-    right: 2%; /* Adjusted to match the container's right position */
+    position: fixed; /* Fixed positioning for top right corner */
+    top: 4%; /* Positioned at the top of the viewport */
+    right: 2%; /* Positioned at the right of the viewport */
+    margin: 0; /* Remove any margin */
     padding: 0px;
     border: 0;
     text-decoration: none;
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the content */
 }
 
 /* Target the li elements within your new class */
 .horizontal-list li {
-    display: inline-block; /* Display list items side by side */
-    margin-right: 0px; /* Adjust the right margin for space between items */
-    top: 20px; /* Adjusted to match the container's top position */
-    right: 2%; /* Adjusted to match the container's right position */
-    padding: 0px;
+    margin-right: 10px; /* Add some spacing between list items */
+    padding: 0;
     border: 0;
     color: grey;
-    text-align: right; /* Align text to the right */
     font-size: 15px;
     text-decoration: none;
 }
 
 /* Now target the a elements within the li elements of your new class */
 .horizontal-list li a {
-    display: inline; /* This overrides the 'display: block;' from .content a */
-    margin-bottom: 0; /* If you want to remove any margins below the links */
-    padding: 0;
-    top: 20px; /* Adjusted to match the container's top position */
-    right: 2%; /* Adjusted to match the container's right position */
-    padding: 0px;
-    border: 0;
     text-decoration: none;
     color: grey;
-    /* Other styling properties like padding, color, etc., can go here */
 }
 
 .horizontal-list li a:hover {
-    display: inline; /* This overrides the 'display: block;' from .content a */
-    margin-bottom: 0; /* If you want to remove any margins below the links */
-    padding: 0;
-    top: 20px; /* Adjusted to match the container's top position */
-    right: 2%; /* Adjusted to match the container's right position */
-    padding: 0px;
-    border: 0;
     color: rgb(143, 132, 227);
-    /* Other styling properties like padding, color, etc., can go here */
 }
-
 
 canvas {
     position: fixed;
