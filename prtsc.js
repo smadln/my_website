@@ -36,6 +36,6 @@ function handleImage(img) {
     
 // Get all interactive images and apply the function to each of them
 window.addEventListener('DOMContentLoaded', (event) => {
-    const images = document.querySelectorAll(".ascii-plant-1 img, .ascii-plant-2 img, .ascii-plant-3 img");
+    const images = document.querySelectorAll(".ascii-plant-1 img, .ascii-plant-2 img, .ascii-plant-3 img, .ascii-plant-4 img");
     images.forEach(handleImage);
 });
