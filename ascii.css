@@ -7,7 +7,7 @@
     position: absolute;
     width: 400px;
     top: 50%; /* Set top to 50% of the parent container */
-    left: 20%; /* Set left to 50% of the parent container */
+    left: 25%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 } 
 
@@ -15,7 +15,7 @@
     position: absolute;
     width: 400px;
     top: 50%; /* Set top to 50% of the parent container */
-    left: 40%; /* Set left to 50% of the parent container */
+    left: 25%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
@@ -23,11 +23,19 @@
     position: absolute;
     width: 400px;
     top: 50%; /* Set top to 50% of the parent container */
-    left: 60%; /* Set left to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
 #green-ascii {
+    position: absolute;
+    width: 400px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 75%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#light-pink-ascii {
     position: absolute;
     width: 400px;
     top: 50%; /* Set top to 50% of the parent container */
