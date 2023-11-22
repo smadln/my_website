@@ -1,0 +1,237 @@
+html {
+    height: 100%;
+    margin: 0%;
+}
+
+body {
+    background: lightblue;
+    min-height: 100vh;
+    max-width: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+html, body {
+    cursor: url('generic-cursor_4.png'), auto; /* Custom cursor for the whole page */
+}
+
+a {
+    cursor: url('generic-cursor_3.png'), auto; /* Custom cursor for all links */
+}
+
+.content p {
+    margin: 0; /* This removes the default top and bottom margins from the paragraph tags */
+    padding: 0; /* If you also want to remove any default padding */
+}
+
+.content a {
+    color: grey;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-family: Georgia, Tahoma, Verdana;
+    padding-left: 0px;
+    display: block; /* This will treat each link as a block-level element */
+    margin-bottom: 0.1em; /* Adjust this value to control the space between the links */
+}
+
+.content a:hover {
+    color: rgb(143, 132, 227);
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.name {
+    color: rgb(255, 255, 110);
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana
+}
+
+.page a {
+    position: fixed;
+    top: 5%;
+    left: 3%;
+    color: rgb(255, 255, 110);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+}
+
+.page a:hover {
+    color: rgb(143, 132, 227);
+    font-family: Georgia, Tahoma, Verdana;
+} 
+
+.page .about {
+    color: grey; 
+    font-size: 15px; 
+    font-family: Georgia, Tahoma, Verdana; 
+}
+
+.statement {
+    position: absolute;
+    top: 15%;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: grey; 
+    font-size: 13.5px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+#red-maple-sapling {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Start at the center of the page horizontally */
+    transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+    width: 450px;
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
+
+#red-maple-ascii {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    left: 60%; /* Start at the center of the page horizontally */
+    transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+    width: 200px;
+}
+
+/* Style for the dropdown container matching the image position */
+.dropdown {
+    position: fixed;
+    top: 25px; /* Position from the top */
+    right: 0%; /* Position from the right */
+    z-index: 1000; /* Lower z-index than the image but high enough to stay on top of other content */
+}
+
+/* Style for the dropdown image */
+.dropdown img {
+    background: none;
+    line-height: 45px;
+    position: fixed;
+    top: 20px; /* Adjusted to match the container's top position */
+    right: 2%; /* Adjusted to match the container's right position */
+    padding: 0px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    z-index: 1001; /* Ensure the image is above the dropdown content */
+    width: 70px; /* Image width */
+}
+
+/* Style for the dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    min-width: 160px; /* Set a minimum width for the dropdown items */
+    z-index: 1000; /* Should be less than the image to ensure the image is clickable */
+    top: 60px; /* Adjust this value to match the actual height of your image */
+    right: 0; /* Aligns the content to the right edge of the image */
+    width: 100%; /* You can set a specific width or percentage if needed */
+}
+
+/* Ensure links in the dropdown content take full width and are styled appropriately */
+.dropdown-content a {
+    color: grey;
+    padding: 0px;
+    text-decoration: none;
+    display: block;
+    text-align: right; /* Align text to the right */
+    font-size: 15px;
+}
+
+/* Hover effect for links */
+.dropdown-content a:hover {
+    background-color: transparent;
+    color: rgb(143, 132, 227);
+}
+
+/* Display the dropdown content when hovering over the dropdown container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Add this new class for your specific ul */
+.horizontal-list {
+    padding-left: 0; /* Remove default padding */
+    list-style: none; /* Remove default list styling */
+}
+
+/* Target the li elements within your new class */
+.horizontal-list li {
+    display: inline-block; /* Display list items side by side */
+    margin-right: 0px; /* Adjust the right margin for space between items */
+    padding-right: 0;
+}
+
+/* Now target the a elements within the li elements of your new class */
+.horizontal-list li a {
+    display: inline; /* This overrides the 'display: block;' from .content a */
+    margin-bottom: 0; /* If you want to remove any margins below the links */
+    padding: 0;
+    /* Other styling properties like padding, color, etc., can go here */
+}
+
+canvas {
+    position: fixed;
+    top: 20px; /* Adjusted to match the container's top position */
+    right: 2%; /* Adjusted to match the container's right position */
+    padding: 0px;
+    border: 0;
+    outline: none;
+    z-index: 1001; /* Ensure the image is above the dropdown content */
+    width: 70px; /* Image width */
+}
+
+#gradientCanvas {
+    position: fixed;
+    top: 20px; /* Adjusted to match the container's top position */
+    right: 2%; /* Adjusted to match the container's right position */
+    padding: 0px;
+    border: 0;
+    outline: none;
+    z-index: 1001; /* Ensure the canvas is above the dropdown content */
+    width: 30px; /* Set the width and height to create a square canvas */
+    height: 30px; /* Set the same value for height to create a square canvas */
+}
+
+@media screen and (max-width: 768px) {
+    .statement {
+        padding-right: 20px;
+        font-size: 14px;
+    }
+
+    .menu {
+        right: 20px;
+    }
+
+    .name {
+        font-size: 16px;
+        margin-right: 0;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul {
+        margin: 20px;
+    }
+
+    .cv {
+        padding-right: 10px;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+
+
+}
