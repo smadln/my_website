@@ -187,7 +187,7 @@ canvas {
     
     .red-maple {
         position: absolute;
-        top: 0;
+        top: 50%;
         left: 60%; /* This centers the images within the images-container */
         z-index: 0; /* Ensure this image is below the other image */
         transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
@@ -195,7 +195,7 @@ canvas {
     
     .maple-ascii {
         position: absolute;
-        top: 0;
+        top: 50%;
         left: 50%; /* This centers the images within the images-container */
         z-index: 2; /* Ensure this image is above the yellow orchid */
         transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
@@ -213,6 +213,5 @@ canvas {
         width: 100px;
         height: auto; /* Keep the aspect ratio */
     }
-
 
 }
