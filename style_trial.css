@@ -149,7 +149,7 @@ canvas {
     text-decoration: none;
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
-    position: fixed;
+    position: absolute;
     top: 4%;
     left: 2%;
 }
