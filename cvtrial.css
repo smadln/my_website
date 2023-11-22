@@ -204,14 +204,14 @@ html, body {
 
 .branch img {
     display: block;
-    width: 180px;
+    width: 150px;
     height: auto; /* Keep the aspect ratio */
     background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
 
 .ascii-branch img {
     display: block;
-    width: 100px;
+    width: 80px;
     height: auto; /* Keep the aspect ratio */
 }
 
