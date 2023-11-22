@@ -158,6 +158,191 @@ canvas {
     height: 30px; /* Set the same value for height to create a square canvas */
 }
 
+/* For info page */
+.header a {
+    /* This class is for the top part of the page where the Sarah Madeline link is */
+    text-align: left; /* Aligns the text to the left */
+    width: 100%; /* Ensures the header spans the full width */
+    padding-left: 10px; /* Adjust padding as needed */
+    color: rgb(255, 255, 110);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    position: fixed;
+    top: 4%;
+    left: 2%;
+}
+
+.header a:hover {
+    /* This class is for the top part of the page where the Sarah Madeline link is */
+    text-align: left; /* Aligns the text to the left */
+    width: 100%; /* Ensures the header spans the full width */
+    padding-left: 10px; /* Adjust padding as needed */
+    color: rgb(143, 132, 227);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+}
+
+.cv-container {
+    margin-top: 10px; /* This pushes the .cv-container down the page */
+    width: 100%; /* This ensures it takes up the full width */
+    display: flex;
+    justify-content: center; /* This centers the .cv content horizontally */
+}
+
+.cv {
+    max-width: 600px; /* or any other value you prefer */
+    margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
+    margin-bottom: 0px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will align items in the center horizontally within the .cv container */
+    background: #fff; /* Optional: Sets a white background for the cv container */
+    padding: 10px; /* Adds padding inside the cv container */
+    width: 80%; /* Sets the width of the cv container to 80% of the page */
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    align-items: center; /* Centers items horizontally if the container is wider than the content */
+    background: transparent;
+    border-top: transparent;
+}
+
+/* Additional styles to ensure everything is visible and aligned */
+.cv-text {
+    width: 100%; /* It will take the full width of the parent element */
+    max-width: 600px; /* Adjust this value to make the container narrower */
+    margin: 0px 0; /* Adds margin above and below the cv-text */
+}
+
+/* Ensure ul elements within .cv-text do not exceed the width of their container */
+.cv-text ul {
+    max-width: 100%;
+    padding: 0; /* Resets any padding to ensure alignment */
+}
+
+/* Ensure li elements within .cv-text are properly aligned */
+.cv-text li {
+    justify-content: space-between; /* Spreads out the year and info */
+    padding: 5px 0; /* Adds padding above and below each li for readability */
+}
+
+.statement-container {
+    width: 100%; /* This ensures it takes up the full width */
+    display: flex;
+    justify-content: center; /* This centers the .cv content horizontally */
+}
+
+.statement {
+    max-width: 600px; /* or any other value you prefer */
+    margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
+    margin-top: 100px; /* Reduce this value to decrease the gap */
+    margin-bottom: 20px; /* Set to 0 to eliminate bottom margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will align items in the center horizontally within the .cv container */
+    background: #fff; /* Optional: Sets a white background for the cv container */
+    padding: 10px; /* Adds padding inside the cv container */
+    width: 80%; /* Sets the width of the cv container to 80% of the page */
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    align-items: center; /* Centers items horizontally if the container is wider than the content */
+    background: transparent;
+    border-top: transparent;
+    color: grey;
+    font-size: 14px; 
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+.statement p {
+    margin-bottom: 0px; /* Adjust this value to reduce the space between paragraphs */
+}
+
+.contact-container {
+    width: 100%; /* This ensures it takes up the full width */
+    display: flex;
+    justify-content: center; /* This centers the .cv content horizontally */
+    margin-top: 0px; /* Adjust this value as needed to reduce the space */
+}
+
+.email {
+    max-width: 600px; /* or any other value you prefer */
+    margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
+    margin-top: 130px; /* Reduce this value to decrease the gap */
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the left */
+    background: #fff; /* Optional: Sets a white background for the cv container */
+    padding: 10px; /* Adds padding inside the cv container */
+    width: 80%; /* Sets the width of the cv container to 80% of the page */
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    background: transparent;
+    border-top: transparent;
+    color: grey;
+    font-size: 14px; 
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5px;
+}
+
+.email ul {
+    max-width: 100%;
+    padding: 0; /* Resets any padding to ensure alignment */
+}
+
+.email li {
+    justify-content: space-between; /* Spreads out the year and info */
+    padding: 0px 0; /* Adds padding above and below each li for readability */
+}
+
+.email a {
+    color: rgb(143, 132, 227);
+    text-decoration: none;
+}
+
+.images-container {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px auto; /* Adjust the margin to control the vertical space */
+}
+
+.yellow-orchid {
+    position: absolute;
+    top: 0;
+    left: 60%; /* This centers the images within the images-container */
+    z-index: 0; /* Ensure this image is below the other image */
+    transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
+}
+
+.ascii-plant {
+    position: absolute;
+    top: 0;
+    left: 50%; /* This centers the images within the images-container */
+    z-index: 2; /* Ensure this image is above the yellow orchid */
+    transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
+}
+
+.yellow-orchid img {
+    display: block;
+    width: 150px;
+    height: auto; /* Keep the aspect ratio */
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
+
+.ascii-plant img {
+    display: block;
+    width: 100px;
+    height: auto; /* Keep the aspect ratio */
+}
+
+.image-container {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px auto; /* Adjust the margin to control the vertical space */
+}
+
 @media screen and (max-width: 768px) {
     .name {
         font-size: 16px;
