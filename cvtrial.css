@@ -206,7 +206,6 @@ html, body {
     display: block;
     width: 150px;
     height: auto; /* Keep the aspect ratio */
-    background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
 
 .ascii-branch img {
