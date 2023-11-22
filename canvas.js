@@ -1,32 +1,30 @@
 const canvas = document.getElementById("gradientCanvas");
 const ctx = canvas.getContext("2d");
+const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+
+let phase = 0;
+const speed = 0.005; // Adjust the speed of color change
+
+function updateGradient() {
+    gradient.addColorStop(0, `hsl(${phase * 360}, 100%, 50%)`);
+    gradient.addColorStop(1, `hsl(${(phase + 0.5) * 360}, 100%, 50%)`);
+
+    phase += speed;
+    if (phase >= 1) {
+        phase = 0; // Reset phase to loop the colors
+    }
+}
 
 function drawGradient() {
-    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-
-    // Define gradient colors and positions
-    gradient.addColorStop(0, "red");
-    gradient.addColorStop(0.5, "green");
-    gradient.addColorStop(1, "blue");
-
-    // Fill the canvas with the gradient
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-function animateGradient() {
-    // Clear the canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Update gradient colors based on time or user input
-    // You can use a variety of techniques to change colors dynamically
-
-    // Call the drawGradient function
+function animate() {
+    updateGradient();
     drawGradient();
-
-    // Repeat the animation
-    requestAnimationFrame(animateGradient);
+    requestAnimationFrame(animate);
 }
 
 // Start the animation
-animateGradient();
+animate();
