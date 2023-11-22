@@ -348,9 +348,14 @@ canvas {
         flex-direction: column;
         align-items: center;
     }
+    
+    .horizontal-list {
+        right: 10px; /* Adjust the right position for smaller screens */
+    }
 
-    .menu ul {
-        margin: 20px;
+    .horizontal-list li {
+        margin-right: 5px; /* Reduce spacing between list items on smaller screens */
+        font-size: 12px; /* Decrease font size for smaller screens */
     }
 
     body, html {
