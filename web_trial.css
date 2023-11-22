@@ -177,6 +177,18 @@ a {
     /* Other styling properties like padding, color, etc., can go here */
 }
 
+canvas {
+    position: fixed;
+    top: 20px; /* Adjusted to match the container's top position */
+    right: 2%; /* Adjusted to match the container's right position */
+    padding: 0px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    z-index: 1001; /* Ensure the image is above the dropdown content */
+    width: 70px; /* Image width */
+}
+
 @media screen and (max-width: 768px) {
     .statement {
         padding-right: 20px;
