@@ -435,15 +435,15 @@ ul {
     /* Further adjustments for smaller screens can be made here */
     #red-maple-sapling {
         top: 50%; /* Further down for very small screens */
-        left: 40%; /* Further right for very small screens */
+        left: 50%; /* Further right for very small screens */
         width: 300px;
         
     }
 
     #red-maple-ascii {
         top: 45%; /* Further down for very small screens */
-        left: 52%; /* Further right for very small screens */
-        width: 100px;
+        left: 60%; /* Further right for very small screens */
+        width: 150px;
         
     }
 }
