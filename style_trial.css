@@ -420,7 +420,7 @@ ul {
         top: 60%; /* Center vertically */
         left: 65%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Center the image */
-        width: auto; /* Adjust the width as needed */
+        width: 150px; /* Adjust the width as needed */
         max-width: 35%; /* Limit the size to not exceed 35% of the viewport width */
     }
 
@@ -429,7 +429,7 @@ ul {
         top: 60%; /* Center vertically */
         left: 75%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Center the image */
-        width: auto; /* Adjust the width as needed */
+        width: 100px; /* Adjust the width as needed */
         max-width: 20%; /* Limit the size to not exceed 20% of the viewport width */
     }
 }
@@ -438,13 +438,13 @@ ul {
     /* Further adjustments for smaller screens can be made here */
     #red-maple-sapling {
         top: 50%; /* Further down for very small screens */
-        left: 60%; /* Further right for very small screens */
+        left: 40%; /* Further right for very small screens */
         max-width: 50%; /* Larger size for very small screens */
     }
 
     #red-maple-ascii {
-        top: 60%; /* Further down for very small screens */
-        left: 70%; /* Further right for very small screens */
+        top: 40%; /* Further down for very small screens */
+        left: 50%; /* Further right for very small screens */
         max-width: 30%; /* Larger size for very small screens */
     }
 }
