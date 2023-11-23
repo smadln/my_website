@@ -418,8 +418,8 @@ ul {
 
     /* Adjustments for red-maple-sapling */
     #red-maple-sapling {
-        top: 60%; /* Center vertically */
-        left: 65%; /* Center horizontally */
+        top: 50%; /* Center vertically */
+        left: 40%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Center the image */
         width: 400px; /* Adjust the width as needed */
         max-width: 35%; /* Limit the size to not exceed 35% of the viewport width */
@@ -427,8 +427,8 @@ ul {
 
     /* Adjustments for red-maple-ascii */
     #red-maple-ascii {
-        top: 60%; /* Center vertically */
-        left: 75%; /* Center horizontally */
+        top: 40%; /* Center vertically */
+        left: 50%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Center the image */
         width: 300px; /* Adjust the width as needed */
         max-width: 20%; /* Limit the size to not exceed 20% of the viewport width */
