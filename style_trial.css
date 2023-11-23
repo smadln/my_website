@@ -10,10 +10,6 @@ html, body {
     background-color: lightblue;
 }
 
-a {
-    cursor: url('generic-cursor_3.png'), auto; /* Custom cursor for all links */
-}
-
 .content p {
     margin: 0; /* This removes the default top and bottom margins from the paragraph tags */
     padding: 0; /* If you also want to remove any default padding */
@@ -449,5 +445,17 @@ ul {
         left: 52%; /* Further right for very small screens */
         width: 100px;
         
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    a {
+        cursor: url('generic-cursor_3.png'), auto; /* Custom cursor for all links */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    a {
+        cursor: url('generic-cursor_3.png'), auto; /* Custom cursor for all links */
     }
 }
