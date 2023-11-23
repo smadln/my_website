@@ -414,20 +414,18 @@ ul {
 
     /* Adjustments for red-maple-sapling */
     #red-maple-sapling {
-        top: 50%; /* Center vertically */
-        left: 40%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Center the image */
-        width: 400px; /* Adjust the width as needed */
-        
+        top: 50%; /* Further down for very small screens */
+        left: 50%; /* Further right for very small screens */
+        width: 250px;
+        transform: translate(-50%, -50%); /* Center the image */        
     }
 
     /* Adjustments for red-maple-ascii */
     #red-maple-ascii {
-        top: 40%; /* Center vertically */
-        left: 50%; /* Center horizontally */
+        top: 48%; /* Further down for very small screens */
+        left: 75%; /* Further right for very small screens */
+        width: 120px;
         transform: translate(-50%, -50%); /* Center the image */
-        width: 300px; /* Adjust the width as needed */
-        
     }
 }
 
