@@ -415,49 +415,36 @@ ul {
         font-size: 12px; /* Decrease font size for smaller screens */
     }
 
-    body, html {
-        margin: 0;
-        padding: 0;
-    }
-
-    .redmaple-container {
-        position: relative;
-        width: fit-content;
-        height: fit-content;
-        margin: 20px auto; /* Adjust the margin to control the vertical space */
-    }
-    
-    /* Adjust the position and size of the red maple image */
-    .red-maple {
-        top: 50%; /* Center vertically */
-        left: 50%; /* Center horizontally */
+    /* Adjustments for red-maple-sapling */
+    #red-maple-sapling {
+        top: 60%; /* Center vertically */
+        left: 65%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Center the image */
-        width: 150px; /* Adjust the width as needed */
+        width: auto; /* Adjust the width as needed */
+        max-width: 35%; /* Limit the size to not exceed 35% of the viewport width */
     }
 
-    /* Adjust the position and size of the maple ascii image */
-    .maple-ascii {
-        top: 50%; /* Center vertically */
-        left: 50%; /* Center horizontally */
+    /* Adjustments for red-maple-ascii */
+    #red-maple-ascii {
+        top: 60%; /* Center vertically */
+        left: 75%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Center the image */
-        width: 75px; /* Adjust the width as needed */
-    }
-    
-    .red-maple img {
-        width: 35%; /* Adjust the width to be a percentage of the screen size */
-    }
-
-    .maple-ascii img {
-        width: 20%; /* Adjust the width to be a smaller percentage of the screen size */
+        width: auto; /* Adjust the width as needed */
+        max-width: 20%; /* Limit the size to not exceed 20% of the viewport width */
     }
 }
 
 @media screen and (max-width: 480px) {
-    .red-maple img {
-        width: 50%; /* Further adjust for smaller screens */
+    /* Further adjustments for smaller screens can be made here */
+    #red-maple-sapling {
+        top: 70%; /* Further down for very small screens */
+        left: 70%; /* Further right for very small screens */
+        max-width: 50%; /* Larger size for very small screens */
     }
 
-    .maple-ascii img {
-        width: 30%; /* Further adjust for smaller screens */
+    #red-maple-ascii {
+        top: 70%; /* Further down for very small screens */
+        left: 80%; /* Further right for very small screens */
+        max-width: 30%; /* Larger size for very small screens */
     }
 }
