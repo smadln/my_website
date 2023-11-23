@@ -440,12 +440,14 @@ ul {
     #red-maple-sapling {
         top: 50%; /* Further down for very small screens */
         left: 40%; /* Further right for very small screens */
+        width: 150px;
         max-width: 50%; /* Larger size for very small screens */
     }
 
     #red-maple-ascii {
         top: 40%; /* Further down for very small screens */
         left: 50%; /* Further right for very small screens */
+        width: 100px;
         max-width: 30%; /* Larger size for very small screens */
     }
 }
