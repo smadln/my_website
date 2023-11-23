@@ -422,7 +422,7 @@ ul {
         left: 40%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Center the image */
         width: 400px; /* Adjust the width as needed */
-        max-width: 35%; /* Limit the size to not exceed 35% of the viewport width */
+        
     }
 
     /* Adjustments for red-maple-ascii */
@@ -431,7 +431,7 @@ ul {
         left: 50%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Center the image */
         width: 300px; /* Adjust the width as needed */
-        max-width: 20%; /* Limit the size to not exceed 20% of the viewport width */
+        
     }
 }
 
@@ -441,13 +441,13 @@ ul {
         top: 50%; /* Further down for very small screens */
         left: 40%; /* Further right for very small screens */
         width: 400px;
-        max-width: 50%; /* Larger size for very small screens */
+        
     }
 
     #red-maple-ascii {
         top: 40%; /* Further down for very small screens */
         left: 50%; /* Further right for very small screens */
         width: 300px;
-        max-width: 30%; /* Larger size for very small screens */
+        
     }
 }
