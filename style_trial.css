@@ -110,7 +110,7 @@ a {
     padding-left: 0; /* Remove default padding */
     list-style: none; /* Remove default list styling */
     position: fixed; /* Fixed positioning for top right corner */
-    top: 4%; /* Positioned at the top of the viewport */
+    top: 5%; /* Positioned at the top of the viewport */
     right: 2%; /* Positioned at the right of the viewport */
     margin: 0; /* Remove any margin */
     padding: 0px;
