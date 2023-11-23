@@ -437,14 +437,14 @@ ul {
 @media screen and (max-width: 480px) {
     /* Further adjustments for smaller screens can be made here */
     #red-maple-sapling {
-        top: 70%; /* Further down for very small screens */
-        left: 70%; /* Further right for very small screens */
+        top: 50%; /* Further down for very small screens */
+        left: 60%; /* Further right for very small screens */
         max-width: 50%; /* Larger size for very small screens */
     }
 
     #red-maple-ascii {
-        top: 70%; /* Further down for very small screens */
-        left: 80%; /* Further right for very small screens */
+        top: 60%; /* Further down for very small screens */
+        left: 70%; /* Further right for very small screens */
         max-width: 30%; /* Larger size for very small screens */
     }
 }
