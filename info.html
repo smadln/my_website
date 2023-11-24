@@ -81,12 +81,22 @@
                 <br></br>
             </div>    
         </div>    
-    </div>   
+    </div>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const section = urlParams.get('section');
+            if (section) {
+                document.getElementById(section).scrollIntoView();
+                window.history.replaceState(null, null, window.location.pathname);
+            }
+        };
+    </script>
+    <script>
+        var url = window.location.href;
+        if(url.endsWith('.html')) {
+            history.replaceState({}, '', url.substring(0, url.length - 5));
+        }
+     </script>       
  </body>
- <script>
-    var url = window.location.href;
-    if(url.endsWith('.html')) {
-        history.replaceState({}, '', url.substring(0, url.length - 5));
-    }
- </script>
 </html>

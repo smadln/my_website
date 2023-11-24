@@ -17,10 +17,10 @@
             <p>Sarah Madeline</p>
         </div>
         <ul class="horizontal-list">
-            <li><a href="./info.html#header-section">about /</a></li>
-            <li><a href="./info.html#cv-section">cv /</a></li>
+            <li><a href="./info.html?section=header" onclick="navigateToSection(event, 'header')">about /</a></li>
+            <li><a href="./info.html?section=cv" onclick="navigateToSection(event, 'cv')">cv /</a></li>
             <li><a href="mailto:sarah.e.madeline@gmail.com">contact</a></li>
-        </ul>       
+        </ul>      
     </div>
     <div class="redmaple-container">
         <div class="red-maple">
@@ -31,16 +31,22 @@
         </div>
     </div>
     </div>
+    <script>
+        function navigateToSection(e, section) {
+            e.preventDefault();
+            window.location = './info.html?section=' + section;
+        }
+    </script>
+    <script>
+        var url = window.location.href;
+        if (url.endsWith('index')) {
+            // Remove 'index' from the URL
+            var newUrl = url.substring(0, url.lastIndexOf('index'));
+            history.replaceState({}, '', newUrl);
+        } else if (url.endsWith('.html')) {
+            // Remove '.html' from the URL
+            history.replaceState({}, '', url.substring(0, url.length - 5));
+        }
+     </script>
  </body>
- <script>
-    var url = window.location.href;
-    if (url.endsWith('index')) {
-        // Remove 'index' from the URL
-        var newUrl = url.substring(0, url.lastIndexOf('index'));
-        history.replaceState({}, '', newUrl);
-    } else if (url.endsWith('.html')) {
-        // Remove '.html' from the URL
-        history.replaceState({}, '', url.substring(0, url.length - 5));
-    }
- </script>
 </html>
