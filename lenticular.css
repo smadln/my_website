@@ -31,7 +31,23 @@ html, body {
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
-#green-ascii {
+#lilac-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+} 
+
+#red-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#light-yellow-ascii {
     position: absolute;
     width: 480px;
     top: 50%; /* Set top to 50% of the parent container */
