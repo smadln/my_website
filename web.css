@@ -438,8 +438,8 @@ ul {
     }
 
     #red-maple-ascii {
-        top: 48%; /* Further down for very small screens */
-        left: 70%; /* Further right for very small screens */
+        top: 51%; /* Further down for very small screens */
+        left: 72%; /* Further right for very small screens */
         width: 120px;
     }
 }
