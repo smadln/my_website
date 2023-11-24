@@ -87,7 +87,10 @@
             const urlParams = new URLSearchParams(window.location.search);
             const section = urlParams.get('section');
             if (section) {
-                document.getElementById(section).scrollIntoView();
+                const sectionElement = document.getElementById(section);
+                if (sectionElement) {
+                    sectionElement.scrollIntoView();
+                }   
                 window.history.replaceState(null, null, window.location.pathname);
             }
         };
