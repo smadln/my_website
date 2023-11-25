@@ -87,14 +87,18 @@
             const urlParams = new URLSearchParams(window.location.search);
             const section = urlParams.get('section');
             if (section) {
-                const sectionElement = document.getElementById(section);
+                const sectionElement = document.getElementById(section + '-section'); // Ensure this matches the actual ID
                 if (sectionElement) {
                     sectionElement.scrollIntoView();
-                }   
+                }
+            }
+            if(window.location.search) {
+                window.history.replaceState(null, null, window.location.pathname + window.location.search);
+            } else {
                 window.history.replaceState(null, null, window.location.pathname);
             }
         };
-
+        
         var url = window.location.href;
         if(url.endsWith('.html')) {
             history.replaceState({}, '', url.substring(0, url.length - 5));
