@@ -34,23 +34,23 @@ html, body {
 #lilac-ascii {
     position: absolute;
     width: 480px;
-    top: 48%; /* Set top to 50% of the parent container */
+    top: 49%; /* Set top to 50% of the parent container */
     left: 50%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 } 
 
-#red-ascii {
+#violet-ascii {
     position: absolute;
     width: 480px;
-    top: 47.5%; /* Set top to 50% of the parent container */
-    left: 50%; /* Set left to 50% of the parent container */
+    top: 48%; /* Set top to 50% of the parent container */
+    left: 49.8%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
 #light-yellow-ascii {
     position: absolute;
     width: 480px;
-    top: 45%; /* Set top to 50% of the parent container */
+    top: 50%; /* Set top to 50% of the parent container */
     left: 50%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
