@@ -15,14 +15,6 @@ html, body {
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 } 
 
-#blue-ascii {
-    position: absolute;
-    width: 480px;
-    top: 47%; /* Set top to 50% of the parent container */
-    left: 50%; /* Set left to 50% of the parent container */
-    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
-}
-
 #pink-ascii {
     position: absolute;
     width: 480px;
@@ -39,7 +31,7 @@ html, body {
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 } 
 
-#violet-ascii {
+#bright-pink-ascii {
     position: absolute;
     width: 480px;
     top: 48%; /* Set top to 50% of the parent container */
@@ -56,27 +48,5 @@ html, body {
 }
 
 @media screen and (max-width: 480px) {
-    #yellow-ascii {
-        position: absolute;
-        width: 100px;
-        top: 50%; /* Set top to 50% of the parent container */
-        left: 15%; /* Set left to 50% of the parent container */
-        transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
-    } 
-    
-    #blue-ascii {
-        position: absolute;
-        width: 100px;
-        top: 48%; /* Set top to 50% of the parent container */
-        left: 50%; /* Set left to 50% of the parent container */
-        transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
-    }
-    
-    #pink-ascii {
-        position: absolute;
-        width: 100px;
-        top: 50%; /* Set top to 50% of the parent container */
-        left: 85%; /* Set left to 50% of the parent container */
-        transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
-    }
+
 }
