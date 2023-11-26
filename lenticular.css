@@ -1,6 +1,5 @@
 html, body {
     background-color: rgb(232, 250, 255);
-    overflow: hidden; /* This prevents scrolling */
 }
 
 .ascii-container {
