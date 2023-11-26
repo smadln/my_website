@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 html, body {
     height: 100%;
     margin: 0;
@@ -10,56 +16,69 @@ html, body {
     background-color: lightblue;
 }
 
-.content p {
-    margin: 0; /* This removes the default top and bottom margins from the paragraph tags */
-    padding: 0; /* If you also want to remove any default padding */
-}
-
-.content a {
+/* Reset default styles (you can use a full CSS reset or normalize.css for more comprehensive reset) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Use vh units for vertical positioning */
+  .name {
+    position: absolute;
+    left: 2%; /* Adjust as needed */
+    color: rgb(255, 255, 110);
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+  }
+  
+  .name {
+    top: 4vh; /* Use vh units for vertical positioning */
+  }
+  
+  .horizontal-list {
+    position: absolute;
+    top: 4vh; /* Use vh units for vertical positioning */
+    right: 1%; /* Adjust as needed */
+    display: flex;
+  }
+  
+  /* Add some spacing between list items */
+  .horizontal-list li {
+    margin-right: 10px;
+  }
+  
+  /* Style links */
+  .horizontal-list li a {
+    font-size: 15px;
+    font-family: Georgia, Tahoma, Verdana;
     color: grey;
-    font-size: 15px;
     text-decoration: none;
-    text-transform: lowercase;
-    font-family: Georgia, Tahoma, Verdana;
-    padding-left: 0px;
-    display: block; /* This will treat each link as a block-level element */
-    margin-bottom: 0.1em; /* Adjust this value to control the space between the links */
-}
-
-.content a:hover {
+  }
+  
+  .horizontal-list li a:hover {
     color: rgb(143, 132, 227);
-    font-size: 15px;
-    text-transform: lowercase;
+  }
+  
+/* For info page */
+
+.header {
+    top: 4vh; /* Use vh units for vertical positioning */
 }
 
-.name {
+.header a {
+    position: absolute;
+    left: 2%; /* Adjust as needed */
     color: rgb(255, 255, 110);
-    position: fixed;
-    top: 2%;
-    left: 2%;
-    font-size: 18px;
-    font-family: Georgia, Tahoma, Verdana
-}
-
-.page a {
-    position: fixed;
-    top: 5%;
-    left: 3%;
-    color: rgb(255, 255, 110);
-    text-decoration: none;
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
 }
 
-.page a:hover {
+.header a:hover {
     color: rgb(143, 132, 227);
+    text-decoration: none;
+    font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
-} 
-
-.page .about {
-    color: grey; 
-    font-size: 15px; 
-    font-family: Georgia, Tahoma, Verdana; 
 }
 
 /* Ensure that your container is centered and uses flexbox for better control */
@@ -99,67 +118,6 @@ html, body {
     left: 60%; /* Start at the center of the page horizontally */
     transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
     width: 200px;
-}
-
-/* Add this new class for your specific ul */
-.horizontal-list {    
-    padding-left: 0; /* Remove default padding */
-    list-style: none; /* Remove default list styling */
-    position: fixed; /* Fixed positioning for top right corner */
-    top: 4.75%; /* Positioned at the top of the viewport */
-    right: 2%; /* Positioned at the right of the viewport */
-    margin: 0; /* Remove any margin */
-    padding: 0px;
-    border: 0;
-    text-decoration: none;
-    display: flex; /* Use flexbox for horizontal alignment */
-    align-items: center; /* Vertically center the content */
-}
-
-/* Target the li elements within your new class */
-.horizontal-list li {
-    margin-right: 10px; /* Add some spacing between list items */
-    padding: 0;
-    border: 0;
-    color: grey;
-    font-size: 15px;
-    text-decoration: none;
-}
-
-/* Now target the a elements within the li elements of your new class */
-.horizontal-list li a {
-    text-decoration: none;
-    color: grey;
-}
-
-.horizontal-list li a:hover {
-    color: rgb(143, 132, 227);
-}
-
-/* For info page */
-.header a {
-    /* This class is for the top part of the page where the Sarah Madeline link is */
-    text-align: left; /* Aligns the text to the left */
-    width: 100%; /* Ensures the header spans the full width */
-    padding-left: 10px; /* Adjust padding as needed */
-    color: rgb(255, 255, 110);
-    text-decoration: none;
-    font-size: 18px;
-    font-family: Georgia, Tahoma, Verdana;
-    position: absolute;
-    top: 4%;
-    left: 2%;
-}
-
-.header a:hover {
-    /* This class is for the top part of the page where the Sarah Madeline link is */
-    text-align: left; /* Aligns the text to the left */
-    width: 100%; /* Ensures the header spans the full width */
-    padding-left: 10px; /* Adjust padding as needed */
-    color: rgb(143, 132, 227);
-    text-decoration: none;
-    font-size: 18px;
-    font-family: Georgia, Tahoma, Verdana;
 }
 
 .cv-container {
