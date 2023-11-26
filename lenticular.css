@@ -107,7 +107,7 @@ html, body {
     
     #yellow-ascii {
         position: absolute;
-        width: 600px;
+        width: 700px;
         top: 50%; /* Set top to 50% of the parent container */
         left: 50%; /* Set left to 50% of the parent container */
         transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
@@ -115,7 +115,7 @@ html, body {
     
     #pink-ascii {
         position: absolute;
-        width: 600px;
+        width: 700px;
         top: 50%; /* Set top to 50% of the parent container */
         left: 50%; /* Set left to 50% of the parent container */
         transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
@@ -123,7 +123,7 @@ html, body {
     
     #lilac-ascii {
         position: absolute;
-        width: 600px;
+        width: 700px;
         top: 49%; /* Set top to 50% of the parent container */
         left: 50%; /* Set left to 50% of the parent container */
         transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
@@ -131,7 +131,7 @@ html, body {
     
     #bright-pink-ascii {
         position: absolute;
-        width: 600px;
+        width: 700px;
         top: 48%; /* Set top to 50% of the parent container */
         left: 49.8%; /* Set left to 50% of the parent container */
         transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
@@ -139,7 +139,7 @@ html, body {
     
     #light-yellow-ascii {
         position: absolute;
-        width: 600px;
+        width: 700px;
         top: 50%; /* Set top to 50% of the parent container */
         left: 50%; /* Set left to 50% of the parent container */
         transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
