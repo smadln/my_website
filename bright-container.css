@@ -3,7 +3,7 @@ html, body {
     overflow: hidden; /* This hides scrollbars */
 }
 
-.flex-container {
+.bright-container {
     height: 100vh; /* Set the container height to fill the viewport */
 }
 
