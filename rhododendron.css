@@ -1,5 +1,6 @@
 html, body {
     background-color: white;
+    overflow: hidden; /* This hides scrollbars */
 }
 
 .ascii-container {
