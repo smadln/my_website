@@ -89,7 +89,7 @@ html, body {
     height: 100vh; /* Use the full height of the viewport */
 }
 
-#red-maple-sapling,
+#red-maple-sapling, #maple-sapling-1, #maple-sapling-2, #maple-sapling-3,
 #red-maple-ascii {
     max-width: 100%; /* Ensure the image is not larger than its container */
     height: auto; /* Maintain the aspect ratio */
@@ -102,9 +102,37 @@ html, body {
     background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
 
+.maple-1 img {
+    max-width: 100%; /* Ensure the image is not larger than its container */
+    height: auto; /* Maintain the aspect ratio */
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
+
+.maple-2 img {
+    max-width: 100%; /* Ensure the image is not larger than its container */
+    height: auto; /* Maintain the aspect ratio */
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
+
+.maple-3 img {
+    max-width: 100%; /* Ensure the image is not larger than its container */
+    height: auto; /* Maintain the aspect ratio */
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
+
 .maple-ascii img {
     max-width: 100%; /* Ensure the image is not larger than its container */
     height: auto; /* Maintain the aspect ratio */
+}
+
+#maple-sapling-1 {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Start at the center of the page horizontally */
+    transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+    width: 30%; /* Use a percentage width to maintain relative sizing */
+    max-width: 450px; /* Set a maximum width if needed */
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
 
 #red-maple-sapling {
