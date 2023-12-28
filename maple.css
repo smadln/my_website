@@ -96,28 +96,22 @@ html, body {
 }
 
 /* Style the images to be responsive */
-.red-maple img {
-    max-width: 100%; /* Ensure the image is not larger than its container */
-    height: auto; /* Maintain the aspect ratio */
-    background-image: radial-gradient(lightyellow 0%, transparent 70%);
-}
-
 .maple-1 img {
     max-width: 100%; /* Ensure the image is not larger than its container */
     height: auto; /* Maintain the aspect ratio */
-    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+    background-image: transparent;
 }
 
 .maple-2 img {
     max-width: 100%; /* Ensure the image is not larger than its container */
     height: auto; /* Maintain the aspect ratio */
-    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+    background-image: transparent;
 }
 
 .maple-3 img {
     max-width: 100%; /* Ensure the image is not larger than its container */
     height: auto; /* Maintain the aspect ratio */
-    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+    background-image: transparent;
 }
 
 .maple-ascii img {
@@ -132,7 +126,28 @@ html, body {
     transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
     width: 30%; /* Use a percentage width to maintain relative sizing */
     max-width: 450px; /* Set a maximum width if needed */
-    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+    background-image: transparent;
+}
+
+#maple-sapling-2 {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Start at the center of the page horizontally */
+    transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+    width: 30%; /* Use a percentage width to maintain relative sizing */
+    max-width: 450px; /* Set a maximum width if needed */
+    background-image: transparent;
+    opacity: 0.1;
+}
+
+#maple-sapling-3 {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Start at the center of the page horizontally */
+    transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+    width: 30%; /* Use a percentage width to maintain relative sizing */
+    max-width: 450px; /* Set a maximum width if needed */
+    background-image: transparent;
 }
 
 #red-maple-sapling {
