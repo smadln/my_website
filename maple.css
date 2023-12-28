@@ -137,7 +137,6 @@ html, body {
     width: 30%; /* Use a percentage width to maintain relative sizing */
     max-width: 450px; /* Set a maximum width if needed */
     background-image: transparent;
-    opacity: 0.1;
 }
 
 #maple-sapling-3 {
