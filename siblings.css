@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: lightblue;
+}
+
+/* Ensure that your container is centered and uses flexbox for better control */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Use the full height of the viewport */
+}
+
+#siblings-i {
+  max-width: 100%; /* Ensure the image is not larger than its container */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+/* Style the images to be responsive */
+.siblings-ascii-i img {
+  max-width: 100%; /* Ensure the image is not larger than its container */
+  height: auto; /* Maintain the aspect ratio */
+  background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
