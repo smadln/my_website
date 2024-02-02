@@ -1,8 +1,9 @@
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
 html, body {
     height: 100%;
@@ -13,20 +14,21 @@ html, body {
 
 /* Ensure that your container is centered and uses flexbox for better control */
 .image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Use the full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use the full height of the viewport */
 }
 
-#siblings-i {
-  max-width: 100%; /* Ensure the image is not larger than its container */
-  height: auto; /* Maintain the aspect ratio */
+.siblings-i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%; /* Adjust the percentage as needed */
+    margin: 0 auto; /* Center the container horizontally */
 }
 
-/* Style the images to be responsive */
-.siblings-ascii-i img {
-  max-width: 100%; /* Ensure the image is not larger than its container */
-  height: auto; /* Maintain the aspect ratio */
-  background-image: radial-gradient(lightyellow 0%, transparent 70%);
+.siblings-i img {
+    max-width: 20%; /* Adjust the percentage as needed */
+    height: auto;
 }
