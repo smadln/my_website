@@ -113,9 +113,8 @@ html, body {
     transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
     width: 30%; /* Use a percentage width to maintain relative sizing */
     max-width: 450px; /* Set a maximum width if needed */
-    background-color: rgb(85, 85, 255, 0.8);
-    -webkit-box-shadow: 0 0 30px 20px rgb(85, 85, 255, 0.8);
-    box-shadow: 0 0 7px 7px lightblue inset;
+    background-color: rgb(85, 85, 255, 0.7);
+    box-shadow: 0 0 15px 15px lightblue inset;
 }
 
 #red-maple-ascii {
