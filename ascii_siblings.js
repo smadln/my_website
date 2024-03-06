@@ -44,6 +44,6 @@ function handleImage(img) {
 
 // Get all interactive images and apply the function to each of them
 window.addEventListener('DOMContentLoaded', (event) => {
-    const images = document.querySelectorAll(".siblings-ascii-i img");
+    const images = document.querySelectorAll(".siblings-i img");
     images.forEach(handleImage);
 });
