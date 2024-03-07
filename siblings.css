@@ -1,34 +1,18 @@
-/* Reset some default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
     background-color: darkred;
+    overflow: hidden; /* This hides scrollbars */
 }
 
-/* Ensure that your container is centered and uses flexbox for better control */
 .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Use the full height of the viewport */
+    position: relative;
+    height: 100vh;
 }
 
-.siblings-i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 60%; /* Adjust the percentage as needed */
-    margin: 0 auto; /* Center the container horizontally */
-}
+#siblings-ascii-i {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 15%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+} 
 
-.siblings-i img {
-    max-width: 30%; /* Adjust the percentage as needed */
-    height: auto;
-}
