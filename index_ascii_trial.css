@@ -113,7 +113,7 @@ html, body {
     transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
     width: 50%; /* Use a percentage width to maintain relative sizing */
     max-width: 400px; /* Set a maximum width if needed */
-    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+    background-image: radial-gradient(darkred 0%, transparent 70%);
 }
 
 #red-maple-ascii {
@@ -123,7 +123,6 @@ html, body {
     transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
     width: 50%; /* Use a percentage width to maintain relative sizing */
     max-width: 400px; /* Set a maximum width if needed */
-    background-image: radial-gradient(lightyellow 0%, transparent 70%);
 }
 
 #blue-maple-ascii {
