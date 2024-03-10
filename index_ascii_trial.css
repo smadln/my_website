@@ -116,7 +116,7 @@ html, body {
     border-radius: 50%;
     overflow: hidden; /* Ensure that box-shadow doesn't overflow */
     background: 
-        radial-gradient(darkred 0%, transparent 70%); /* Outer edge radial gradient */
+        radial-gradient(rgb(255, 22, 22) 0%, transparent 70%); /* Outer edge radial gradient */
         /* Background color */
     box-shadow: 0 0 20px 5px rgb(219, 237, 187); /* Adjust the blur radius and spread radius as needed */
 }
