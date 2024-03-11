@@ -305,7 +305,7 @@ html, body {
     display: block;
     width: 150px;
     height: auto; /* Keep the aspect ratio */
-    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+    background-image: radial-gradient(rgb(255, 64, 64) 0%, transparent 60%);
 }
 
 .ascii-plant img {
