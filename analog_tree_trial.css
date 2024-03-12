@@ -1,0 +1,425 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: lightblue;
+}
+
+html, body {
+    cursor: url('generic-cursor_4.png'), auto; /* Custom cursor for the whole page */
+    background-color: lightblue;
+}
+
+/* Reset default styles (you can use a full CSS reset or normalize.css for more comprehensive reset) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+/* Use vh units for vertical positioning */
+.name {
+    position: absolute;
+    left: 2%; /* Adjust as needed */
+    color: rgb(255, 255, 110);
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+}
+  
+.name {
+    top: 4vh; /* Use vh units for vertical positioning */
+}
+  
+.horizontal-list {
+    position: absolute;
+    top: 4.5vh; /* Use vh units for vertical positioning */
+    right: 1%; /* Adjust as needed */
+    display: flex;
+}
+  
+ /* Add some spacing between list items */
+.horizontal-list li {
+    margin-right: 10px;
+}
+  
+/* Style links */
+.horizontal-list li a {
+    font-size: 14px;
+    font-family: Georgia, Tahoma, Verdana;
+    color: grey;
+    text-decoration: none;
+}
+  
+.horizontal-list li a:hover {
+    color: rgb(143, 132, 227);
+}
+  
+/* For info page */
+
+.header {
+    top: 4vh; /* Use vh units for vertical positioning */
+}
+
+.header a {
+    position: absolute;
+    left: 2%; /* Adjust as needed */
+    color: rgb(255, 255, 110);
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+}
+
+.header a:hover {
+    color: rgb(143, 132, 227);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+}
+
+/* Ensure that your container is centered and uses flexbox for better control */
+.redmaple-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use the full height of the viewport */
+}
+
+#red-maple-sapling,
+#red-maple-ascii {
+    max-width: 100%; /* Ensure the image is not larger than its container */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+/* Style the images to be responsive */
+.red-maple img {
+    max-width: 100%; /* Ensure the image is not larger than its container */
+    height: auto; /* Maintain the aspect ratio */
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
+
+.maple-ascii img {
+    max-width: 100%; /* Ensure the image is not larger than its container */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+#red-maple-sapling {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Start at the center of the page horizontally */
+    transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+    width: 30%; /* Use a percentage width to maintain relative sizing */
+    max-width: 300px; /* Set a maximum width if needed */
+    background-image: radial-gradient(rgb(131, 149, 255) 0%, transparent 65%);
+}
+
+#red-maple-ascii {
+    position: absolute;
+    top: 47%; /* Centers vertically */
+    left: 59%; /* Adjust the left position as needed */
+    transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+    width: 15%; /* Use a percentage width to maintain relative sizing */
+    max-width: 170px; /* Set a maximum width if needed */
+}
+
+.cv-container {
+    margin-top: 10px; /* This pushes the .cv-container down the page */
+    width: 100%; /* This ensures it takes up the full width */
+    display: flex;
+    justify-content: center; /* This centers the .cv content horizontally */
+}
+
+.cv {
+    max-width: 600px; /* or any other value you prefer */
+    margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
+    margin-bottom: 0px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will align items in the center horizontally within the .cv container */
+    background: #fff; /* Optional: Sets a white background for the cv container */
+    padding: 10px; /* Adds padding inside the cv container */
+    width: 80%; /* Sets the width of the cv container to 80% of the page */
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    align-items: center; /* Centers items horizontally if the container is wider than the content */
+    background: transparent;
+    border-top: transparent;
+}
+
+/* Additional styles to ensure everything is visible and aligned */
+.cv-text {
+    width: 100%; /* It will take the full width of the parent element */
+    max-width: 600px; /* Adjust this value to make the container narrower */
+    margin: 0px 0; /* Adds margin above and below the cv-text */
+}
+
+/* Ensure ul elements within .cv-text do not exceed the width of their container */
+.cv-text ul {
+    max-width: 100%;
+    padding: 0; /* Resets any padding to ensure alignment */
+}
+
+/* Ensure li elements within .cv-text are properly aligned */
+.cv-text li {
+    justify-content: space-between; /* Spreads out the year and info */
+    padding: 5px 0; /* Adds padding above and below each li for readability */
+}
+
+.statement-container {
+    width: 100%; /* This ensures it takes up the full width */
+    display: flex;
+    justify-content: center; /* This centers the .cv content horizontally */
+}
+
+.statement {
+    max-width: 600px; /* or any other value you prefer */
+    margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
+    margin-top: 100px; /* Reduce this value to decrease the gap */
+    margin-bottom: 20px; /* Set to 0 to eliminate bottom margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will align items in the center horizontally within the .cv container */
+    background: #fff; /* Optional: Sets a white background for the cv container */
+    padding: 10px; /* Adds padding inside the cv container */
+    width: 80%; /* Sets the width of the cv container to 80% of the page */
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    align-items: center; /* Centers items horizontally if the container is wider than the content */
+    background: transparent;
+    border-top: transparent;
+    color: grey;
+    font-size: 14px; 
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+.statement p {
+    margin-bottom: 0px; /* Adjust this value to reduce the space between paragraphs */
+}
+
+.contact-container {
+    width: 100%; /* This ensures it takes up the full width */
+    display: flex;
+    justify-content: center; /* This centers the .cv content horizontally */
+    margin-top: 0px; /* Adjust this value as needed to reduce the space */
+}
+
+.email {
+    max-width: 600px; /* or any other value you prefer */
+    margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
+    margin-top: 130px; /* Reduce this value to decrease the gap */
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the left */
+    background: #fff; /* Optional: Sets a white background for the cv container */
+    padding: 10px; /* Adds padding inside the cv container */
+    width: 80%; /* Sets the width of the cv container to 80% of the page */
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    background: transparent;
+    border-top: transparent;
+    color: grey;
+    font-size: 14px; 
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5px;
+}
+
+.email ul {
+    max-width: 100%;
+    padding: 0; /* Resets any padding to ensure alignment */
+}
+
+.email li {
+    justify-content: space-between; /* Spreads out the year and info */
+    padding: 0px 0; /* Adds padding above and below each li for readability */
+}
+
+.email a {
+    color: rgb(143, 132, 227);
+    text-decoration: none;
+}
+
+.images-container {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px auto; /* Adjust the margin to control the vertical space */
+}
+
+.yellow-orchid {
+    position: absolute;
+    top: 0;
+    left: 60%; /* This centers the images within the images-container */
+    z-index: 0; /* Ensure this image is below the other image */
+    transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
+}
+
+.ascii-plant {
+    position: absolute;
+    top: 0;
+    left: 50%; /* This centers the images within the images-container */
+    z-index: 2; /* Ensure this image is above the yellow orchid */
+    transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
+}
+
+.yellow-orchid img {
+    display: block;
+    width: 150px;
+    height: auto; /* Keep the aspect ratio */
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
+
+.ascii-plant img {
+    display: block;
+    width: 100px;
+    height: auto; /* Keep the aspect ratio */
+}
+
+.image-container {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px auto; /* Adjust the margin to control the vertical space */
+}
+
+.tamagotchi {
+    position: absolute;
+    top: 0;
+    left: 60%; /* This centers the images within the images-container */
+    z-index: 0; /* Ensure this image is below the other image */
+    transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
+}
+
+.tamagotchi img {
+    display: block;
+    width: 150px;
+    height: auto; /* Keep the aspect ratio */
+    background-image: radial-gradient(lightyellow 0%, transparent 70%);
+}
+
+
+.page {
+    color: grey; 
+    font-size: 15px; 
+    font-family: Georgia, Tahoma, Verdana; 
+}
+
+.page a {
+    color: rgb(255, 255, 110);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    padding-left: 10px;
+}
+
+.page a:hover {
+    color: rgb(143, 132, 227);
+    font-family: Georgia, Tahoma, Verdana;
+} 
+
+.cv {
+    color: grey; 
+    font-size: 15px; 
+    font-family: Georgia, Tahoma, Verdana; 
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+li {
+    display: flex;
+    align-items: flex-start;
+}
+
+ul {
+    list-style: none;
+    text-align: left;
+    margin: 0;
+    padding-left: 0px;
+    display: inline-block;
+    max-width: 60vh;
+}
+.year {
+    flex: 0 0 15px; /* This reserves a space of 50 pixels for the year. Adjust as needed */
+    margin-right: 20px; /* Space between year and content. Adjust as needed */
+    color: grey; 
+    font-size: 14px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.info {
+    flex: 1; /* Allows the content to take up the rest of the space */
+    color: grey; 
+    font-size: 14px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    .name {
+        font-size: 16px;
+        margin-right: 0;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .horizontal-list {
+        right: 10px; /* Adjust the right position for smaller screens */
+    }
+
+    .horizontal-list li {
+        margin-right: 5px; /* Reduce spacing between list items on smaller screens */
+        font-size: 12px; /* Decrease font size for smaller screens */
+    }
+
+    /* Adjustments for red-maple-sapling */
+    #red-maple-sapling {
+        top: 50%; /* Further down for very small screens */
+        left: 50%; /* Further right for very small screens */
+        width: 250px;
+        transform: translate(-50%, -50%); /* Center the image */        
+    }
+
+    /* Adjustments for red-maple-ascii */
+    #red-maple-ascii {
+        top: 48%; /* Further down for very small screens */
+        left: 75%; /* Further right for very small screens */
+        width: 120px;
+        transform: translate(-50%, -50%); /* Center the image */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Further adjustments for smaller screens can be made here */
+    .horizontal-list li a {
+        font-size: 12px;
+    }
+
+    #red-maple-sapling {
+        top: 50%; /* Further down for very small screens */
+        left: 50%; /* Further right for very small screens */
+        width: 240px;
+    }
+
+    #red-maple-ascii {
+        top: 51%; /* Further down for very small screens */
+        left: 72%; /* Further right for very small screens */
+        width: 120px;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    a {
+        cursor: url('generic-cursor_3.png'), auto; /* Custom cursor for all links */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    a {
+        cursor: url('generic-cursor_3.png'), auto; /* Custom cursor for all links */
+    }
+}
