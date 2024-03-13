@@ -296,7 +296,7 @@ html, body {
 .ascii-plant {
     position: absolute;
     top: 0;
-    left: 50%; /* This centers the images within the images-container */
+    left: 60%; /* This centers the images within the images-container */
     z-index: 2; /* Ensure this image is above the yellow orchid */
     transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
 }
@@ -305,7 +305,11 @@ html, body {
     display: block;
     width: 150px;
     height: auto; /* Keep the aspect ratio */
-    background-image: radial-gradient(rgb(255, 99, 99) 0%, transparent 60%);
+    border-radius: 50%;
+    overflow: hidden; /* Ensure that box-shadow doesn't overflow */
+    background: 
+        radial-gradient(rgb(255, 253, 158) 0%, transparent 99%); /* Outer edge radial gradient */
+        /* Background color */
 }
 
 .ascii-plant img {
