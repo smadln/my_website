@@ -114,8 +114,8 @@ html, body {
     width: 50%; /* Use a percentage width to maintain relative sizing */
     max-width: 400px; /* Set a maximum width if needed */
     overflow: hidden; /* Ensure that box-shadow doesn't overflow */
-    background: radial-gradient(ellipse at 50% 30%, rgb(255, 22, 22) 0%, transparent 89%);
-    }
+    background: radial-gradient(ellipse at 50% 30%, rgb(255, 22, 22) 0%, transparent 85%);
+}
 
 #red-maple-ascii {
     position: absolute;
