@@ -118,8 +118,8 @@ html, body {
 
 #red-maple-ascii {
     position: absolute;
-    top: 47%; /* Centers vertically */
-    left: 59%; /* Adjust the left position as needed */
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Adjust the left position as needed */
     transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
     width: 50%; /* Use a percentage width to maintain relative sizing */
     max-width: 800px; /* Set a maximum width if needed */
