@@ -112,7 +112,8 @@ html, body {
     left: 50%; /* Start at the center of the page horizontally */
     transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
     width: 50%; /* Use a percentage width to maintain relative sizing */
-    max-width: 600px; /* Set a maximum width if needed */
+    max-width: 450px; /* Set a maximum width if needed */
+    background: linear-gradient(rgb(136, 172, 255), lightyellow, rgb(255, 213, 135));
 }
 
 #red-maple-ascii {
