@@ -423,6 +423,28 @@ ul {
         transform: translate(-50%, -50%); /* Center the image */        
     }
 
+    canvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+        width: 50%; /* Use the full width of the container */
+        max-width: 250px; /* Set a maximum width if needed */
+        height: 52%; /* Use the full height of the container */
+        z-index: 0; /* Ensure canvas is behind the image */
+    }
+    
+    #gradientCanvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+        width: 50%; /* Use the full width of the container */
+        max-width: 250px; /* Set a maximum width if needed */
+        height: 52%; /* Use the full height of the container */
+        z-index: 0; /* Ensure both canvases are behind the image */
+    }
+    
     /* Adjustments for red-maple-ascii */
     #red-maple-ascii {
         top: 50%; /* Further down for very small screens */
@@ -457,6 +479,29 @@ ul {
         left: 50%; /* Further right for very small screens */
         width: 240px;
     }
+
+    canvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+        width: 50%; /* Use the full width of the container */
+        max-width: 240px; /* Set a maximum width if needed */
+        height: 52%; /* Use the full height of the container */
+        z-index: 0; /* Ensure canvas is behind the image */
+    }
+    
+    #gradientCanvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+        width: 50%; /* Use the full width of the container */
+        max-width: 240px; /* Set a maximum width if needed */
+        height: 52%; /* Use the full height of the container */
+        z-index: 0; /* Ensure both canvases are behind the image */
+    }
+    
 
     #red-maple-ascii {
         top: 50%; /* Further down for very small screens */
