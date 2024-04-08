@@ -1,15 +1,15 @@
 const canvas = document.getElementById("gradientCanvas");
 const ctx = canvas.getContext("2d");
-const speed = 0.006; // Adjust the speed of color change
+const speed = 0.002; // Adjust the speed of color change
 let phase = 0;
 
 function updateGradient() {
     const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height); // Vertical gradient
 
     const colors = [
-        [136, 172, 255],
-        [255, 255, 224],
-        [112, 255, 167]
+        [136, 255, 209],
+        [251, 255, 135],
+        [136, 255, 209]
     ];
 
     const sectionLength = 1 / colors.length;
