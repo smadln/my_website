@@ -100,15 +100,15 @@ body, html {
 }
 
 .orange-rose {
-    width: 20%;
+    width: 15%;
 }
 
 .fuschia-rose { 
-    width: 25%;
+    width: 17%;
 }
 
 .pink-rose {
-    width: 20%;
+    width: 15%;
 }
 
 .orange-rose img, .fuschia-rose img, .pink-rose img {
@@ -117,8 +117,16 @@ body, html {
     display: block;
 }
 
-.minkprotea img {
-    background-image: radial-gradient(lightyellow 0%, #b9dcff 40%);
+.orange-rose img {
+    background-image: linear-gradient(rgb(136, 255, 209), lightyellow, rgb(255, 213, 135));
+}
+
+.fuschia-rose img { 
+    background-image: linear-gradient(rgb(136, 172, 255), lightyellow, rgb(255, 213, 135));
+}
+
+.pink-rose img {
+    background-image: linear-gradient(rgb(136, 172, 255), lightyellow, rgb(255, 213, 135));
 }
 
 #symbol-ascii {
