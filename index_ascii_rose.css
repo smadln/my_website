@@ -106,6 +106,11 @@ html, body {
     height: auto; /* Maintain the aspect ratio */
 }
 
+.internet-blue-ascii img {
+    max-width: 100%; /* Ensure the image is not larger than its container */
+    height: auto; /* Maintain the aspect ratio */
+}
+
 #red-maple-sapling {
     position: absolute;
     top: 50%; /* Centers vertically */
@@ -126,6 +131,15 @@ html, body {
 }
 
 #bougainvillea-ascii {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Adjust the left position as needed */
+    transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+    width: 50%; /* Use a percentage width to maintain relative sizing */
+    max-width: 400px; /* Set a maximum width if needed */
+}
+
+#internet-blue-ascii {
     position: absolute;
     top: 50%; /* Centers vertically */
     left: 50%; /* Adjust the left position as needed */
