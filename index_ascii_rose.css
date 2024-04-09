@@ -114,7 +114,6 @@ html, body {
     width: 50%; /* Use a percentage width to maintain relative sizing */
     max-width: 250px; /* Set a maximum width if needed */
     z-index: 1;
-    background-image: linear-gradient(rgb(136, 255, 209), lightyellow, rgb(255, 213, 135));
 }
 
 #red-maple-ascii {
