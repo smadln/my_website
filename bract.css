@@ -72,6 +72,9 @@ html, body {
         height: 60vh; 
         max-height: 80%; 
         max-width: 200px;
+        transform: translate(-50%, -50%); 
+        flex-grow: 1; 
+        max-width: none; 
     }
 }
 
@@ -85,5 +88,8 @@ html, body {
     #light-yellow-ascii {
         height: 100vh; 
         max-height: 80%; 
+        transform: translate(-50%, -50%); 
+        flex-grow: 1; 
+        max-width: none; 
     }
 }
