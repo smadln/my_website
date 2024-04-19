@@ -39,7 +39,7 @@ function handleImage(img) {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    const images = document.querySelectorAll(".ascii-plant-1 img, .ascii-plant-2 img, .ascii-plant-3 img, .transparent img,\
-    .ascii-plant-5 img, .ascii-plant-6 img");
+    const images = document.querySelectorAll(".ascii-plant-1 img, .ascii-plant-2 img, .ascii-plant-3 img, .ascii-plant-4 img,\
+    .transparent img, .ascii-plant-5 img, .ascii-plant-6 img");
     images.forEach(handleImage);
 });

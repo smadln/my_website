@@ -1,6 +1,6 @@
 html, body {
     overflow: hidden; 
-    background: rgb(131, 149, 255);
+    
 }
 
 .bract-container {
@@ -8,9 +8,9 @@ html, body {
 }
 
 #yellow-ascii,
-#transparent,
 #lilac-ascii,
 #orange-ascii,
+#persimmon-ascii,
 #violet-ascii,
 #light-yellow-ascii {
     position: absolute;
@@ -27,12 +27,12 @@ html, body {
     left: 50%; 
 }
 
-#transparent {
+#orange-ascii {
     top: 50%; 
     left: 50%; 
 }
 
-#orange-ascii {
+#persimmon-ascii {
     top: 50%; 
     left: 50%; 
 }
@@ -52,11 +52,21 @@ html, body {
     left: 50%; 
 }
 
+#transparent {
+    position: absolute;
+    height: 78vh;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+    background: radial-gradient(ellipse at 30% 40%, rgb(131, 149, 255) 0%, transparent 99%);
+}
+
 @media screen and (max-height: 480px) {
     #yellow-ascii,
     #transparent,
     #lilac-ascii,
     #orange-ascii,
+    #persimmon-ascii,
     #violet-ascii,
     #light-yellow-ascii {
         height: 60vh; 
@@ -70,6 +80,7 @@ html, body {
     #transparent,
     #lilac-ascii,
     #orange-ascii,
+    #persimmon-ascii,
     #violet-ascii,
     #light-yellow-ascii {
         height: 100vh; 
