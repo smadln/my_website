@@ -1,6 +1,6 @@
 html, body {
     overflow: hidden; 
-    background: radial-gradient(ellipse at 30% 40%, rgb(131, 149, 255) 0%, transparent 99%);
+    background: rgb(131, 149, 255);
 }
 
 .bract-container {
