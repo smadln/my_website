@@ -418,6 +418,29 @@ ul {
         font-size: 12px; /* Decrease font size for smaller screens */
     }
 
+    .redmaple-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Use the full height of the viewport */
+    }
+
+    .maple-1 img {
+        max-width: 100%; /* Ensure the image is not larger than its container */
+        height: auto; /* Maintain the aspect ratio */
+        background-image: transparent;
+    }
+
+    #maple-sapling-1 {
+        position: absolute;
+        top: 50%; /* Centers vertically */
+        left: 50%; /* Start at the center of the page horizontally */
+        transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+        width: 30%; /* Use a percentage width to maintain relative sizing */
+        max-width: 800px; /* Set a maximum width if needed */
+        background-image: transparent;
+    }    
+
     /* Adjustments for red-maple-sapling */
     #red-maple-sapling {
         top: 50%; /* Further down for very small screens */
