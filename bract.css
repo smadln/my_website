@@ -71,7 +71,7 @@ html, body {
     #light-yellow-ascii {
         height: 60vh; 
         max-height: 80%; 
-        max-width: 200px;
+        max-width: 100px;
         transform: translate(-50%, -50%); 
         flex-grow: 1; 
         max-width: none; 
