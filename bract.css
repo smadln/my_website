@@ -1,6 +1,5 @@
 html, body {
     overflow: hidden; 
-    
 }
 
 .bract-container {
@@ -55,9 +54,9 @@ html, body {
 #transparent {
     position: absolute;
     height: 78vh;
-    top: 50%; /* Set top to 50% of the parent container */
-    left: 50%; /* Set left to 50% of the parent container */
-    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     background: radial-gradient(ellipse at 30% 40%, rgb(131, 149, 255) 0%, transparent 99%);
 }
 
