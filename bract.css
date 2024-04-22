@@ -63,7 +63,6 @@ html, body {
 
 @media screen and (max-height: 480px) {
     #yellow-ascii,
-    #transparent,
     #lilac-ascii,
     #orange-ascii,
     #persimmon-ascii,
@@ -75,6 +74,63 @@ html, body {
         transform: translate(-50%, -50%); 
         flex-grow: 1; 
         max-width: none; 
+    }
+
+    #yellow-ascii {
+        position: absolute;
+        width: 100px;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+
+    #lilac-ascii {
+        position: absolute;
+        width: 100px;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+
+    #orange-ascii {
+        position: absolute;
+        width: 100px;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+
+    #persimmon-ascii {
+        position: absolute;
+        width: 100px;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+
+    #violet-ascii {
+        position: absolute;
+        width: 100px;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+
+    #light-yellow-ascii {
+        position: absolute;
+        width: 100px;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+
+    #transparent {
+        height: 46.8vh;
+        position: absolute;
+        width: 100px;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
     }
 }
 
