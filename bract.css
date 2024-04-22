@@ -144,6 +144,6 @@ html, body {
         max-height: 50%; 
         transform: translate(-50%, -50%); 
         flex-grow: 1; 
-        max-width: none; 
+        max-width: 50%; 
     }
 }
