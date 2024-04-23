@@ -501,6 +501,63 @@ ul {
 }
 
 @media screen and (min-height: 800px) and (max-height: 1200px) {
+    .name {
+        font-size: 16px;
+        margin-right: 0;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .horizontal-list {
+        right: 10px; /* Adjust the right position for smaller screens */
+    }
+
+    .horizontal-list li {
+        margin-right: 5px; /* Reduce spacing between list items on smaller screens */
+        font-size: 12px; /* Decrease font size for smaller screens */
+    }
+
+    .redmaple-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Use the full height of the viewport */
+    }
+
+    .maple-1 img {
+        max-width: 100%; /* Ensure the image is not larger than its container */
+        height: auto; /* Maintain the aspect ratio */
+        background-image: transparent;
+    }
+
+    #maple-sapling-1 {
+        position: absolute;
+        top: 50%; /* Centers vertically */
+        left: 50%; /* Start at the center of the page horizontally */
+        transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+        width: 50%; /* Use a percentage width to maintain relative sizing */
+        max-width: 800px; /* Set a maximum width if needed */
+        background-image: transparent;
+    }    
+
+    /* Adjustments for red-maple-sapling */
+    #red-maple-sapling {
+        top: 50%; /* Further down for very small screens */
+        left: 50%; /* Further right for very small screens */
+        width: 250px;
+        transform: translate(-50%, -50%); /* Center the image */        
+    }
+
+    /* Adjustments for red-maple-ascii */
+    #red-maple-ascii {
+        top: 48%; /* Further down for very small screens */
+        left: 75%; /* Further right for very small screens */
+        width: 120px;
+        transform: translate(-50%, -50%); /* Center the image */
+    }
 }
 
 @media (hover: hover) and (pointer: fine) {
