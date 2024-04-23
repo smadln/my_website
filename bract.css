@@ -74,6 +74,7 @@ html, body {
         left: 50%; 
         transform: translate(-50%, -50%); 
         flex-grow: 1; 
+        max-width: 50%;
     }
 
     #yellow-ascii {
@@ -82,6 +83,7 @@ html, body {
         top: 50%; 
         left: 50%; 
         transform: translate(-50%, -50%); 
+        max-width: 50%;
     }
 
     #lilac-ascii {
@@ -90,6 +92,7 @@ html, body {
         top: 50%; 
         left: 50%; 
         transform: translate(-50%, -50%); 
+        max-width: 50%;
     }
 
     #orange-ascii {
@@ -98,6 +101,7 @@ html, body {
         top: 50%; 
         left: 50%; 
         transform: translate(-50%, -50%); 
+        max-width: 50%;
     }
 
     #persimmon-ascii {
@@ -106,6 +110,7 @@ html, body {
         top: 50%; 
         left: 50%; 
         transform: translate(-50%, -50%); 
+        max-width: 50%;
     }
 
     #violet-ascii {
@@ -114,6 +119,7 @@ html, body {
         top: 50%; 
         left: 50%; 
         transform: translate(-50%, -50%); 
+        max-width: 50%;
     }
 
     #light-yellow-ascii {
@@ -122,6 +128,7 @@ html, body {
         top: 50%; 
         left: 50%; 
         transform: translate(-50%, -50%); 
+        max-width: 50%;
     }
 
     #transparent {
@@ -131,6 +138,7 @@ html, body {
         top: 50%; 
         left: 50%; 
         transform: translate(-50%, -50%); 
+        max-width: 50%;
     }
 }
 
