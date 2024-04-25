@@ -520,7 +520,12 @@ ul {
         font-size: 12px; /* Decrease font size for smaller screens */
     }
 
-   
+    .redmaple-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Use the full height of the viewport */
+    }
 
     .maple-1 img {
         max-width: 100%; /* Ensure the image is not larger than its container */
