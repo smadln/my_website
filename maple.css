@@ -534,8 +534,13 @@ ul {
     }
 
     #maple-sapling-1 {
-        width: 80%; /* Adjust the width as needed */
-        max-width: none; /* Remove the max-width constraint */
+        position: absolute;
+        top: 50%; /* Centers vertically */
+        left: 50%; /* Start at the center of the page horizontally */
+        transform: translate(-50%, -50%); /* Shifts the element left by 50% of its width and up by 50% of its height */
+        width: 100%; /* Use a percentage width to maintain relative sizing */
+        max-width: 800px; /* Set a maximum width if needed */
+        background-image: transparent;
     }
 
     /* Adjustments for red-maple-sapling */
