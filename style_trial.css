@@ -453,15 +453,3 @@ ul {
         
     }
 }
-
-@media (hover: hover) and (pointer: fine) {
-    a {
-        cursor: url('generic-cursor_3.png'), auto; /* Custom cursor for all links */
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    a {
-        cursor: url('generic-cursor_3.png'), auto; /* Custom cursor for all links */
-    }
-}
