@@ -9,7 +9,6 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: lightblue;
-    cursor: url('generic-cursor_4.png'), auto;
 }
 
 model-viewer::part(interaction-prompt) {
@@ -28,9 +27,16 @@ canvas {
 }
 
 .name {
-    color: rgb(255, 255, 110);
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
+    color: rgb(255, 255, 110);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    left: 10px; /* Stick to the left */
+    top: 10px; /* Adjust as needed for vertical positioning */
 }
 
 #lightDark, #rotateButton, .horizontal-list {
