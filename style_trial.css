@@ -351,10 +351,16 @@ html, body {
 
 .page a {
     color: rgb(255, 255, 110);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    left: 10px; /* Stick to the left */
+    top: 10px; /* Adjust as needed for vertical positioning */
     text-decoration: none;
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
-    padding-left: 10px;
 }
 
 .page a:hover {
