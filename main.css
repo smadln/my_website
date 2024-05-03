@@ -90,17 +90,6 @@ canvas {
     right: 10px;
 }
 
-#rotateButton::after {
-    content: "/* Use cursor to move 3D model */";
-    display: block;
-    font-size: 12px;
-    color: grey;
-    text-align: center;
-    position: fixed;
-    top: 20px; /* Adjust as needed to position the tooltip below the button */
-    right: 10px; /* Ensure it aligns with the button */
-}
-
 .horizontal-list li {
     margin-right: 10px;
 }
