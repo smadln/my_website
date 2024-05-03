@@ -6,7 +6,6 @@ html, body {
 }
 
 html, body {
-    cursor: url('generic-cursor_4.png'), auto; /* Custom cursor for the whole page */
     background-color: lightblue;
 }
 
