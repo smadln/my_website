@@ -144,28 +144,29 @@ html, body {
 
 /* For info page */
 .header a {
-    /* This class is for the top part of the page where the Sarah Madeline link is */
-    text-align: left; /* Aligns the text to the left */
-    width: 100%; /* Ensures the header spans the full width */
-    padding-left: 10px; /* Adjust padding as needed */
-    color: rgb(255, 255, 110);
-    text-decoration: none;
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
-    position: absolute;
-    top: 4%;
-    left: 2%;
+    color: rgb(255, 255, 110);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    left: 10px; /* Stick to the left */
+    top: 10px; /* Adjust as needed for vertical positioning */
 }
 
 .header a:hover {
-    /* This class is for the top part of the page where the Sarah Madeline link is */
-    text-align: left; /* Aligns the text to the left */
-    width: 100%; /* Ensures the header spans the full width */
-    padding-left: 10px; /* Adjust padding as needed */
-    color: rgb(143, 132, 227);
-    text-decoration: none;
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
+    color: whitesmoke;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    left: 10px; /* Stick to the left */
+    top: 10px; /* Adjust as needed for vertical positioning */
 }
 
 .cv-container {
