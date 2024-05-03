@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: lightblue;
+    cursor: url('generic-cursor_4.png'), auto;
+}
+
+model-viewer::part(interaction-prompt) {
+    display: none;
+}
+
+canvas { 
+    display: block;
+}
+
+.webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+.name {
+    color: rgb(255, 255, 110);
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+}
+
+#lightDark, #rotateButton, .horizontal-list {
+    z-index: 1000; /* Arbitrary high value to ensure visibility above other elements */
+}
+
+#lightDark {
+    /* Button on the left side */
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    color: rgb(255, 255, 110);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    left: 10px; /* Stick to the left */
+    top: 10px; /* Adjust as needed for vertical positioning */
+}
+
+#lightDark:hover {
+    color: whitesmoke;
+}
+
+.horizontal-list {
+    /* List on the right side */
+    list-style-type: none;
+    font-size: 14px;
+    font-family: Georgia, Tahoma, Verdana;
+    color: grey;
+    position: fixed;
+    right: 12px; /* Adjust as needed */
+    top: 10px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#rotateButton {
+    /* Button to the right of the list */
+    font-size: 14px;
+    font-family: Georgia, Tahoma, Verdana;
+    color: grey;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    margin-left: 5px; /* Ensure there is space between the list and button */
+    top: 13px;
+    right: 10px;
+}
+
+.horizontal-list li {
+    margin-right: 10px;
+}
+
+.horizontal-list li a, 
+.horizontal-list li button {
+    font-size: 14px;
+    color: grey;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.horizontal-list li a:hover,
+.horizontal-list li button:hover {
+    color: rgb(143, 132, 227);
+}
+
+.header a {
+    color: rgb(255, 255, 110);
+    font-size: 18px;
+}
+
+.header a:hover {
+    color: rgb(143, 132, 227);
+    text-decoration: none;
+}
+
+#input-button, #clipboardASCII, #copyASCII, #newASCII, #updateASCII, #resetASCII, #screenshotButton {
+    pointer-events: none;
+    border: none;
+    opacity: 0;   
+    background: none;
+}
+
+@media screen and (max-width: 768px) {
+    .name, .header a, .horizontal-list li a, .horizontal-list li button, #rotateButton {
+        font-size: 12px;
+    }
+
+    #lightDark {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .name, .header a, .horizontal-list li a, .horizontal-list li button, #rotateButton {
+        font-size: 12px;
+    }
+
+    #lightDark {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (min-height: 800px) and (max-height: 1200px) {
+    .name, .header a, .horizontal-list li a, .horizontal-list li button, #rotateButton {
+        font-size: 14px;
+    }
+
+    #lightDark {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (min-height: 1000px) and (max-height: 3000px) {
+    .name, .header a, .horizontal-list li a, .horizontal-list li button, #rotateButton {
+        font-size: 14px;
+    }
+
+    #lightDark {
+        font-size: 18px;
+    }
+
+}
+
+@media (hover: hover) and (pointer: fine) {
+    a, button {
+        cursor: url('generic-cursor_3.png'), auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    a, button {
+        cursor: url('generic-cursor_3.png'), auto;
+    }
+}
