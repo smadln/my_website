@@ -154,6 +154,7 @@ html, body {
     position: fixed;
     left: 10px; /* Stick to the left */
     top: 10px; /* Adjust as needed for vertical positioning */
+    text-decoration: none 
 }
 
 .header a:hover {
