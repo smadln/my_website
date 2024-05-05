@@ -1,5 +1,6 @@
 html, body {
     overflow: hidden; 
+    background-color: rgb(175, 188, 255);
 }
 
 .bract-container {
