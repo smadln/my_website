@@ -40,30 +40,6 @@
             </div>
         </form>
     </div>
-    <div id="tooltip" class="tooltip">3D Model Info</div>
-    <script>
-        function navigateToSection(e, section) {
-            e.preventDefault();
-            window.location = './info.html?section=' + section; // Remove '-section' from the string
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const tooltip = document.getElementById('tooltip');
-            const modelViewer = document.querySelector('.webgl'); // Assuming the class of the 3D model container is 'webgl'
-
-            modelViewer.addEventListener('mouseover', (event) => {
-                tooltip.style.display = 'block';
-            });
-
-            modelViewer.addEventListener('mousemove', (event) => {
-                tooltip.style.left = event.pageX + 10 + 'px';
-                tooltip.style.top = event.pageY + 10 + 'px';
-            });
-
-            modelViewer.addEventListener('mouseout', () => {
-                tooltip.style.display = 'none';
-            });
-        });
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
