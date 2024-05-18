@@ -66,26 +66,31 @@
         });
     </script>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-          const tooltip = document.getElementById('tooltip');
-          const centerRegion = document.getElementById('center-region');
+        document.addEventListener('DOMContentLoaded', () => {
+            const tooltip = document.getElementById('tooltip');
+            const centerRegion = document.getElementById('center-region');
 
-          centerRegion.addEventListener('mouseover', (event) => {
-              tooltip.style.display = 'block';
-              tooltip.innerText = "Use cursor to move 3D model";
-              tooltip.style.left = event.pageX + 10 + 'px';
-              tooltip.style.top = event.pageY + 10 + 'px';
-          });
+            centerRegion.addEventListener('mouseover', (event) => {
+                tooltip.classList.add('visible'); // Add class to show tooltip
+                tooltip.innerText = "Use cursor to move 3D model";
+                tooltip.style.left = event.pageX + 10 + 'px';
+                tooltip.style.top = event.pageY + 10 + 'px';
+            });
 
-          centerRegion.addEventListener('mousemove', (event) => {
-              tooltip.style.left = event.pageX + 10 + 'px';
-              tooltip.style.top = event.pageY + 10 + 'px';
-          });
+            centerRegion.addEventListener('mousemove', (event) => {
+                tooltip.style.left = event.pageX + 10 + 'px';
+                tooltip.style.top = event.pageY + 10 + 'px';
+            });
 
-          centerRegion.addEventListener('mouseout', () => {
-              tooltip.style.display = 'none';
-          });
-      });
+            centerRegion.addEventListener('mouseout', () => {
+                tooltip.classList.remove('visible'); // Remove class to hide tooltip
+            });
+
+            // Hide tooltip when clicking anywhere on the page
+            document.addEventListener('click', () => {
+                tooltip.classList.remove('visible');
+            });
+        });
     </script>
     <script>
       var url = window.location.href;
