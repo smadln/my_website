@@ -184,6 +184,17 @@ canvas {
     transform: translateX(-50%);
 }
 
+#center-region {
+    position: absolute;
+    width: 200px; /* Adjust the size as needed */
+    height: 200px; /* Adjust the size as needed */
+    background-color:  #333 transparent;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* Other styles as needed */
+}
+
 @media screen and (max-width: 768px) {
     .name, .header a, .horizontal-list li a, .horizontal-list li button, #rotateButton {
         font-size: 12px;
