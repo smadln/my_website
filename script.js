@@ -151,6 +151,28 @@ document.getElementById('rotateButton').addEventListener('click', function() {
     this.value = rotateModel ? "*" : "Rotate";
 });
 
+// Tooltip functionality
+const tooltip = document.getElementById('tooltip');
+
+// Function to show tooltip
+function showTooltip(event) {
+    tooltip.style.display = 'block';
+    tooltip.style.left = `${event.pageX + 10}px`;
+    tooltip.style.top = `${event.pageY + 10}px`;
+    tooltip.textContent = "3D Model"; // Set your tooltip content here
+}
+
+// Function to hide tooltip
+function hideTooltip() {
+    tooltip.style.display = 'none';
+}
+
+// Add event listeners to the WebGL canvas or the effect.domElement
+const canvas = document.querySelector('.webgl') || effect.domElement;
+
+canvas.addEventListener('mousemove', showTooltip);
+canvas.addEventListener('mouseout', hideTooltip);
+
 // ... rest of the event listeners and functions ...
 
 document.getElementById('screenshotButton').addEventListener('click', takeScreenshot);
