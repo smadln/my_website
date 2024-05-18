@@ -137,6 +137,11 @@ canvas {
     color: rgb(143, 132, 227);
 }
 
+.rotateButton a:hover,
+.rotateButton button:hover {
+    color: rgb(143, 132, 227);
+}
+
 .header a {
     color: rgb(255, 255, 110);
     font-size: 18px;
