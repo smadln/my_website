@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siblings</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <canvas id="webglCanvas"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+    <script>
+        // WebGL setup
+        var canvas = document.getElementById('webglCanvas');
+        var gl = canvas.getContext('webgl');
+
+        // Shader sources (vertex and fragment)
+        var vertexShaderSource = `
+            attribute vec3 a_position;
+            attribute vec2 a_texCoord;
+            uniform mat4 u_modelViewMatrix;
+            uniform mat4 u_projectionMatrix;
+            varying vec2 v_texCoord;
+
+            void main() {
+                gl_Position = u_projectionMatrix * u_modelViewMatrix * vec4(a_position, 1.0);
+                v_texCoord = a_texCoord;
+            }
+        `;
+
+        var fragmentShaderSource = `
+            precision mediump float;
+            varying vec2 v_texCoord;
+            uniform sampler2D u_texture;
+
+            void main() {
+                gl_FragColor = texture2D(u_texture, v_texCoord);
+            }
+        `;
+
+        // Create shaders
+        function createShader(gl, type, source) {
+            var shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error('Error compiling shader:', gl.getShaderInfoLog(shader));
+                gl.deleteShader(shader);
+                return null;
+            }
+            return shader;
+        }
+
+        // Create program and link shaders
+        function createProgram(gl, vertexShader, fragmentShader) {
+            var program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                console.error('Error linking program:', gl.getProgramInfoLog(program));
+                gl.deleteProgram(program);
+                return null;
+            }
+            return program;
+        }
+
+        // Load texture
+        function loadTexture(gl, url) {
+            var texture = gl.createTexture();
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+
+            // Fill texture with a 1x1 blue pixel while waiting for the image to load
+            var pixel = new Uint8Array([0, 0, 255, 255]); // opaque blue
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, pixel);
+
+            var image = new Image();
+            image.onload = function() {
+                gl.bindTexture(gl.TEXTURE_2D, texture);
+                gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+                gl.generateMipmap(gl.TEXTURE_2D);
+            };
+            image.src = url;
+
+            return texture;
+        }
+
+        // Initialize WebGL
+        var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+        var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+        var program = createProgram(gl, vertexShader, fragmentShader);
+
+        // WebGL buffer for vertices and texture coordinates
+        var positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        var positions = [
+            -1.0, -1.0, 0.0,
+            1.0, -1.0, 0.0,
+            1.0, 1.0, 0.0,
+            -1.0, 1.0, 0.0,
+        ];
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+        var texCoordBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
+        var texCoords = [
+            0.0, 0.0,
+            1.0, 0.0,
+            1.0, 1.0,
+            0.0, 1.0,
+        ];
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(texCoords), gl.STATIC_DRAW);
+
+        // WebGL attributes and uniforms
+        var positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
+        var texCoordAttributeLocation = gl.getAttribLocation(program, 'a_texCoord');
+        var modelViewMatrixUniformLocation = gl.getUniformLocation(program, 'u_modelViewMatrix');
+        var projectionMatrixUniformLocation = gl.getUniformLocation(program, 'u_projectionMatrix');
+        var textureUniformLocation = gl.getUniformLocation(program, 'u_texture');
+
+        gl.useProgram(program);
+
+        gl.enableVertexAttribArray(positionAttributeLocation);
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.vertexAttribPointer(positionAttributeLocation, 3, gl.FLOAT, false, 0, 0);
+
+        gl.enableVertexAttribArray(texCoordAttributeLocation);
+        gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
+        gl.vertexAttribPointer(texCoordAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+        // Load texture image
+        var texture = loadTexture(gl, 'twins.png');
+
+        // Matrix calculations using gl-matrix library
+        var modelViewMatrix = mat4.create();
+        var projectionMatrix = mat4.create();
+        var viewMatrix = mat4.create();
+        var aspect = canvas.clientWidth / canvas.clientHeight;
+
+        mat4.perspective(projectionMatrix, Math.PI / 4, aspect, 0.1, 100.0);
+        mat4.translate(viewMatrix, viewMatrix, [0.0, 0.0, -5.0]);
+
+        function drawScene() {
+            mat4.identity(modelViewMatrix);
+            mat4.rotateY(modelViewMatrix, modelViewMatrix, Date.now() / 1000); // Rotate over time
+
+            gl.clearColor(0.0, 0.0, 0.0, 1.0);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+            gl.uniformMatrix4fv(modelViewMatrixUniformLocation, false, modelViewMatrix);
+            gl.uniformMatrix4fv(projectionMatrixUniformLocation, false, projectionMatrix);
+
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            gl.uniform1i(textureUniformLocation, 0);
+
+            gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
+
+            requestAnimationFrame(drawScene);
+        }
+
+        drawScene();
+
+        // Handle mouse movement for rotation
+        var dragging = false;
+        var lastX = -1;
+        var rotationY = 0.0;
+
+        canvas.addEventListener('mousedown', function(event) {
+            dragging = true;
+            lastX = event.clientX;
+        });
+
+        canvas.addEventListener('mouseup', function() {
+            dragging = false;
+        });
+
+        canvas.addEventListener('mousemove', function(event) {
+            if (dragging) {
+                var deltaX = event.clientX - lastX;
+                rotationY += deltaX * 0.5;
+                lastX = event.clientX;
+            }
+        });
+
+        canvas.addEventListener('wheel', function(event) {
+            mat4.translate(viewMatrix, viewMatrix, [0.0, 0.0, event.deltaY * 0.01]);
+        });
+
+        // Resize canvas to match display size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            aspect = canvas.clientWidth / canvas.clientHeight;
+            mat4.perspective(projectionMatrix, Math.PI / 4, aspect, 0.1, 100.0);
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+    </script>
+</body>
+</html>
