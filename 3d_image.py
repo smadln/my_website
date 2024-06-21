@@ -4,6 +4,12 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from PIL import Image
 
+# Global variables for rotation and translation
+rotation_x = 0
+rotation_y = 0
+translation_x = 0
+translation_y = 0
+
 def loadTexture(image):
     img = Image.open(image)
     img = img.convert('RGBA')  # Convert the image to RGBA format to include the alpha channel
@@ -33,6 +39,8 @@ def drawPlane(texture):
     glEnd()
 
 def main():
+    global rotation_x, rotation_y, translation_x, translation_y
+    
     pygame.init()
     display = (800, 600)
     pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
@@ -45,11 +53,6 @@ def main():
     
     texture = loadTexture('twins.png')  # Use your transparent PNG file here
     
-    rotation_x = 0
-    rotation_y = 0
-    translation_x = 0
-    translation_y = 0
-    
     clock = pygame.time.Clock()
     
     while True:
@@ -57,28 +60,33 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-        
-        keys = pygame.key.get_pressed()
-        
-        # Update translation based on arrow keys
-        if keys[pygame.K_LEFT]:
-            translation_x -= 0.1
-        if keys[pygame.K_RIGHT]:
-            translation_x += 0.1
-        if keys[pygame.K_UP]:
-            translation_y += 0.1
-        if keys[pygame.K_DOWN]:
-            translation_y -= 0.1
-        
-        # Update rotation based on WASD keys
-        if keys[pygame.K_a]:
-            rotation_y -= 1
-        if keys[pygame.K_d]:
-            rotation_y += 1
-        if keys[pygame.K_w]:
-            rotation_x -= 1
-        if keys[pygame.K_s]:
-            rotation_x += 1
+            
+            # Keyboard controls for rotation
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_a:
+                    rotation_y -= 1
+                elif event.key == pygame.K_d:
+                    rotation_y += 1
+                elif event.key == pygame.K_w:
+                    rotation_x -= 1
+                elif event.key == pygame.K_s:
+                    rotation_x += 1
+            
+            # Mouse controls for translation and rotation
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:  # Left mouse button
+                    x, y = event.pos
+                    x = (x / display[0] - 0.5) * 2  # Normalize and adjust coordinates
+                    y = -(y / display[1] - 0.5) * 2
+                    translation_x, translation_y = x, y
+                elif event.button == 3:  # Right mouse button
+                    rotation_x, rotation_y = 0, 0
+            
+            elif event.type == pygame.MOUSEMOTION:
+                if event.buttons[0] == 1:  # Left mouse button held down
+                    dx, dy = event.rel
+                    rotation_y += dx
+                    rotation_x += dy
         
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         
