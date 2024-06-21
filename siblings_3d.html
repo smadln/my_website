@@ -23,6 +23,8 @@
         var canvas = document.getElementById('webglCanvas');
         var gl = canvas.getContext('webgl');
 
+        gl.clearColor(0.0, 0.0, 0.0, 0.0); // Clear with transparent black
+
         // Shader sources (vertex and fragment)
         var vertexShaderSource = `
             attribute vec3 a_position;
