@@ -43,7 +43,7 @@ def main():
     glEnable(GL_BLEND)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
     
-    texture = loadTexture('image.png')  # Use your transparent PNG file here
+    texture = loadTexture('twins.png')  # Use your transparent PNG file here
     
     rotation_x = 0
     rotation_y = 0
