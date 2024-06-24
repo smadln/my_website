@@ -36,3 +36,5 @@ function animate() {
 	renderer.render( scene, camera );
 
 }
+
+renderer.setAnimationLoop( animate ); // Start the rendering loop
