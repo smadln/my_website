@@ -11,6 +11,8 @@ const sunPosition = new Vector3().setFromSphericalCoords( 1, phi, theta );
 
 sky.material.uniforms.sunPosition.value = sunPosition;
 
+scene.add( sky ); // Add sky to the scene
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
