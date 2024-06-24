@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { Sky } from 'three/addons/objects/Sky.js';
 import { MathUtils, Vector3 } from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
 
@@ -21,14 +22,14 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+// Add OrbitControls for camera rotation
+const controls = new OrbitControls( camera, renderer.domElement );
+controls.enableDamping = true; // Enable damping (inertia)
+controls.dampingFactor = 0.05; // Damping inertia factor
+controls.update(); // Update controls
 
 function animate() {
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    controls.update(); // Only required if controls.enableDamping = true, or if controls.autoRotate = true
 
     renderer.render( scene, camera );
 }
