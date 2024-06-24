@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { Sky } from 'three/examples/jsm/objects/Sky.js';
+import { MathUtils, Vector3 } from 'three/build/three.module.js'; 
 
 const sky = new Sky();
 sky.scale.setScalar( 450000 );
