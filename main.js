@@ -18,7 +18,7 @@ const effectController = {
     mieDirectionalG: 0.8,
     elevation: 2,
     azimuth: 180,
-    exposure: renderer.toneMappingExposure
+    exposure: 0.5
 };
 
 function guiChanged() {
@@ -39,8 +39,6 @@ function guiChanged() {
     renderer.render(scene, camera);
 }
 
-guiChanged();
-
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 5;
 
@@ -53,6 +51,20 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Enable damping (inertia)
 controls.dampingFactor = 0.05; // Damping inertia factor
 controls.update(); // Update controls
+
+// Create a simple ground plane for the landscape
+const groundGeometry = new THREE.PlaneGeometry(10000, 10000);
+const groundMaterial = new THREE.MeshStandardMaterial({ color: 0x008800 });
+const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+ground.rotation.x = -Math.PI / 2; // Rotate the plane to be horizontal
+scene.add(ground);
+
+// Add a light source
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(0, 10, 0);
+scene.add(directionalLight);
+
+guiChanged(); // Call guiChanged to initialize the sky settings
 
 function animate() {
     controls.update(); // Only required if controls.enableDamping = true, or if controls.autoRotate = true
