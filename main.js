@@ -59,10 +59,13 @@ const ground = new THREE.Mesh(groundGeometry, groundMaterial);
 ground.rotation.x = -Math.PI / 2; // Rotate the plane to be horizontal
 scene.add(ground);
 
-// Add a light source
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(0, 10, 0);
+// Adjust the light source to reduce glare
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Lower the intensity
+directionalLight.position.set(10, 10, 10); // Adjust the position
 scene.add(directionalLight);
+
+const ambientLight = new THREE.AmbientLight(0x404040); // Add some ambient light
+scene.add(ambientLight);
 
 guiChanged(); // Call guiChanged to initialize the sky settings
 
