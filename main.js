@@ -15,10 +15,11 @@ const effectController = {
     turbidity: 10,
     rayleigh: 2,
     mieCoefficient: 0.005,
-    mieDirectionalG: 0.5, // Adjust this value to reduce the sun glare
+    mieDirectionalG: 0.7,
     elevation: 2,
     azimuth: 180,
-    exposure: 0.5
+    exposure: 0.5,
+    sunVisible: false // Custom parameter to hide the sun
 };
 
 function guiChanged() {
@@ -33,7 +34,11 @@ function guiChanged() {
 
     sun.setFromSphericalCoords(1, phi, theta);
 
-    uniforms['sunPosition'].value.copy(sun);
+    if (effectController.sunVisible) {
+        uniforms['sunPosition'].value.copy(sun);
+    } else {
+        uniforms['sunPosition'].value.set(0, 0, 0); // Hide the sun by setting its position out of view
+    }
 
     renderer.toneMappingExposure = effectController.exposure;
     renderer.render(scene, camera);
