@@ -15,10 +15,10 @@ const effectController = {
     turbidity: 10,
     rayleigh: 2,
     mieCoefficient: 0.005,
-    mieDirectionalG: 0.7,
+    mieDirectionalG: 0.7, // Adjust this value to reduce the sun glare
     elevation: 2,
     azimuth: 180,
-    exposure: 0.5,
+    exposure: 0.5
 };
 
 function guiChanged() {
@@ -32,9 +32,7 @@ function guiChanged() {
     const theta = MathUtils.degToRad(effectController.azimuth);
 
     sun.setFromSphericalCoords(1, phi, theta);
-
-    uniforms['sunPosition'].value.copy(sun);
-    uniforms['sunPosition'].value.multiplyScalar(700000); // Move the sun far away
+    uniforms['sunPosition'].value.copy(sun).multiplyScalar(10000); // Move the sun far away
 
     renderer.toneMappingExposure = effectController.exposure;
     renderer.render(scene, camera);
@@ -45,6 +43,8 @@ camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; // Use ACES tone mapping
+renderer.toneMappingExposure = 0.5; // Adjust exposure
 document.body.appendChild(renderer.domElement);
 
 // Add OrbitControls for camera rotation
@@ -61,7 +61,7 @@ ground.rotation.x = -Math.PI / 2; // Rotate the plane to be horizontal
 scene.add(ground);
 
 // Adjust the light source to reduce glare
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Lower the intensity
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.3); // Lower the intensity
 directionalLight.position.set(10, 10, 10); // Adjust the position
 scene.add(directionalLight);
 
