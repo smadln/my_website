@@ -19,7 +19,6 @@ const effectController = {
     elevation: 2,
     azimuth: 180,
     exposure: 0.5,
-    sunVisible: false // Custom parameter to hide the sun
 };
 
 function guiChanged() {
@@ -34,11 +33,8 @@ function guiChanged() {
 
     sun.setFromSphericalCoords(1, phi, theta);
 
-    if (effectController.sunVisible) {
-        uniforms['sunPosition'].value.copy(sun);
-    } else {
-        uniforms['sunPosition'].value.set(0, 0, 0); // Hide the sun by setting its position out of view
-    }
+    uniforms['sunPosition'].value.copy(sun);
+    uniforms['sunPosition'].value.multiplyScalar(700000); // Move the sun far away
 
     renderer.toneMappingExposure = effectController.exposure;
     renderer.render(scene, camera);
