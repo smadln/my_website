@@ -15,7 +15,7 @@ const effectController = {
     turbidity: 10,
     rayleigh: 2,
     mieCoefficient: 0.005,
-    mieDirectionalG: 0.8,
+    mieDirectionalG: 0.7, // Adjust this value to reduce the sun glare
     elevation: 2,
     azimuth: 180,
     exposure: 0.5
