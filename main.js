@@ -53,13 +53,6 @@ controls.enableDamping = true; // Enable damping (inertia)
 controls.dampingFactor = 0.05; // Damping inertia factor
 controls.update(); // Update controls
 
-// Create a simple ground plane for the landscape
-const groundGeometry = new THREE.PlaneGeometry(10000, 10000);
-const groundMaterial = new THREE.MeshStandardMaterial({ color: 0x008800 });
-const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-ground.rotation.x = -Math.PI / 2; // Rotate the plane to be horizontal
-scene.add(ground);
-
 // Adjust the light source to reduce glare
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.3); // Lower the intensity
 directionalLight.position.set(10, 10, 10); // Adjust the position
