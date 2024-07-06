@@ -27,13 +27,21 @@
         // Log for debugging
         console.log('Renderer and Scene initialized');
 
-        // Load the texture
-        const textureLoader = new THREE.TextureLoader();
-        textureLoader.load('./ascii_siblings_i.png',
-            function (texture) {
+        // Load the image to get its dimensions
+        const img = new Image();
+        img.src = './ascii_siblings_i.png';
+        img.onload = function() {
+            const imgWidth = img.width;
+            const imgHeight = img.height;
+            const aspectRatio = imgWidth / imgHeight;
+
+            // Load the texture
+            const textureLoader = new THREE.TextureLoader();
+            textureLoader.load('./ascii_siblings_i.png', function (texture) {
                 console.log('Texture loaded successfully');
-                // Create the plane geometry
-                const geometry = new THREE.PlaneGeometry(5, 5);
+
+                // Create the plane geometry with correct aspect ratio
+                const geometry = new THREE.PlaneGeometry(5 * aspectRatio, 5);
                 const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
                 const mesh = new THREE.Mesh(geometry, material);
                 scene.add(mesh);
@@ -75,12 +83,12 @@
             undefined,
             function (error) {
                 console.error('An error occurred loading the texture:', error);
-            }
-        );
+            });
 
-        // Camera positioning
-        camera.position.z = 5;
-        console.log('Camera positioned');
+            // Camera positioning
+            camera.position.z = 5;
+            console.log('Camera positioned');
+        };
     </script>
 </body>
 </html>
