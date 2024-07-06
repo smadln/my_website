@@ -5,18 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Model with Texture</title>
     <style>
-        body { 
-            margin: 0; 
-            background-color: darkred;
-        }
-        canvas { 
-            display: block; 
-        }
+        body { margin: 0; }
+        canvas { display: block; }
     </style>
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script>
         // Initialize the scene
         const scene = new THREE.Scene();
@@ -25,46 +19,63 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
+        // Log for debugging
+        console.log('Renderer and Scene initialized');
+
         // Load the texture
         const textureLoader = new THREE.TextureLoader();
-        textureLoader.load('images/ascii_siblings_i.png', function (texture) {
-            // Create the plane geometry
-            const geometry = new THREE.PlaneGeometry(5, 5);
-            const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
-            const mesh = new THREE.Mesh(geometry, material);
-            scene.add(mesh);
+        textureLoader.load('images/ascii_siblings_i.png',
+            function (texture) {
+                console.log('Texture loaded successfully');
+                // Create the plane geometry
+                const geometry = new THREE.PlaneGeometry(5, 5);
+                const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
+                const mesh = new THREE.Mesh(geometry, material);
+                scene.add(mesh);
 
-            // Animate and render
-            function animate() {
-                requestAnimationFrame(animate);
-                renderer.render(scene, camera);
-            }
-            animate();
+                // Log the mesh addition
+                console.log('Mesh added to the scene');
 
-            // Mouse interaction
-            let isMouseDown = false;
-            let prevMouseX = 0;
-
-            document.addEventListener('mousedown', function(event) {
-                isMouseDown = true;
-                prevMouseX = event.clientX;
-            });
-
-            document.addEventListener('mouseup', function() {
-                isMouseDown = false;
-            });
-
-            document.addEventListener('mousemove', function(event) {
-                if (isMouseDown) {
-                    const deltaX = event.clientX - prevMouseX;
-                    prevMouseX = event.clientX;
-                    mesh.rotation.y += deltaX * 0.01;
+                // Animate and render
+                function animate() {
+                    requestAnimationFrame(animate);
+                    renderer.render(scene, camera);
                 }
-            });
-        });
+                animate();
+
+                // Mouse interaction
+                let isMouseDown = false;
+                let prevMouseX = 0;
+
+                document.addEventListener('mousedown', function(event) {
+                    isMouseDown = true;
+                    prevMouseX = event.clientX;
+                });
+
+                document.addEventListener('mouseup', function() {
+                    isMouseDown = false;
+                });
+
+                document.addEventListener('mousemove', function(event) {
+                    if (isMouseDown) {
+                        const deltaX = event.clientX - prevMouseX;
+                        prevMouseX = event.clientX;
+                        mesh.rotation.y += deltaX * 0.01;
+                    }
+                });
+
+                // Log for debugging
+                console.log('Animation and interaction set up');
+            },
+            undefined,
+            function (error) {
+                console.error('An error occurred loading the texture:', error);
+            }
+        );
 
         // Camera positioning
         camera.position.z = 5;
+        console.log('Camera positioned');
     </script>
 </body>
 </html>
