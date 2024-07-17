@@ -76,11 +76,19 @@ const canvasElement = effect.domElement;
 
 // Add event listeners for cursor change
 canvasElement.addEventListener('mouseenter', () => {
-    canvasElement.classList.add('grabbing');
+    canvasElement.style.cursor = 'grab';
+});
+
+canvasElement.addEventListener('mousedown', () => {
+    canvasElement.style.cursor = 'grabbing';
+});
+
+canvasElement.addEventListener('mouseup', () => {
+    canvasElement.style.cursor = 'grab';
 });
 
 canvasElement.addEventListener('mouseleave', () => {
-    canvasElement.classList.remove('grabbing');
+    canvasElement.style.cursor = 'auto';
 });
 
 document.getElementById("ascii").style.whiteSpace = "pre-wrap";
