@@ -21,7 +21,11 @@
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        
+        // Set the renderer size to a smaller resolution
+        const renderWidth = window.innerWidth / 2; // Adjust as needed
+        const renderHeight = window.innerHeight / 2; // Adjust as needed
+        renderer.setSize(renderWidth, renderHeight);
         document.body.appendChild(renderer.domElement);
 
         // Log for debugging
@@ -40,8 +44,8 @@
             textureLoader.load('./ascii_siblings_i.png', function (texture) {
                 console.log('Texture loaded successfully');
 
-                // Create the plane geometry with correct aspect ratio
-                const geometry = new THREE.PlaneGeometry(5 * aspectRatio, 5);
+                // Create the plane geometry with a smaller size
+                const geometry = new THREE.PlaneGeometry(2.5 * aspectRatio, 2.5); // Adjust as needed
                 const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, side: THREE.DoubleSide });
                 const mesh = new THREE.Mesh(geometry, material);
                 scene.add(mesh);
