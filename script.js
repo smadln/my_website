@@ -72,22 +72,15 @@ createEffect();
 
 document.body.appendChild(effect.domElement);
 
+const canvasElement = effect.domElement;
+
 // Add event listeners for cursor change
-effect.domElement.addEventListener('mouseenter', () => {
-    effect.domElement.classList.add('grabbing');
+canvasElement.addEventListener('mouseenter', () => {
+    canvasElement.classList.add('grabbing');
 });
 
-effect.domElement.addEventListener('mouseleave', () => {
-    effect.domElement.classList.remove('grabbing');
-});
-
-renderer.domElement.style.cursor = 'grab';
-
-renderer.domElement.addEventListener('mousedown', () => {
-    renderer.domElement.style.cursor = 'grabbing';
-});
-renderer.domElement.addEventListener('mouseup', () => {
-    renderer.domElement.style.cursor = 'grab';
+canvasElement.addEventListener('mouseleave', () => {
+    canvasElement.classList.remove('grabbing');
 });
 
 document.getElementById("ascii").style.whiteSpace = "pre-wrap";
@@ -112,7 +105,7 @@ stlLoader.load('3dpea copy.stl', function (geometry) {
 
     scene.add(myMesh);
 
-    controls = new OrbitControls(camera, effect.domElement);
+    controls = new OrbitControls(camera, canvasElement);
 
     // Set up rotation of model by default
     function tick() {
