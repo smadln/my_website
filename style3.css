@@ -54,14 +54,6 @@ input[type="button"] {
   z-index: 1000;
 }
 
-.grabbing {
-    cursor: grab;
-}
-
-.grabbing:active {
-    cursor: grabbing;
-}
-
 canvas.grabbing {
     cursor: grab;
 }

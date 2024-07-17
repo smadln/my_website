@@ -159,14 +159,6 @@ canvas {
     background: none;
 }
 
-.grabbing {
-    cursor: grab;
-}
-
-.grabbing:active {
-    cursor: grabbing;
-}
-
 canvas.grabbing {
     cursor: grab;
 }
