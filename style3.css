@@ -61,3 +61,11 @@ input[type="button"] {
 .grabbing:active {
     cursor: grabbing;
 }
+
+canvas.grabbing {
+    cursor: grab;
+}
+
+canvas.grabbing:active {
+    cursor: grabbing;
+}
