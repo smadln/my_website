@@ -159,6 +159,14 @@ canvas {
     background: none;
 }
 
+.grabbing {
+    cursor: grab;
+}
+
+.grabbing:active {
+    cursor: grabbing;
+}
+
 @media screen and (max-width: 768px) {
     .name, .header a, .horizontal-list li a, .horizontal-list li button, #rotateButton {
         font-size: 12px;
