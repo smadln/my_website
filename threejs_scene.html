@@ -11,6 +11,11 @@
         }
         canvas { 
             display: block; 
+            position: absolute;
+            width: 15%; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
@@ -22,10 +27,11 @@
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true });
         
-        // Set the renderer size to a smaller resolution
-        const renderWidth = window.innerWidth / 2; // Adjust as needed
-        const renderHeight = window.innerHeight / 2; // Adjust as needed
-        renderer.setSize(renderWidth, renderHeight);
+        // Set the renderer size to match the canvas element
+        const canvas = document.createElement('canvas');
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.domElement.style.width = '100%'; // Ensure canvas takes full width of its container
+        renderer.domElement.style.height = '100%'; // Ensure canvas takes full height of its container
         document.body.appendChild(renderer.domElement);
 
         // Log for debugging
@@ -44,8 +50,8 @@
             textureLoader.load('./ascii_siblings_i.png', function (texture) {
                 console.log('Texture loaded successfully');
 
-                // Create the plane geometry with a smaller size
-                const geometry = new THREE.PlaneGeometry(2.5 * aspectRatio, 2.5); // Adjust as needed
+                // Create the plane geometry
+                const geometry = new THREE.PlaneGeometry(5 * aspectRatio, 5);
                 const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, side: THREE.DoubleSide });
                 const mesh = new THREE.Mesh(geometry, material);
                 scene.add(mesh);
