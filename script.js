@@ -74,6 +74,15 @@ document.body.appendChild(effect.domElement);
 
 document.getElementById("ascii").style.whiteSpace = "pre-wrap";
 
+// Add event listeners for cursor change
+effect.domElement.addEventListener('mouseenter', () => {
+    effect.domElement.classList.add('grabbing');
+});
+
+effect.domElement.addEventListener('mouseleave', () => {
+    effect.domElement.classList.remove('grabbing');
+});
+
 stlLoader.load(
     '3dpea copy.stl',
     function (geometry) {
