@@ -79,6 +79,10 @@ canvasElement.addEventListener('mouseenter', () => {
     canvasElement.style.cursor = 'grab';
 });
 
+canvasElement.addEventListener('mouseleave', () => {
+    canvasElement.style.cursor = 'auto';
+});
+
 canvasElement.addEventListener('mousedown', () => {
     canvasElement.style.cursor = 'grabbing';
 });
@@ -86,12 +90,6 @@ canvasElement.addEventListener('mousedown', () => {
 canvasElement.addEventListener('mouseup', () => {
     canvasElement.style.cursor = 'grab';
 });
-
-canvasElement.addEventListener('mouseleave', () => {
-    canvasElement.style.cursor = 'auto';
-});
-
-document.getElementById("ascii").style.whiteSpace = "pre-wrap";
 
 stlLoader.load('3dpea copy.stl', function (geometry) {
     myMesh.material = material;
@@ -114,6 +112,15 @@ stlLoader.load('3dpea copy.stl', function (geometry) {
     scene.add(myMesh);
 
     controls = new OrbitControls(camera, canvasElement);
+
+    // Ensure the cursor style is set correctly within OrbitControls
+    controls.addEventListener('start', () => {
+        canvasElement.style.cursor = 'grabbing';
+    });
+
+    controls.addEventListener('end', () => {
+        canvasElement.style.cursor = 'grab';
+    });
 
     // Set up rotation of model by default
     function tick() {
@@ -141,9 +148,6 @@ stlLoader.load('3dpea copy.stl', function (geometry) {
         const reader = new FileReader();
         reader.readAsArrayBuffer(fileObject);
         reader.onload = function () {
-            if (userUploaded == false) {
-                userUploaded = true;
-            }
             const geometry = stlLoader.parse(this.result);
             myMesh.geometry = geometry;
             myMesh.geometry.center();
@@ -163,12 +167,10 @@ stlLoader.load('3dpea copy.stl', function (geometry) {
 // Rotate button event listener
 document.getElementById('rotateButton').addEventListener('click', function () {
     rotateModel = !rotateModel;
-    console.log('Rotate model:', rotateModel); // This will log the current state of rotation
     this.value = rotateModel ? "*" : "Rotate";
 });
 
-// ... rest of the event listeners and functions ...
-
+// Screenshot button event listener
 document.getElementById('screenshotButton').addEventListener('click', takeScreenshot);
 
 function takeScreenshot() {
@@ -213,13 +215,13 @@ document.getElementById('lightDark').addEventListener('click', function () {
         document.body.style.backgroundColor = 'white';
         backgroundColor = 'white';
         ASCIIColor = 'black';
-        lightDarkButton.style.color = 'lightblue'; // Change the button text color to lightblue
+        lightDarkButton.style.color = 'lightblue';
     } else {
         document.getElementById("kofi").style.color = "white";
         document.body.style.backgroundColor = 'black';
         backgroundColor = 'black';
         ASCIIColor = 'white';
-        lightDarkButton.style.color = ''; // Revert the button text color to default
+        lightDarkButton.style.color = '';
     }
 
     effect.domElement.style.color = ASCIIColor;
@@ -227,18 +229,13 @@ document.getElementById('lightDark').addEventListener('click', function () {
 });
 
 document.getElementById('lightDark').addEventListener('click', function () {
-    // Assume lightMode is a boolean that tracks whether light mode is active
     lightMode = !lightMode;
-
-    // Toggle light mode styles
     if (lightMode) {
-        // Apply light mode styles
-        document.body.style.backgroundColor = 'white'; // Example: changing the background to white
-        this.classList.add('light-mode-active'); // Add the class to change the text color
+        document.body.style.backgroundColor = 'white';
+        this.classList.add('light-mode-active');
     } else {
-        // Revert to dark mode styles
-        document.body.style.backgroundColor = 'lightblue'; // Example: changing the background to black
-        this.classList.remove('light-mode-active'); // Remove the class to revert the text color
+        document.body.style.backgroundColor = 'lightblue';
+        this.classList.remove('light-mode-active');
     }
 });
 
