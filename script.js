@@ -1,20 +1,20 @@
-import 'style3.css'
+import 'style3.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 import html2canvas from 'html2canvas';
 
-//LightMode
+// LightMode
 let lightMode = true;
 
-//Create a clock for rotation
+// Create a clock for rotation
 const clock = new THREE.Clock();
 
 // Set rotate boolean variable to true so model rotates by default
 let rotateModel = true;
 
-//Ugh, don't ask about this stuff
+// Ugh, don't ask about this stuff
 var userUploaded = false;
 let controls;
 
@@ -25,19 +25,19 @@ const myMesh = new THREE.Mesh();
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0, 0, 0);
 
-//Lights
+// Lights
 const pointLight1 = new THREE.PointLight(0xffffff, 1);
 pointLight1.position.set(100, 100, 400);
 scene.add(pointLight1);
 
-const pointLight2 = new THREE.PointLight(0xffffff, .5);
+const pointLight2 = new THREE.PointLight(0xffffff, 0.5);
 pointLight2.position.set(-500, 100, -400);
 scene.add(pointLight2);
 
 // Parameters
 const stlLoader = new STLLoader();
 
-//Material
+// Material
 const material = new THREE.MeshStandardMaterial();
 material.flatShading = true;
 material.side = THREE.DoubleSide;
@@ -57,7 +57,7 @@ const renderer = new THREE.WebGLRenderer();
 let effect;
 
 let characters = ' .:-+*=#';
-const effectSize = { amount: .205 };
+const effectSize = { amount: 0.205 };
 let backgroundColor = 'lightblue';
 let ASCIIColor = 'white';
 
@@ -72,8 +72,6 @@ createEffect();
 
 document.body.appendChild(effect.domElement);
 
-document.getElementById("ascii").style.whiteSpace = "pre-wrap";
-
 // Add event listeners for cursor change
 effect.domElement.addEventListener('mouseenter', () => {
     effect.domElement.classList.add('grabbing');
@@ -83,78 +81,77 @@ effect.domElement.addEventListener('mouseleave', () => {
     effect.domElement.classList.remove('grabbing');
 });
 
-stlLoader.load(
-    '3dpea copy.stl',
-    function (geometry) {
-        myMesh.material = material;
-        myMesh.geometry = geometry;
+document.getElementById("ascii").style.whiteSpace = "pre-wrap";
 
-        geometry.computeVertexNormals();
-        myMesh.geometry.center();
+stlLoader.load('3dpea copy.stl', function (geometry) {
+    myMesh.material = material;
+    myMesh.geometry = geometry;
 
-        myMesh.rotation.x = -90 * Math.PI / 180;
+    geometry.computeVertexNormals();
+    myMesh.geometry.center();
 
-        myMesh.geometry.computeBoundingBox();
-        var bbox = myMesh.geometry.boundingBox;
+    myMesh.rotation.x = -90 * Math.PI / 180;
 
-        myMesh.position.y = ((bbox.max.z - bbox.min.z) / 5);
+    myMesh.geometry.computeBoundingBox();
+    var bbox = myMesh.geometry.boundingBox;
 
-        camera.position.x = ((bbox.max.x * 4));
-        camera.position.y = ((bbox.max.y));
-        camera.position.z = ((bbox.max.z * 3));
+    myMesh.position.y = ((bbox.max.z - bbox.min.z) / 5);
 
-        scene.add(myMesh);
+    camera.position.x = ((bbox.max.x * 4));
+    camera.position.y = ((bbox.max.y));
+    camera.position.z = ((bbox.max.z * 3));
 
-        controls = new OrbitControls(camera, effect.domElement);
+    scene.add(myMesh);
 
-        // Set up rotation of model by default
-        function tick() {
-            if (rotateModel) {
-                const elapsedTime = clock.getElapsedTime();
-                myMesh.rotation.z = elapsedTime;
-            }
-            render();
-            window.requestAnimationFrame(tick);
+    controls = new OrbitControls(camera, effect.domElement);
+
+    // Set up rotation of model by default
+    function tick() {
+        if (rotateModel) {
+            const elapsedTime = clock.getElapsedTime();
+            myMesh.rotation.z = elapsedTime;
         }
-
-        function render() {
-            effect.render(scene, camera);
-        }
-
-        tick(); // Start the animation loop
-
-        document.getElementById('rotateButton').value = "*"; // Set button to indicate rotation can be stopped
-
-        document.getElementById('file-selector').addEventListener('change', openFile, false);
-
-        function openFile(evt) {
-            const fileObject = evt.target.files[0];
-
-            const reader = new FileReader();
-            reader.readAsArrayBuffer(fileObject);
-            reader.onload = function () {
-                if (userUploaded == false) {
-                    userUploaded = true;
-                }
-                const geometry = stlLoader.parse(this.result);
-                myMesh.geometry = geometry;
-                myMesh.geometry.center();
-
-                myMesh.rotation.x = -90 * Math.PI / 180;
-
-                myMesh.geometry.computeBoundingBox();
-                var bbox = myMesh.geometry.boundingBox;
-
-                myMesh.position.y = ((bbox.max.z - bbox.min.z) / 6)
-
-                scene.add(myMesh);
-            };
-        }
+        render();
+        window.requestAnimationFrame(tick);
     }
-);
+
+    function render() {
+        effect.render(scene, camera);
+    }
+
+    tick(); // Start the animation loop
+
+    document.getElementById('rotateButton').value = "*"; // Set button to indicate rotation can be stopped
+
+    document.getElementById('file-selector').addEventListener('change', openFile, false);
+
+    function openFile(evt) {
+        const fileObject = evt.target.files[0];
+
+        const reader = new FileReader();
+        reader.readAsArrayBuffer(fileObject);
+        reader.onload = function () {
+            if (userUploaded == false) {
+                userUploaded = true;
+            }
+            const geometry = stlLoader.parse(this.result);
+            myMesh.geometry = geometry;
+            myMesh.geometry.center();
+
+            myMesh.rotation.x = -90 * Math.PI / 180;
+
+            myMesh.geometry.computeBoundingBox();
+            var bbox = myMesh.geometry.boundingBox;
+
+            myMesh.position.y = ((bbox.max.z - bbox.min.z) / 6)
+
+            scene.add(myMesh);
+        };
+    }
+});
 
 // Rotate button event listener
-document.getElementById('rotateButton').addEventListener('click', function() {
+document.getElementById('rotateButton').addEventListener('click', function () {
     rotateModel = !rotateModel;
     console.log('Rotate model:', rotateModel); // This will log the current state of rotation
     this.value = rotateModel ? "*" : "Rotate";
@@ -198,7 +195,7 @@ function resetASCII() {
 }
 
 // Light/Dark mode button event listener
-document.getElementById('lightDark').addEventListener('click', function() {
+document.getElementById('lightDark').addEventListener('click', function () {
     lightMode = !lightMode;
     let lightDarkButton = document.getElementById('lightDark');
     if (lightMode) {
@@ -214,14 +211,14 @@ document.getElementById('lightDark').addEventListener('click', function() {
         ASCIIColor = 'white';
         lightDarkButton.style.color = ''; // Revert the button text color to default
     }
-    
+
     effect.domElement.style.color = ASCIIColor;
     effect.domElement.style.backgroundColor = backgroundColor;
 });
 
-document.getElementById('lightDark').addEventListener('click', function() {
+document.getElementById('lightDark').addEventListener('click', function () {
     // Assume lightMode is a boolean that tracks whether light mode is active
-    lightMode = !lightMode; 
+    lightMode = !lightMode;
 
     // Toggle light mode styles
     if (lightMode) {
@@ -275,3 +272,5 @@ function toggleRotation() {
     rotateModel = !rotateModel;
     document.getElementById('rotateButton').value = rotateModel ? "*" : "Rotate";
 }
+
+window.addEventListener('resize', onWindowResize);
