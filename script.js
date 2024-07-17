@@ -14,10 +14,6 @@ const clock = new THREE.Clock();
 // Set rotate boolean variable to true so model rotates by default
 let rotateModel = true;
 
-// Ugh, don't ask about this stuff
-var userUploaded = false;
-let controls;
-
 // Creates empty mesh container
 const myMesh = new THREE.Mesh();
 
@@ -75,20 +71,22 @@ document.body.appendChild(effect.domElement);
 const canvasElement = effect.domElement;
 
 // Add event listeners for cursor change
-canvasElement.addEventListener('mouseenter', () => {
-    canvasElement.style.cursor = 'grab';
-});
-
-canvasElement.addEventListener('mouseleave', () => {
-    canvasElement.style.cursor = 'auto';
-});
-
-canvasElement.addEventListener('mousedown', () => {
+canvasElement.addEventListener('pointerdown', () => {
     canvasElement.style.cursor = 'grabbing';
 });
 
-canvasElement.addEventListener('mouseup', () => {
+canvasElement.addEventListener('pointerup', () => {
     canvasElement.style.cursor = 'grab';
+});
+
+canvasElement.addEventListener('pointermove', () => {
+    if (canvasElement.style.cursor === 'grabbing') {
+        canvasElement.style.cursor = 'grabbing';
+    }
+});
+
+canvasElement.addEventListener('pointerleave', () => {
+    canvasElement.style.cursor = 'auto';
 });
 
 stlLoader.load('3dpea copy.stl', function (geometry) {
