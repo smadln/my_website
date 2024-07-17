@@ -53,3 +53,11 @@ input[type="button"] {
   margin: 6px;
   z-index: 1000;
 }
+
+.grabbing {
+    cursor: grab;
+}
+
+.grabbing:active {
+    cursor: grabbing;
+}
