@@ -81,6 +81,15 @@ effect.domElement.addEventListener('mouseleave', () => {
     effect.domElement.classList.remove('grabbing');
 });
 
+renderer.domElement.style.cursor = 'grab';
+
+renderer.domElement.addEventListener('mousedown', () => {
+    renderer.domElement.style.cursor = 'grabbing';
+});
+renderer.domElement.addEventListener('mouseup', () => {
+    renderer.domElement.style.cursor = 'grab';
+});
+
 document.getElementById("ascii").style.whiteSpace = "pre-wrap";
 
 stlLoader.load('3dpea copy.stl', function (geometry) {
