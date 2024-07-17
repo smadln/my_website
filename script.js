@@ -68,7 +68,7 @@ createEffect();
 
 document.body.appendChild(effect.domElement);
 
-const canvasElement = effect.domElement;
+const canvasElement = renderer.domElement;
 
 // Add event listeners for cursor change
 canvasElement.addEventListener('pointerdown', () => {
@@ -109,9 +109,8 @@ stlLoader.load('3dpea copy.stl', function (geometry) {
 
     scene.add(myMesh);
 
-    controls = new OrbitControls(camera, canvasElement);
-
     // Ensure the cursor style is set correctly within OrbitControls
+    controls = new OrbitControls(camera, canvasElement);
     controls.addEventListener('start', () => {
         canvasElement.style.cursor = 'grabbing';
     });
