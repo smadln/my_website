@@ -278,3 +278,22 @@ function toggleRotation() {
 }
 
 window.addEventListener('resize', onWindowResize);
+
+// Add new JavaScript code for cursor change
+document.addEventListener('mousemove', (event) => {
+    const middleX = window.innerWidth / 2;
+    const middleY = window.innerHeight / 2;
+    const offsetX = middleX / 2;
+    const offsetY = middleY / 2;
+
+    if (
+        event.clientX > middleX - offsetX &&
+        event.clientX < middleX + offsetX &&
+        event.clientY > middleY - offsetY &&
+        event.clientY < middleY + offsetY
+    ) {
+        document.body.style.cursor = 'grab';
+    } else {
+        document.body.style.cursor = 'auto';
+    }
+});
