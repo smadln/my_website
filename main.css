@@ -167,6 +167,18 @@ canvas.grabbing:active {
     cursor: grabbing;
 }
 
+.middle-section {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+.grab-cursor {
+    cursor: grab;
+}
+
 @media screen and (max-width: 768px) {
     .name, .header a, .horizontal-list li a, .horizontal-list li button, #rotateButton {
         font-size: 12px;
