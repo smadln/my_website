@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sky with Reflective Water</title>
+    <title>3D Space with Reflective Water</title>
     <style>
         body { margin: 0; }
         canvas { display: block; }
@@ -51,11 +51,15 @@
             });
 
             // Load sky texture
-            const skyTexture = new THREE.TextureLoader().load('sky_1.jpg');
-            const skyGeometry = new THREE.SphereGeometry(450000, 32, 32);
-            const skyMaterial = new THREE.MeshBasicMaterial({ map: skyTexture, side: THREE.BackSide });
-            sky = new THREE.Mesh(skyGeometry, skyMaterial);
-            scene.add(sky);
+            const skyTexture = new THREE.TextureLoader().load('sky_1.jpg', function (texture) {
+                console.log('Sky texture loaded');
+                const skyGeometry = new THREE.SphereGeometry(450000, 32, 32);
+                const skyMaterial = new THREE.MeshBasicMaterial({ map: texture, side: THREE.BackSide });
+                sky = new THREE.Mesh(skyGeometry, skyMaterial);
+                scene.add(sky);
+            }, undefined, function (err) {
+                console.error('An error happened while loading the sky texture.');
+            });
 
             // Create water with reflection
             const waterGeometry = new THREE.PlaneGeometry(10000, 10000);
@@ -75,6 +79,13 @@
             water.rotation.x = -Math.PI / 2;
             scene.add(water);
 
+            // Add a basic ground plane to help visualize the scene
+            const groundGeometry = new THREE.PlaneGeometry(10000, 10000);
+            const groundMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+            const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+            ground.rotation.x = -Math.PI / 2;
+            scene.add(ground);
+
             // Sun position and sky reflection
             const sun = new THREE.Vector3();
 
@@ -89,22 +100,24 @@
             };
 
             function guiChanged() {
-                const uniforms = sky.material.uniforms;
-                uniforms['turbidity'].value = effectController.turbidity;
-                uniforms['rayleigh'].value = effectController.rayleigh;
-                uniforms['mieCoefficient'].value = effectController.mieCoefficient;
-                uniforms['mieDirectionalG'].value = effectController.mieDirectionalG;
+                if (sky && sky.material.uniforms) {
+                    const uniforms = sky.material.uniforms;
+                    uniforms['turbidity'].value = effectController.turbidity;
+                    uniforms['rayleigh'].value = effectController.rayleigh;
+                    uniforms['mieCoefficient'].value = effectController.mieCoefficient;
+                    uniforms['mieDirectionalG'].value = effectController.mieDirectionalG;
 
-                const phi = THREE.MathUtils.degToRad(90 - effectController.elevation);
-                const theta = THREE.MathUtils.degToRad(effectController.azimuth);
+                    const phi = THREE.MathUtils.degToRad(90 - effectController.elevation);
+                    const theta = THREE.MathUtils.degToRad(effectController.azimuth);
 
-                sun.setFromSphericalCoords(1, phi, theta);
+                    sun.setFromSphericalCoords(1, phi, theta);
 
-                uniforms['sunPosition'].value.copy(sun);
-                water.material.uniforms['sunDirection'].value.copy(sun).normalize();
+                    uniforms['sunPosition'].value.copy(sun);
+                    water.material.uniforms['sunDirection'].value.copy(sun).normalize();
 
-                renderer.toneMappingExposure = effectController.exposure;
-                renderer.render(scene, camera);
+                    renderer.toneMappingExposure = effectController.exposure;
+                    renderer.render(scene, camera);
+                }
             }
 
             guiChanged();
