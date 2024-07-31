@@ -11,8 +11,9 @@
 </head>
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://threejs.org/examples/jsm/controls/PointerLockControls.js"></script>
-  <script src="https://threejs.org/examples/jsm/objects/Water2.js"></script>
+  <script src="https://threejs.org/examples/js/controls/PointerLockControls.js"></script>
+  <script src="https://threejs.org/examples/js/objects/Water.js"></script>
+  <script src="https://threejs.org/examples/js/libs/fflate.min.js"></script>
   <script>
     // Initialize scene, camera, and renderer
     const scene = new THREE.Scene();
@@ -54,7 +55,7 @@
 
     // Create the water surface
     const waterGeometry = new THREE.PlaneGeometry(1000, 1000);
-    const water = new THREE.Water2(waterGeometry, {
+    const water = new THREE.Water(waterGeometry, {
       color: 0x001e0f,
       scale: 4,
       flowDirection: new THREE.Vector2(1, 1),
