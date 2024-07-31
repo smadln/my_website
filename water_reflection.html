@@ -36,6 +36,13 @@
     const controls = new THREE.PointerLockControls(camera, document.body);
     document.addEventListener('click', () => controls.lock(), false);
 
+    // Debugging - Add a simple cube to ensure the scene is being rendered
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const cube = new THREE.Mesh(geometry, material);
+    cube.position.set(0, 1, 0);
+    scene.add(cube);
+
     // Create the skybox
     const skyGeometry = new THREE.SphereGeometry(500, 60, 40);
     const skyMaterial = new THREE.MeshBasicMaterial({
@@ -68,6 +75,10 @@
     }
 
     animate();
+
+    // Output camera and controls positions for debugging
+    console.log('Camera position:', camera.position);
+    console.log('Controls:', controls);
   </script>
 </body>
 </html>
