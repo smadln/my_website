@@ -13,7 +13,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://threejs.org/examples/js/controls/PointerLockControls.js"></script>
   <script src="https://threejs.org/examples/js/objects/Water.js"></script>
-  <script src="https://threejs.org/examples/js/libs/fflate.min.js"></script>
   <script>
     // Initialize scene, camera, and renderer
     const scene = new THREE.Scene();
@@ -55,12 +54,17 @@
 
     // Create the water surface
     const waterGeometry = new THREE.PlaneGeometry(1000, 1000);
+    const waterNormals = new THREE.TextureLoader().load('https://threejs.org/examples/textures/waternormals.jpg');
+    waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
     const water = new THREE.Water(waterGeometry, {
-      color: 0x001e0f,
-      scale: 4,
-      flowDirection: new THREE.Vector2(1, 1),
-      textureWidth: 1024,
-      textureHeight: 1024,
+      textureWidth: 512,
+      textureHeight: 512,
+      waterNormals: waterNormals,
+      alpha: 1.0,
+      sunDirection: directionalLight.position.clone().normalize(),
+      sunColor: 0xffffff,
+      waterColor: 0x001e0f,
+      distortionScale: 3.7,
     });
     water.rotation.x = -Math.PI / 2;
     scene.add(water);
