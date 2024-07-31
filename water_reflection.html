@@ -11,10 +11,8 @@
 </head>
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/OrbitControls.js"></script>
   <script src="https://threejs.org/examples/jsm/controls/PointerLockControls.js"></script>
-  <script src="https://threejs.org/examples/jsm/objects/Water.js"></script>
-  <script src="https://threejs.org/examples/jsm/shaders/WaterShader.js"></script>
+  <script src="https://threejs.org/examples/jsm/objects/Water2.js"></script>
   <script>
     // Initialize scene, camera, and renderer
     const scene = new THREE.Scene();
@@ -23,14 +21,25 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
+    // Set the clear color to blue to help diagnose
+    renderer.setClearColor(0x87CEEB);
+
+    // Add basic ambient light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(50, 50, 50).normalize();
+    scene.add(directionalLight);
+
     // Add controls
     const controls = new THREE.PointerLockControls(camera, document.body);
     document.addEventListener('click', () => controls.lock(), false);
 
     // Create the skybox
-    const skyGeometry = new THREE.SphereGeometry(500, 60, 40); 
+    const skyGeometry = new THREE.SphereGeometry(500, 60, 40);
     const skyMaterial = new THREE.MeshBasicMaterial({
-      map: new THREE.TextureLoader().load('https://threejs.org/examples/textures/skybox/sky.jpg'), 
+      map: new THREE.TextureLoader().load('https://threejs.org/examples/textures/skybox/sky.jpg'),
       side: THREE.BackSide
     });
     const sky = new THREE.Mesh(skyGeometry, skyMaterial);
@@ -38,7 +47,7 @@
 
     // Create the water surface
     const waterGeometry = new THREE.PlaneGeometry(1000, 1000);
-    const water = new THREE.Water(waterGeometry, {
+    const water = new THREE.Water2(waterGeometry, {
       color: 0x001e0f,
       scale: 4,
       flowDirection: new THREE.Vector2(1, 1),
@@ -49,6 +58,7 @@
     scene.add(water);
 
     camera.position.z = 5;
+    camera.position.y = 2;
 
     // Render loop
     function animate() {
