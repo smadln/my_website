@@ -45,14 +45,16 @@
     scene.add(cube);
 
     // Create the skybox
-    const skyGeometry = new THREE.SphereGeometry(500, 60, 40);
-    const skyTexture = new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_stars_milky_way.jpg'); // Blue sky with clouds texture
-    const skyMaterial = new THREE.MeshBasicMaterial({
-      map: skyTexture,
-      side: THREE.BackSide
-    });
-    const sky = new THREE.Mesh(skyGeometry, skyMaterial);
-    scene.add(sky);
+    const loader = new THREE.CubeTextureLoader();
+    const texture = loader.load([
+      '/mnt/data/bluecloud_rt.jpg',  // right
+      '/mnt/data/bluecloud_lf.jpg',  // left
+      '/mnt/data/bluecloud_up.jpg',  // top
+      '/mnt/data/bluecloud_dn.jpg',  // bottom
+      '/mnt/data/bluecloud_ft.jpg',  // front
+      '/mnt/data/bluecloud_bk.jpg'   // back
+    ]);
+    scene.background = texture;
 
     // Create the water surface
     const waterGeometry = new THREE.PlaneGeometry(1000, 1000);
