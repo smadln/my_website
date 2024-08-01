@@ -47,7 +47,7 @@
     // Create the skybox
     const skyGeometry = new THREE.SphereGeometry(500, 60, 40);
     const skyMaterial = new THREE.MeshBasicMaterial({
-      map: new THREE.TextureLoader().load('https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/skybox/sky.jpg'),
+      map: new THREE.TextureLoader().load('https://threejs.org/examples/textures/sky.jpg'),
       side: THREE.BackSide
     });
     const sky = new THREE.Mesh(skyGeometry, skyMaterial);
@@ -55,7 +55,7 @@
 
     // Create the water surface
     const waterGeometry = new THREE.PlaneGeometry(1000, 1000);
-    const waterNormals = new THREE.TextureLoader().load('https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/waternormals.jpg');
+    const waterNormals = new THREE.TextureLoader().load('https://threejs.org/examples/textures/waternormals.jpg');
     waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
     const water = new THREE.Water(waterGeometry, {
       textureWidth: 512,
