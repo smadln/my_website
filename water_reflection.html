@@ -12,7 +12,7 @@
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/objects/Water2.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/objects/Water.js"></script>
   <script>
     // Initialize scene, camera, and renderer
     const scene = new THREE.Scene();
@@ -33,7 +33,7 @@
     scene.add(directionalLight);
 
     // Add controls
-    const controls = new THREE.PointerLockControls(camera, renderer.domElement);
+    const controls = new THREE.PointerLockControls(camera, document.body);
     scene.add(controls.getObject());
     document.addEventListener('click', () => controls.lock(), false);
 
@@ -47,7 +47,7 @@
     // Create the skybox
     const skyGeometry = new THREE.SphereGeometry(500, 60, 40);
     const skyMaterial = new THREE.MeshBasicMaterial({
-      map: new THREE.TextureLoader().load('https://threejs.org/examples/textures/skybox/sky.jpg'),
+      map: new THREE.TextureLoader().load('https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/skybox/sky.jpg'),
       side: THREE.BackSide
     });
     const sky = new THREE.Mesh(skyGeometry, skyMaterial);
@@ -55,15 +55,17 @@
 
     // Create the water surface
     const waterGeometry = new THREE.PlaneGeometry(1000, 1000);
-    const waterNormals = new THREE.TextureLoader().load('https://threejs.org/examples/textures/waternormals.jpg');
+    const waterNormals = new THREE.TextureLoader().load('https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/waternormals.jpg');
     waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-    const water = new THREE.Water2(waterGeometry, {
-      color: 0x001e0f,
-      scale: 4,
-      flowDirection: new THREE.Vector2(1, 1),
-      textureWidth: 1024,
-      textureHeight: 1024,
-      waterNormals: waterNormals
+    const water = new THREE.Water(waterGeometry, {
+      textureWidth: 512,
+      textureHeight: 512,
+      waterNormals: waterNormals,
+      alpha: 1.0,
+      sunDirection: directionalLight.position.clone().normalize(),
+      sunColor: 0xffffff,
+      waterColor: 0x001e0f,
+      distortionScale: 3.7,
     });
     water.rotation.x = -Math.PI / 2;
     scene.add(water);
