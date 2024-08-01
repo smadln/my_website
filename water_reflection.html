@@ -37,6 +37,59 @@
     scene.add(controls.getObject());
     document.addEventListener('click', () => controls.lock(), false);
 
+    // Movement variables
+    const moveSpeed = 0.1;
+    let moveForward = false;
+    let moveBackward = false;
+    let moveLeft = false;
+    let moveRight = false;
+
+    // Add event listeners for key down and key up
+    const onKeyDown = (event) => {
+      switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = true;
+          break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = true;
+          break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = true;
+          break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = true;
+          break;
+      }
+    };
+
+    const onKeyUp = (event) => {
+      switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = false;
+          break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = false;
+          break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = false;
+          break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = false;
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('keyup', onKeyUp);
+
     // Debugging - Add a simple cube to ensure the scene is being rendered
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
@@ -79,6 +132,21 @@
     // Render loop
     function animate() {
       requestAnimationFrame(animate);
+
+      if (controls.isLocked) {
+        const direction = new THREE.Vector3();
+        const velocity = new THREE.Vector3();
+
+        if (moveForward) velocity.z -= moveSpeed;
+        if (moveBackward) velocity.z += moveSpeed;
+        if (moveLeft) velocity.x -= moveSpeed;
+        if (moveRight) velocity.x += moveSpeed;
+
+        direction.copy(velocity).normalize();
+        if (moveForward || moveBackward) controls.moveForward(direction.z * moveSpeed);
+        if (moveLeft || moveRight) controls.moveRight(direction.x * moveSpeed);
+      }
+
       water.material.uniforms['time'].value += 1.0 / 60.0;
       renderer.render(scene, camera);
     }
