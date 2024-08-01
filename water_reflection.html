@@ -46,8 +46,9 @@
 
     // Create the skybox
     const skyGeometry = new THREE.SphereGeometry(500, 60, 40);
+    const skyTexture = new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_stars_milky_way.jpg'); // Blue sky with clouds texture
     const skyMaterial = new THREE.MeshBasicMaterial({
-      map: new THREE.TextureLoader().load('https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/cube/Park2/posz.jpg'),
+      map: skyTexture,
       side: THREE.BackSide
     });
     const sky = new THREE.Mesh(skyGeometry, skyMaterial);
