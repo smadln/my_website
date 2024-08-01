@@ -11,8 +11,8 @@
 </head>
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://threejs.org/examples/js/controls/PointerLockControls.js"></script>
-  <script src="https://threejs.org/examples/js/objects/Water.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/objects/Water2.js"></script>
   <script>
     // Initialize scene, camera, and renderer
     const scene = new THREE.Scene();
@@ -34,8 +34,8 @@
 
     // Add controls
     const controls = new THREE.PointerLockControls(camera, renderer.domElement);
-    document.addEventListener('click', () => controls.lock(), false);
     scene.add(controls.getObject());
+    document.addEventListener('click', () => controls.lock(), false);
 
     // Debugging - Add a simple cube to ensure the scene is being rendered
     const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -57,15 +57,13 @@
     const waterGeometry = new THREE.PlaneGeometry(1000, 1000);
     const waterNormals = new THREE.TextureLoader().load('https://threejs.org/examples/textures/waternormals.jpg');
     waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-    const water = new THREE.Water(waterGeometry, {
-      textureWidth: 512,
-      textureHeight: 512,
-      waterNormals: waterNormals,
-      alpha: 1.0,
-      sunDirection: directionalLight.position.clone().normalize(),
-      sunColor: 0xffffff,
-      waterColor: 0x001e0f,
-      distortionScale: 3.7,
+    const water = new THREE.Water2(waterGeometry, {
+      color: 0x001e0f,
+      scale: 4,
+      flowDirection: new THREE.Vector2(1, 1),
+      textureWidth: 1024,
+      textureHeight: 1024,
+      waterNormals: waterNormals
     });
     water.rotation.x = -Math.PI / 2;
     scene.add(water);
