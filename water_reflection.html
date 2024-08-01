@@ -13,7 +13,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/objects/Water.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/ShaderLib.js"></script>
   <script>
     // Initialize scene, camera, and renderer
     const scene = new THREE.Scene();
@@ -98,70 +97,17 @@
     cube.position.set(0, 1, 0);
     scene.add(cube);
 
-    // Load textures for the skybox
-    const loader = new THREE.TextureLoader();
-    const textureRt = loader.load('cloudy/bluecloud_rt.jpg');
-    const textureLf = loader.load('cloudy/bluecloud_lf.jpg');
-    const textureUp = loader.load('cloudy/bluecloud_up.jpg');
-    const textureDn = loader.load('cloudy/bluecloud_dn.jpg');
-    const textureFt = loader.load('cloudy/bluecloud_ft.jpg');
-    const textureBk = loader.load('cloudy/bluecloud_bk.jpg');
-
-    // Create the skybox with a shader
-    const skyboxShader = {
-      uniforms: {
-        "top": { value: textureUp },
-        "bottom": { value: textureDn },
-        "front": { value: textureFt },
-        "back": { value: textureBk },
-        "left": { value: textureLf },
-        "right": { value: textureRt },
-      },
-      vertexShader: `
-        varying vec3 vWorldPosition;
-        void main() {
-          vec4 worldPosition = modelMatrix * vec4(position, 1.0);
-          vWorldPosition = worldPosition.xyz;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform sampler2D top;
-        uniform sampler2D bottom;
-        uniform sampler2D front;
-        uniform sampler2D back;
-        uniform sampler2D left;
-        uniform sampler2D right;
-        varying vec3 vWorldPosition;
-        void main() {
-          vec3 direction = normalize(vWorldPosition);
-          vec2 uv;
-          vec4 color;
-          if (abs(direction.y) > abs(direction.x) && abs(direction.y) > abs(direction.z)) {
-            uv = vec2(direction.x, direction.z) * 0.5 + 0.5;
-            color = direction.y > 0.0 ? texture2D(top, uv) : texture2D(bottom, uv);
-          } else if (abs(direction.x) > abs(direction.z)) {
-            uv = vec2(direction.y, direction.z) * 0.5 + 0.5;
-            color = direction.x > 0.0 ? texture2D(right, uv) : texture2D(left, uv);
-          } else {
-            uv = vec2(direction.x, direction.y) * 0.5 + 0.5;
-            color = direction.z > 0.0 ? texture2D(front, uv) : texture2D(back, uv);
-          }
-          gl_FragColor = color;
-        }
-      `
-    };
-
-    const skyboxMaterial = new THREE.ShaderMaterial({
-      uniforms: skyboxShader.uniforms,
-      vertexShader: skyboxShader.vertexShader,
-      fragmentShader: skyboxShader.fragmentShader,
-      side: THREE.BackSide
-    });
-
-    const skyboxGeometry = new THREE.BoxGeometry(1000, 1000, 1000);
-    const skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
-    scene.add(skybox);
+    // Create the skybox
+    const loader = new THREE.CubeTextureLoader();
+    const texture = loader.load([
+      'cloudy/bluecloud_rt.jpg',  // right
+      'cloudy/bluecloud_lf.jpg',  // left
+      'cloudy/bluecloud_up.jpg',  // top
+      'cloudy/bluecloud_dn.jpg',  // bottom
+      'cloudy/bluecloud_ft.jpg',  // front
+      'cloudy/bluecloud_bk.jpg'   // back
+    ]);
+    scene.background = texture;
 
     // Create the water surface
     const waterGeometry = new THREE.PlaneGeometry(1000, 1000);
