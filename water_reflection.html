@@ -100,12 +100,12 @@
     // Create the skybox
     const loader = new THREE.CubeTextureLoader();
     const texture = loader.load([
-      'cloudy/bluecloud_rt.jpg',  // right
-      'cloudy/bluecloud_lf.jpg',  // left
+      'cloudy/bluecloud_bk.jpg',  // right
+      'cloudy/bluecloud_ft.jpg',  // left
       'cloudy/bluecloud_up.jpg',  // top
       'cloudy/bluecloud_dn.jpg',  // bottom
-      'cloudy/bluecloud_ft.jpg',  // front
-      'cloudy/bluecloud_bk.jpg'   // back
+      'cloudy/bluecloud_lf.jpg',  // front
+      'cloudy/bluecloud_rt.jpg'   // back
     ]);
     scene.background = texture;
 
