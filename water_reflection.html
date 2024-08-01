@@ -33,9 +33,9 @@
     scene.add(directionalLight);
 
     // Add controls
-    const controls = new THREE.PointerLockControls(camera, document.body);
-    scene.add(controls.getObject());
+    const controls = new THREE.PointerLockControls(camera, renderer.domElement);
     document.addEventListener('click', () => controls.lock(), false);
+    scene.add(controls.getObject());
 
     // Debugging - Add a simple cube to ensure the scene is being rendered
     const geometry = new THREE.BoxGeometry(1, 1, 1);
