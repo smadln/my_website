@@ -92,7 +92,7 @@
 
     // Replace the cube with a plane that has the image texture
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('/mnt/data/ascii_siblings_i.png');
+    const texture = textureLoader.load('ascii_siblings_i.png');
     const imageGeometry = new THREE.PlaneGeometry(5, 5);
     const imageMaterial = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide, transparent: true });
     const imageMesh = new THREE.Mesh(imageGeometry, imageMaterial);
