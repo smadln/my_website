@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Environment</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
+  <script>
+    // Initialize scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Set the clear color to dark red
+    renderer.setClearColor(0x8B0000); // Dark red color
+
+    // Add basic ambient light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(50, 50, 50).normalize();
+    scene.add(directionalLight);
+
+    // Add controls
+    const controls = new THREE.PointerLockControls(camera, document.body);
+    scene.add(controls.getObject());
+    document.addEventListener('click', () => controls.lock(), false);
+
+    // Movement variables
+    const moveSpeed = 0.1;
+    let moveForward = false;
+    let moveBackward = false;
+    let moveLeft = false;
+    let moveRight = false;
+
+    // Add event listeners for key down and key up
+    const onKeyDown = (event) => {
+      switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = true;
+          break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = true;
+          break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = true;
+          break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = true;
+          break;
+      }
+    };
+
+    const onKeyUp = (event) => {
+      switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = false;
+          break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = false;
+          break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = false;
+          break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = false;
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('keyup', onKeyUp);
+
+    // Replace the cube with a plane that has the image texture
+    const textureLoader = new THREE.TextureLoader();
+    const texture = textureLoader.load('ascii_siblings_i.png', function(texture) {
+        texture.minFilter = THREE.LinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+    });
+
+    const originalImageWidth = 5; // Original width of the image plane
+    const originalImageHeight = originalImageWidth * (768 / 512); // Maintain aspect ratio of the image (512x768)
+
+    const imageGeometry = new THREE.PlaneGeometry(originalImageWidth, originalImageHeight);
+    const imageMaterial = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide, transparent: true });
+    const imageMesh = new THREE.Mesh(imageGeometry, imageMaterial);
+    imageMesh.position.set(0, originalImageHeight / 2, 0); // Adjust the position as needed
+    scene.add(imageMesh);
+
+    // Set the background color of the scene to dark red
+    scene.background = new THREE.Color(0x8B0000); // Dark red color
+
+    camera.position.z = 5;
+    camera.position.y = 2;
+
+    // Render loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      if (controls.isLocked) {
+        const direction = new THREE.Vector3();
+        const velocity = new THREE.Vector3();
+
+        if (moveForward) velocity.z -= moveSpeed;
+        if (moveBackward) velocity.z += moveSpeed;
+        if (moveLeft) velocity.x -= moveSpeed;
+        if (moveRight) velocity.x += moveSpeed;
+
+        direction.copy(velocity).normalize();
+        if (moveForward || moveBackward) controls.moveForward(direction.z * moveSpeed);
+        if (moveLeft || moveRight) controls.moveRight(direction.x * moveSpeed);
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Output camera and controls positions for debugging
+    console.log('Camera position:', camera.position);
+    console.log('Controls:', controls);
+  </script>
+</body>
+</html>
