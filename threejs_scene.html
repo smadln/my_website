@@ -31,7 +31,7 @@
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ alpha: true });
-            
+
             // Set the renderer size to match the canvas element
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.domElement.style.width = '100%'; // Ensure canvas takes full width of its container
@@ -61,6 +61,9 @@
                     const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, side: THREE.DoubleSide });
                     const mesh = new THREE.Mesh(geometry, material);
                     scene.add(mesh);
+
+                    // Adjust material properties for better clarity
+                    material.needsUpdate = true;
 
                     // Animate and render
                     function animate() {
