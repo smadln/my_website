@@ -38,9 +38,6 @@
             renderer.domElement.style.height = '100%'; // Ensure canvas takes full height of its container
             document.querySelector('.canvas-container').appendChild(renderer.domElement);
 
-            // Log for debugging
-            console.log('Renderer and Scene initialized');
-
             // Load the image to get its dimensions
             const img = new Image();
             img.src = './ascii_siblings_i.png';
@@ -52,16 +49,15 @@
                 // Load the texture
                 const textureLoader = new THREE.TextureLoader();
                 textureLoader.load('./ascii_siblings_i.png', function (texture) {
-                    console.log('Texture loaded successfully');
+                    // Set texture filtering to nearest for better definition
+                    texture.minFilter = THREE.NearestFilter;
+                    texture.magFilter = THREE.NearestFilter;
 
                     // Create the plane geometry
                     const geometry = new THREE.PlaneGeometry(5 * aspectRatio, 5);
                     const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, side: THREE.DoubleSide });
                     const mesh = new THREE.Mesh(geometry, material);
                     scene.add(mesh);
-
-                    // Log the mesh addition
-                    console.log('Mesh added to the scene');
 
                     // Animate and render
                     function animate() {
@@ -91,17 +87,13 @@
                         }
                     });
 
-                    // Log for debugging
-                    console.log('Animation and interaction set up');
+                    // Camera positioning
+                    camera.position.z = 5;
                 },
                 undefined,
                 function (error) {
                     console.error('An error occurred loading the texture:', error);
                 });
-
-                // Camera positioning
-                camera.position.z = 5;
-                console.log('Camera positioned');
             };
         </script>
     </div>
