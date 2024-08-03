@@ -49,9 +49,12 @@
                 // Load the texture
                 const textureLoader = new THREE.TextureLoader();
                 textureLoader.load('./ascii_siblings_i.png', function (texture) {
-                    // Set texture filtering to nearest for better definition
-                    texture.minFilter = THREE.NearestFilter;
-                    texture.magFilter = THREE.NearestFilter;
+                    // Set texture filtering to linear for smoother results
+                    texture.minFilter = THREE.LinearFilter;
+                    texture.magFilter = THREE.LinearFilter;
+
+                    // Increase anisotropy for better quality at angles
+                    texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
 
                     // Create the plane geometry
                     const geometry = new THREE.PlaneGeometry(5 * aspectRatio, 5);
