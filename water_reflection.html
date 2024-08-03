@@ -90,16 +90,18 @@
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('keyup', onKeyUp);
 
-    // Debugging - Add a simple cube to ensure the scene is being rendered
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    cube.position.set(0, 1, 0);
-    scene.add(cube);
+    // Replace the cube with a plane that has the image texture
+    const textureLoader = new THREE.TextureLoader();
+    const texture = textureLoader.load('/mnt/data/ascii_siblings_i.png');
+    const imageGeometry = new THREE.PlaneGeometry(5, 5);
+    const imageMaterial = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide, transparent: true });
+    const imageMesh = new THREE.Mesh(imageGeometry, imageMaterial);
+    imageMesh.position.set(0, 2.5, 0); // Adjust the position as needed
+    scene.add(imageMesh);
 
     // Create the skybox
     const loader = new THREE.CubeTextureLoader();
-    const texture = loader.load([
+    const textureCube = loader.load([
       'cloudy/bluecloud_rt.jpg',  // right
       'cloudy/bluecloud_lf.jpg',  // left
       'cloudy/bluecloud_up.jpg',  // top
@@ -107,7 +109,7 @@
       'cloudy/bluecloud_bk.jpg',  // front
       'cloudy/bluecloud_ft.jpg'   // back
     ]);
-    scene.background = texture;
+    scene.background = textureCube;
 
     // Create the water surface
     const waterGeometry = new THREE.PlaneGeometry(1000, 1000);
