@@ -8,98 +8,102 @@
         body { 
             margin: 0; 
             background-color: darkred;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .canvas-container {
+            width: 15%;
         }
         canvas { 
             display: block; 
-            position: absolute;
-            width: 15%; 
-            height: 50vh; 
-            top: 50%; 
-            left: 50%; 
-            transform: translate(-50%, -50%);
+            width: 100%; 
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        // Initialize the scene
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
-        
-        // Set the renderer size to match the canvas element
-        const canvas = document.createElement('canvas');
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.domElement.style.width = '100%'; // Ensure canvas takes full width of its container
-        renderer.domElement.style.height = '100%'; // Ensure canvas takes full height of its container
-        document.body.appendChild(renderer.domElement);
+    <div class="canvas-container">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script>
+            // Initialize the scene
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true });
+            
+            // Set the renderer size to match the canvas element
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.domElement.style.width = '100%'; // Ensure canvas takes full width of its container
+            renderer.domElement.style.height = '100%'; // Ensure canvas takes full height of its container
+            document.querySelector('.canvas-container').appendChild(renderer.domElement);
 
-        // Log for debugging
-        console.log('Renderer and Scene initialized');
+            // Log for debugging
+            console.log('Renderer and Scene initialized');
 
-        // Load the image to get its dimensions
-        const img = new Image();
-        img.src = './ascii_siblings_i.png';
-        img.onload = function() {
-            const imgWidth = img.width;
-            const imgHeight = img.height;
-            const aspectRatio = imgWidth / imgHeight;
+            // Load the image to get its dimensions
+            const img = new Image();
+            img.src = './ascii_siblings_i.png';
+            img.onload = function() {
+                const imgWidth = img.width;
+                const imgHeight = img.height;
+                const aspectRatio = imgWidth / imgHeight;
 
-            // Load the texture
-            const textureLoader = new THREE.TextureLoader();
-            textureLoader.load('./ascii_siblings_i.png', function (texture) {
-                console.log('Texture loaded successfully');
+                // Load the texture
+                const textureLoader = new THREE.TextureLoader();
+                textureLoader.load('./ascii_siblings_i.png', function (texture) {
+                    console.log('Texture loaded successfully');
 
-                // Create the plane geometry
-                const geometry = new THREE.PlaneGeometry(5 * aspectRatio, 5);
-                const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, side: THREE.DoubleSide });
-                const mesh = new THREE.Mesh(geometry, material);
-                scene.add(mesh);
+                    // Create the plane geometry
+                    const geometry = new THREE.PlaneGeometry(5 * aspectRatio, 5);
+                    const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, side: THREE.DoubleSide });
+                    const mesh = new THREE.Mesh(geometry, material);
+                    scene.add(mesh);
 
-                // Log the mesh addition
-                console.log('Mesh added to the scene');
+                    // Log the mesh addition
+                    console.log('Mesh added to the scene');
 
-                // Animate and render
-                function animate() {
-                    requestAnimationFrame(animate);
-                    renderer.render(scene, camera);
-                }
-                animate();
-
-                // Mouse interaction
-                let isMouseDown = false;
-                let prevMouseX = 0;
-
-                document.addEventListener('mousedown', function(event) {
-                    isMouseDown = true;
-                    prevMouseX = event.clientX;
-                });
-
-                document.addEventListener('mouseup', function() {
-                    isMouseDown = false;
-                });
-
-                document.addEventListener('mousemove', function(event) {
-                    if (isMouseDown) {
-                        const deltaX = event.clientX - prevMouseX;
-                        prevMouseX = event.clientX;
-                        mesh.rotation.y += deltaX * 0.01;
+                    // Animate and render
+                    function animate() {
+                        requestAnimationFrame(animate);
+                        renderer.render(scene, camera);
                     }
+                    animate();
+
+                    // Mouse interaction
+                    let isMouseDown = false;
+                    let prevMouseX = 0;
+
+                    document.addEventListener('mousedown', function(event) {
+                        isMouseDown = true;
+                        prevMouseX = event.clientX;
+                    });
+
+                    document.addEventListener('mouseup', function() {
+                        isMouseDown = false;
+                    });
+
+                    document.addEventListener('mousemove', function(event) {
+                        if (isMouseDown) {
+                            const deltaX = event.clientX - prevMouseX;
+                            prevMouseX = event.clientX;
+                            mesh.rotation.y += deltaX * 0.01;
+                        }
+                    });
+
+                    // Log for debugging
+                    console.log('Animation and interaction set up');
+                },
+                undefined,
+                function (error) {
+                    console.error('An error occurred loading the texture:', error);
                 });
 
-                // Log for debugging
-                console.log('Animation and interaction set up');
-            },
-            undefined,
-            function (error) {
-                console.error('An error occurred loading the texture:', error);
-            });
-
-            // Camera positioning
-            camera.position.z = 5;
-            console.log('Camera positioned');
-        };
-    </script>
+                // Camera positioning
+                camera.position.z = 5;
+                console.log('Camera positioned');
+            };
+        </script>
+    </div>
 </body>
 </html>
