@@ -14,8 +14,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <!-- Include the PointerLockControls for basic movement controls -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
-  <!-- Include the VRButton for adding VR support -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/webxr/VRButton.js"></script>
 
   <script>
     // Initialize scene, camera, and renderer
@@ -26,8 +24,18 @@
     renderer.xr.enabled = true;  // Enable WebXR
     document.body.appendChild(renderer.domElement);
 
-    // Add the VR Button
-    document.body.appendChild(THREE.VRButton.createButton(renderer));
+    // Create a simple VRButton (if not working, you can replace this with a basic button to enter VR)
+    const button = document.createElement('button');
+    button.style.position = 'absolute';
+    button.style.top = '10px';
+    button.style.left = '10px';
+    button.textContent = 'Enter VR';
+    document.body.appendChild(button);
+
+    button.addEventListener('click', () => {
+      renderer.xr.enabled = true;
+      renderer.xr.setSession(renderer.xr.getSession() ? null : navigator.xr.requestSession('immersive-vr'));
+    });
 
     // Set the clear color to sky blue
     renderer.setClearColor(0x87CEEB);
