@@ -12,13 +12,18 @@
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/webxr/VRButton.js"></script>
   <script>
     // Initialize scene, camera, and renderer
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.xr.enabled = true;  // Enable WebXR
     document.body.appendChild(renderer.domElement);
+
+    // Add the VR Button
+    document.body.appendChild(VRButton.createButton(renderer));
 
     // Set the clear color to blue to help diagnose
     renderer.setClearColor(0x87CEEB);
@@ -122,23 +127,23 @@
 
     // Render loop
     function animate() {
-      requestAnimationFrame(animate);
+      renderer.setAnimationLoop(function() {
+        if (controls.isLocked) {
+          const direction = new THREE.Vector3();
+          const velocity = new THREE.Vector3();
 
-      if (controls.isLocked) {
-        const direction = new THREE.Vector3();
-        const velocity = new THREE.Vector3();
+          if (moveForward) velocity.z -= moveSpeed;
+          if (moveBackward) velocity.z += moveSpeed;
+          if (moveLeft) velocity.x -= moveSpeed;
+          if (moveRight) velocity.x += moveSpeed;
 
-        if (moveForward) velocity.z -= moveSpeed;
-        if (moveBackward) velocity.z += moveSpeed;
-        if (moveLeft) velocity.x -= moveSpeed;
-        if (moveRight) velocity.x += moveSpeed;
+          direction.copy(velocity).normalize();
+          if (moveForward || moveBackward) controls.moveForward(direction.z * moveSpeed);
+          if (moveLeft || moveRight) controls.moveRight(direction.x * moveSpeed);
+        }
 
-        direction.copy(velocity).normalize();
-        if (moveForward || moveBackward) controls.moveForward(direction.z * moveSpeed);
-        if (moveLeft || moveRight) controls.moveRight(direction.x * moveSpeed);
-      }
-
-      renderer.render(scene, camera);
+        renderer.render(scene, camera);
+      });
     }
 
     animate();
