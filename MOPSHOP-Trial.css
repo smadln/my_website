@@ -16,7 +16,7 @@ body {
 
 .title-1 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: "Jersey 15 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
@@ -32,7 +32,7 @@ body {
 
 .title-2 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: "Jersey 10 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
@@ -48,7 +48,7 @@ body {
 
 .title-3 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: "Micro 5 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
@@ -64,7 +64,7 @@ body {
 
 .title-4 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: "Jersey 20 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
@@ -80,7 +80,7 @@ body {
 
 .title-5 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
@@ -96,7 +96,7 @@ body {
 
 .title-6 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
@@ -112,7 +112,7 @@ body {
 
 .title-7 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
@@ -144,7 +144,7 @@ body {
 
 .and {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
