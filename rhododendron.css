@@ -55,19 +55,19 @@ html, body {
 @media screen and (max-width: 768px) {
     #yellow-ascii {
         width: 150px;
-        top: 40%;
+        top: 50%;
         left: 20%;
     }
 
     #blue-ascii {
         width: 150px;
-        top: 50%;
+        top: 47%;
         left: 50%;
     }
 
     #pink-ascii {
         width: 150px;
-        top: 60%;
+        top: 50%;
         left: 80%;
     }
 }
