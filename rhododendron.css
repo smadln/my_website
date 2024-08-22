@@ -91,46 +91,6 @@ html, body {
     }
 }
 
-/* Media query for large iPads in portrait mode */
-@media screen and (max-width:1700) {
-    #yellow-ascii {
-        width: 150px;
-        top: 45vh; /* or 50% */
-        left: 20%;
-    }
-
-    #blue-ascii {
-        width: 150px;
-        top: 42vh; /* or 46% */
-        left: 50%;
-    }
-
-    #pink-ascii {
-        width: 150px;
-        top: 45vh; /* or 50% */
-        left: 80%;
-    }
-} 
-
-/* Media query for large iPads in landscape mode */
-@media screen and (max-width: 2500px) and (orientation: landscape) {
-    #yellow-ascii {
-        width: 300px;
-        left: 10%;
-    }
-
-    #blue-ascii {
-        width: 300px;
-        top: 48%;
-        left: 50%;
-    }
-
-    #pink-ascii {
-        width: 300px;
-        left: 90%;
-    }
-}    
-
 /* Media query for very small screens (mobile) */
 @media screen and (max-width: 480px) {
     #yellow-ascii,
