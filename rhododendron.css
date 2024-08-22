@@ -75,44 +75,41 @@ html, body {
 /* Media query for small laptops or larger tablets */
 @media screen and (max-width: 1280px) {
     #yellow-ascii {
-        width: 400px;
+        width: 300px;
         left: 12%;
     }
 
     #blue-ascii {
-        width: 400px;
+        width: 300px;
         top: 48%;
         left: 50%;
     }
 
     #pink-ascii {
-        width: 400px;
+        width: 300px;
         left: 88%;
     }
 }
 
+/* Media query for very small screens (mobile) */
 @media screen and (max-width: 480px) {
-    #yellow-ascii {
-        position: absolute;
-        width: 100px;
-        top: 50%; /* Set top to 50% of the parent container */
-        left: 15%; /* Set left to 50% of the parent container */
-        transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
-    } 
-    
-    #blue-ascii {
-        position: absolute;
-        width: 100px;
-        top: 49.5%; /* Set top to 50% of the parent container */
-        left: 50%; /* Set left to 50% of the parent container */
-        transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
-    }
-    
+    #yellow-ascii,
+    #blue-ascii,
     #pink-ascii {
-        position: absolute;
         width: 100px;
-        top: 50%; /* Set top to 50% of the parent container */
-        left: 85%; /* Set left to 50% of the parent container */
-        transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+        top: 50%;
+    }
+
+    #yellow-ascii {
+        left: 15%;
+    }
+
+    #blue-ascii {
+        left: 50%;
+        top: 49.5%;
+    }
+
+    #pink-ascii {
+        left: 85%;
     }
 }
