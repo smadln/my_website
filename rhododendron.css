@@ -52,7 +52,7 @@ html, body {
 }
 
 /* Media query for iPads in portrait mode */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (orientation: portrait) {
     #yellow-ascii {
         width: 150px;
         top: 50%;
