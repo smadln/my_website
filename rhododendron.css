@@ -55,19 +55,19 @@ html, body {
 @media screen and (max-width: 768px) and (orientation: portrait) {
     #yellow-ascii {
         width: 150px;
-        top: 50%;
+        top: 45vh; /* or 50% */
         left: 20%;
     }
 
     #blue-ascii {
         width: 150px;
-        top: 46%;
+        top: 42vh; /* or 46% */
         left: 50%;
     }
 
     #pink-ascii {
         width: 150px;
-        top: 50%;
+        top: 45vh; /* or 50% */
         left: 80%;
     }
 }
