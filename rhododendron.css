@@ -92,7 +92,7 @@ html, body {
 }
 
 /* Media query for large iPads in portrait mode */
-@media screen and (max-width:1700) and (orientation: portrait) {
+@media screen and (max-width: 1700) and (orientation: portrait) {
     #yellow-ascii {
         width: 150px;
         top: 45vh; /* or 50% */
@@ -172,5 +172,26 @@ html, body {
         left: 80%;
         width: 120px;
         top: 40%; /* Adjusted top to give some space for landscape view */
+    }
+}
+
+/* Media query for large phones */
+@media screen and (max-width: 732px) {
+    #yellow-ascii {
+        width: 150px;
+        top: 45vh; /* or 50% */
+        left: 20%;
+    }
+
+    #blue-ascii {
+        width: 150px;
+        top: 42vh; /* or 46% */
+        left: 50%;
+    }
+
+    #pink-ascii {
+        width: 150px;
+        top: 45vh; /* or 50% */
+        left: 80%;
     }
 }
