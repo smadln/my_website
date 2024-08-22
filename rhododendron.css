@@ -119,7 +119,7 @@ html, body {
     #yellow-ascii,
     #blue-ascii,
     #pink-ascii {
-        width: 150px;
+        width: 120px;
         top: 40%; /* Adjusted top to give some space for landscape view */
     }
 
