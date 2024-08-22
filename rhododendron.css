@@ -116,23 +116,21 @@ html, body {
 
 /* Media query for very small screens in landscape mode */
 @media screen and (max-width: 480px) and (orientation: landscape) {
-    #yellow-ascii,
-    #blue-ascii,
-    #pink-ascii {
+    #yellow-ascii {
+        left: 10%;
         width: 120px;
         top: 40%; /* Adjusted top to give some space for landscape view */
     }
 
-    #yellow-ascii {
-        left: 10%;
-    }
-
     #blue-ascii {
         left: 45%;
-        top: 42%; /* Adjusted slightly for better spacing */
+        top: 40%; /* Adjusted slightly for better spacing */
+        width: 120px;
     }
 
     #pink-ascii {
         left: 80%;
+        width: 120px;
+        top: 40%; /* Adjusted top to give some space for landscape view */
     }
 }
