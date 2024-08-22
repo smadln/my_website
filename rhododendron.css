@@ -92,7 +92,7 @@ html, body {
 }
 
 /* Media query for large iPads in portrait mode */
-@media screen and (max-width: 1700) and (orientation: portrait) {
+@media screen and (max-width:1700) {
     #yellow-ascii {
         width: 150px;
         top: 45vh; /* or 50% */
@@ -172,53 +172,5 @@ html, body {
         left: 80%;
         width: 120px;
         top: 40%; /* Adjusted top to give some space for landscape view */
-    }
-}
-
-/* Media query for large phones */
-@media screen and (max-width: 732px) {
-    #yellow-ascii {
-        width: 150px;
-        top: 45vh; /* or 50% */
-        left: 20%;
-    }
-
-    #blue-ascii {
-        width: 150px;
-        top: 42vh; /* or 46% */
-        left: 50%;
-    }
-
-    #pink-ascii {
-        width: 150px;
-        top: 45vh; /* or 50% */
-        left: 80%;
-    }
-}
-
-/* Media query for large phones */
-@media screen and (max-width: 1500px) {
-    #yellow-ascii {
-        position: absolute;
-        width: 480px;
-        top: 50%; /* Set top to 50% of the parent container */
-        left: 15%; /* Set left to 50% of the parent container */
-        transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
-    } 
-
-    #blue-ascii {
-        position: absolute;
-        width: 480px;
-        top: 47%; /* Set top to 50% of the parent container */
-        left: 50%; /* Set left to 50% of the parent container */
-        transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
-    }
-
-    #pink-ascii {
-        position: absolute;
-        width: 480px;
-        top: 50%; /* Set top to 50% of the parent container */
-        left: 85%; /* Set left to 50% of the parent container */
-        transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
     }
 }
