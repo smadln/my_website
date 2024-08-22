@@ -1,34 +1,38 @@
-// Function to handle each image
 function handleImage(img) {
     console.log('handleImage called on', img); // Debugging
     let isDragging = false;
     let offsetX, offsetY; // Declare outside to be available in both functions
-    
+
     // Increase the clickable area by adding padding
     img.style.padding = "10px"; // Adjust the padding size as needed
-    
-    // Change cursor style on mouseover
+
+    // Change cursor style on mouseover (for mouse devices)
     img.addEventListener("mouseover", () => {
         img.style.cursor = "grab";
     });
-    
-    // Make the image draggable
+
+    // Function to handle the drag movement
+    function moveImage(x, y) {
+        img.style.left = (x - offsetX) + "px";
+        img.style.top = (y - offsetY) + "px";
+        console.log('Dragging', img.style.left, img.style.top); // Debugging
+    }
+
+    // Mouse events
     img.addEventListener("mousedown", (e) => {
         isDragging = true;
         img.style.cursor = "grabbing";
-    
+
         offsetX = e.clientX - img.offsetLeft;
         offsetY = e.clientY - img.offsetTop;
         console.log('Drag started', offsetX, offsetY); // Debugging
-    
+
         function onMouseMove(e) {
             if (isDragging) {
-                img.style.left = (e.clientX - offsetX) + "px";
-                img.style.top = (e.clientY - offsetY) + "px";
-                console.log('Dragging', img.style.left, img.style.top); // Debugging
+                moveImage(e.clientX, e.clientY);
             }
         }
-    
+
         function onMouseUp() {
             isDragging = false;
             img.style.cursor = "grab";
@@ -36,9 +40,34 @@ function handleImage(img) {
             document.removeEventListener("mouseup", onMouseUp);
             console.log('Drag ended'); // Debugging
         }
-    
+
         document.addEventListener("mousemove", onMouseMove);
         document.addEventListener("mouseup", onMouseUp);
+    });
+
+    // Touch events
+    img.addEventListener("touchstart", (e) => {
+        isDragging = true;
+
+        // Use the first touch point
+        let touch = e.touches[0];
+        offsetX = touch.clientX - img.offsetLeft;
+        offsetY = touch.clientY - img.offsetTop;
+        console.log('Touch drag started', offsetX, offsetY); // Debugging
+    });
+
+    img.addEventListener("touchmove", (e) => {
+        if (isDragging) {
+            // Prevent scrolling
+            e.preventDefault();
+            let touch = e.touches[0];
+            moveImage(touch.clientX, touch.clientY);
+        }
+    });
+
+    img.addEventListener("touchend", () => {
+        isDragging = false;
+        console.log('Touch drag ended'); // Debugging
     });
 }
 
