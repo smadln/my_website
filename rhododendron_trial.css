@@ -1,0 +1,145 @@
+html, body {
+    background-color: white;
+    overflow: hidden; /* This hides scrollbars */
+}
+
+.ascii-container {
+    position: relative;
+    height: 100vh;
+}
+
+#yellow-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 15%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+} 
+
+#blue-ascii {
+    position: absolute;
+    width: 480px;
+    top: 47%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#pink-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+/* Media query for iPads in landscape mode */
+@media screen and (max-width: 1024px) {
+    #yellow-ascii {
+        width: 300px;
+        left: 10%;
+    }
+
+    #blue-ascii {
+        width: 300px;
+        top: 48%;
+        left: 50%;
+    }
+
+    #pink-ascii {
+        width: 300px;
+        left: 90%;
+    }
+}
+
+/* Media query for iPads in portrait mode */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    #yellow-ascii {
+        width: 150px;
+        top: 45vh; /* or 50% */
+        left: 20%;
+    }
+
+    #blue-ascii {
+        width: 150px;
+        top: 42vh; /* or 46% */
+        left: 50%;
+    }
+
+    #pink-ascii {
+        width: 150px;
+        top: 45vh; /* or 50% */
+        left: 80%;
+    }
+}
+
+/* Media query for small laptops or larger tablets */
+@media screen and (max-width: 1280px) {
+    #yellow-ascii {
+        width: 300px;
+        left: 12%;
+    }
+
+    #blue-ascii {
+        width: 300px;
+        top: 48%;
+        left: 50%;
+    }
+
+    #pink-ascii {
+        width: 300px;
+        left: 88%;
+    }
+}
+
+/* Media query for very small screens (mobile) */
+@media screen and (max-width: 480px) {
+    #yellow-ascii,
+    #blue-ascii,
+    #pink-ascii {
+        width: 100px;
+        top: 50%;
+    }
+
+    #yellow-ascii {
+        left: 15%;
+    }
+
+    #blue-ascii {
+        left: 50%;
+        top: 49.5%;
+    }
+
+    #pink-ascii {
+        left: 85%;
+    }
+}
+
+/* Media query for very small screens in landscape mode */
+@media screen and (max-width: 480px) and (orientation: landscape) {
+    #yellow-ascii {
+        left: 10%;
+        width: 120px;
+        top: 40%; /* Adjusted top to give some space for landscape view */
+    }
+
+    #blue-ascii {
+        left: 45%;
+        top: 40%; /* Adjusted slightly for better spacing */
+        width: 120px;
+    }
+
+    #pink-ascii {
+        left: 80%;
+        width: 120px;
+        top: 40%; /* Adjusted top to give some space for landscape view */
+    }
+}
+
+/* Media query for large desktop screens */
+@media screen and (min-width: 2500px) and (max-width: 3000px) {
+    #yellow-ascii,
+    #blue-ascii,
+    #pink-ascii {
+        width: 600px;
+    }
+}
