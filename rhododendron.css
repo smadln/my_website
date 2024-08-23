@@ -32,15 +32,6 @@ html, body {
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
-/* Media query for large desktop screens */
-@media screen and (min-width: 2500px) {
-    #yellow-ascii,
-    #blue-ascii,
-    #pink-ascii {
-        width: 600px;
-    }
-}
-
 /* Media query for iPads in landscape mode */
 @media screen and (max-width: 1024px) {
     #yellow-ascii {
