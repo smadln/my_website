@@ -3,6 +3,9 @@ function handleImage(img) {
     let isDragging = false;
     let offsetX, offsetY; // Declare outside to be available in both functions
 
+    // Prevent default dragging of the image
+    img.setAttribute('draggable', false);
+
     // Increase the clickable area by adding padding
     img.style.padding = "10px"; // Adjust the padding size as needed
 
