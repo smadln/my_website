@@ -17,7 +17,7 @@ function handleImage(img) {
         e.preventDefault();
     });
     
-    // Make the image draggable
+    // Make the image draggable with mouse events
     img.addEventListener("mousedown", (e) => {
         e.preventDefault(); // Prevent default drag behavior
         isDragging = true;
@@ -45,6 +45,39 @@ function handleImage(img) {
     
         document.addEventListener("mousemove", onMouseMove);
         document.addEventListener("mouseup", onMouseUp);
+    });
+
+    // Handle touch events for touchscreens
+    img.addEventListener("touchstart", (e) => {
+        e.preventDefault(); // Prevent default touch behavior
+        isDragging = true;
+        img.style.cursor = "grabbing";
+
+        // Get touch coordinates
+        const touch = e.touches[0];
+        offsetX = touch.clientX - img.offsetLeft;
+        offsetY = touch.clientY - img.offsetTop;
+        console.log('Touch start', offsetX, offsetY); // Debugging
+
+        function onTouchMove(e) {
+            if (isDragging) {
+                const touch = e.touches[0];
+                img.style.left = (touch.clientX - offsetX) + "px";
+                img.style.top = (touch.clientY - offsetY) + "px";
+                console.log('Touch dragging', img.style.left, img.style.top); // Debugging
+            }
+        }
+
+        function onTouchEnd() {
+            isDragging = false;
+            img.style.cursor = "grab";
+            document.removeEventListener("touchmove", onTouchMove);
+            document.removeEventListener("touchend", onTouchEnd);
+            console.log('Touch drag ended'); // Debugging
+        }
+
+        document.addEventListener("touchmove", onTouchMove);
+        document.addEventListener("touchend", onTouchEnd);
     });
 }
 
