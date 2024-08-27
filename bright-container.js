@@ -11,9 +11,15 @@ function handleImage(img) {
     img.addEventListener("mouseover", () => {
         img.style.cursor = "grab";
     });
+
+    // Disable default dragging behavior
+    img.addEventListener("dragstart", (e) => {
+        e.preventDefault();
+    });
     
     // Make the image draggable
     img.addEventListener("mousedown", (e) => {
+        e.preventDefault(); // Prevent default drag behavior
         isDragging = true;
         img.style.cursor = "grabbing";
     
