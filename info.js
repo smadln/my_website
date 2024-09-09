@@ -1,12 +1,11 @@
 // Function to handle each image
 function handleImage(img) {
-    console.log('handleImage called on', img); // Debugging
     let isDragging = false;
-    let offsetX, offsetY; // Declare outside to be available in both functions
-    
+    let offsetX, offsetY, initialLeft, initialTop;
+
     // Increase the clickable area by adding padding
     img.style.padding = "10px"; // Adjust the padding size as needed
-    
+
     // Change cursor style on mouseover
     img.addEventListener("mouseover", () => {
         img.style.cursor = "grab";
@@ -22,19 +21,27 @@ function handleImage(img) {
         e.preventDefault(); // Prevent default drag behavior
         isDragging = true;
         img.style.cursor = "grabbing";
-    
-        offsetX = e.clientX - img.offsetLeft;
-        offsetY = e.clientY - img.offsetTop;
+
+        // Get the computed styles and initial transform values
+        const style = window.getComputedStyle(img);
+        const matrix = new DOMMatrixReadOnly(style.transform);
+        initialLeft = matrix.m41; // The 'x' translation
+        initialTop = matrix.m42;  // The 'y' translation
+
+        // Calculate offsets based on current position
+        offsetX = e.clientX - initialLeft;
+        offsetY = e.clientY - initialTop;
         console.log('Drag started', offsetX, offsetY); // Debugging
-    
+
         function onMouseMove(e) {
             if (isDragging) {
-                img.style.left = (e.clientX - offsetX) + "px";
-                img.style.top = (e.clientY - offsetY) + "px";
-                console.log('Dragging', img.style.left, img.style.top); // Debugging
+                const left = e.clientX - offsetX;
+                const top = e.clientY - offsetY;
+                img.style.transform = `translate(${left}px, ${top}px)`;
+                console.log('Dragging', img.style.transform); // Debugging
             }
         }
-    
+
         function onMouseUp() {
             isDragging = false;
             img.style.cursor = "grab";
@@ -42,7 +49,7 @@ function handleImage(img) {
             document.removeEventListener("mouseup", onMouseUp);
             console.log('Drag ended'); // Debugging
         }
-    
+
         document.addEventListener("mousemove", onMouseMove);
         document.addEventListener("mouseup", onMouseUp);
     });
@@ -55,16 +62,22 @@ function handleImage(img) {
 
         // Get touch coordinates
         const touch = e.touches[0];
-        offsetX = touch.clientX - img.offsetLeft;
-        offsetY = touch.clientY - img.offsetTop;
+        const style = window.getComputedStyle(img);
+        const matrix = new DOMMatrixReadOnly(style.transform);
+        initialLeft = matrix.m41;
+        initialTop = matrix.m42;
+
+        offsetX = touch.clientX - initialLeft;
+        offsetY = touch.clientY - initialTop;
         console.log('Touch start', offsetX, offsetY); // Debugging
 
         function onTouchMove(e) {
             if (isDragging) {
                 const touch = e.touches[0];
-                img.style.left = (touch.clientX - offsetX) + "px";
-                img.style.top = (touch.clientY - offsetY) + "px";
-                console.log('Touch dragging', img.style.left, img.style.top); // Debugging
+                const left = touch.clientX - offsetX;
+                const top = touch.clientY - offsetY;
+                img.style.transform = `translate(${left}px, ${top}px)`;
+                console.log('Touch dragging', img.style.transform); // Debugging
             }
         }
 
