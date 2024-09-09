@@ -96,6 +96,6 @@ function handleImage(img) {
 
 // Get all interactive images and apply the function to each of them
 window.addEventListener('DOMContentLoaded', (event) => {
-    const images = document.querySelectorAll(".yellow-orchid img, .ascii-plant img");
+    const images = document.querySelectorAll(".yellow-orchid img");
     images.forEach(handleImage);
 });
