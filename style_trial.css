@@ -298,6 +298,7 @@ html, body {
     top: 0;
     left: 60%; /* This centers the images within the images-container */
     z-index: 0; /* Ensure this image is below the other image */
+    transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
 }
 
 .ascii-plant {
@@ -305,6 +306,7 @@ html, body {
     top: 0;
     left: 50%; /* This centers the images within the images-container */
     z-index: 2; /* Ensure this image is above the yellow orchid */
+    transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
 }
 
 .yellow-orchid img {
