@@ -12,6 +12,7 @@ html, body {
 #lilac-ascii,
 #light-pink-ascii,
 #light-yellow-ascii,
+#pale-yellow-ascii,
 #violet-ascii,
 #peach-ascii,
 #bright-pink-ascii,
@@ -59,6 +60,14 @@ html, body {
 }
 
 #light-yellow-ascii {
+    position: absolute;
+    width: 480px;
+    top: 47%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#pale-yellow-ascii {
     position: absolute;
     width: 480px;
     top: 47%; /* Set top to 50% of the parent container */

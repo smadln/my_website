@@ -85,6 +85,6 @@ function handleImage(img) {
 window.addEventListener('DOMContentLoaded', (event) => {
     const images = document.querySelectorAll(".ascii-plant-1 img, .ascii-plant-2 img, .ascii-plant-3 img,.ascii-plant-4 img,\
     .ascii-plant-5 img, .ascii-plant-6 img, .ascii-plant-7 img, .ascii-plant-8 img, .ascii-plant-9 img, .ascii-plant-10 img, \
-    .ascii-plant-11 img");
+    .ascii-plant-11 img, .ascii-plant-12 img, .ascii-plant-13 img");
     images.forEach(handleImage);
 });
