@@ -118,7 +118,7 @@ html, body {
 #green-ascii {
     position: absolute;
     width: 450px;
-    top: 50%; /* Set top to 50% of the parent container */
+    top: 48%; /* Set top to 50% of the parent container */
     left: 85%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
