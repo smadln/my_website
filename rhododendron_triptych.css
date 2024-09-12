@@ -34,14 +34,6 @@ html, body {
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
-#lilac-ascii {
-    position: absolute;
-    width: 480px;
-    top: 50%; /* Set top to 50% of the parent container */
-    left: 15%; /* Set left to 50% of the parent container */
-    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
-}
-
 #blue-ascii {
     position: absolute;
     width: 480px;
@@ -50,21 +42,76 @@ html, body {
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
-#pink-ascii {
-    top: 50%; /* Set top to 30% of the parent container */
-    left: 50%; /* Set left to 30% of the parent container */
+#lilac-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 15%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
-
-
-#bright-pink-ascii {
-    top: 48%; /* Set top to 50% of the parent container */
-    left: 49.8%; /* Set left to 50% of the parent container */
+#light-pink-ascii {
+    position: absolute;
+    width: 480px;
+    top: 47%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
 #light-yellow-ascii {
-    top: 50%; /* Set top to 60% of the parent container */
-    left: 50%; /* Set left to 60% of the parent container */
+    position: absolute;
+    width: 480px;
+    top: 47%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#violet-ascii {
+    position: absolute;
+    width: 480px;
+    top: 47%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#peach-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#bright-pink-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#periwinkle-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#bright-yellow-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#green-ascii {
+    position: absolute;
+    width: 480px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
 @media screen and (max-height: 480px) {
