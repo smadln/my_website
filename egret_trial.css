@@ -32,13 +32,13 @@ html, body {
 }
 
 #lilac-ascii {
-    top: 49%; /* Set top to 40% of the parent container */
+    top: 50%; /* Set top to 40% of the parent container */
     left: 50%; /* Set left to 40% of the parent container */
 }
 
 #bright-pink-ascii {
-    top: 48%; /* Set top to 50% of the parent container */
-    left: 49.8%; /* Set left to 50% of the parent container */
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
 }
 
 #light-yellow-ascii {
