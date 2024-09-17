@@ -34,21 +34,19 @@
     scene.add(controls.getObject());
     document.addEventListener('click', () => controls.lock(), false);
 
-    // Movement variables
-    let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
+    // Movement variables restricted to Z-axis (hallway movement)
+    let moveForward = false, moveBackward = false;
     const moveSpeed = 0.1;
+    const maxZ = 10; // Limit how far the user can move along the Z-axis
+    const minZ = -10; // Limit backward movement
 
     // Event listeners for movement
     document.addEventListener('keydown', (event) => {
       switch (event.code) {
         case 'ArrowUp':
         case 'KeyW': moveForward = true; break;
-        case 'ArrowLeft':
-        case 'KeyA': moveLeft = true; break;
         case 'ArrowDown': 
         case 'KeyS': moveBackward = true; break;
-        case 'ArrowRight':
-        case 'KeyD': moveRight = true; break;
       }
     });
 
@@ -56,51 +54,46 @@
       switch (event.code) {
         case 'ArrowUp':
         case 'KeyW': moveForward = false; break;
-        case 'ArrowLeft':
-        case 'KeyA': moveLeft = false; break;
         case 'ArrowDown': 
         case 'KeyS': moveBackward = false; break;
-        case 'ArrowRight':
-        case 'KeyD': moveRight = false; break;
       }
     });
 
     // Load images as textures
     const textureLoader = new THREE.TextureLoader();
+
+    // First image (on the left side)
     textureLoader.load('winter_house_1.png', (texture1) => {
       const planeGeometry = new THREE.PlaneGeometry(5, 5);
       const planeMaterial = new THREE.MeshBasicMaterial({ map: texture1, transparent: true });
-      const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-      plane.position.set(-5, 0, 0); // Place the first image
-      scene.add(plane);
+      const plane1 = new THREE.Mesh(planeGeometry, planeMaterial);
+      plane1.position.set(-3, 0, 0); // Left wall position
+      plane1.rotation.y = Math.PI / 2; // Rotate it to face the right wall
+      scene.add(plane1);
     });
 
+    // Second image (on the right side)
     textureLoader.load('winter_portrait_2.png', (texture2) => {
       const planeGeometry = new THREE.PlaneGeometry(5, 5);
       const planeMaterial = new THREE.MeshBasicMaterial({ map: texture2, transparent: true });
-      const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-      plane.position.set(5, 0, 0); // Place the second image facing the first
-      plane.rotation.y = Math.PI; // Rotate it to face the first image
-      scene.add(plane);
+      const plane2 = new THREE.Mesh(planeGeometry, planeMaterial);
+      plane2.position.set(3, 0, 0); // Right wall position
+      plane2.rotation.y = -Math.PI / 2; // Rotate it to face the left wall
+      scene.add(plane2);
     });
 
     // Render loop
     function animate() {
       requestAnimationFrame(animate);
 
-      // Move the camera based on the keys pressed
+      // Move the camera only forward and backward along the Z-axis
       if (controls.isLocked) {
-        const direction = new THREE.Vector3();
-        const velocity = new THREE.Vector3();
-
-        if (moveForward) velocity.z -= moveSpeed;
-        if (moveBackward) velocity.z += moveSpeed;
-        if (moveLeft) velocity.x -= moveSpeed;
-        if (moveRight) velocity.x += moveSpeed;
-
-        direction.copy(velocity).normalize();
-        if (moveForward || moveBackward) controls.moveForward(direction.z * moveSpeed);
-        if (moveLeft || moveRight) controls.moveRight(direction.x * moveSpeed);
+        if (moveForward && camera.position.z > minZ) {
+          camera.position.z -= moveSpeed;
+        }
+        if (moveBackward && camera.position.z < maxZ) {
+          camera.position.z += moveSpeed;
+        }
       }
 
       renderer.render(scene, camera);
