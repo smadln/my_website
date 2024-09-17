@@ -37,8 +37,8 @@
     // Movement variables restricted to Z-axis (hallway movement)
     let moveForward = false, moveBackward = false;
     const moveSpeed = 0.1;
-    const maxZ = 10; // Limit how far the user can move along the Z-axis
-    const minZ = -10; // Limit backward movement
+    const maxZ = 30; // Limit forward movement
+    const minZ = -30; // Limit backward movement
 
     // Event listeners for movement
     document.addEventListener('keydown', (event) => {
@@ -62,25 +62,28 @@
     // Load images as textures
     const textureLoader = new THREE.TextureLoader();
 
-    // First image (on the left side)
+    // First image (on the left side, with more space)
     textureLoader.load('winter_house.png', (texture1) => {
       const planeGeometry = new THREE.PlaneGeometry(5, 5);
       const planeMaterial = new THREE.MeshBasicMaterial({ map: texture1, transparent: true });
       const plane1 = new THREE.Mesh(planeGeometry, planeMaterial);
-      plane1.position.set(-3, 0, 0); // Left wall position
+      plane1.position.set(-5, 0, 0); // Increased space on the left
       plane1.rotation.y = Math.PI / 2; // Rotate it to face the right wall
       scene.add(plane1);
     });
 
-    // Second image (on the right side)
+    // Second image (on the right side, with more space)
     textureLoader.load('winter_portrait_2.png', (texture2) => {
       const planeGeometry = new THREE.PlaneGeometry(5, 5);
       const planeMaterial = new THREE.MeshBasicMaterial({ map: texture2, transparent: true });
       const plane2 = new THREE.Mesh(planeGeometry, planeMaterial);
-      plane2.position.set(3, 0, 0); // Right wall position
+      plane2.position.set(5, 0, 0); // Increased space on the right
       plane2.rotation.y = -Math.PI / 2; // Rotate it to face the left wall
       scene.add(plane2);
     });
+
+    // Set the camera start position further back
+    camera.position.z = 10; // Start the camera 10 units away from the center
 
     // Render loop
     function animate() {
