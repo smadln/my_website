@@ -63,7 +63,7 @@
     const textureLoader = new THREE.TextureLoader();
 
     // First image (on the left side)
-    textureLoader.load('winter_house_1.png', (texture1) => {
+    textureLoader.load('winter_house.png', (texture1) => {
       const planeGeometry = new THREE.PlaneGeometry(5, 5);
       const planeMaterial = new THREE.MeshBasicMaterial({ map: texture1, transparent: true });
       const plane1 = new THREE.Mesh(planeGeometry, planeMaterial);
