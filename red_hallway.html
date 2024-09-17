@@ -15,11 +15,11 @@
     </style>
 </head>
 <body>
-    <!-- Three.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- OrbitControls for Camera Rotation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
-    <script>
+    <!-- Three.js Library as a module -->
+    <script type="module">
+        import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js';
+        import { OrbitControls } from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/jsm/controls/OrbitControls.js';
+
         let scene, camera, renderer, controls;
         const moveSpeed = 0.1;
         let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
@@ -40,7 +40,7 @@
             renderer.setClearColor(0x8B0000); // Set the background to darkred
 
             // Add OrbitControls for camera rotation using trackpad/mouse
-            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls = new OrbitControls(camera, renderer.domElement);
             controls.enablePan = false; // Disable panning to avoid breaking movement control
             controls.enableZoom = true; // Enable zooming in/out
 
