@@ -37,8 +37,8 @@
     // Movement variables restricted to Z-axis (hallway movement)
     let moveForward = false, moveBackward = false;
     const moveSpeed = 0.1;
-    const maxZ = 30; // Limit forward movement
-    const minZ = -30; // Limit backward movement
+    const maxZ = 50; // Extend the maxZ to allow the viewer to move closer to the images
+    const minZ = -50; // Extend the minZ to allow movement further back
 
     // Event listeners for movement
     document.addEventListener('keydown', (event) => {
@@ -63,7 +63,7 @@
     const textureLoader = new THREE.TextureLoader();
 
     // First image (on the left side, with more space)
-    textureLoader.load('winter_house.png', (texture1) => {
+    textureLoader.load('winter_house_1.png', (texture1) => {
       const planeGeometry = new THREE.PlaneGeometry(5, 5);
       const planeMaterial = new THREE.MeshBasicMaterial({ map: texture1, transparent: true });
       const plane1 = new THREE.Mesh(planeGeometry, planeMaterial);
@@ -83,7 +83,7 @@
     });
 
     // Set the camera start position further back
-    camera.position.z = 10; // Start the camera 10 units away from the center
+    camera.position.z = 20; // Start the camera 20 units away from the center
 
     // Render loop
     function animate() {
