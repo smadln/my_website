@@ -73,7 +73,7 @@
     });
 
     // Second image (on the right side, with more space)
-    textureLoader.load('winter_portrait_2.png', (texture2) => {
+    textureLoader.load('ascii_siblings_opaque.png', (texture2) => {
       const planeGeometry = new THREE.PlaneGeometry(5, 5);
       const planeMaterial = new THREE.MeshBasicMaterial({ map: texture2, transparent: true });
       const plane2 = new THREE.Mesh(planeGeometry, planeMaterial);
