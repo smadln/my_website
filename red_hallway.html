@@ -34,7 +34,7 @@
             camera.position.set(0, 0, 10); // Start the camera a little away from the images
 
             // Set up the renderer
-            renderer = new THREE.WebGLRenderer({ alpha: false }); // Not transparent to allow darkred background
+            renderer = new THREE.WebGLRenderer({ alpha: false });
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
             renderer.setClearColor(0x8B0000); // Set the background to darkred
@@ -46,12 +46,20 @@
 
             // Load the images and place them in space facing each other
             const textureLoader = new THREE.TextureLoader();
-            const texture1 = textureLoader.load('winter_house_1.png', (texture) => {
-                adjustImageAspect(texture, -5, 0, 0);  // Load and adjust image 1
-            });
-            const texture2 = textureLoader.load('winter_portrait_2.png', (texture) => {
-                adjustImageAspect(texture, 5, 0, Math.PI);  // Load and adjust image 2
-            });
+
+            textureLoader.load(
+                'winter_house_1.png', 
+                (texture) => adjustImageAspect(texture, -5, 0, 0), 
+                undefined, 
+                (error) => console.error('Error loading winter_house_1.png:', error)
+            );
+            
+            textureLoader.load(
+                'winter_portrait_2.png', 
+                (texture) => adjustImageAspect(texture, 5, 0, Math.PI), 
+                undefined, 
+                (error) => console.error('Error loading winter_portrait_2.png:', error)
+            );
 
             // Create the floor, ceiling, and surrounding space in darkred
             const floorGeometry = new THREE.PlaneGeometry(50, 50);
@@ -106,6 +114,7 @@
             }
 
             scene.add(plane);
+            console.log('Image loaded successfully and placed at:', x, y);
         }
 
         // Keyboard movement controls
@@ -176,6 +185,7 @@
             if (moveLeft) camera.position.x -= moveSpeed;
             if (moveRight) camera.position.x += moveSpeed;
 
+            controls.update(); // Update OrbitControls for trackpad/mouse movement
             renderer.render(scene, camera);
         }
 
