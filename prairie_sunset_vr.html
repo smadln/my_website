@@ -4,24 +4,25 @@
     <meta charset="utf-8">
     <title>Prairie Sunset VR</title>
     <!-- Include A-Frame library -->
-    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
-    <!-- Include the environment component for easy scene setup -->
-    <script src="https://cdn.jsdelivr.net/npm/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <!-- Include Gradient Sky Shader -->
-    <script src="https://cdn.jsdelivr.net/gh/feiss/aframe-gradient-sky@1.1.3/dist/gradientsky.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.1.3/dist/gradientsky.min.js"></script>
   </head>
   <body>
     <a-scene>
       <!-- Assets -->
       <a-assets>
-        <img id="grassTexture" src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r129/examples/textures/grasslight-big.jpg">
+        <!-- Grass Texture -->
+        <img id="grassTexture" src="https://cdn.glitch.global/1b5e9cc6-133e-4af8-9cd2-838e44d1dc1a/grass.jpg?v=1666384357951">
+        <!-- Grass Model -->
+        <a-asset-item id="grassModel" src="https://cdn.glitch.global/1b5e9cc6-133e-4af8-9cd2-838e44d1dc1a/grass.gltf?v=1666384363714"></a-asset-item>
       </a-assets>
 
       <!-- Sky -->
       <a-sky material="shader: gradientsky; topColor: #FFB347; bottomColor: #FFCC33;"></a-sky>
 
       <!-- Ground -->
-      <a-plane src="#grassTexture" rotation="-90 0 0" width="100" height="100" repeat="50 50"></a-plane>
+      <a-plane src="#grassTexture" rotation="-90 0 0" width="100" height="100" repeat="100 100"></a-plane>
 
       <!-- Grass Field -->
       <a-entity id="grass-field"></a-entity>
@@ -35,7 +36,7 @@
       AFRAME.registerComponent('scatter-grass', {
         init: function () {
           const grassField = document.querySelector('#grass-field');
-          const grassModelURL = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models/2.0/Grass/grass.gltf'; // Replace with your grass model URL
+          const grassModelURL = '#grassModel'; // Using the preloaded asset
           const grassCount = 500; // Adjust the number of grass instances
           for (let i = 0; i < grassCount; i++) {
             const grass = document.createElement('a-entity');
