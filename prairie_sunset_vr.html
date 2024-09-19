@@ -10,11 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <!-- Include OrbitControls for navigation -->
     <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
-    <!-- Include VRButton for VR support -->
-    <script src="https://threejs.org/examples/jsm/webxr/VRButton.js"></script>
+    <!-- Include VRButton for VR support (non-module version) -->
+    <script src="https://threejs.org/examples/js/vr/VRButton.js"></script>
 </head>
 <body>
-    <!-- Add VR Button -->
+    <!-- Your custom script -->
     <script>
         // Scene
         var scene = new THREE.Scene();
@@ -103,7 +103,7 @@
         grassBladeGeometry.translate( 0, 0.5, 0 );
         var grassMaterial = new THREE.MeshLambertMaterial( { color: 0xA0D080, side: THREE.DoubleSide } );
 
-        var grassCount = 20000;
+        var grassCount = 10000;
         var grassMesh = new THREE.InstancedMesh( grassBladeGeometry, grassMaterial, grassCount );
 
         var dummy = new THREE.Object3D();
