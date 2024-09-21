@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Environment with GLTF Model</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <!-- Make sure to load Three.js library and any dependencies correctly -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <script>
+    // Initialize scene, camera, and renderer
+    const scene = new THREE.Scene();  // Ensure you close every function
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.xr.enabled = true;  // Enable WebXR
+    document.body.appendChild(renderer.domElement);  // Append canvas to body
+
+    // Create a VR Button for immersive experience
+    const button = document.createElement('button');
+    button.style.position = 'absolute';
+    button.style.top = '10px';
+    button.style.left = '10px';
+    button.textContent = 'Enter VR';
+    document.body.appendChild(button);
+
+    button.addEventListener('click', () => {
+      renderer.xr.enabled = true;
+      renderer.xr.setSession(renderer.xr.getSession() ? null : navigator.xr.requestSession('immersive-vr'));
+    });
+
+    // Set the clear color (sky blue) for the scene
+    renderer.setClearColor(0x87CEEB);
+
+    // Add ambient light for overall scene illumination
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);  // Ensure you close all brackets
+    scene.add(ambientLight);
+
+    // Add directional light for realistic shadows and lighting
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(50, 50, 50).normalize();
+    scene.add(directionalLight);
+
+    // PointerLockControls for first-person controls
+    const controls = new THREE.PointerLockControls(camera, document.body);
+    scene.add(controls.getObject());
+    document.addEventListener('click', () => controls.lock(), false);
+
+    // Movement variables for handling key inputs
+    const moveSpeed = 0.1;
+    let moveForward = false;
+    let moveBackward = false;
+    let moveLeft = false;
+    let moveRight = false;
+
+    // Event listeners for movement (keydown and keyup)
+    const onKeyDown = (event) => {
+      switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = true;
+          break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = true;
+          break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = true;
+          break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = true;
+          break;
+      }
+    };
+
+    const onKeyUp = (event) => {
+      switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = false;
+          break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = false;
+          break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = false;
+          break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = false;
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);  // Correct event listener syntax
+    document.addEventListener('keyup', onKeyUp);
+
+    // Load the GLTF model using GLTFLoader
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      '/mnt/data/scene.gltf',  // Correct path to the model
+      function (gltf) {
+        const model = gltf.scene;
+        model.scale.set(1, 1, 1);  // Scale the model as needed
+        scene.add(model);
+      },
+      undefined,
+      function (error) {
+        console.error('An error occurred while loading the model:', error);
+      }
+    );
+
+    // Create a skybox (CubeTextureLoader)
+    const cubeLoader = new THREE.CubeTextureLoader();
+    const textureCube = cubeLoader.load([
+      'cloudy/bluecloud_rt.jpg',  // right
+      'cloudy/bluecloud_lf.jpg',  // left
+      'cloudy/bluecloud_up.jpg',  // top
+      'cloudy/bluecloud_dn.jpg',  // bottom
+      'cloudy/bluecloud_bk.jpg',  // back
+      'cloudy/bluecloud_ft.jpg'   // front
+    ]);
+    scene.background = textureCube;
+
+    // Set the camera position
+    camera.position.set(0, 1, 10);
+
+    // Render loop
+    function animate() {
+      renderer.setAnimationLoop(function () {
+        if (controls.isLocked) {
+          const direction = new THREE.Vector3();
+          const velocity = new THREE.Vector3();
+
+          // Handle movement logic
+          if (moveForward) velocity.z -= moveSpeed;
+          if (moveBackward) velocity.z += moveSpeed;
+          if (moveLeft) velocity.x -= moveSpeed;
+          if (moveRight) velocity.x += moveSpeed;
+
+          direction.copy(velocity).normalize();
+          if (moveForward || moveBackward) controls.moveForward(direction.z * moveSpeed);
+          if (moveLeft || moveRight) controls.moveRight(direction.x * moveSpeed);
+        }
+
+        renderer.render(scene, camera);  // Render the scene
+      });
+    }
+
+    animate();  // Start the animation loop
+
+    // Output camera and controls positions for debugging
+    console.log('Camera position:', camera.position);
+    console.log('Controls:', controls);
+
+  </script>
+</body>
+</html>
