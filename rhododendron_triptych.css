@@ -62,7 +62,7 @@ html, body {
 #light-pink-ascii {
     position: absolute;
     width: 400px;
-    top: 48.9%; /* Set top to 50% of the parent container */
+    top: 48.8%; /* Set top to 50% of the parent container */
     left: 50%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
