@@ -87,25 +87,25 @@ html, body {
 }
 
 #peach-ascii {
-    top: 50%;
+    top: 50.2%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #periwinkle-ascii {
-    top: 52%;
+    top: 52.3%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #bright-yellow-ascii {
-    top: 49.5%;
-    left: 50%;
+    top: 48.7%;
+    left: 48.5%;
     transform: translate(-50%, -50%);
 }
 
 #green-ascii {
-    top: 48.5%;
+    top: 49.4%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
