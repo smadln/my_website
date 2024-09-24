@@ -9,7 +9,7 @@ html, body {
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: center; /* Centers layers horizontally */
+    justify-content: space-around; /* Distributes the image-layer containers evenly */
     align-items: center; /* Centers layers vertically */
     position: relative;
 }
@@ -19,9 +19,6 @@ html, body {
     position: relative;
     width: 400px;
     height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     pointer-events: none; /* Allows image interactions but not container interaction */
 }
 
@@ -33,6 +30,28 @@ html, body {
     pointer-events: auto; /* Enable interaction with individual images */
     transition: transform 0.2s ease; /* Smooth transition for movements */
     will-change: transform; /* Hint to the browser to optimize for transform changes */
+}
+
+/* Horizontal positions using percentages for each image-layer */
+.layer-1 {
+    position: absolute;
+    left: 15%;
+    top: 50%; /* Centered vertically */
+    transform: translate(-50%, -50%); /* Shift the image back to truly center it */
+}
+
+.layer-2 {
+    position: absolute;
+    left: 50%;
+    top: 50%; /* Centered vertically */
+    transform: translate(-50%, -50%);
+}
+
+.layer-3 {
+    position: absolute;
+    left: 75%;
+    top: 50%; /* Centered vertically */
+    transform: translate(-50%, -50%);
 }
 
 /* Specific positioning for individual images */
