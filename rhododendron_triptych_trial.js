@@ -1,79 +1,79 @@
-function makeDraggable(element) {
+function handleImage(img) {
     let isDragging = false;
-    let startX, startY, initialX, initialY;
+    let offsetX, offsetY;
 
-    // Function to handle the start of the drag (for both mouse and touch)
-    function dragStart(e) {
+    // Increase the clickable area by adding padding
+    img.style.padding = "10px"; // Adjust the padding size as needed
+
+    // Change cursor style on mouseover
+    img.addEventListener("mouseover", () => {
+        img.style.cursor = "grab";
+    });
+
+    // Disable default dragging behavior
+    img.addEventListener("dragstart", (e) => {
+        e.preventDefault();
+    });
+
+    // Make the image draggable with mouse events
+    img.addEventListener("mousedown", (e) => {
+        e.preventDefault(); // Prevent default drag behavior
         isDragging = true;
-        
-        // For touch events, we need to get the first touch point
-        if (e.type === 'touchstart') {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-        } else {
-            startX = e.clientX;
-            startY = e.clientY;
+        img.style.cursor = "grabbing";
+
+        offsetX = e.clientX - img.offsetLeft;
+        offsetY = e.clientY - img.offsetTop;
+
+        function onMouseMove(e) {
+            if (isDragging) {
+                img.style.left = (e.clientX - offsetX) + "px";
+                img.style.top = (e.clientY - offsetY) + "px";
+            }
         }
 
-        const computedStyle = window.getComputedStyle(element);
-        const matrix = new WebKitCSSMatrix(computedStyle.transform);
-        
-        initialX = matrix.m41;
-        initialY = matrix.m42;
+        function onMouseUp() {
+            isDragging = false;
+            img.style.cursor = "grab";
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
+        }
 
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
-        document.addEventListener('touchmove', onTouchMove);
-        document.addEventListener('touchend', onTouchEnd);
-        
-        // Prevent default touch behavior to avoid issues with scrolling
-        e.preventDefault();
-    }
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+    });
 
-    // Function to handle dragging with mouse
-    function onMouseMove(e) {
-        if (!isDragging) return;
+    // Handle touch events for touchscreens
+    img.addEventListener("touchstart", (e) => {
+        e.preventDefault(); // Prevent default touch behavior
+        isDragging = true;
+        img.style.cursor = "grabbing";
 
-        const deltaX = e.clientX - startX;
-        const deltaY = e.clientY - startY;
+        const touch = e.touches[0];
+        offsetX = touch.clientX - img.offsetLeft;
+        offsetY = touch.clientY - img.offsetTop;
 
-        // Use requestAnimationFrame for smoother movement and to reduce lag
-        window.requestAnimationFrame(() => {
-            element.style.transform = `translate(${initialX + deltaX}px, ${initialY + deltaY}px)`;
-        });
-    }
+        function onTouchMove(e) {
+            if (isDragging) {
+                const touch = e.touches[0];
+                img.style.left = (touch.clientX - offsetX) + "px";
+                img.style.top = (touch.clientY - offsetY) + "px";
+            }
+        }
 
-    // Function to handle dragging with touch
-    function onTouchMove(e) {
-        if (!isDragging) return;
+        function onTouchEnd() {
+            isDragging = false;
+            img.style.cursor = "grab";
+            document.removeEventListener("touchmove", onTouchMove);
+            document.removeEventListener("touchend", onTouchEnd);
+        }
 
-        const deltaX = e.touches[0].clientX - startX;
-        const deltaY = e.touches[0].clientY - startY;
-
-        // Use requestAnimationFrame for smoother movement and to reduce lag
-        window.requestAnimationFrame(() => {
-            element.style.transform = `translate(${initialX + deltaX}px, ${initialY + deltaY}px)`;
-        });
-
-        // Prevent scrolling while dragging
-        e.preventDefault();
-    }
-
-    // Function to handle the end of dragging (for both mouse and touch)
-    function dragEnd() {
-        isDragging = false;
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
-        document.removeEventListener('touchmove', onTouchMove);
-        document.removeEventListener('touchend', onTouchEnd);
-    }
-
-    // Event listeners for both mouse and touch events
-    element.addEventListener('mousedown', dragStart);
-    element.addEventListener('touchstart', dragStart);
-    document.addEventListener('mouseup', dragEnd);
-    document.addEventListener('touchend', dragEnd);
+        document.addEventListener("touchmove", onTouchMove);
+        document.addEventListener("touchend", onTouchEnd);
+    });
 }
 
-// Apply the draggable functionality to all images within image-layer
-document.querySelectorAll('.image-layer img').forEach(makeDraggable);
+// Apply the function to all interactive images
+window.addEventListener('DOMContentLoaded', (event) => {
+    const images = document.querySelectorAll('.image-layer img');
+    images.forEach(handleImage);
+});
