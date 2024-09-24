@@ -1,0 +1,147 @@
+html, body {
+    background-color: whitesmoke;
+    overflow: hidden; /* This hides scrollbars */
+}
+
+.bright-container {
+    height: 100vh; /* Set the container height to fill the viewport */
+}
+
+#yellow-ascii,
+#blue-ascii,
+#lilac-ascii,
+#light-pink-ascii,
+#light-yellow-ascii,
+#pale-yellow-ascii,
+#violet-ascii,
+#peach-ascii,
+#bright-pink-ascii,
+#periwinkle-ascii,
+#bright-yellow-ascii,
+#green-ascii {
+    position: absolute;
+    max-height: 100%; /* Ensure the image doesn't exceed the container height */
+    width: auto; /* Auto width to maintain aspect ratio */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+    flex-grow: 1; /* Allow the image to grow or shrink within the flex container */
+    max-width: none; /* Reset the max-width property */
+}
+
+#yellow-ascii {
+    position: absolute;
+    width: 400px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 15%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#blue-ascii {
+    position: absolute;
+    width: 400px;
+    top: 49%; /* Set top to 50% of the parent container */
+    left: 16%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#lilac-ascii {
+    position: absolute;
+    width: 400px;
+    top: 49%; /* Set top to 50% of the parent container */
+    left: 15%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#violet-ascii {
+    position: absolute;
+    width: 400px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#light-pink-ascii {
+    position: absolute;
+    width: 400px;
+    top: 48.8%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#light-yellow-ascii {
+    position: absolute;
+    width: 400px;
+    top: 47%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#pale-yellow-ascii {
+    position: absolute;
+    width: 400px;
+    top: 51%; /* Set top to 50% of the parent container */
+    left: 50%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#peach-ascii {
+    position: absolute;
+    width: 400px;
+    top: 50%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#bright-pink-ascii {
+    position: absolute;
+    width: 400px;
+    top: 51%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#periwinkle-ascii {
+    position: absolute;
+    width: 400px;
+    top: 52%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#bright-yellow-ascii {
+    position: absolute;
+    width: 400px;
+    top: 49.5%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+#green-ascii {
+    position: absolute;
+    width: 400px;
+    top: 48.1%; /* Set top to 50% of the parent container */
+    left: 85%; /* Set left to 50% of the parent container */
+    transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
+}
+
+@media screen and (max-height: 480px) {
+    #yellow-ascii,
+    #pink-ascii,
+    #lilac-ascii,
+    #bright-pink-ascii,
+    #light-yellow-ascii {
+        height: 60vh; /* Adjust the height for smaller screens as a percentage of the viewport height */
+        max-height: 100%; /* Ensure the image doesn't exceed the container height */
+    }
+}
+
+
+@media screen and (min-height: 800px) and (max-height: 1200px) {
+    #yellow-ascii,
+    #pink-ascii,
+    #lilac-ascii,
+    #bright-pink-ascii,
+    #light-yellow-ascii {
+        height: 100vh; /* Adjust the height for larger screens as a percentage of the viewport height */
+        max-height: 100%; /* Ensure the image doesn't exceed the container height */
+    }
+}
