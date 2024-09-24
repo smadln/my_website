@@ -3,15 +3,16 @@ html, body {
     overflow: hidden; /* This hides scrollbars */
     margin: 0;
     padding: 0;
+    height: 100%; /* Ensure body height is 100% */
 }
 
 .bright-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Divides the page into three equal columns */
     height: 100vh;
     width: 100vw;
-    display: flex;
-    justify-content: space-around; /* Distributes the image-layer containers evenly */
-    align-items: center; /* Centers layers vertically */
-    position: relative;
+    justify-items: center; /* Centers each container horizontally within its column */
+    align-items: center; /* Centers each container vertically within the grid */
 }
 
 /* General styling for each image-layer */
@@ -30,28 +31,6 @@ html, body {
     pointer-events: auto; /* Enable interaction with individual images */
     transition: transform 0.2s ease; /* Smooth transition for movements */
     will-change: transform; /* Hint to the browser to optimize for transform changes */
-}
-
-/* Horizontal positions using percentages for each image-layer */
-.layer-1 {
-    position: absolute;
-    left: 15%;
-    top: 50%; /* Centered vertically */
-    transform: translate(-50%, -50%); /* Shift the image back to truly center it */
-}
-
-.layer-2 {
-    position: absolute;
-    left: 50%;
-    top: 50%; /* Centered vertically */
-    transform: translate(-50%, -50%);
-}
-
-.layer-3 {
-    position: absolute;
-    left: 75%;
-    top: 50%; /* Centered vertically */
-    transform: translate(-50%, -50%);
 }
 
 /* Specific positioning for individual images */
