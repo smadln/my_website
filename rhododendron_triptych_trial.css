@@ -7,20 +7,21 @@ html, body {
 }
 
 .bright-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Divides the page into three equal columns */
+    display: flex;
+    justify-content: space-between; /* Evenly space the image layers */
+    align-items: center; /* Vertically center the image layers */
     height: 100vh;
     width: 100vw;
-    justify-items: center; /* Centers each container horizontally within its column */
-    align-items: center; /* Centers each container vertically within the grid */
+    padding: 0 5vw; /* Add padding on the sides to keep containers away from the edges */
+    box-sizing: border-box; /* Ensure padding is included in the width calculations */
 }
 
 /* General styling for each image-layer */
 .image-layer {
+    width: 400px; /* Fixed width for consistent image sizing */
+    height: 400px; /* Fixed height for consistency */
     position: relative;
-    width: 400px;
-    height: 400px;
-    pointer-events: none; /* Allows image interactions but not container interaction */
+    pointer-events: none; /* Disable interaction with the container */
 }
 
 /* Ensure images are absolute within their layer but can still move freely */
@@ -28,6 +29,9 @@ html, body {
     position: absolute;
     max-height: 100%;
     width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image inside the container */
     pointer-events: auto; /* Enable interaction with individual images */
     transition: transform 0.2s ease; /* Smooth transition for movements */
     will-change: transform; /* Hint to the browser to optimize for transform changes */
@@ -78,31 +82,31 @@ html, body {
 
 #bright-pink-ascii {
     top: 51%;
-    left: 85%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #peach-ascii {
     top: 50%;
-    left: 85%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #periwinkle-ascii {
     top: 52%;
-    left: 85%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #bright-yellow-ascii {
     top: 49.5%;
-    left: 85%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #green-ascii {
     top: 48.1%;
-    left: 85%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
