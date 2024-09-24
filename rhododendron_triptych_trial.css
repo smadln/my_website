@@ -32,6 +32,7 @@ html, body {
     width: auto;
     pointer-events: auto; /* Enable interaction with individual images */
     transition: transform 0.2s ease; /* Smooth transition for movements */
+    will-change: transform; /* Hint to the browser to optimize for transform changes */
 }
 
 /* Specific positioning for individual images */
