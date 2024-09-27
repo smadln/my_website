@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: linear-gradient(to bottom right, rgb(143, 0, 0), whitesmoke);
+    background-image: linear-gradient(to bottom right, rgb(255, 240, 30), whitesmoke);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@ body {
     font-weight: 400;
     font-size: 30px;
     font-style: normal;
-    color: white;
+    color: rgb(255, 255, 255);
     margin: 0;
     padding-top: 20px; /* Adjust this value as needed */
     position: fixed;
