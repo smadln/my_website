@@ -12,21 +12,42 @@ body {
 
 #rabbit {
     position: absolute;
-    width: 200px;
+    width: 180px;
     top: 65%;
     left: 35%;
 }
 
-#tiger-lily {
+#lily {
     position: absolute;
-    width: 200px;
+    width: 150px;
     top: 25%;
     left: 55%;
 }
 
 #tiger-lily {
     position: absolute;
-    width: 200px;
-    top: 65%;
+    width: 75px;
+    top: 55%;
     left: 25%;
+}
+
+#peony {
+    position: absolute;
+    width: 130px;
+    top: 45%;
+    left: 75%;
+}
+
+#calla-lily {
+    position: absolute;
+    width: 150px;
+    top: 15%;
+    left: 75%;
+}
+
+#blossom {
+    position: absolute;
+    width: 50px;
+    top: 25%;
+    left: 15%;
 }
