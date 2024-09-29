@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ensures the gradients fill the entire viewport */
+    background-image: 
+    radial-gradient(ellipse at 10% 0%, #ffcfac 0%, #b0e7c9 0%, #92ebbe 10%, #65d09b 70%, 
+    #57a081 100%, rgba(98, 149, 144, 0.5) 50%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: normal;
+}
+
+#rabbit {
+    position: absolute;
+    width: 200px;
+    top: 65%;
+    left: 35%;
+}
+
+#tiger-lily {
+    position: absolute;
+    width: 200px;
+    top: 25%;
+    left: 55%;
+}
+
+#tiger-lily {
+    position: absolute;
+    width: 200px;
+    top: 65%;
+    left: 25%;
+}
