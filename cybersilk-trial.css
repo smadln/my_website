@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: linear-gradient(to bottom, rgb(255, 79, 79)0%, whitesmoke 11%);
+    background-image: linear-gradient(to bottom, rgb(255, 79, 79)0%, whitesmoke 8%);
     background-size: 100% 100%; /* Start with full coverage */
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@ body {
     font-style: normal;
     color: rgb(255, 255, 255);
     margin: 0;
-    padding-top: 12px; /* Adjust this value as needed */
+    padding-top: 5px; /* Adjust this value as needed */
     padding-left: 10px;
     position: fixed;
     top: 0;
