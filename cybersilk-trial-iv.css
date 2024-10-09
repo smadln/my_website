@@ -3,11 +3,11 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: linear-gradient(to right, rgb(255, 79, 79)0%, whitesmoke 1%);
+    background-image: transparent;
     background-size: 100% 100%; /* Start with full coverage */
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgb(0, 0, 0);
+    background-color: whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,8 +23,8 @@ body {
     font-style: normal;
     color: rgb(255, 255, 255);
     margin: 0;
-    padding-top: 12px; /* Adjust this value as needed */
-    padding-left: 10px;
+    padding-top: 0px; /* Adjust this value as needed */
+    padding-left: 0px;
     position: fixed;
     top: 0;
     left: 0;
@@ -32,7 +32,7 @@ body {
 }
 
 .cybersilk span {
-    background-image:  linear-gradient(to bottom, rgb(255, 79, 79)70%, whitesmoke 100%);
+    background-image: linear-gradient(to bottom, rgb(125, 175, 255)75%, whitesmoke 100%);
 }
 
 
