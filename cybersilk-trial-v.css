@@ -33,7 +33,7 @@ body {
 
 .cybersilk span {
     background-image: radial-gradient(
-        #ffe4e4 30%,
+        rgb(76, 179, 219) 30%,
         rgb(135, 206, 235) 75%
         );;
     -webkit-box-shadow: 0 0 30px 20px rgb(135, 206, 235);
