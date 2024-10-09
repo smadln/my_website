@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta id="ascii" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Cyber Silk</title>
+    <link href="cybersilk-trial-vi.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="yellow_gradient_favicon_II.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville+SC&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Damion&family=Fugaz+One&family=Herr+Von+Muellerhoff&family=Jacquarda+Bastarda+9+Charted&family=Jersey+10+Charted&family=Jersey+15+Charted&family=Jersey+20+Charted&family=Micro+5+Charted&family=Mrs+Saint+Delafield&family=Oleo+Script:wght@400;700&family=Playwrite+AU+VIC:wght@100..400&family=Playwrite+NZ:wght@100..400&family=Prata&family=Racing+Sans+One&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">   
+  </head>
+  <body>
+    <div class="container" id="container">
+        <p class="cybersilk"><span>&nbsp;cyber silk&nbsp;</span></p>
+    </div>
+    <script>
+      function navigateToSection(e, section) {
+          e.preventDefault();
+          window.location = './info.html?section=' + section; // Remove '-section' from the string
+      }
+    </script>
+    <script>
+      var url = window.location.href;
+      if (url.endsWith('index')) {
+          // Remove 'index' from the URL
+          var newUrl = url.substring(0, url.lastIndexOf('index'));
+          history.replaceState({}, '', newUrl);
+      } else if (url.endsWith('.html')) {
+          // Remove '.html' from the URL
+          history.replaceState({}, '', url.substring(0, url.length - 5));
+      }
+    </script>
+    
+    <!-- Scroll-based gradient resizing -->
+    <script>
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var scrollPercentage = scrollTop / documentHeight;
+
+        // Adjust gradient size based on scroll position
+        var newSize = 100 + (scrollPercentage * 100); // Adjusts from 100% to 200%
+        
+        document.body.style.backgroundSize = newSize + '% ' + newSize + '%';
+      });
+    </script>
+  </body>
+</html>
