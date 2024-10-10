@@ -23,7 +23,7 @@ body {
     font-style: normal;
     color: rgb(255, 255, 255);
     margin: 0;
-    padding-top: 0px; /* Adjust this value as needed */
+    padding-top: 10px; /* Adjust this value as needed */
     padding-left: 0px;
     position: fixed;
     top: 0;
@@ -32,7 +32,12 @@ body {
 }
 
 .cybersilk span {
-    background-image: linear-gradient(to bottom, rgb(135, 206, 235)75%, whitesmoke 100%);
+    background-image: radial-gradient(
+        rgb(90, 178, 255) 30%,
+        rgb(90, 178, 255) 75%
+        );;
+    -webkit-box-shadow: 0 0 30px 20px rgb(135, 206, 235);
+    box-shadow: 0 0 5px 3px whitesmoke inset;
 }
 
 
