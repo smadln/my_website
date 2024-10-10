@@ -37,7 +37,7 @@ body {
         rgb(114, 189, 255) 75%
         );;
     -webkit-box-shadow: 0 0 30px 20px rgb(135, 206, 235);
-    box-shadow: 0 0 5px 3px whitesmoke inset;
+    box-shadow: 0 0 5px 2px whitesmoke inset;
 }
 
 
@@ -182,4 +182,12 @@ ul {
     color: grey; 
     font-size: 14px; 
     font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media screen and (max-width: 480px) {
+    .cybersilk {
+        font-size: 20px;
+    }
+
 }
