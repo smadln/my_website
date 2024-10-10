@@ -34,7 +34,7 @@ body {
 .cybersilk span {
     background-image: radial-gradient(
         rgb(76, 179, 219) 30%,
-        rgb(135, 206, 235) 75%
+        rgb(76, 179, 219) 75%
         );;
     -webkit-box-shadow: 0 0 30px 20px rgb(135, 206, 235);
     box-shadow: 0 0 5px 3px whitesmoke inset;
