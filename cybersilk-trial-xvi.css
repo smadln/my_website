@@ -34,7 +34,7 @@ body {
 .cybersilk-image {
     display: block;
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 15%;
     height: auto;
     position: fixed;
     top: 10px;
