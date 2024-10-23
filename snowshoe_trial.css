@@ -13,7 +13,7 @@ html, body {
 }
 
 #snowshoe-hare {
-    max-width: 150px; /* Adjust size of the image */
+    max-width: 100px; /* Adjust size of the image */
     margin-bottom: 5px; /* Ensure there's minimal space between the image and the text */
     margin-top: 0px;
 }
