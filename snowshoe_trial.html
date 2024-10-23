@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowshoe Studio</title>
+    <link rel="stylesheet" href="snowshoe_trial.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head> 
+ <body>
+    <div class="images-container">
+        <div class="snowshoe-hare">
+            <img src="snowshoe-hare.jpg" alt="Delft Snowshoe Hare" id="snowshoe-hare">
+        </div>
+    </div>
+    <div class="snowshoe-title">
+        <div class="statement" id="statement-section">
+            <p>Snowshoe Studio</p>
+        </div>
+    </div>
+    <script src="info.js"></script>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const section = urlParams.get('section');
+            if (section) {
+                const sectionElement = document.getElementById(section + '-section');
+                if (sectionElement) {
+                    sectionElement.scrollIntoView();
+                }
+            }
+            // This line will ensure the URL is cleaned up after the section is loaded.
+            window.history.replaceState(null, null, 'info');
+        };
+
+        var url = window.location.href;
+        if(url.endsWith('.html')) {
+            history.replaceState({}, '', url.substring(0, url.length - 5));
+        }
+    </script>       
+ </body>
+</html>
