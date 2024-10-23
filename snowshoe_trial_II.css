@@ -28,6 +28,6 @@ html, body {
 
 #cross-stitch-title {
     max-width: 200px; /* Adjust size of the image */
-    margin-bottom: 5px; /* Ensure there's minimal space between the image and the text */
+    margin-bottom: 0px; /* Ensure there's minimal space between the image and the text */
     margin-top: 0px;
 }
