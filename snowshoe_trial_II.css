@@ -13,7 +13,7 @@ html, body {
 }
 
 #snowshoe-hare {
-    max-width: 100px; /* Adjust size of the image */
+    max-width: 80px; /* Adjust size of the image */
     margin-bottom: 0px; /* Ensure there's minimal space between the image and the text */
     margin-top: 0px;
 }
@@ -27,7 +27,7 @@ html, body {
 }
 
 #cross-stitch-title {
-    max-width: 200px; /* Adjust size of the image */
+    max-width: 175px; /* Adjust size of the image */
     margin-bottom: 0px; /* Ensure there's minimal space between the image and the text */
     margin-top: 0px;
 }
