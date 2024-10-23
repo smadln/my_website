@@ -1,12 +1,33 @@
-.snowshoe-hare {
-  size: 200px;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content to the top */
+    align-items: center; /* Centers content horizontally */
+    padding-top: 10px; /* Reduced padding from the top */
+}
+
+#snowshoe-hare {
+    max-width: 100px; /* Adjust size of the image */
+    margin-bottom: 5px; /* Ensure there's minimal space between the image and the text */
+    margin-top: 0px;
 }
 
 .snowshoe-title {
-  background-color: whitesmoke;
-  color: transparent;
-  text-shadow: 0px 2px 3px rgb(67, 118, 234);
-  -webkit-background-clip: text;
-     -moz-background-clip: text;
-          background-clip: text;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content to the top */
+    align-items: center; /* Centers content horizontally */
+    padding-top: 10px; /* Reduced padding from the top */
+}
+
+#cross-stitch-title {
+    max-width: 200px; /* Adjust size of the image */
+    margin-bottom: 5px; /* Ensure there's minimal space between the image and the text */
+    margin-top: 0px;
 }
