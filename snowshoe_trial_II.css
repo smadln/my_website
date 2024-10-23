@@ -14,7 +14,7 @@ html, body {
 
 #snowshoe-hare {
     max-width: 100px; /* Adjust size of the image */
-    margin-bottom: 5px; /* Ensure there's minimal space between the image and the text */
+    margin-bottom: 0px; /* Ensure there's minimal space between the image and the text */
     margin-top: 0px;
 }
 
@@ -23,7 +23,7 @@ html, body {
     flex-direction: column;
     justify-content: flex-start; /* Aligns content to the top */
     align-items: center; /* Centers content horizontally */
-    padding-top: 10px; /* Reduced padding from the top */
+    padding-top: 0px; /* Reduced padding from the top */
 }
 
 #cross-stitch-title {
