@@ -27,7 +27,7 @@ html, body {
 }
 
 #cross-stitch-title {
-    max-width: 130px; /* Adjust size of the image */
+    max-width: 170px; /* Adjust size of the image */
     margin-bottom: 0px; /* Ensure there's minimal space between the image and the text */
     margin-top: 0px;
 }
