@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowshoe Studio</title>
+    <link rel="stylesheet" href="snowshoe_trial_v.css">
+    <link rel="icon" type="image/png" href="snowshoe_hare_delft_ellipse_favicon.png">
+</head> 
+ <body>
+    <div class="image-container">
+        <img src="snowshoe_hare_delft_II.png" alt="Delft Snowshoe Hare" id="snowshoe-hare">
+    </div>
+    <div class="snowshoe-title">
+        <div class="statement" id="statement-section">
+            <img src="snowshoe_studios_title.png" alt="Cross Stitch Snowshoe Studio Title" id="cross-stitch-title">
+        </div>
+    </div>
+    <script>
+        var url = window.location.href;
+        if(url.endsWith('.html')) {
+            history.replaceState({}, '', url.substring(0, url.length - 5));
+        }
+    </script>       
+ </body>
+</html>
