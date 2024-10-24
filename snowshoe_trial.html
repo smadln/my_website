@@ -17,20 +17,7 @@
             <img src="snowshow_studio_cross_stitch_title.png" alt="Cross Stitch Snowshoe Studio Title" id="cross-stitch-title">
         </div>
     </div>
-    <script src="info.js"></script>
     <script>
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const section = urlParams.get('section');
-            if (section) {
-                const sectionElement = document.getElementById(section + '-section');
-                if (sectionElement) {
-                    sectionElement.scrollIntoView();
-                }
-            }
-            window.history.replaceState(null, null, 'info');
-        };
-
         var url = window.location.href;
         if(url.endsWith('.html')) {
             history.replaceState({}, '', url.substring(0, url.length - 5));
