@@ -12,7 +12,7 @@ let lightMode = true;
 const clock = new THREE.Clock();
 
 // Set rotate boolean variable to true so model rotates by default
-let rotateModel = true;
+let rotateModel = false;
 
 // Creates empty mesh container
 const myMesh = new THREE.Mesh();
