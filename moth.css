@@ -1,0 +1,16 @@
+html, body {
+    cursor: url('light.png'), auto; /* Custom cursor for the whole page */
+    background-color: black;
+}
+
+#sunset-moth {
+    position: absolute;
+    width: 150px;
+    top: 65%;
+    left: 35%;
+    transition: top 2s ease-in-out, left 2s ease-in-out;
+}
+
+#light {
+    width: 30px;
+}
