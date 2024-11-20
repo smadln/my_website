@@ -1,32 +1,45 @@
-const floatingImage = document.getElementById('sunset-moth');
-
-let aimlessMove;
-
-function updateImagePosition(event) {
-    const x = event.clientX + 20;  
-    const y = event.clientY + 20;  
-    floatingImage.style.left = `${x}px`;
-    floatingImage.style.top = `${y}px`;
-    clearInterval(aimlessMove);
-    aimlessMove = setInterval(aimlessDrift, 4000);  // Restart aimless drifting
-}
-
-function aimlessDrift() {
-    const x = Math.random() * (window.innerWidth - 100);  // Subtracting 100 to prevent the image from going off-screen
-    const y = Math.random() * (window.innerHeight - 100); 
-    floatingImage.style.left = `${x}px`;
-    floatingImage.style.top = `${y}px`;
-}
-
-document.addEventListener('mousemove', updateImagePosition);
-
 document.addEventListener('DOMContentLoaded', function () {
+    const floatingImage = document.getElementById('sunset-moth');
     const cursor = document.querySelector(".custom-cursor");
+    let aimlessMove;
 
-    document.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.pageX + "px";
-        cursor.style.top = e.pageY + "px";
-    });
+    if (floatingImage) {
+        // Update image position to follow the cursor
+        function updateImagePosition(event) {
+            const x = Math.min(event.clientX + 20, window.innerWidth - floatingImage.offsetWidth);
+            const y = Math.min(event.clientY + 20, window.innerHeight - floatingImage.offsetHeight);
+            floatingImage.style.left = `${x}px`;
+            floatingImage.style.top = `${y}px`;
 
-    aimlessMove = setInterval(aimlessDrift, 4000);  // 4 seconds interval
+            // Restart aimless drifting
+            clearInterval(aimlessMove);
+            aimlessMove = setInterval(aimlessDrift, 4000);
+        }
+
+        // Random aimless drift for the image
+        function aimlessDrift() {
+            const x = Math.random() * (window.innerWidth - floatingImage.offsetWidth);
+            const y = Math.random() * (window.innerHeight - floatingImage.offsetHeight);
+            floatingImage.style.left = `${x}px`;
+            floatingImage.style.top = `${y}px`;
+        }
+
+        // Attach event listener for mouse movement
+        document.addEventListener('mousemove', updateImagePosition);
+
+        // Start aimless drifting on load
+        aimlessMove = setInterval(aimlessDrift, 4000);
+    } else {
+        console.error('Element #sunset-moth not found!');
+    }
+
+    // Custom cursor functionality
+    if (cursor) {
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.pageX + "px";
+            cursor.style.top = e.pageY + "px";
+        });
+    } else {
+        console.error('Custom cursor element not found!');
+    }
 });
