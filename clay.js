@@ -5,72 +5,65 @@ const ctx = canvas.getContext('2d');
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
 
-// Initialize clay color
-ctx.fillStyle = '#d2cfcf';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-// Variables for manipulation
+// Variables for clay manipulation
+let blobs = [
+  { x: canvas.width / 2, y: canvas.height / 2, radius: 100, isDragging: false, color: '#d2cfcf' }
+];
+let activeBlob = null;
 let isDragging = false;
-let clayPieces = [];
-let currentPiece = null;
+let stretchPoint = null;
 
-// Function to create clay piece
-function createClayPiece(x, y) {
-  const radius = 20; // Size of the piece
-  const piece = {
-    x: x - radius / 2,
-    y: y - radius / 2,
-    radius: radius,
-    color: '#b9b6b6', // A slightly darker taupe
-    dx: 0,
-    dy: 0,
-    isDragging: false,
-  };
-  clayPieces.push(piece);
-  return piece;
+// Helper function to draw blobs
+function drawBlob(blob) {
+  ctx.beginPath();
+  ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
+  ctx.fillStyle = blob.color;
+  ctx.fill();
+
+  // Add dynamic shading
+  const gradient = ctx.createRadialGradient(blob.x, blob.y, blob.radius * 0.5, blob.x, blob.y, blob.radius);
+  gradient.addColorStop(0, '#e0e0e0');
+  gradient.addColorStop(1, '#b9b6b6');
+  ctx.fillStyle = gradient;
+  ctx.fill();
 }
 
-// Function to draw clay pieces
-function drawClayPieces() {
-  ctx.fillStyle = '#d2cfcf'; // Clay base color
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+// Function to render all blobs
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Render each piece
-  clayPieces.forEach(piece => {
-    ctx.beginPath();
-    ctx.arc(piece.x, piece.y, piece.radius, 0, Math.PI * 2);
-    ctx.fillStyle = piece.color;
-    ctx.fill();
+  blobs.forEach(blob => {
+    drawBlob(blob);
   });
 }
 
-// Check if a piece is being clicked
-function findPiece(x, y) {
-  return clayPieces.find(piece => {
-    const dist = Math.hypot(piece.x - x, piece.y - y);
-    return dist < piece.radius;
-  });
+// Function to find the clicked blob
+function findBlob(x, y) {
+  return blobs.find(blob => Math.hypot(blob.x - x, blob.y - y) < blob.radius);
 }
 
-// Mouse event handlers
+// Function to create a new blob
+function createBlob(x, y) {
+  const radius = 50; // Smaller blobs
+  const blob = { x, y, radius, isDragging: false, color: '#d2cfcf' };
+  blobs.push(blob);
+  return blob;
+}
+
+// Mouse events
 canvas.addEventListener('mousedown', (e) => {
   const rect = canvas.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
 
-  const piece = findPiece(x, y);
-
-  if (piece) {
+  const blob = findBlob(x, y);
+  if (blob) {
     isDragging = true;
-    piece.isDragging = true;
-    piece.dx = x - piece.x;
-    piece.dy = y - piece.y;
-    currentPiece = piece;
+    activeBlob = blob;
   } else {
-    const newPiece = createClayPiece(x, y);
+    const newBlob = createBlob(x, y);
+    activeBlob = newBlob;
     isDragging = true;
-    newPiece.isDragging = true;
-    currentPiece = newPiece;
   }
 });
 
@@ -81,29 +74,32 @@ canvas.addEventListener('mousemove', (e) => {
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
 
-  if (currentPiece && currentPiece.isDragging) {
-    currentPiece.x = x - currentPiece.dx;
-    currentPiece.y = y - currentPiece.dy;
+  if (activeBlob) {
+    const distance = Math.hypot(activeBlob.x - x, activeBlob.y - y);
+    if (distance > activeBlob.radius * 0.5 && distance < activeBlob.radius * 1.5) {
+      // Stretch the blob
+      stretchPoint = { x, y };
+      activeBlob.radius = Math.min(150, Math.max(30, distance)); // Size constraints
+    } else {
+      // Move the blob
+      activeBlob.x = x;
+      activeBlob.y = y;
+    }
   }
-
-  drawClayPieces();
+  render();
 });
 
 canvas.addEventListener('mouseup', () => {
   isDragging = false;
-  if (currentPiece) {
-    currentPiece.isDragging = false;
-    currentPiece = null;
-  }
+  activeBlob = null;
+  stretchPoint = null;
 });
 
 canvas.addEventListener('mouseleave', () => {
   isDragging = false;
-  if (currentPiece) {
-    currentPiece.isDragging = false;
-    currentPiece = null;
-  }
+  activeBlob = null;
+  stretchPoint = null;
 });
 
-// Initial draw
-drawClayPieces();
+// Initial render
+render();
