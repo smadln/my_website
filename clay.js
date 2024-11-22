@@ -5,101 +5,169 @@ const ctx = canvas.getContext('2d');
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
 
-// Variables for clay manipulation
-let blobs = [
-  { x: canvas.width / 2, y: canvas.height / 2, radius: 100, isDragging: false, color: '#d2cfcf' }
-];
-let activeBlob = null;
-let isDragging = false;
-let stretchPoint = null;
+// Blob object class
+class Blob {
+  constructor(x, y, radius, points = 20) {
+    this.x = x;
+    this.y = y;
+    this.vertices = this.generateVertices(radius, points);
+    this.isDragging = false;
+    this.isSelected = false;
+  }
 
-// Helper function to draw blobs
-function drawBlob(blob) {
-  ctx.beginPath();
-  ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
-  ctx.fillStyle = blob.color;
-  ctx.fill();
+  // Generate an irregular blob shape with vertices
+  generateVertices(radius, points) {
+    const vertices = [];
+    for (let i = 0; i < points; i++) {
+      const angle = (i / points) * Math.PI * 2;
+      const offset = Math.random() * radius * 0.3; // Randomize for unevenness
+      vertices.push({
+        x: this.x + (radius + offset) * Math.cos(angle),
+        y: this.y + (radius + offset) * Math.sin(angle),
+      });
+    }
+    return vertices;
+  }
 
-  // Add dynamic shading
-  const gradient = ctx.createRadialGradient(blob.x, blob.y, blob.radius * 0.5, blob.x, blob.y, blob.radius);
-  gradient.addColorStop(0, '#e0e0e0');
-  gradient.addColorStop(1, '#b9b6b6');
-  ctx.fillStyle = gradient;
-  ctx.fill();
+  // Draw the blob with dynamic shading
+  draw(ctx) {
+    ctx.beginPath();
+    const start = this.vertices[0];
+    ctx.moveTo(start.x, start.y);
+    this.vertices.forEach(v => ctx.lineTo(v.x, v.y));
+    ctx.closePath();
+
+    // Apply gradient shading
+    const gradient = ctx.createRadialGradient(this.x, this.y, 10, this.x, this.y, 100);
+    gradient.addColorStop(0, '#d2cfcf');
+    gradient.addColorStop(1, '#b9b6b6');
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    ctx.strokeStyle = '#9e9e9e';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  // Check if a point is inside the blob
+  isPointInside(x, y) {
+    let inside = false;
+    for (let i = 0, j = this.vertices.length - 1; i < this.vertices.length; j = i++) {
+      const xi = this.vertices[i].x, yi = this.vertices[i].y;
+      const xj = this.vertices[j].x, yj = this.vertices[j].y;
+      const intersect = ((yi > y) !== (yj > y)) &&
+                        (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+      if (intersect) inside = !inside;
+    }
+    return inside;
+  }
+
+  // Move the blob
+  move(dx, dy) {
+    this.vertices.forEach(v => {
+      v.x += dx;
+      v.y += dy;
+    });
+    this.x += dx;
+    this.y += dy;
+  }
+
+  // Reshape blob by pulling a point
+  reshape(vertexIndex, dx, dy) {
+    this.vertices[vertexIndex].x += dx;
+    this.vertices[vertexIndex].y += dy;
+  }
 }
 
-// Function to render all blobs
+// Global variables
+let blobs = [new Blob(canvas.width / 2, canvas.height / 2, 100)]; // Initial clay blob
+let selectedBlob = null;
+let selectedVertexIndex = null;
+let isDraggingBlob = false;
+
+// Render all blobs
 function render() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  blobs.forEach(blob => {
-    drawBlob(blob);
-  });
+  blobs.forEach(blob => blob.draw(ctx));
 }
 
-// Function to find the clicked blob
-function findBlob(x, y) {
-  return blobs.find(blob => Math.hypot(blob.x - x, blob.y - y) < blob.radius);
-}
-
-// Function to create a new blob
-function createBlob(x, y) {
-  const radius = 50; // Smaller blobs
-  const blob = { x, y, radius, isDragging: false, color: '#d2cfcf' };
-  blobs.push(blob);
-  return blob;
-}
-
-// Mouse events
+// Handle mouse down
 canvas.addEventListener('mousedown', (e) => {
   const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
 
-  const blob = findBlob(x, y);
-  if (blob) {
-    isDragging = true;
-    activeBlob = blob;
-  } else {
-    const newBlob = createBlob(x, y);
-    activeBlob = newBlob;
-    isDragging = true;
+  selectedBlob = null;
+  selectedVertexIndex = null;
+
+  // Check if the user clicked on any blob or its vertices
+  for (let blob of blobs) {
+    if (blob.isPointInside(mouseX, mouseY)) {
+      selectedBlob = blob;
+
+      // Check if the user clicked near a vertex
+      blob.vertices.forEach((vertex, index) => {
+        if (Math.hypot(vertex.x - mouseX, vertex.y - mouseY) < 10) {
+          selectedVertexIndex = index;
+        }
+      });
+
+      if (selectedVertexIndex === null) {
+        isDraggingBlob = true;
+      }
+      break;
+    }
+  }
+
+  // If no blob is selected, create a tear and form a new blob
+  if (!selectedBlob) {
+    for (let blob of blobs) {
+      if (blob.isPointInside(mouseX, mouseY)) {
+        const newBlob = createTornBlob(blob, mouseX, mouseY);
+        blobs.push(newBlob);
+        render();
+        break;
+      }
+    }
   }
 });
 
+// Handle mouse move
 canvas.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
+  if (!selectedBlob) return;
 
   const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
 
-  if (activeBlob) {
-    const distance = Math.hypot(activeBlob.x - x, activeBlob.y - y);
-    if (distance > activeBlob.radius * 0.5 && distance < activeBlob.radius * 1.5) {
-      // Stretch the blob
-      stretchPoint = { x, y };
-      activeBlob.radius = Math.min(150, Math.max(30, distance)); // Size constraints
-    } else {
-      // Move the blob
-      activeBlob.x = x;
-      activeBlob.y = y;
-    }
+  if (selectedVertexIndex !== null) {
+    // Reshape the blob by moving the selected vertex
+    const vertex = selectedBlob.vertices[selectedVertexIndex];
+    const dx = mouseX - vertex.x;
+    const dy = mouseY - vertex.y;
+    selectedBlob.reshape(selectedVertexIndex, dx, dy);
+  } else if (isDraggingBlob) {
+    // Move the entire blob
+    const dx = mouseX - selectedBlob.x;
+    const dy = mouseY - selectedBlob.y;
+    selectedBlob.move(dx, dy);
   }
+
   render();
 });
 
+// Handle mouse up
 canvas.addEventListener('mouseup', () => {
-  isDragging = false;
-  activeBlob = null;
-  stretchPoint = null;
+  selectedBlob = null;
+  selectedVertexIndex = null;
+  isDraggingBlob = false;
 });
 
-canvas.addEventListener('mouseleave', () => {
-  isDragging = false;
-  activeBlob = null;
-  stretchPoint = null;
-});
+// Create a new blob from a torn section
+function createTornBlob(blob, x, y) {
+  const newBlobVertices = blob.vertices.splice(Math.floor(blob.vertices.length / 2)); // Split blob vertices
+  return new Blob(x, y, 50, newBlobVertices.length); // New smaller blob
+}
 
 // Initial render
 render();
