@@ -3,8 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: transparent;
-    background-size: 100% 100%; /* Start with full coverage */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-color: whitesmoke;
@@ -61,11 +60,3 @@ body {
 .highlight {
     background-color: rgb(104, 167, 234);
 }
-
-.background {
-    background-image: url("bokashi_silk_vermillion_1.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
