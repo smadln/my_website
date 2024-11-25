@@ -173,3 +173,19 @@ body {
     left: 0;
     right: 0;
 }
+
+.anthology {
+    width: 100%;
+    text-align: left;
+    font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    font-style: normal;
+    color: white;
+    margin: 0;
+    padding-top: 100px; /* Adjust this value as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
