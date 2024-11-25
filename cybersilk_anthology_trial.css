@@ -38,13 +38,13 @@ body {
     height: auto; /* Automatically adjust the height based on the aspect ratio */
     position: fixed;
     top: 10px; /* Adjust as needed to control vertical placement */
-    left: 50%;
-    transform: translateX(-50%);
+    left: 1%;
+    transform: translateX(-1%);
 }
 
 .anthology {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
