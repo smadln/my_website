@@ -146,7 +146,7 @@ html, body {
 .header a {
     font-size: 18px;
     font-family: Georgia, Tahoma, Verdana;
-    color: rgb(255, 255, 110);
+    color: grey;
     background: none;
     border: none;
     padding: 0;
