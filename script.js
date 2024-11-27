@@ -54,8 +54,8 @@ let effect;
 
 let characters = ' .:-+*=#';
 const effectSize = { amount: 0.205 };
-let backgroundColor = 'lightblue';
-let ASCIIColor = 'white';
+let backgroundColor = 'white';
+let ASCIIColor = 'lightblue';
 
 function createEffect() {
     effect = new AsciiEffect(renderer, characters, { invert: true, resolution: effectSize.amount });
@@ -209,15 +209,15 @@ document.getElementById('lightDark').addEventListener('click', function () {
     let lightDarkButton = document.getElementById('lightDark');
     if (lightMode) {
         document.getElementById("kofi").style.color = "black";
-        document.body.style.backgroundColor = 'white';
-        backgroundColor = 'white';
+        document.body.style.backgroundColor = 'lightblue';
+        backgroundColor = 'lightblue';
         ASCIIColor = 'black';
-        lightDarkButton.style.color = 'lightblue';
+        lightDarkButton.style.color = 'white';
     } else {
-        document.getElementById("kofi").style.color = "white";
+        document.getElementById("kofi").style.color = "lightblue";
         document.body.style.backgroundColor = 'black';
         backgroundColor = 'black';
-        ASCIIColor = 'white';
+        ASCIIColor = 'lightblue';
         lightDarkButton.style.color = '';
     }
 
@@ -228,10 +228,10 @@ document.getElementById('lightDark').addEventListener('click', function () {
 document.getElementById('lightDark').addEventListener('click', function () {
     lightMode = !lightMode;
     if (lightMode) {
-        document.body.style.backgroundColor = 'white';
+        document.body.style.backgroundColor = 'lightblue';
         this.classList.add('light-mode-active');
     } else {
-        document.body.style.backgroundColor = 'lightblue';
+        document.body.style.backgroundColor = 'white';
         this.classList.remove('light-mode-active');
     }
 });
