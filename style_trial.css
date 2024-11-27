@@ -171,7 +171,8 @@ html, body {
 }
 
 .cv-container {
-    margin-top: 10px; /* This pushes the .cv-container down the page */
+    margin-top: 50px; /* Space above the CV section */
+    padding-top: 0; /* Optional: Ensure no extra padding */
     width: 100%; /* This ensures it takes up the full width */
     display: flex;
     justify-content: center; /* This centers the .cv content horizontally */
@@ -217,6 +218,8 @@ html, body {
     width: 100%; /* This ensures it takes up the full width */
     display: flex;
     justify-content: center; /* This centers the .cv content horizontally */
+    margin-bottom: 50px; /* Space below the statement section */
+    padding-bottom: 0; /* Optional: Ensure no extra padding */
 }
 
 .statement {
@@ -290,7 +293,8 @@ html, body {
     position: relative;
     width: fit-content;
     height: fit-content;
-    margin: 20px auto;
+    margin: 50px auto;
+    padding: 0; /* Optional: Remove any default padding */
 }
 
 .yellow-orchid {
