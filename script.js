@@ -54,7 +54,7 @@ let effect;
 
 let characters = ' .:-+*=#';
 const effectSize = { amount: 0.205 };
-let backgroundColor = 'white';
+let backgroundColor = 'whitesmoke';
 let ASCIIColor = 'lightblue';
 
 function createEffect() {
@@ -212,7 +212,7 @@ document.getElementById('lightDark').addEventListener('click', function () {
         document.body.style.backgroundColor = 'lightblue';
         backgroundColor = 'lightblue';
         ASCIIColor = 'black';
-        lightDarkButton.style.color = 'white';
+        lightDarkButton.style.color = 'whitesmoke';
     } else {
         document.getElementById("kofi").style.color = "lightblue";
         document.body.style.backgroundColor = 'black';
@@ -231,7 +231,7 @@ document.getElementById('lightDark').addEventListener('click', function () {
         document.body.style.backgroundColor = 'lightblue';
         this.classList.add('light-mode-active');
     } else {
-        document.body.style.backgroundColor = 'white';
+        document.body.style.backgroundColor = 'whitesmoke';
         this.classList.remove('light-mode-active');
     }
 });
