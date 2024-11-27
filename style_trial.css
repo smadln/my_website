@@ -26,7 +26,7 @@ html, body {
 }
 
 .content a:hover {
-    color: rgb(143, 132, 227);
+    color: rgb(129, 162, 245);
     font-size: 15px;
     text-transform: lowercase;
 }
@@ -282,7 +282,7 @@ html, body {
 }
 
 .email a {
-    color: rgb(143, 132, 227);
+    color: rgb(129, 162, 245);
     text-decoration: none;
 }
 
