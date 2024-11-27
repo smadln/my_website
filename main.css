@@ -8,7 +8,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: lightblue;
+    background-color: lightsmoke;
 }
 
 model-viewer::part(interaction-prompt) {
@@ -58,7 +58,7 @@ canvas {
 }
 
 #lightDark:hover {
-    color: whitesmoke;
+    color: lightblue;
 }
 
 #lightDark::after {
