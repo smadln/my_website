@@ -134,12 +134,12 @@ canvas {
 
 .horizontal-list li a:hover,
 .horizontal-list li button:hover {
-    color: rgb(143, 132, 227);
+    color: rgb(129, 162, 245);
 }
 
 .rotateButton a:hover,
 .rotateButton button:hover {
-    color: rgb(143, 132, 227);
+    color: rgb(129, 162, 245);
 }
 
 .header a {
@@ -148,7 +148,7 @@ canvas {
 }
 
 .header a:hover {
-    color: rgb(143, 132, 227);
+    color: rgb(129, 162, 245);
     text-decoration: none;
 }
 
