@@ -218,7 +218,7 @@ html, body {
     width: 100%; /* This ensures it takes up the full width */
     display: flex;
     justify-content: center; /* This centers the .cv content horizontally */
-    margin-bottom: 50px; /* Space below the statement section */
+    margin-bottom: 25px; /* Space below the statement section */
     padding-bottom: 0; /* Optional: Ensure no extra padding */
 }
 
@@ -293,7 +293,7 @@ html, body {
     position: relative;
     width: fit-content;
     height: fit-content;
-    margin: 50px auto;
+    margin: 25px auto;
     padding: 0; /* Optional: Remove any default padding */
 }
 
