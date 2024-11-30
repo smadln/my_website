@@ -310,18 +310,14 @@ html, body {
     top: 0;
     left: 50%; /* This centers the images within the images-container */
     z-index: 2; /* Ensure this image is above the yellow orchid */
-    transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
+    transform: translateX(-50%); /* Adjust horizontal centering due to absolute positioning */
     font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
     font-weight: 400;
     font-size: 30px;
     font-style: normal;
     color: white;
-    margin: 0;
-    padding-top: 60px; /* Adjust this value as needed */
+    padding-top: 350px; /* Adjust this value as needed */
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
 }
 
 .yellow-orchid img {
