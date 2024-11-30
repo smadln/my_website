@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+    <link rel="stylesheet" href="info.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville+SC&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Damion&family=Fugaz+One&family=Herr+Von+Muellerhoff&family=Jacquarda+Bastarda+9+Charted&family=Jersey+10+Charted&family=Jersey+15+Charted&family=Jersey+20+Charted&family=Micro+5+Charted&family=Mrs+Saint+Delafield&family=Oleo+Script:wght@400;700&family=Playwrite+AU+VIC:wght@100..400&family=Playwrite+NZ:wght@100..400&family=Prata&family=Racing+Sans+One&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">   
+    <style>
+        html, body {
+            background-color: lightblue;
+        }
+    </style>
+</head> 
+ <body>
+    <div class="header" id="header-section">
+        <p><a href="index.html">Sarah Madeline</a></p>
+    </div>
+    <div class="statement-container">
+        <div class="statement" id="statement-section">
+            <p>Sarah Madeline is a Canadian artist and writer based in Southern California, United States. 
+                Madeline was chief editor and contributing writer for <em>SCAN</em>, a contemporary art 
+                publication at the University of Manitoba. She later became head curator at The Sunroom 
+                Artspace in Winnipeg, Manitoba, Treaty 1 territory. She has since moved to California to 
+                continue her practice.
+            </p>
+            </p>Madeline’s work sifts through new and obsolete technology, to fuse distinct qualities of each to one another. 
+                Analog and digital processes are often merged with industrial materials to synthesize physical and virtual spaces. 
+                Her use of found objects, images, and natural matter reflects on remnants and temporality, which are key elements in 
+                her practice. Madeline incorporates each medium to harness a balance between analyzing the past and anticipating the future.
+            </p>
+        </div>
+    </div>
+    <div class="images-container">
+        <div class="ascii-plant"> 
+            <p>
+            &nbsp;&nbsp;&nbsp;(\ iii /)<br> 
+            &nbsp;&nbsp;(/ (/ \)<br>
+            &nbsp;&nbsp;&nbsp;|<br>
+            &nbsp;|\&nbsp;&nbsp;|<br>
+            &nbsp;\   |&nbsp;|&nbsp;&nbsp;/|<br>
+            &nbsp;&nbsp;\ |&nbsp;|&nbsp;|  /<br>   
+            &nbsp;&nbsp;&nbsp;\  |&nbsp;|/<br>
+            </p>  
+        </div>
+    </div>      
+    <script src="info.js"></script>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const section = urlParams.get('section');
+            if (section) {
+                const sectionElement = document.getElementById(section + '-section');
+                if (sectionElement) {
+                    sectionElement.scrollIntoView();
+                }
+            }
+            // This line will ensure the URL is cleaned up after the section is loaded.
+            window.history.replaceState(null, null, 'info');
+        };
+
+        var url = window.location.href;
+        if(url.endsWith('.html')) {
+            history.replaceState({}, '', url.substring(0, url.length - 5));
+        }
+    </script>       
+ </body>
+</html>
