@@ -244,7 +244,7 @@ html, body {
 }
 
 .statement p {
-    margin-bottom: 0px; /* Adjust this value to reduce the space between paragraphs */
+    margin-bottom: 10px; /* Adjust this value to reduce the space between paragraphs */
 }
 
 .contact-container {
