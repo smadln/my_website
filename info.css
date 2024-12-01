@@ -297,6 +297,11 @@ html, body {
     padding: 0; /* Optional: Remove any default padding */
 }
 
+.charted {
+    font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
+    color: white;
+}
+
 .yellow-orchid {
     position: absolute;
     top: 0;
@@ -329,8 +334,9 @@ html, body {
 
 .ascii-plant img {
     display: block;
-    width: 75px;
+    width: 400px;
     height: auto; /* Keep the aspect ratio */
+    padding-top: 50px; /* Adjust this value as needed */
 }
 
 .image-container {
