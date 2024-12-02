@@ -389,8 +389,8 @@ html, body {
 
 .cv {
     color: grey; 
-    font-size: 15px; 
-    font-family: Georgia, Tahoma, Verdana; 
+    font-family: "century", monospace;
+    font-size: 12px;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -419,8 +419,8 @@ ul {
 .info {
     flex: 1; /* Allows the content to take up the rest of the space */
     color: grey; 
-    font-size: 14px; 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "century", monospace;
+    font-size: 12px;
 }
 
 @media screen and (max-width: 768px) {
