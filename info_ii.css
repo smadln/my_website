@@ -1,0 +1,349 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+html, body {
+    background-color: whitesmoke;
+}
+
+.header a {
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    color: grey;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    left: 10px; /* Stick to the left */
+    top: 10px; /* Adjust as needed for vertical positioning */
+    text-decoration: none 
+}
+
+.header a:hover {
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    color: rgb(255, 255, 110);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    left: 10px; /* Stick to the left */
+    top: 10px; /* Adjust as needed for vertical positioning */
+}
+
+.content p {
+    margin: 0;
+    padding: 0;
+}
+
+.content a {
+    color: grey;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-family: Georgia, Tahoma, Verdana;
+    padding-left: 0px;
+    display: block;
+    margin-bottom: 0.1em;
+}
+
+.content a:hover {
+    color: rgb(129, 162, 245);
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.name {
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    color: rgb(255, 255, 110);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+}
+
+.page a {
+    font-size: 18px;
+    font-family: Georgia, Tahoma, Verdana;
+    color: rgb(255, 255, 110);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+}
+
+.page a:hover {
+    color: rgb(143, 132, 227);
+    font-family: Georgia, Tahoma, Verdana;
+}
+
+.page .about {
+    color: grey;
+    font-size: 15px;
+    font-family: Georgia, Tahoma, Verdana;
+}
+
+/* For image layout changes */
+.images-container {
+    position: absolute; /* Position relative to the entire page */
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space images along the left and right sides */
+}
+
+.images-left,
+.images-right {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center;
+    width: 10%; /* Adjust as needed for image container width */
+}
+
+.images-left img,
+.images-right img {
+    position: relative;
+    width: auto;
+    height: auto;
+    max-width: 100%; /* Limit the size of images */
+}
+
+/* Staggered positioning for left-side images with horizontal and vertical adjustments */
+#cross-stitch-1 {
+    position: absolute;
+    top: 1400px; /* Position relative to the top of its container */
+    left: 20%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 120px;
+}
+
+#cross-stitch-2 {
+    position: absolute;
+    top: 1500px; /* Position relative to the top of its container */
+    left: 80%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 120px;
+}
+
+#cross-stitch-3 {
+    position: absolute;
+    top: 850px; /* Position relative to the top of its container */
+    left: 85%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 120px;
+}
+
+#cross-stitch-4 {
+    position: absolute;
+    top: 300px; /* Position relative to the top of its container */
+    left: 10%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 100px;
+}
+
+/* Staggered positioning for right-side images */
+#cross-stitch-5 {
+    position: absolute;
+    top: 1500px; /* Position relative to the top of its container */
+    left: 8%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+}
+
+#cross-stitch-6 {
+    position: absolute;
+    top: 250px; /* Position relative to the top of its container */
+    left: 80%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 150px;
+    height: auto;
+}
+
+#cross-stitch-7 {
+    position: absolute;
+    top: 250px; /* Position relative to the top of its container */
+    left: 90%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 50px;
+}
+
+#cross-stitch-8 {
+    position: absolute;
+    top: 350px; /* Position relative to the top of its container */
+    left: 90%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 50px;
+}
+
+#cross-stitch-9 {
+    position: absolute;
+    top: 900px; /* Position relative to the top of its container */
+    left: 15%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+}
+
+#cross-stitch-10 {
+    position: absolute;
+    top: 500px; /* Position relative to the top of its container */
+    left: 20%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 80px;
+}
+
+#cross-stitch-11 {
+    position: absolute;
+    top: 120px; /* Position relative to the top of its container */
+    left: 10%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 150px;
+}
+
+#cross-stitch-12 {
+    position: absolute;
+    top: 400px; /* Position relative to the top of its container */
+    left: 50%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 200px;
+}
+
+#cross-stitch-13 {
+    position: absolute;
+    top: 1150px; /* Position relative to the top of its container */
+    left: 85%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 80px;
+}
+
+#cross-stitch-14 {
+    position: absolute;
+    top: 1090px; /* Position relative to the top of its container */
+    left: 90%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 80px;
+}
+
+#cross-stitch-15 {
+    position: absolute;
+    top: 1250px; /* Position relative to the top of its container */
+    left: 95%; /* Align horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+    width: 35px;
+}
+
+.statement-container,
+.cv-container {
+    position: relative;
+}
+
+.cv-container {
+    margin-top: 50px;
+    padding-top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cv {
+    max-width: 600px;
+    margin: 150px auto 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 80%;
+    justify-content: flex-start;
+    align-items: center;
+    background: transparent;
+    color: grey;
+    font-family: "century", monospace;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.cv-text ul {
+    max-width: 100%;
+    padding: 0;
+    margin: 0; /* Removes default margin */
+    list-style: none; /* Removes the bullet points */
+}
+
+.cv-text li {
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.cv-text span.year {
+    flex: 0 0 15px;
+    margin-right: 20px;
+    color: grey;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cv-text span.info {
+    flex: 1;
+    color: grey;
+    font-family: "century", monospace;
+    font-size: 12px;
+}
+
+.statement-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    padding-bottom: 0;
+}
+
+.statement {
+    max-width: 600px;
+    margin: 100px auto 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 80%;
+    justify-content: flex-start;
+    color: grey;
+    font-family: "century", monospace;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.statement p {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .name {
+        font-size: 16px;
+    }
+
+    .horizontal-list {
+        right: 10px;
+    }
+
+    .horizontal-list li {
+        margin-right: 5px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        font-size: 16px;
+    }
+}

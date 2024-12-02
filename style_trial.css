@@ -5,6 +5,10 @@ html, body {
     background-color: lightblue;
 }
 
+html, body {
+    background-color: lightblues;
+}
+
 .content p {
     margin: 0; /* This removes the default top and bottom margins from the paragraph tags */
     padding: 0; /* If you also want to remove any default padding */
