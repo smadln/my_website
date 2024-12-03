@@ -113,3 +113,5 @@ const modelViewer = document.querySelector('model-viewer');
 if (modelViewer) {
     console.log('Model Viewer attributes:', modelViewer.getBoundingClientRect());
 }
+
+

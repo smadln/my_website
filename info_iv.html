@@ -111,6 +111,13 @@
         if(url.endsWith('.html')) {
             history.replaceState({}, '', url.substring(0, url.length - 5));
         }
-    </script>       
+    </script>   
+    <script>
+        // Ensure the model viewer disables gesture prompt
+        const modelViewer = document.querySelector('model-viewer');
+        if (modelViewer) {
+            modelViewer.setAttribute('gesture-config', 'none');
+        }
+    </script>    
  </body>
 </html>
