@@ -181,6 +181,10 @@ model-viewer {
     position: relative;
 }
 
+model-viewer::part(gesture-prompt) {
+    display: none;
+}
+
 .cv-container {
     margin-top: 100px; /* Space above the CV section */
     padding-top: 0; /* Optional: Ensure no extra padding */
