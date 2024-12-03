@@ -104,3 +104,12 @@ const modelViewer = document.querySelector('model-viewer');
 if (modelViewer) {
     console.log('Model Viewer is active and loaded.');
 }
+
+window.onload = () => {
+    const modelViewer = document.querySelector('model-viewer');
+    if (modelViewer) {
+        console.log('Model Viewer initialized:', modelViewer);
+    } else {
+        console.log('Model Viewer not found.');
+    }
+};
