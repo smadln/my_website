@@ -174,10 +174,11 @@ model-viewer {
 }
 
 .kaunas-egg, .images-container {
-    display: block;
-    visibility: visible;
-    position: relative;
-    align-items: center; 
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    height: 150px;          /* Set a height for centering */
+    margin: 0 auto;         /* Center container on the page */
 }
 
 model-viewer::part(gesture-prompt) {
