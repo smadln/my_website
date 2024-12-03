@@ -100,11 +100,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     images.forEach(handleImage);
 });
 
-const modelViewer = document.querySelector('model-viewer');
-if (modelViewer) {
-    console.log('Model Viewer is active and loaded.');
-}
-
 window.onload = () => {
     const modelViewer = document.querySelector('model-viewer');
     if (modelViewer) {
@@ -113,3 +108,8 @@ window.onload = () => {
         console.log('Model Viewer not found.');
     }
 };
+
+const modelViewer = document.querySelector('model-viewer');
+if (modelViewer) {
+    console.log('Model Viewer attributes:', modelViewer.getBoundingClientRect());
+}
