@@ -304,15 +304,6 @@ model-viewer::part(gesture-prompt) {
     text-decoration: none;
 }
 
-.images-container {
-    position: relative;
-    width: fit-content;
-    height: fit-content;
-    margin: 25px;
-    margin-bottom: 0px;
-    padding: 0;
-}
-
 .yellow-orchid {
     position: absolute;
     top: 0;
