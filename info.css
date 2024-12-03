@@ -167,8 +167,8 @@ html, body {
 }
 
 model-viewer {
-    width: 200px; /* Set width of the 3D model */
-    height: 200px; /* Set height of the 3D model */
+    width: 100px; /* Set width of the 3D model */
+    height: 100px; /* Set height of the 3D model */
     display: block;
     margin: 25px;
 }
@@ -177,7 +177,7 @@ model-viewer {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center;    /* Center vertically */
-    height: 150px;          /* Set a height for centering */
+    height: 100px;          /* Set a height for centering */
     margin: 25px;         /* Center container on the page */
 }
 
