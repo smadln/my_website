@@ -169,6 +169,8 @@ html, body {
 model-viewer {
     width: 100%;
     height: 500px;
+    margin: auto;
+    display: block;
 }
 
 .cv-container {
