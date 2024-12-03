@@ -177,6 +177,7 @@ model-viewer {
     display: block;
     visibility: visible;
     position: relative;
+    align-items: center; 
 }
 
 model-viewer::part(gesture-prompt) {
