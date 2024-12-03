@@ -171,6 +171,8 @@ model-viewer {
     height: 500px;
     margin: auto;
     display: block;
+    z-index: 10;
+    position: relative;
 }
 
 .kaunas-egg, .images-container {
