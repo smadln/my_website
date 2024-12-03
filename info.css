@@ -170,7 +170,7 @@ model-viewer {
     width: 200px; /* Set width of the 3D model */
     height: 200px; /* Set height of the 3D model */
     display: block;
-    margin: 0 auto;
+    margin: 25px;
 }
 
 .kaunas-egg, .images-container {
@@ -178,7 +178,7 @@ model-viewer {
     justify-content: center; /* Center horizontally */
     align-items: center;    /* Center vertically */
     height: 150px;          /* Set a height for centering */
-    margin: 0 auto;         /* Center container on the page */
+    margin: 25px;         /* Center container on the page */
 }
 
 model-viewer::part(gesture-prompt) {
