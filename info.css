@@ -186,8 +186,8 @@ model-viewer::part(gesture-prompt) {
 }
 
 .cv-container {
-    margin-top: 100px; /* Space above the CV section */
-    padding-top: 0; /* Optional: Ensure no extra padding */
+    margin-top: 10px;
+    padding: 0;
     width: 100%; /* This ensures it takes up the full width */
     display: flex;
     justify-content: center; /* This centers the .cv content horizontally */
@@ -308,8 +308,8 @@ model-viewer::part(gesture-prompt) {
     position: relative;
     width: fit-content;
     height: fit-content;
-    margin: 25px auto;
-    padding: 0; /* Optional: Remove any default padding */
+    margin-bottom: 10px;
+    padding: 0;
 }
 
 .yellow-orchid {
