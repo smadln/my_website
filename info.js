@@ -99,3 +99,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const images = document.querySelectorAll(".yellow-orchid img, orchid_ascii.png");
     images.forEach(handleImage);
 });
+
+const modelViewer = document.querySelector('model-viewer');
+if (modelViewer) {
+    console.log('Model Viewer is active and loaded.');
+}
