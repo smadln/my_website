@@ -2,11 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: lightblue;
-}
-
-html, body {
-    background-color: lightblue;
+    background-color: whitesmoke;
 }
 
 .content p {
@@ -170,9 +166,28 @@ html, body {
     top: 10px; /* Adjust as needed for vertical positioning */
 }
 
+model-viewer {
+    width: 100px; /* Set width of the 3D model */
+    height: 100px; /* Set height of the 3D model */
+    display: block;
+    margin: 25px;
+}
+
+.images-container {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: 25px auto;
+    padding: 0; /* Optional: Remove any default padding */
+}
+
+model-viewer::part(gesture-prompt) {
+    display: none;
+}
+
 .cv-container {
-    margin-top: 50px; /* Space above the CV section */
-    padding-top: 0; /* Optional: Ensure no extra padding */
+    margin-top: 10px;
+    padding: 0;
     width: 100%; /* This ensures it takes up the full width */
     display: flex;
     justify-content: center; /* This centers the .cv content horizontally */
@@ -180,9 +195,8 @@ html, body {
 
 .cv {
     max-width: 600px; /* or any other value you prefer */
-    margin: 100px auto; /* This will add 50px margin to the top and keep the container centered horizontally */
     margin-bottom: 0px;
-    margin-top: 150px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center; /* This will align items in the center horizontally within the .cv container */
@@ -289,18 +303,10 @@ html, body {
     text-decoration: none;
 }
 
-.images-container {
-    position: relative;
-    width: fit-content;
-    height: fit-content;
-    margin: 25px auto;
-    padding: 0; /* Optional: Remove any default padding */
-}
-
 .yellow-orchid {
     position: absolute;
     top: 0;
-    left: 60%; /* This centers the images within the images-container */
+    left: 50%; /* This centers the images within the images-container */
     z-index: 0; /* Ensure this image is below the other image */
     transform: translate(-60%, -10%); /* Adjust for horizontal center and vertical positioning */
 }
@@ -309,8 +315,8 @@ html, body {
     position: absolute;
     top: 0;
     left: 50%; /* This centers the images within the images-container */
-    z-index: 2; /* Ensure this image is above the yellow orchid */
-    transform: translateX(-40%, -10%); /* Adjust horizontal centering due to absolute positioning */
+    z-index: 1; /* Ensure this image is above the yellow orchid */
+    transform: translateX(-50%); /* Adjust horizontal centering due to absolute positioning */
 }
 
 .yellow-orchid img {
@@ -322,7 +328,21 @@ html, body {
 
 .ascii-plant img {
     display: block;
-    width: 75px;
+    width: 150px;
+    height: auto; /* Keep the aspect ratio */
+}
+
+.nippon-art {
+    position: absolute;
+    top: 0;
+    left: 50%; /* This centers the images within the images-container */
+    z-index: 1; /* Ensure this image is above the yellow orchid */
+    transform: translateX(-50%); /* Adjust horizontal centering due to absolute positioning */
+}
+
+.nippon-art img {
+    display: block;
+    width: 300px;
     height: auto; /* Keep the aspect ratio */
 }
 
