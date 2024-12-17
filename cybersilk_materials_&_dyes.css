@@ -45,7 +45,7 @@ body {
 .materials-dyes {
     display: block;
     margin: 0 auto;
-    width: 320px; /* Set your desired fixed width here */
+    width: 318px; /* Set your desired fixed width here */
     height: auto; /* Automatically adjust the height based on the aspect ratio */
     position: fixed;
     top: 50px; /* Adjust as needed to control vertical placement */
