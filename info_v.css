@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: lightblue;
+    background-color: whitesmoke;
 }
 
 .content p {
@@ -166,25 +166,6 @@ html, body {
     top: 10px; /* Adjust as needed for vertical positioning */
 }
 
-model-viewer {
-    width: 100px; /* Set width of the 3D model */
-    height: 100px; /* Set height of the 3D model */
-    display: block;
-    margin: 25px;
-}
-
-.kaunas-egg, .images-container {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;    /* Center vertically */
-    height: 100px;          /* Set a height for centering */
-    margin: 25px;         /* Center container on the page */
-}
-
-model-viewer::part(gesture-prompt) {
-    display: none;
-}
-
 .cv-container {
     margin-top: 10px;
     padding: 0;
@@ -333,24 +314,23 @@ model-viewer::part(gesture-prompt) {
 }
 
 .cross-stitch {
-    position: absolute;
-    top: 0;
-    left: 50%; /* This centers the images within the images-container */
-    z-index: 1; /* Ensure this image is above the yellow orchid */
-    transform: translateX(-50%); /* Adjust horizontal centering due to absolute positioning */
+    margin: 0 auto; /* Centers it horizontally if using block-level context */
+    padding: 0;
+    position: static; /* Ensures no unexpected positioning is applied */
 }
 
 .cross-stitch img {
     display: block;
-    width: 300px;
-    height: auto; /* Keep the aspect ratio */
+    width: 350px;
+    max-width: 100%; /* Keeps image within parent container's bounds */
+    height: auto; /* Maintains aspect ratio */
 }
 
-.image-container {
-    position: relative;
-    width: fit-content;
-    height: fit-content;
-    margin: 20px auto; /* Adjust the margin to control the vertical space */
+.images-container {
+    display: flex;
+    justify-content: center; /* Centers child elements horizontally */
+    align-items: center; /* Centers child elements vertically */
+    flex-direction: column; /* Stacks children vertically */
 }
 
 .tamagotchi {
