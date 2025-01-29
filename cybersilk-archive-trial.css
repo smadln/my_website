@@ -34,7 +34,7 @@ body {
 .cybersilk-image {
     display: block;
     margin: 0 auto;
-    width: 350px; /* Set your desired fixed width here */
+    width: 300px; /* Set your desired fixed width here */
     height: auto; /* Automatically adjust the height based on the aspect ratio */
     position: fixed;
     top: 10px; /* Adjust as needed to control vertical placement */
