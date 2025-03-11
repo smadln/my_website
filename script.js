@@ -13,6 +13,7 @@ const clock = new THREE.Clock();
 
 // Set rotate boolean variable to true for model to rotate by default 
 // Auto rotate was enabled in bundle by changing this.enableRotate=!0 to this.autoRotate=!1, and changing: if(1==Zo) to if(0==Zo)
+// Enable light / dark mode by disabling a section that handles autorotation. Switch if(1==Zo) to if(0==Zo)
 let rotateModel = true;
 
 // Creates empty mesh container
