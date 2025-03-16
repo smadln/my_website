@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cross Stitch</title>
-    <link rel="stylesheet" href="cross_stitch_i.css">
-</head>
+    <title>Cross Stitch Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+ </head>
  <body>
     <h1>Cross Stitch Simulator</h1>
-    <div class="color-picker">
+    
+    <div class="controls">
         <label for="stitchColor">Choose a color: </label>
         <input type="color" id="stitchColor" value="#ff0000">
+        <button id="undo">Undo</button>
+        <button id="redo">Redo</button>
+        <button id="save">Save Pattern</button>
+        <button id="load">Load Pattern</button>
     </div>
+    
     <div id="stitchCanvas"></div>
-    <script src="cross_stitch_i.js"></script>
+    <script src="script.js"></script>
     <script>
         var url = window.location.href;
         if (url.endsWith('index')) {
