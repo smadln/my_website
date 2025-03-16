@@ -11,24 +11,28 @@ document.addEventListener("DOMContentLoaded", function () {
     let redoStack = [];
 
     // Generate the grid
-    for (let i = 0; i < gridSize * gridSize; i++) {
-        let cell = document.createElement("div");
-        cell.classList.add("stitch");
-        cell.dataset.index = i;
-        
-        cell.addEventListener("click", function () {
-            addToHistory();
-            let color = colorPicker.value;
-            if (!cell.classList.contains("x-stitch")) {
-                cell.classList.add("x-stitch");
-                cell.style.setProperty('--stitch-color', color);
-            } else {
-                cell.classList.remove("x-stitch");
-                cell.style.setProperty('--stitch-color', 'transparent');
-            }
-        });
+    function createGrid() {
+        canvas.innerHTML = ""; // Clear existing grid
+        for (let i = 0; i < gridSize * gridSize; i++) {
+            let cell = document.createElement("div");
+            cell.classList.add("stitch");
+            cell.dataset.index = i;
+            
+            cell.addEventListener("click", function () {
+                addToHistory();
+                let color = colorPicker.value;
+                if (!cell.classList.contains("x-stitch")) {
+                    cell.classList.add("x-stitch");
+                    cell.style.setProperty('--stitch-color', color);
+                } else {
+                    cell.classList.remove("x-stitch");
+                    cell.style.setProperty('--stitch-color', 'transparent');
+                }
+            });
 
-        canvas.appendChild(cell);
+            canvas.appendChild(cell);
+        }
+        addToHistory(); // Store initial empty state
     }
 
     function addToHistory() {
@@ -83,5 +87,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    addToHistory(); // Store initial empty state
+    createGrid(); // Initialize grid on page load
 });
