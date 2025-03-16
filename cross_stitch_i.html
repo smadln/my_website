@@ -8,18 +8,23 @@
 </head>
 <body>
     <h1>Cross Stitch Simulator</h1>
-    
+
     <div class="controls">
         <label for="stitchColor">Choose a color: </label>
         <input type="color" id="stitchColor" value="#ff0000">
+        
+        <button id="x-stitch-mode">X Stitch</button>
+        <button id="fill-mode">Fill Stitch</button>
+        <button id="eraser">Eraser</button>
+        
         <button id="undo">Undo</button>
         <button id="redo">Redo</button>
-        <button id="save">Save Pattern</button>
-        <button id="load">Load Pattern</button>
+        <button id="save">Save</button>
+        <button id="load">Load</button>
     </div>
-    
+
     <div id="stitchCanvas"></div>
-    
+
     <script src="cross_stitch_i.js"></script>
     <script>
         var url = window.location.href;
