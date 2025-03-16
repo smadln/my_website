@@ -5,9 +5,9 @@ body {
 
 #stitchCanvas {
     display: grid;
-    grid-template-columns: repeat(20, 20px);
-    grid-template-rows: repeat(20, 20px);
-    gap: 1px;
+    grid-template-columns: repeat(20, 25px);
+    grid-template-rows: repeat(20, 25px);
+    gap: 2px;
     justify-content: center;
     margin: 20px auto;
     background-color: #ddd;
@@ -15,10 +15,10 @@ body {
 }
 
 .stitch {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-color: white;
-    border: 1px solid #ccc;
+    border: 1px solid #bbb;
     position: relative;
     cursor: pointer;
 }
@@ -27,7 +27,7 @@ body {
     border-color: black;
 }
 
-/* Diagonal stitch styles */
+/* Diagonal X-Stitch */
 .stitch::before, .stitch::after {
     content: '';
     position: absolute;
