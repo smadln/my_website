@@ -6,7 +6,7 @@
     <title>Cross Stitch</title>
     <link rel="stylesheet" href="cross_stitch_i.css">
 </head>
-<body>
+ <body>
     <h1>Cross Stitch Simulator</h1>
     <div class="color-picker">
         <label for="stitchColor">Choose a color: </label>
@@ -14,5 +14,16 @@
     </div>
     <div id="stitchCanvas"></div>
     <script src="cross_stitch_i.js"></script>
-</body>
+    <script>
+        var url = window.location.href;
+        if (url.endsWith('index')) {
+            // Remove 'index' from the URL
+            var newUrl = url.substring(0, url.lastIndexOf('index'));
+            history.replaceState({}, '', newUrl);
+        } else if (url.endsWith('.html')) {
+            // Remove '.html' from the URL
+            history.replaceState({}, '', url.substring(0, url.length - 5));
+        }
+    </script>
+ </body>
 </html>
