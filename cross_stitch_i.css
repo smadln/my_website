@@ -23,26 +23,32 @@ body {
     cursor: pointer;
 }
 
+/* Hover effect */
 .stitch:hover {
     border-color: black;
 }
 
-/* Diagonal X-Stitch */
-.stitch::before, .stitch::after {
+/* X-Stitch Fix */
+.stitch.x-stitch::before, 
+.stitch.x-stitch::after {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: transparent;
-    transform-origin: center;
+    width: 90%;
+    height: 3px;  /* Make the cross line thicker */
+    background-color: var(--stitch-color, black);
+    top: 50%;
+    left: 5%;
 }
 
 .stitch.x-stitch::before {
     transform: rotate(45deg);
-    background-color: var(--stitch-color, black);
 }
 
 .stitch.x-stitch::after {
     transform: rotate(-45deg);
-    background-color: var(--stitch-color, black);
+}
+
+/* Fill Stitch */
+.stitch.fill-stitch {
+    background-color: var(--stitch-color, black) !important;
 }
