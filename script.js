@@ -88,7 +88,7 @@ canvasElement.addEventListener('pointermove', () => {
 });
 
 canvasElement.addEventListener('pointerleave', () => {
-    canvasElement.style.cursor = 'auto';
+    canvasElement.style.cursor = 'move';
 });
 
 stlLoader.load('3dpea copy.stl', function (geometry) {
