@@ -294,8 +294,8 @@ document.addEventListener('mousemove', (event) => {
         event.clientY > middleY - offsetY &&
         event.clientY < middleY + offsetY
     ) {
-        document.body.style.cursor = 'grab';
+        document.body.style.cursor = 'move';
     } else {
-        document.body.style.cursor = 'auto';
+        document.body.style.cursor = 'move';
     }
 });
