@@ -19,11 +19,11 @@ body {
     text-align: center;
     font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 36px;
     font-style: normal;
     color: rgb(255, 255, 255);
     margin: 0;
-    padding-top: 10px; /* Adjust this value as needed */
+    padding-top: 13px; /* Adjust this value as needed */
     padding-left: 0px;
     position: fixed;
     top: 0;

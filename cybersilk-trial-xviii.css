@@ -7,7 +7,7 @@ body {
     background-size: 100% 100%; /* Start with full coverage */
     background-position: center;
     background-repeat: no-repeat;
-    background-color: whitesmoke;
+    background-color: whitesmoke; /* try rgb(255, 241, 171), rgb(255, 252, 155), or rgb(255, 252, 170) */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,10 +34,10 @@ body {
 .cybersilk-image {
     display: block;
     margin: 0 auto;
-    width: 190px; /* Set your desired fixed width here */
+    width: 170px; /* Set your desired fixed width here */
     height: auto; /* Automatically adjust the height based on the aspect ratio */
     position: fixed;
-    top: 10px; /* Adjust as needed to control vertical placement */
+    top: 25px; /* Adjust as needed to control vertical placement */
     left: 50%;
     transform: translateX(-50%);
 }
