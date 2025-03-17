@@ -2,11 +2,11 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: whitesmoke; /* previously lightblue */
+    background-color: lightblue; /* previously whitesmoke */
 }
 
 html, body {
-    background-color: whitesmoke; /* previously lightblue */
+    background-color: lightblue; /* previously whitesmoke */
 }
 
 .content p {
@@ -26,7 +26,7 @@ html, body {
 }
 
 .content a:hover {
-    color: rgb(129, 162, 245);
+    color: rgb(191, 209, 255);
     font-size: 15px;
     text-transform: lowercase;
 }
