@@ -34,7 +34,7 @@ body {
 .dye-image {
     display: block;
     margin: 0 auto;
-    width: 230px; /* Set your desired fixed width here */
+    width: 200px; /* Set your desired fixed width here */
     height: auto; /* Automatically adjust the height based on the aspect ratio */
     position: fixed;
     top: 25px; /* Adjust as needed to control vertical placement */
