@@ -14,7 +14,7 @@ body {
     text-align: center;
 }
 
-.cybersilk {
+.dye-database {
     width: 100%;
     text-align: center;
     font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
@@ -31,10 +31,10 @@ body {
     right: 0;
 }
 
-.material-dye-image {
+.dye-image {
     display: block;
     margin: 0 auto;
-    width: 450px; /* Set your desired fixed width here */
+    width: 230px; /* Set your desired fixed width here */
     height: auto; /* Automatically adjust the height based on the aspect ratio */
     position: fixed;
     top: 25px; /* Adjust as needed to control vertical placement */
