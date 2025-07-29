@@ -86,7 +86,7 @@ html, body {
 #peach-ascii {
     position: absolute;
     width: 400px;
-    top: 50%; /* Set top to 50% of the parent container */
+    top: 49%; /* Set top to 50% of the parent container */
     left: 85%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
@@ -94,7 +94,7 @@ html, body {
 #bright-pink-ascii {
     position: absolute;
     width: 400px;
-    top: 51%; /* Set top to 50% of the parent container */
+    top: 50%; /* Set top to 50% of the parent container */
     left: 85%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
@@ -102,7 +102,7 @@ html, body {
 #periwinkle-ascii {
     position: absolute;
     width: 400px;
-    top: 52%; /* Set top to 50% of the parent container */
+    top: 51%; /* Set top to 50% of the parent container */
     left: 85%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
@@ -110,7 +110,7 @@ html, body {
 #bright-yellow-ascii {
     position: absolute;
     width: 400px;
-    top: 49.5%; /* Set top to 50% of the parent container */
+    top: 48.5%; /* Set top to 50% of the parent container */
     left: 85%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
@@ -118,7 +118,7 @@ html, body {
 #green-ascii {
     position: absolute;
     width: 400px;
-    top: 50.1%; /* Set top to 50% of the parent container */
+    top: 49.1%; /* Set top to 50% of the parent container */
     left: 85%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
@@ -225,15 +225,3 @@ html, body {
   transform: translate(-50%, -50%);
 }
 
-#yellow-ascii        { top: 50%;   left: 15%; }
-#blue-ascii          { top: 49%;   left: 15.5%; }
-#lilac-ascii         { top: 49%;   left: 15%; }
-#violet-ascii        { top: 50%;   left: 50%; }
-#light-pink-ascii    { top: 48.8%; left: 50%; }
-#light-yellow-ascii  { top: 47.5%;   left: 50%; }
-#pale-yellow-ascii   { top: 51%;   left: 50%; }
-#peach-ascii         { top: 50%;   left: 85%; }
-#bright-pink-ascii   { top: 51%;   left: 85%; }
-#periwinkle-ascii    { top: 52%;   left: 85%; }
-#bright-yellow-ascii { top: 49.5%; left: 85%; }
-#green-ascii         { top: 50.1%; left: 85%; }
