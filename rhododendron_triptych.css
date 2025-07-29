@@ -70,7 +70,7 @@ html, body {
 #light-yellow-ascii {
     position: absolute;
     width: 400px;
-    top: 47.5%; /* Set top to 50% of the parent container */
+    top: 48%; /* Set top to 50% of the parent container */
     left: 50%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
@@ -78,7 +78,7 @@ html, body {
 #pale-yellow-ascii {
     position: absolute;
     width: 400px;
-    top: 51%; /* Set top to 50% of the parent container */
+    top: 50%; /* Set top to 50% of the parent container */
     left: 50%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
@@ -166,7 +166,7 @@ html, body {
 
 @media screen and (max-width: 480px) {
   :root {
-    --scale: 0.6;
+    --scale: 0.3;
   }
 }
 @media screen and (max-width: 768px) {
