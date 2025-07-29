@@ -1,61 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-   <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv='cache-control' content='no-cache'> 
-   <meta http-equiv='expires' content='0'> 
-   <meta http-equiv='pragma' content='no-cache'>
-   <title>Rhododendron</title>
-   <link rel="stylesheet" href="rhododendron_triptych.css">
-   <link rel="icon" type="image/png" href="favicon.png">
- </head> 
- <body>
-    <div class="bright-container">
-        <div class="ascii-plant-1">
-            <img src="ascii_yellow.png" alt="Yellow orchid" id="yellow-ascii">
-        </div>
-        <div class="ascii-plant-2"> 
-          <img src="ascii_blue.png" alt="Blue orchid" id="blue-ascii">
-        </div>
-        <div class="ascii-plant-3"> 
-            <img src="ascii_lilac.png" alt="Lilac orchid" id="lilac-ascii">
-        </div>
-        <div class="ascii-plant-6">
-            <img src="ascii_yellow.png" alt="Yellow orchid" id="pale-yellow-ascii">
-        </div>
-        <div class="ascii-plant-4"> 
-            <img src="ascii_blue.png" alt="Blue orchid" id="violet-ascii">
-        </div>      
-        <div class="ascii-plant-5"> 
-            <img src="ascii_light_yellow.png" alt="Yellow orchid" id="light-yellow-ascii">
-        </div>
-        <div class="ascii-plant-7"> 
-            <img src="ascii_light_pink.png" alt="Bright pink orchid" id="light-pink-ascii">
-        </div>
-        <div class="ascii-plant-8"> 
-          <img src="ascii_pink.png" alt="Pink orchid" id="bright-pink-ascii">
-        </div>
-        <div class="ascii-plant-9"> 
-          <img src="ascii_peach.png" alt="Pink orchid" id="peach-ascii">
-        </div>
-        <div class="ascii-plant-10"> 
-          <img src="ascii_blue.png" alt="Blue orchid" id="periwinkle-ascii">
-        </div>
-        <div class="ascii-plant-11"> 
-          <img src="ascii_light_yellow.png" alt="Yellow orchid" id="bright-yellow-ascii">
-        </div>
-        <div class="ascii-plant-12"> 
-          <img src="ascii_green.png" alt="Blue orchid" id="green-ascii">
-        </div>
-    </div>  
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rhododendron</title>
+  <link rel="stylesheet" href="rhododendron_triptych.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <div class="bright-container">
+    <div class="positioned-wrapper">
+      <div class="ascii-plant-1"><img src="ascii_yellow.png" alt="Yellow orchid" id="yellow-ascii"></div>
+      <div class="ascii-plant-2"><img src="ascii_blue.png" alt="Blue orchid" id="blue-ascii"></div>
+      <div class="ascii-plant-3"><img src="ascii_lilac.png" alt="Lilac orchid" id="lilac-ascii"></div>
+      <div class="ascii-plant-6"><img src="ascii_yellow.png" alt="Yellow orchid" id="pale-yellow-ascii"></div>
+      <div class="ascii-plant-4"><img src="ascii_blue.png" alt="Blue orchid" id="violet-ascii"></div>
+      <div class="ascii-plant-5"><img src="ascii_light_yellow.png" alt="Yellow orchid" id="light-yellow-ascii"></div>
+      <div class="ascii-plant-7"><img src="ascii_light_pink.png" alt="Bright pink orchid" id="light-pink-ascii"></div>
+      <div class="ascii-plant-8"><img src="ascii_pink.png" alt="Pink orchid" id="bright-pink-ascii"></div>
+      <div class="ascii-plant-9"><img src="ascii_peach.png" alt="Pink orchid" id="peach-ascii"></div>
+      <div class="ascii-plant-10"><img src="ascii_blue.png" alt="Blue orchid" id="periwinkle-ascii"></div>
+      <div class="ascii-plant-11"><img src="ascii_light_yellow.png" alt="Yellow orchid" id="bright-yellow-ascii"></div>
+      <div class="ascii-plant-12"><img src="ascii_green.png" alt="Green orchid" id="green-ascii"></div>
+    </div>
+  </div>
+
   <script src="rhododendron_triptych.js"></script>
   <script>
     var url = window.location.href;
     if (url.endsWith('.html')) {
       history.replaceState({}, '', url.substring(0, url.length - 5));
     }
-  </script>  
- </body>
+  </script>
+</body>
 </html>
