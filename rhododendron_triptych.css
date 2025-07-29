@@ -164,25 +164,30 @@ html, body {
   --scale: 1;
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (max-width: 480px) {
   :root {
-    --scale: 1.2;
-  }
-}
-@media screen and (min-width: 2000px) {
-  :root {
-    --scale: 1.4;
-  }
-}
-@media screen and (max-width: 1024px) {
-  :root {
-    --scale: 0.85;
+    --scale: 0.6;
   }
 }
 @media screen and (max-width: 768px) {
   :root {
     --scale: 0.7;
-  }
+}
+}
+@media screen and (max-width: 1024px) {
+  :root {
+    --scale: 0.85;
+}
+}
+@media screen and (min-width: 1440px) {
+  :root {
+    --scale: 1; /* Lock the scale at laptop size */
+}
+}
+@media screen and (min-width: 2000px) {
+  :root {
+    --scale: 1; /* No scaling on large screens */
+}
 }
 
 html, body {
