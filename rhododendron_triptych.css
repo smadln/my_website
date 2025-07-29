@@ -39,7 +39,7 @@ html, body {
     position: absolute;
     width: 400px;
     top: 49%; /* Set top to 50% of the parent container */
-    left: 16%; /* Set left to 50% of the parent container */
+    left: 15.5%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
 
@@ -70,7 +70,7 @@ html, body {
 #light-yellow-ascii {
     position: absolute;
     width: 400px;
-    top: 47%; /* Set top to 50% of the parent container */
+    top: 47.5%; /* Set top to 50% of the parent container */
     left: 50%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
@@ -118,7 +118,7 @@ html, body {
 #green-ascii {
     position: absolute;
     width: 400px;
-    top: 48.1%; /* Set top to 50% of the parent container */
+    top: 50.1%; /* Set top to 50% of the parent container */
     left: 85%; /* Set left to 50% of the parent container */
     transform: translate(-50%, -50%); /* Shift the image back by half its width and height */
 }
@@ -159,3 +159,81 @@ html, body {
         max-height: 100%; /* Ensure the image doesn't exceed the container height */
     }
 }
+
+:root {
+  --scale: 1;
+}
+
+@media screen and (min-width: 1600px) {
+  :root {
+    --scale: 1.2;
+  }
+}
+@media screen and (min-width: 2000px) {
+  :root {
+    --scale: 1.4;
+  }
+}
+@media screen and (max-width: 1024px) {
+  :root {
+    --scale: 0.85;
+  }
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --scale: 0.7;
+  }
+}
+
+html, body {
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.bright-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.positioned-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: scale(var(--scale));
+  transform-origin: center;
+}
+
+#yellow-ascii,
+#blue-ascii,
+#lilac-ascii,
+#light-pink-ascii,
+#light-yellow-ascii,
+#pale-yellow-ascii,
+#violet-ascii,
+#peach-ascii,
+#bright-pink-ascii,
+#periwinkle-ascii,
+#bright-yellow-ascii,
+#green-ascii {
+  position: absolute;
+  width: 400px;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+#yellow-ascii        { top: 50%;   left: 15%; }
+#blue-ascii          { top: 49%;   left: 15.5%; }
+#lilac-ascii         { top: 49%;   left: 15%; }
+#violet-ascii        { top: 50%;   left: 50%; }
+#light-pink-ascii    { top: 48.8%; left: 50%; }
+#light-yellow-ascii  { top: 47.5%;   left: 50%; }
+#pale-yellow-ascii   { top: 51%;   left: 50%; }
+#peach-ascii         { top: 50%;   left: 85%; }
+#bright-pink-ascii   { top: 51%;   left: 85%; }
+#periwinkle-ascii    { top: 52%;   left: 85%; }
+#bright-yellow-ascii { top: 49.5%; left: 85%; }
+#green-ascii         { top: 50.1%; left: 85%; }
