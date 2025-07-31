@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv='cache-control' content='no-cache'> 
+   <meta http-equiv='expires' content='0'> 
+   <meta http-equiv='pragma' content='no-cache'>
+   <title>Bright Container</title>
+   <link rel="stylesheet" href="bright-container.css">
+   <link rel="icon" type="image/png" href="favicon.png">
+ </head> 
+ <body>
+    <div class="bright-container">
+        <div class="ascii-plant-1">
+            <img src="ascii_bright_yellow_orchid.png" alt="Yellow orchid" id="yellow-ascii">
+        </div>
+        <div class="ascii-plant-3"> 
+            <img src="ascii_pink_orchid.png" alt="Pink orchid" id="pink-ascii">
+        </div>
+        <div class="ascii-plant-4"> 
+            <img src="ascii_lilac_orchid.png" alt="Lilac orchid" id="lilac-ascii">
+        </div>
+        <div class="ascii-plant-5"> 
+            <img src="ascii_pink_orchid.png" alt="Bright pink orchid" id="bright-pink-ascii">
+        </div>
+        <div class="ascii-plant-6"> 
+            <img src="ascii_bright_yellow_orchid.png" alt="Yellow orchid" id="light-yellow-ascii">
+        </div>
+    </div>  
+  <script src="bright-container.js"></script>
+  <script>
+    var url = window.location.href;
+    if (url.endsWith('.html')) {
+      history.replaceState({}, '', url.substring(0, url.length - 5));
+    }
+  </script>  
+ </body>
+</html>
