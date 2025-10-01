@@ -3,11 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: linear-gradient(to bottom, 
-        #fdff8c 0%,
-        #ffffff 10%, 
-        #ffffff 90%, 
-        #fdff8c 100%);
+    background:#3f3f3d;
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -222,7 +218,7 @@ ul {
 }
 
 .plant-image {
-    max-width: 400px;
+    max-width: 450px;
     height: auto;
     display: block;
     margin: 0 auto;
