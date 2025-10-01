@@ -267,7 +267,15 @@ ul {
 /* Mobile (≤ 600px) */
 @media screen and (max-width: 600px) {
     .site-map-image {
-        max-width: 300px;
+        max-width: 100px;
+    }
+    .panel-image {
+        position: absolute;
+        top: 77px;
+        left: 60px;
+        height: auto;
+        max-width: 200px;
+        z-index: 11;
     }
     .vermilion-image {
         max-width: 250px;
