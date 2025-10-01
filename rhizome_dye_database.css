@@ -266,6 +266,23 @@ ul {
 
 /* Mobile (≤ 600px) */
 @media screen and (max-width: 600px) {
+    .database_title {
+        width: 100%;
+        text-align: center;
+        font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        font-style: normal;
+        color: rgb(118, 191, 255);
+        margin: 0;
+        padding-top: 10px;
+        padding-left: 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
     .site-map-image {
         max-width: 100px;
     }
