@@ -313,14 +313,14 @@ ul {
         max-width: 700px;
     }
     .vermilion-image {
-        max-width: 900px;
+        max-width: 600px;
     }
     .plant-image {
-        max-width: 600px;
+        max-width: 400px;
     }
 }
 
-/* Desktop / very large (≥1920px) */
+/* Desktop (≥1920px) */
 @media screen and (min-width: 1920px) {
     .site-map-image {
         max-width: 900px;
