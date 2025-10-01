@@ -212,7 +212,7 @@ ul {
 .plant-container {
     position: absolute;
     top: 30px;
-    right: 10px;
+    right: 0px; 
     text-align: center;
     z-index: 10;
 }
