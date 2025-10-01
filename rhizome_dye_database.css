@@ -4,9 +4,9 @@ body {
     padding: 0;
     height: 100vh;
     background: linear-gradient(to bottom, 
-        #fdff8c 0%, 
-        #ffffff 40%, 
-        #ffffff 60%, 
+        #fdff8c 0%,
+        #ffffff 10%, 
+        #ffffff 90%, 
         #fdff8c 100%);
     background-size: 100% 100%;
     background-position: center;
