@@ -240,3 +240,72 @@ ul {
     font-family: inherit;
     font-size: inherit;
 }
+
+/* Mobile (≤ 600px) */
+@media screen and (max-width: 600px) {
+    .site-map-image {
+        max-width: 300px;
+    }
+    .vermilion-image {
+        max-width: 250px;
+    }
+    .plant-image {
+        max-width: 220px;
+    }
+    .plant-caption {
+        font-size: 10px;
+        left: 10px;
+    }
+}
+
+/* Tablets portrait (601px–900px) */
+@media screen and (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
+    .site-map-image {
+        max-width: 400px;
+    }
+    .vermilion-image {
+        max-width: 350px;
+    }
+    .plant-image {
+        max-width: 300px;
+    }
+}
+
+/* Tablets landscape (901px–1200px) */
+@media screen and (min-width: 901px) and (max-width: 1200px) and (orientation: landscape) {
+    .site-map-image {
+        max-width: 500px;
+    }
+    .vermilion-image {
+        max-width: 450px;
+    }
+    .plant-image {
+        max-width: 350px;
+    }
+}
+
+/* Larger laptops (≥1600px but <1920px) */
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+    .site-map-image {
+        max-width: 700px;
+    }
+    .vermilion-image {
+        max-width: 600px;
+    }
+    .plant-image {
+        max-width: 500px;
+    }
+}
+
+/* Desktop / very large (≥1920px) */
+@media screen and (min-width: 1920px) {
+    .site-map-image {
+        max-width: 900px;
+    }
+    .vermilion-image {
+        max-width: 750px;
+    }
+    .plant-image {
+        max-width: 550px;
+    }
+}
