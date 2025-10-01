@@ -284,14 +284,14 @@ ul {
     }
 
     .site-map-image {
-        max-width: 100px;
+        max-width: 60px;
     }
     .panel-image {
         position: absolute;
         top: 77px;
         left: 60px;
         height: auto;
-        max-width: 200px;
+        max-width: 160px;
         z-index: 11;
     }
     .vermilion-image {
