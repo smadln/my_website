@@ -185,7 +185,7 @@ ul {
 .site-map-caption {
     position: absolute;
     top: calc(100% - 600px + 190px); 
-    left: calc(50% - 470px); 
+    left: calc(50% - 420px); 
     font-size: 12px;
     color: #67ffa4;
     font-family: Arial, Helvetica, sans-serif;
