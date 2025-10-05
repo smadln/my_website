@@ -330,7 +330,7 @@ ul {
     position: absolute;
     top: 145px;
     left: 50%;
-    transform: translateX(calc(-50% - 40px));
+    transform: translateX(calc(-50% - 35px));
     text-align: center;
     z-index: 150;
 }
