@@ -326,13 +326,13 @@ ul {
         white-space: nowrap;
     }
 
-  .plant-container {
-  position: absolute;
-  top: 145px;
-  left: 50%;
-  transform: translateX(calc(-50% - 10px));
-  text-align: center;
-  z-index: 150;
+.plant-container {
+    position: absolute;
+    top: 145px;
+    left: 50%;
+    transform: translateX(calc(-50% - 40px));
+    text-align: center;
+    z-index: 150;
 }
 
     .plant-image {
