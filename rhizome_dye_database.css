@@ -869,7 +869,7 @@ html, body {
 }
 
 .site-map-image {
-    max-width: 300px;
+    max-width: 450px;
     position: absolute;
     left: 50%;
     bottom: 10px;
@@ -882,7 +882,7 @@ html, body {
     position: absolute;
     left: 0px;
     bottom: 0px;
-    max-width: 400px;
+    max-width: 600px;
     height: auto;
     z-index: 9;
 
