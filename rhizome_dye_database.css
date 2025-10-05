@@ -307,7 +307,7 @@ ul {
     .dye-chart-image {
         position: absolute;
         top: 75px;
-        left: 10px;
+        left: 40px;
         max-width: 350px;
         height: auto;
         z-index: 100;
@@ -315,7 +315,7 @@ ul {
 
     .dye-chart-caption {
         position: absolute;
-        top: 60px;
+        top: 55px;
         left: 150px;
         font-size: 9px;
         color: #67ffa4;
@@ -345,7 +345,7 @@ ul {
     .plant-caption {
         font-size: 9px;
         color: #67ffa4;
-        top: 50px;
+        top: 10px;
         line-height: 1.2;
     }
 
@@ -361,7 +361,7 @@ ul {
 
     .site-map-caption {
         position: absolute;
-        bottom: 70px;
+        bottom: 75px;
         left: 50px;
         font-size: 9px;
         color: #67ffa4;
@@ -374,7 +374,7 @@ ul {
         position: absolute;
         right: 10px;
         bottom: 10;
-        max-width: 375px;
+        max-width: 380px;
         height: auto;
         z-index: 9;
     }
