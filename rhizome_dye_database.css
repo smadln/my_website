@@ -691,11 +691,22 @@ html, body {
 
 /* Desktop (≥1920px) */
 @media screen and (min-width: 1920px) {
+    html, body {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
     .site-map-image {
         max-width: 900px;
+        bottom: 15px;
     }
     .vermilion-image {
-        max-width: 900px;
+        max-width: 1000px;
+        bottom: 0px;
     }
     .plant-image {
         max-width: 600px;
