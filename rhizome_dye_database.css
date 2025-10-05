@@ -282,7 +282,7 @@ ul {
         text-align: center;
         font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 18px;
         font-style: normal;
         color: rgb(118, 191, 255);
         margin: 0;
@@ -297,26 +297,26 @@ ul {
 
     .panel-image {
         position: absolute;
-        top: 30px;
+        top: 50px;
         left: 10px;
-        max-width: 120px;
+        max-width: 200px;
         height: auto;
         z-index: 11;
     }
 
     .dye-chart-image {
         position: absolute;
-        top: 65px;
+        top: 55px;
         left: 50%;
         transform: translateX(-50%);
-        max-width: 200px;
+        max-width: 350px;
         height: auto;
         z-index: 100;
     }
 
     .dye-chart-caption {
         position: absolute;
-        top: 40px;
+        top: 50px;
         left: 50%;
         transform: translateX(-50%);
         font-size: 9px;
@@ -337,7 +337,8 @@ ul {
     }
 
     .plant-image {
-        max-width: 140px;
+        top: 80;
+        max-width: 250px;
         height: auto;
         display: block;
         margin: 0 auto;
@@ -346,16 +347,16 @@ ul {
     .plant-caption {
         font-size: 9px;
         color: #67ffa4;
-        margin-top: 3px;
+        top: 85px;
         line-height: 1.2;
     }
 
     .site-map-image {
         position: absolute;
         left: 50%;
-        bottom: 10px;
+        bottom: 20px;
         transform: translateX(-50%);
-        max-width: 160px;
+        max-width: 200px;
         height: auto;
         z-index: 200;
     }
@@ -375,8 +376,8 @@ ul {
     .vermilion-image {
         position: absolute;
         right: 10px;
-        bottom: 0;
-        max-width: 150px;
+        bottom: 10;
+        max-width: 250px;
         height: auto;
         z-index: 9;
     }
