@@ -207,7 +207,7 @@ ul {
     top: 30px;
     right: 0px; 
     text-align: center;
-    z-index: 10;
+    z-index: 100;
 }
 
 .plant-image {
