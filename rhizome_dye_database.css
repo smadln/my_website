@@ -246,7 +246,7 @@ ul {
     height: auto;
     display: block;
     margin: 0 auto;
-    filter: brightness(0.3) contrast(1.1);
+    filter: brightness(0.5) contrast(1.1);
 }
 
 .plant-caption {
