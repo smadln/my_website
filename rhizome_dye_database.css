@@ -594,8 +594,8 @@ html, body {
 }
 }
 
-/* Large tablets and small laptops — portrait (901px–1599px) */
-@media screen and (min-width: 901px) and (max-width: 1599px) and (orientation: portrait) {
+/* Large tablets — portrait (1024px–1366px) */
+@media screen and (min-width: 834px) and (max-width: 1366px) and (orientation: portrait) {
   html, body {
       overflow: hidden;
       width: 100vw;
@@ -693,8 +693,8 @@ html, body {
   }
 }
 
-/* Large tablets and small laptops — landscape (901px–1599px) */
-@media screen and (min-width: 901px) and (max-width: 1599px) and (orientation: landscape) {
+/* Large tablets  — landscape (1024px–1366px) */
+@media screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
   html, body {
       overflow: hidden;
       width: 100vw;
