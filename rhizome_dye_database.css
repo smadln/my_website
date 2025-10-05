@@ -567,7 +567,7 @@ html, body {
 .site-map-image {
     max-width: 500px;
     position: absolute;
-    left: 275px;
+    left: 300px;
     bottom: 80px;
     height: auto;
     z-index: 200;
@@ -587,7 +587,7 @@ html, body {
 .vermilion-image {
     position: absolute;
     left: 0px;
-    bottom: 20px;
+    bottom: 0px;
     max-width: 650px;
     height: auto;
     z-index: 9;
