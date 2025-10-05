@@ -396,9 +396,9 @@ html, body {
 .site-map-image {
     position: absolute;
     left: 50%;
-    bottom: 10px;
+    bottom: 30px;
     transform: translateX(-50%);
-    max-width: 600px;
+    max-width: 550px;
     height: auto;
     z-index: 200;
 }
@@ -417,7 +417,7 @@ html, body {
 .dye-chart-image {
     position: absolute;
     top: 150px;
-    left: 60px;
+    left: 10px;
     max-width: 500px;
     height: auto;
     z-index: 100;
@@ -426,7 +426,7 @@ html, body {
 .dye-chart-caption {
     position: absolute;
     top: 120px;
-    left: 560px;
+    left: 450px;
     height: auto;
     max-width: 400px;
     z-index: 101;
@@ -439,7 +439,7 @@ html, body {
 .panel-image {
     position: absolute;
     top: 77px;
-    left: 60px;
+    left: 10px;
     height: auto;
     max-width: 400px;
     z-index: 11;
@@ -449,7 +449,7 @@ html, body {
     position: absolute;
     left: 0px;
     bottom: 0px;
-    max-width: 500px;
+    max-width: 700px;
     height: auto;
     z-index: 9;
 }
@@ -470,7 +470,7 @@ html, body {
 }
 
 .plant-caption {
-    margin-top: 8px;
+    margin-top: 100px;
     font-size: 12px;
     color: #67ffa4;
     font-family: Arial, Helvetica, sans-serif;
