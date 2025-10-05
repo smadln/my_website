@@ -505,7 +505,7 @@ html, body {
     position: absolute;
     top: 140px;
     left: 30px;
-    max-width: 600px;
+    max-width: 500px;
     height: auto;
     z-index: 100;
 }   
@@ -565,10 +565,10 @@ html, body {
 }
 
 .site-map-image {
-    max-width: 500px;
+    max-width: 400px;
     position: absolute;
     left: 300px;
-    bottom: 80px;
+    bottom: 90px;
     height: auto;
     z-index: 200;
     }
