@@ -267,22 +267,22 @@ ul {
 
 /* Mobile (≤ 600px) */
 @media screen and (max-width: 600px) {
-    .database_title {
-        width: 100%;
-        text-align: center;
-        font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
-        font-weight: 400;
-        font-size: 12px;
-        font-style: normal;
-        color: rgb(118, 191, 255);
-        margin: 0;
-        padding-top: 10px;
-        transform: translateX(-50%);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-    }
+.database_title {
+    width: 100%;
+    text-align: center;
+    font-family: "Jacquarda Bastarda 9 Charted", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    font-style: normal;
+    color: rgb(118, 191, 255);
+    margin: 0;
+    padding-top: 10px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
     .panel-image {
         position: absolute;
         top: 50px;
