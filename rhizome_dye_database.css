@@ -316,8 +316,8 @@ ul {
 
     .dye-chart-caption {
         position: absolute;
-        top: 55px;
-        left: 210px;
+        top: 63px;
+        left: 215px;
         font-size: 9px;
         color: #67ffa4;
         font-family: Arial, Helvetica, sans-serif;
@@ -326,14 +326,14 @@ ul {
         white-space: nowrap;
     }
 
-    .plant-container {
-        position: absolute;
-        top: 145px;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        z-index: 150;
-    }
+  .plant-container {
+  position: absolute;
+  top: 145px;
+  left: 50%;
+  transform: translateX(calc(-50% - 10px));
+  text-align: center;
+  z-index: 150;
+}
 
     .plant-image {
         top: 110px;
@@ -347,8 +347,8 @@ ul {
     .plant-caption {
         font-size: 9px;
         color: #67ffa4;
-        top: 5px;
-        left: 5px;
+        top: 0px;
+        left: 10px;
         line-height: 1.2;
     }
 
