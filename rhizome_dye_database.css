@@ -502,8 +502,8 @@ html, body {
 .site-map-image {
     max-width: 400px;
     position: absolute;
-    left: 100px;
-    bottom: 40px;
+    left: 250px;
+    bottom: 80px;
     height: auto;
     z-index: 200;
     }
@@ -521,7 +521,7 @@ html, body {
 
 .dye-chart-image {
     position: absolute;
-    top: 150px;
+    top: 140px;
     left: 30px;
     max-width: 600px;
     height: auto;
@@ -530,8 +530,8 @@ html, body {
 
 .dye-chart-caption {
     position: absolute;
-    top: 120px;
-    left: 50px;
+    top: 75px;
+    left: 200px;
     height: auto;
     max-width: 400px;
     z-index: 101;
@@ -543,7 +543,7 @@ html, body {
 
 .panel-image {
     position: absolute;
-    top: 70px;
+    top: 75px;
     left: 30px;
     height: auto;
     max-width: 350px;
