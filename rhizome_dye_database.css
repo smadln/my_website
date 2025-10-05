@@ -693,8 +693,8 @@ html, body {
   }
 }
 
-/* Large tablets  — landscape (1024px–1366px) */
-@media screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+/* Large tablets  — landscape (1200px–1366px) */
+@media screen and (min-width: 1200px) and (max-width: 1366px) and (orientation: landscape) {
   html, body {
       overflow: hidden;
       width: 100vw;
