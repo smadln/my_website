@@ -277,7 +277,7 @@ ul {
         color: rgb(118, 191, 255);
         margin: 0;
         padding-top: 10px;
-        padding-left: 0px;
+        transform: translateX(-50%);
         position: fixed;
         top: 0;
         left: 0;
@@ -288,25 +288,32 @@ ul {
         top: 77px;
         left: 30px;
         height: auto;
-        max-width: 160px;
+        max-width: 200px;
         z-index: 11;
     }
     .dye-chart-image {
         position: absolute;
-        top: 150px;
+        top: 130px;
         left: 30px;
-        max-width: 300px;
+        max-width: 350px;
         height: auto;
         z-index: 100;
     } 
     .site-map-image {
-        max-width: 250px;
+        max-width: 350px;
+        position: absolute;
+        left: 50%;
+        bottom: 50px;
+        transform: translateX(-50%);
+        height: auto;
+        z-index: 200;
     }
     .vermilion-image {
-        max-width: 350px;
+        max-width: 375px;
     }
     .plant-image {
         max-width: 220px;
+        top:50px
     }
     .plant-caption {
         font-size: 10px;
