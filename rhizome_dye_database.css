@@ -792,8 +792,8 @@ html, body {
   }
 }
 
-/* Larger laptops (≥1600px <1920px) */
-@media screen and (min-width: 1600px) and (max-width: 1919px) {
+/* Larger laptops (≥1600px <2560px) */
+@media screen and (min-width: 1600px) and (max-width: 2559px) {
 .dye-chart-image {
     position: absolute;
     top: 150px;
@@ -889,8 +889,8 @@ html, body {
 }
 }
 
-/* Desktop (≥1920px) */
-@media screen and (min-width: 1920px) {
+/* Desktop (≥2560px) */
+@media screen and (min-width: 2560px) {
     html, body {
     overflow: hidden;
     width: 100vw;
