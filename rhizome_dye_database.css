@@ -396,7 +396,7 @@ html, body {
 .site-map-image {
     position: absolute;
     left: 50%;
-    bottom: 40px;
+    bottom: 50px;
     transform: translateX(-50%);
     max-width: 550px;
     height: auto;
@@ -426,7 +426,7 @@ html, body {
 .dye-chart-caption {
     position: absolute;
     top: 120px;
-    left: 425px;
+    left: 405px;
     height: auto;
     max-width: 400px;
     z-index: 101;
@@ -441,7 +441,7 @@ html, body {
     top: 77px;
     left: 10px;
     height: auto;
-    max-width: 3750px;
+    max-width: 375px;
     z-index: 11;
 }
 
