@@ -793,6 +793,16 @@ html, body {
 
 /* Larger laptops (≥1600px <2560px) */
 @media screen and (min-width: 1600px) and (max-width: 2559px) {
+html, body {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
 .dye-chart-image {
     position: absolute;
     top: 150px;
@@ -868,7 +878,7 @@ html, body {
 }
 
 .site-map-image {
-    max-width: 450px;
+    max-width: 475px;
     position: absolute;
     left: 50%;
     bottom: 10px;
@@ -881,7 +891,7 @@ html, body {
     position: absolute;
     left: 0px;
     bottom: 0px;
-    max-width: 600px;
+    max-width: 700px;
     height: auto;
     z-index: 9;
 
