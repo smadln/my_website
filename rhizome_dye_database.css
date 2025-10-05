@@ -31,146 +31,6 @@ body {
     right: 0;
 }
 
-.cv-container {
-    margin-top: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.cv {
-    max-width: 600px;
-    margin: 100px auto;
-    margin-bottom: 0px;
-    margin-top: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fff;
-    padding: 10px;
-    width: 80%;
-    justify-content: flex-start;
-    align-items: center;
-    background: transparent;
-    border-top: transparent;
-}
-
-.cv-text {
-    width: 100%;
-    max-width: 600px;
-    margin: 0px 0;
-}
-
-.cv-text ul {
-    max-width: 100%;
-    padding: 0;
-}
-
-.cv-text li {
-    justify-content: space-between;
-    padding: 5px 0;
-}
-
-.statement-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.statement {
-    max-width: 600px;
-    margin: 100px auto;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fff;
-    padding: 10px;
-    width: 80%;
-    justify-content: flex-start;
-    align-items: center;
-    background: transparent;
-    border-top: transparent;
-    color: grey;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-}
-
-.statement p {
-    margin-bottom: 0px;
-}
-
-.contact-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 0px;
-}
-
-.page {
-    color: grey;
-    font-size: 15px;
-    font-family: Georgia, Tahoma, Verdana;
-}
-
-.page a {
-    color: rgb(255, 255, 110);
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    text-decoration: none;
-    font-size: 18px;
-    font-family: Georgia, Tahoma, Verdana;
-}
-
-.page a:hover {
-    color: whitesmoke;
-    font-family: Georgia, Tahoma, Verdana;
-} 
-
-.cv {
-    color: grey;
-    font-size: 15px;
-    font-family: Georgia, Tahoma, Verdana;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-li {
-    display: flex;
-    align-items: flex-start;
-}
-
-ul {
-    list-style: none;
-    text-align: left;
-    margin: 0;
-    padding-left: 0px;
-    display: inline-block;
-    max-width: 60vh;
-}
-
-.year {
-    flex: 0 0 15px;
-    margin-right: 20px;
-    color: grey;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.info {
-    flex: 1;
-    color: grey;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .dye-chart-image {
     position: absolute;
     top: 150px;
@@ -405,7 +265,7 @@ html, body {
 
 .dye-chart-image {
     position: absolute;
-    top: 139px;
+    top: 138px;
     left: 10px;
     max-width: 500px;
     height: auto;
@@ -427,7 +287,7 @@ html, body {
 
 .plant-container {
     position: absolute;
-    top: 100px;
+    top: 130px;
     right: 0px; 
     text-align: center;
     z-index: 10;
@@ -471,7 +331,7 @@ html, body {
 .site-map-image {
     position: absolute;
     left: 50%;
-    bottom: 50px;
+    bottom: 70px;
     transform: translateX(-50%);
     max-width: 500px;
     height: auto;
@@ -482,7 +342,7 @@ html, body {
     position: absolute;
     left: 0px;
     bottom: 0px;
-    max-width: 700px;
+    max-width: 650px;
     height: auto;
     z-index: 9;
 }
