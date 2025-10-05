@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: #1e1e1e;
+    background: #e1ffbd; /* optional colours - #c8f493, #daffae, #e1ffbd, #e5ffc5, #eaffd1, #efffdc  */
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -246,6 +246,7 @@ ul {
     height: auto;
     display: block;
     margin: 0 auto;
+    filter: saturate(3);
 }
 
 .plant-caption {
