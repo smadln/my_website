@@ -90,7 +90,7 @@ body {
 
 .plant-link {
     color: #18ff8f;
-    text-decoration: underline;
+    text-decoration: none;
     font-family: inherit;
     font-size: inherit;
 }
