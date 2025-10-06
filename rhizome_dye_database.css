@@ -67,11 +67,11 @@ body {
     top: 30px;
     right: 0px; 
     text-align: center;
-    z-index: 100;
+    z-index: 500;
 }
 
 .plant-image {
-    max-width: 450px;
+    max-width: 500px;
     height: auto;
     display: block;
     margin: 0 auto;
