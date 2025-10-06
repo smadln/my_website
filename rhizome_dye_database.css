@@ -740,12 +740,13 @@ html, body {
   }
 
   .site-map-image {
-      max-width: 500px;
-      bottom: 20px;
+      max-width: 550px;
+      bottom: 0px;
   }
 
   .vermilion-image {
-      max-width: 500px;
+      max-width: 700px;
+      bottom: 0px;
   }
 }
 
