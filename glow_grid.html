@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Glow Grid</title>
+  <style>
+    :root{
+      --ui-bg:#0f1115;
+      --ui-fg:#e9edf5;
+      --ui-muted:#a9b3c7;
+      --panel:#151925;
+      --stroke:rgba(255,255,255,.10);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--ui-bg);
+      color:var(--ui-fg);
+      font:14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:0;
+      overflow:hidden;
+    }
+    aside{
+      padding:14px 14px 18px;
+      background:linear-gradient(180deg, #111522, #0f1115);
+      border-right:1px solid var(--stroke);
+      overflow:auto;
+    }
+    main{
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(1200px 600px at 60% 20%, rgba(0,255,180,.06), transparent 60%),
+        radial-gradient(800px 500px at 20% 70%, rgba(255,50,120,.06), transparent 55%),
+        #0b0d12;
+    }
+
+    .row{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:10px 0;}
+    .row > label{color:var(--ui-muted); min-width:110px;}
+    .panel{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--stroke);
+      border-radius:12px;
+      padding:12px;
+      margin:10px 0;
+    }
+    h1{
+      font-size:14px;
+      letter-spacing:.02em;
+      margin:0 0 10px;
+      color:var(--ui-fg);
+      font-weight:650;
+    }
+    h2{
+      font-size:12px;
+      margin:12px 0 8px;
+      color:var(--ui-muted);
+      font-weight:650;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    input[type="color"]{
+      width:44px; height:28px; padding:0; border:0; background:transparent;
+    }
+    input[type="range"]{width:160px;}
+    input[type="number"]{
+      width:74px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--stroke);
+      color:var(--ui-fg);
+      border-radius:8px;
+      padding:6px 8px;
+    }
+    select, button{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--stroke);
+      color:var(--ui-fg);
+      border-radius:10px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+    button:hover{background:rgba(255,255,255,.07);}
+    .btns{display:flex; gap:8px; flex-wrap:wrap;}
+
+    .palette{
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:8px;
+      margin-top:10px;
+    }
+    .swatch{
+      height:26px;
+      border-radius:9px;
+      border:1px solid rgba(255,255,255,.14);
+      cursor:pointer;
+      position:relative;
+    }
+    .swatch.active::after{
+      content:"";
+      position:absolute; inset:-3px;
+      border-radius:11px;
+      border:2px solid rgba(255,255,255,.65);
+      pointer-events:none;
+    }
+
+    .hint{color:var(--ui-muted); font-size:12px; line-height:1.35;}
+    .kbd{
+      display:inline-block;
+      padding:2px 6px;
+      border:1px solid rgba(255,255,255,.18);
+      border-bottom-color:rgba(255,255,255,.10);
+      border-radius:6px;
+      background:rgba(255,255,255,.04);
+      color:var(--ui-fg);
+      font-size:12px;
+      margin:0 2px;
+    }
+
+    /* Canvas frame */
+    .stage{
+      position:relative;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.02);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      overflow:hidden;
+    }
+    canvas{display:block;}
+    .overlay{
+      position:absolute; left:12px; top:10px;
+      color:rgba(255,255,255,.65);
+      font-size:12px;
+      user-select:none;
+      text-shadow:0 1px 0 rgba(0,0,0,.55);
+      pointer-events:none;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div class="panel">
+      <h1>Glow Grid Painter</h1>
+      <div class="hint">
+        Click/drag to paint cells. Right-click to erase.<br>
+        <span class="kbd">E</span> eraser,
+        <span class="kbd">B</span> brush,
+        <span class="kbd">G</span> toggle grid preview,
+        <span class="kbd">Ctrl</span> to paint straight line (from last cell).
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Colors</h2>
+      <div class="row">
+        <label>Paint</label>
+        <input id="paintColor" type="color" value="#28d79b">
+        <span id="paintHex" class="hint"></span>
+      </div>
+      <div class="row">
+        <label>Background</label>
+        <input id="bgColor" type="color" value="#8d1f2d">
+        <span id="bgHex" class="hint"></span>
+      </div>
+
+      <div class="palette" id="palette"></div>
+
+      <div class="row" style="margin-top:12px;">
+        <label>Tool</label>
+        <select id="tool">
+          <option value="brush">Brush</option>
+          <option value="eraser">Eraser</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Look</h2>
+      <div class="row">
+        <label>Cell shape</label>
+        <select id="shape">
+          <option value="roundSquare">Rounded square</option>
+          <option value="circle">Circle</option>
+        </select>
+      </div>
+      <div class="row">
+        <label>Fill coverage</label>
+        <input id="coverage" type="range" min="0.45" max="0.98" step="0.01" value="0.78">
+        <span id="coverageVal" class="hint"></span>
+      </div>
+      <div class="row">
+        <label>Glow strength</label>
+        <input id="glow" type="range" min="0" max="1" step="0.01" value="0.42">
+        <span id="glowVal" class="hint"></span>
+      </div>
+      <div class="row">
+        <label>Glow radius</label>
+        <input id="glowRadius" type="range" min="0" max="26" step="1" value="10">
+        <span id="glowRadiusVal" class="hint"></span>
+      </div>
+      <div class="row">
+        <label>Core contrast</label>
+        <input id="core" type="range" min="0" max="1" step="0.01" value="0.22">
+        <span id="coreVal" class="hint"></span>
+      </div>
+      <div class="row">
+        <label>Grid preview</label>
+        <select id="gridPreview">
+          <option value="off">Off</option>
+          <option value="on">On (subtle)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Canvas</h2>
+      <div class="row">
+        <label>Cols</label>
+        <input id="cols" type="number" min="16" max="240" value="110">
+      </div>
+      <div class="row">
+        <label>Rows</label>
+        <input id="rows" type="number" min="16" max="240" value="150">
+      </div>
+      <div class="row">
+        <label>Cell px</label>
+        <input id="cellSize" type="number" min="4" max="22" value="6">
+      </div>
+      <div class="btns" style="margin-top:10px;">
+        <button id="applySize">Apply</button>
+        <button id="clear">Clear</button>
+        <button id="save">Save (local)</button>
+        <button id="load">Load (local)</button>
+        <button id="export">Export PNG</button>
+      </div>
+      <div class="hint" style="margin-top:10px;">
+        “Save” stores your grid in localStorage. No files, no JSON export.
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="stage" id="stage">
+      <div class="overlay" id="overlay"></div>
+      <canvas id="c"></canvas>
+    </div>
+  </main>
+
+<script>
+(() => {
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d', { alpha: true });
+
+  // UI
+  const paintColor = document.getElementById('paintColor');
+  const bgColor = document.getElementById('bgColor');
+  const paintHex = document.getElementById('paintHex');
+  const bgHex = document.getElementById('bgHex');
+
+  const toolSel = document.getElementById('tool');
+  const shapeSel = document.getElementById('shape');
+  const coverage = document.getElementById('coverage');
+  const glow = document.getElementById('glow');
+  const glowRadius = document.getElementById('glowRadius');
+  const core = document.getElementById('core');
+  const gridPreview = document.getElementById('gridPreview');
+
+  const colsInput = document.getElementById('cols');
+  const rowsInput = document.getElementById('rows');
+  const cellSizeInput = document.getElementById('cellSize');
+  const applySizeBtn = document.getElementById('applySize');
+
+  const clearBtn = document.getElementById('clear');
+  const saveBtn = document.getElementById('save');
+  const loadBtn = document.getElementById('load');
+  const exportBtn = document.getElementById('export');
+
+  const overlay = document.getElementById('overlay');
+  const paletteEl = document.getElementById('palette');
+
+  const coverageVal = document.getElementById('coverageVal');
+  const glowVal = document.getElementById('glowVal');
+  const glowRadiusVal = document.getElementById('glowRadiusVal');
+  const coreVal = document.getElementById('coreVal');
+
+  // Palette (edit these freely)
+  const palette = [
+    '#28d79b', '#1fbf89', '#2ef0b0',
+    '#f5f0ea', '#e9e3d9', '#cfd0d4',
+    '#8d1f2d', '#b03244', '#6f1421',
+    '#0f1115', '#1a2030', '#2a3248'
+  ];
+  let activeSwatch = 0;
+
+  // Grid state: store 32-bit colors (0 = empty = background shows)
+  let cols = +colsInput.value;
+  let rows = +rowsInput.value;
+  let cellSize = +cellSizeInput.value;
+  let data = new Uint32Array(cols * rows);
+
+  // Drawing state
+  let isDown = false;
+  let lastCell = null;
+  let lastHover = null;
+
+  // Helpers
+  function hexToRgba(hex, a=1){
+    const h = hex.replace('#','').trim();
+    const r = parseInt(h.slice(0,2),16);
+    const g = parseInt(h.slice(2,4),16);
+    const b = parseInt(h.slice(4,6),16);
+    return `rgba(${r},${g},${b},${a})`;
+  }
+  function hexToU32(hex){
+    // pack as 0xAABBGGRR (little-endian friendly for canvas? we only store)
+    const h = hex.replace('#','');
+    const r = parseInt(h.slice(0,2),16);
+    const g = parseInt(h.slice(2,4),16);
+    const b = parseInt(h.slice(4,6),16);
+    const a = 255;
+    return (a<<24) | (b<<16) | (g<<8) | (r);
+  }
+  function u32ToHex(u){
+    const r = u & 255;
+    const g = (u >>> 8) & 255;
+    const b = (u >>> 16) & 255;
+    const to2 = (n) => n.toString(16).padStart(2,'0');
+    return `#${to2(r)}${to2(g)}${to2(b)}`;
+  }
+  function idx(x,y){ return y*cols + x; }
+  function inBounds(x,y){ return x>=0 && y>=0 && x<cols && y<rows; }
+
+  function resizeCanvas(){
+    canvas.width = cols * cellSize;
+    canvas.height = rows * cellSize;
+
+    // Fit stage to viewport nicely without distortion
+    const stage = document.getElementById('stage');
+    const maxW = Math.min(window.innerWidth - 360, canvas.width + 2);
+    const maxH = Math.min(window.innerHeight - 40, canvas.height + 2);
+    const scale = Math.min(maxW / canvas.width, maxH / canvas.height, 1);
+    stage.style.transform = `scale(${scale})`;
+    stage.style.transformOrigin = 'center';
+    render();
+  }
+
+  function drawRoundedRect(x,y,w,h,r){
+    const rr = Math.min(r, w/2, h/2);
+    ctx.beginPath();
+    ctx.moveTo(x+rr, y);
+    ctx.arcTo(x+w, y, x+w, y+h, rr);
+    ctx.arcTo(x+w, y+h, x, y+h, rr);
+    ctx.arcTo(x, y+h, x, y, rr);
+    ctx.arcTo(x, y, x+w, y, rr);
+    ctx.closePath();
+  }
+
+  function render(){
+    // background fill
+    ctx.save();
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+    ctx.fillStyle = bgColor.value;
+    ctx.fillRect(0,0,canvas.width, canvas.height);
+    ctx.restore();
+
+    const cov = +coverage.value;
+    const glowAmt = +glow.value;
+    const glowR = +glowRadius.value;
+    const coreAmt = +core.value;
+    const shape = shapeSel.value;
+
+    const pad = (1 - cov) * 0.5;  // margin in cell fraction
+    const size = cellSize * cov;
+    const offset = cellSize * pad;
+
+    // Optional faint “LED matrix” micro-grid (not borders, just a subtle texture)
+    if (gridPreview.value === 'on'){
+      ctx.save();
+      ctx.globalAlpha = 0.08;
+      ctx.strokeStyle = 'rgba(255,255,255,1)';
+      ctx.lineWidth = 1;
+      for (let x=0; x<=cols; x++){
+        const px = x * cellSize + 0.5;
+        ctx.beginPath();
+        ctx.moveTo(px, 0);
+        ctx.lineTo(px, canvas.height);
+        ctx.stroke();
+      }
+      for (let y=0; y<=rows; y++){
+        const py = y * cellSize + 0.5;
+        ctx.beginPath();
+        ctx.moveTo(0, py);
+        ctx.lineTo(canvas.width, py);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    // Draw cells
+    for (let y=0; y<rows; y++){
+      for (let x=0; x<cols; x++){
+        const v = data[idx(x,y)];
+        if (v === 0) continue;
+
+        const colorHex = u32ToHex(v);
+        const cx = x*cellSize + offset;
+        const cy = y*cellSize + offset;
+
+        // Pass 1: glow
+        if (glowAmt > 0 && glowR > 0){
+          ctx.save();
+          ctx.globalAlpha = 0.75 * glowAmt;
+          ctx.shadowColor = hexToRgba(colorHex, 1);
+          ctx.shadowBlur = glowR;
+          ctx.fillStyle = hexToRgba(colorHex, 0.9);
+          if (shape === 'circle'){
+            const r = size/2;
+            ctx.beginPath();
+            ctx.arc(cx + r, cy + r, r * 0.98, 0, Math.PI*2);
+            ctx.fill();
+          } else {
+            drawRoundedRect(cx, cy, size, size, size*0.22);
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+
+        // Pass 2: core (slightly brighter center)
+        // A tiny “bloom” look without visible borders.
+        ctx.save();
+        const grad = ctx.createRadialGradient(
+          cx + size*0.50, cy + size*0.48, size*0.10,
+          cx + size*0.50, cy + size*0.50, size*0.70
+        );
+        grad.addColorStop(0, hexToRgba(colorHex, 1));
+        grad.addColorStop(1, hexToRgba(colorHex, Math.max(0.75, 1 - coreAmt)));
+
+        ctx.fillStyle = grad;
+        if (shape === 'circle'){
+          const r = size/2;
+          ctx.beginPath();
+          ctx.arc(cx + r, cy + r, r * 0.92, 0, Math.PI*2);
+          ctx.fill();
+        } else {
+          drawRoundedRect(cx, cy, size, size, size*0.20);
+          ctx.fill();
+        }
+
+        // Pass 3: subtle inner highlight (optional, tied to coreAmt)
+        if (coreAmt > 0){
+          ctx.globalAlpha = coreAmt * 0.55;
+          ctx.fillStyle = 'rgba(255,255,255,1)';
+          if (shape === 'circle'){
+            const r = size/2;
+            ctx.beginPath();
+            ctx.arc(cx + r*0.85, cy + r*0.78, r*0.20, 0, Math.PI*2);
+            ctx.fill();
+          } else {
+            drawRoundedRect(cx + size*0.12, cy + size*0.10, size*0.28, size*0.20, size*0.10);
+            ctx.fill();
+          }
+        }
+        ctx.restore();
+      }
+    }
+
+    // Hover indicator (very subtle, doesn’t look like a border)
+    if (lastHover){
+      const {x,y} = lastHover;
+      ctx.save();
+      ctx.globalAlpha = 0.18;
+      ctx.fillStyle = 'rgba(255,255,255,1)';
+      ctx.fillRect(x*cellSize, y*cellSize, cellSize, cellSize);
+      ctx.restore();
+    }
+
+    overlay.textContent = `${cols}×${rows} • cell ${cellSize}px`;
+  }
+
+  function cellFromEvent(e){
+    const rect = canvas.getBoundingClientRect();
+    // handle CSS scale from stage
+    const sx = canvas.width / rect.width;
+    const sy = canvas.height / rect.height;
+    const px = (e.clientX - rect.left) * sx;
+    const py = (e.clientY - rect.top) * sy;
+    const x = Math.floor(px / cellSize);
+    const y = Math.floor(py / cellSize);
+    return { x, y };
+  }
+
+  function setCell(x,y, value){
+    if (!inBounds(x,y)) return;
+    data[idx(x,y)] = value;
+  }
+
+  function drawLine(a, b, value){
+    // Bresenham
+    let x0=a.x, y0=a.y, x1=b.x, y1=b.y;
+    const dx = Math.abs(x1-x0), sx = x0<x1 ? 1 : -1;
+    const dy = -Math.abs(y1-y0), sy = y0<y1 ? 1 : -1;
+    let err = dx + dy;
+    while (true){
+      setCell(x0,y0,value);
+      if (x0===x1 && y0===y1) break;
+      const e2 = 2*err;
+      if (e2 >= dy){ err += dy; x0 += sx; }
+      if (e2 <= dx){ err += dx; y0 += sy; }
+    }
+  }
+
+  function paintAt(e, forceEraser=false){
+    const {x,y} = cellFromEvent(e);
+    if (!inBounds(x,y)) return;
+
+    const tool = forceEraser ? 'eraser' : toolSel.value;
+    const value = (tool === 'eraser') ? 0 : hexToU32(paintColor.value);
+
+    const cur = {x,y};
+
+    if (e.ctrlKey && lastCell){
+      drawLine(lastCell, cur, value);
+    } else {
+      setCell(x,y,value);
+    }
+
+    lastCell = cur;
+    render();
+  }
+
+  // Palette UI
+  function buildPalette(){
+    paletteEl.innerHTML = '';
+    palette.forEach((hex, i) => {
+      const d = document.createElement('div');
+      d.className = 'swatch' + (i===activeSwatch ? ' active' : '');
+      d.style.background = hex;
+      d.title = hex;
+      d.addEventListener('click', () => {
+        activeSwatch = i;
+        paintColor.value = hex;
+        syncHexLabels();
+        buildPalette();
+      });
+      paletteEl.appendChild(d);
+    });
+  }
+
+  function syncHexLabels(){
+    paintHex.textContent = paintColor.value.toUpperCase();
+    bgHex.textContent = bgColor.value.toUpperCase();
+    coverageVal.textContent = (+coverage.value).toFixed(2);
+    glowVal.textContent = (+glow.value).toFixed(2);
+    glowRadiusVal.textContent = (+glowRadius.value).toFixed(0);
+    coreVal.textContent = (+core.value).toFixed(2);
+  }
+
+  // Storage (compact: store as hex strings array; internal only)
+  const STORE_KEY = 'glow-grid-painter-v1';
+  function saveLocal(){
+    // store dimensions + background + grid as hex list for only painted cells
+    const painted = [];
+    for (let i=0; i<data.length; i++){
+      if (data[i] !== 0) painted.push([i, u32ToHex(data[i])]);
+    }
+    const payload = {
+      cols, rows, cellSize,
+      bg: bgColor.value,
+      cells: painted,
+      look: {
+        shape: shapeSel.value,
+        coverage: +coverage.value,
+        glow: +glow.value,
+        glowRadius: +glowRadius.value,
+        core: +core.value,
+        gridPreview: gridPreview.value
+      }
+    };
+    // localStorage requires a string; internal, not a file.
+    localStorage.setItem(STORE_KEY, JSON.stringify(payload));
+  }
+  function loadLocal(){
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return;
+    const payload = JSON.parse(raw);
+
+    cols = payload.cols;
+    rows = payload.rows;
+    cellSize = payload.cellSize;
+
+    colsInput.value = cols;
+    rowsInput.value = rows;
+    cellSizeInput.value = cellSize;
+
+    bgColor.value = payload.bg || bgColor.value;
+
+    // restore look
+    if (payload.look){
+      shapeSel.value = payload.look.shape ?? shapeSel.value;
+      coverage.value = payload.look.coverage ?? coverage.value;
+      glow.value = payload.look.glow ?? glow.value;
+      glowRadius.value = payload.look.glowRadius ?? glowRadius.value;
+      core.value = payload.look.core ?? core.value;
+      gridPreview.value = payload.look.gridPreview ?? gridPreview.value;
+    }
+
+    data = new Uint32Array(cols * rows);
+    if (Array.isArray(payload.cells)){
+      for (const [i, hex] of payload.cells){
+        if (i >= 0 && i < data.length) data[i] = hexToU32(hex);
+      }
+    }
+
+    syncHexLabels();
+    resizeCanvas();
+  }
+
+  function clearAll(){
+    data.fill(0);
+    lastCell = null;
+    render();
+  }
+
+  function exportPNG(){
+    // Export exactly what you see in the canvas (background included)
+    const a = document.createElement('a');
+    a.download = 'glow-grid.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  }
+
+  function applySize(){
+    const newCols = Math.max(16, Math.min(240, +colsInput.value || cols));
+    const newRows = Math.max(16, Math.min(240, +rowsInput.value || rows));
+    const newCell = Math.max(4, Math.min(22, +cellSizeInput.value || cellSize));
+
+    // Preserve existing pixels into new grid (top-left anchored)
+    const oldCols = cols, oldRows = rows;
+    const oldData = data;
+
+    cols = newCols; rows = newRows; cellSize = newCell;
+    data = new Uint32Array(cols * rows);
+
+    const copyCols = Math.min(oldCols, cols);
+    const copyRows = Math.min(oldRows, rows);
+    for (let y=0; y<copyRows; y++){
+      for (let x=0; x<copyCols; x++){
+        data[idx(x,y)] = oldData[y*oldCols + x];
+      }
+    }
+
+    lastCell = null;
+    resizeCanvas();
+  }
+
+  // Events
+  canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  canvas.addEventListener('mousedown', (e) => {
+    isDown = true;
+    // Right button = erase
+    const forceEraser = (e.button === 2);
+    paintAt(e, forceEraser);
+  });
+  window.addEventListener('mouseup', () => { isDown = false; lastCell = null; });
+
+  canvas.addEventListener('mousemove', (e) => {
+    const {x,y} = cellFromEvent(e);
+    lastHover = inBounds(x,y) ? {x,y} : null;
+    if (isDown) paintAt(e, e.buttons === 2);
+    else render();
+  });
+
+  // Keyboard shortcuts
+  window.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'e') toolSel.value = 'eraser';
+    if (e.key.toLowerCase() === 'b') toolSel.value = 'brush';
+    if (e.key.toLowerCase() === 'g') gridPreview.value = (gridPreview.value === 'on' ? 'off' : 'on');
+    syncHexLabels();
+    render();
+  });
+
+  // UI reactive
+  [
+    paintColor, bgColor, toolSel, shapeSel,
+    coverage, glow, glowRadius, core, gridPreview
+  ].forEach(el => el.addEventListener('input', () => { syncHexLabels(); render(); }));
+
+  applySizeBtn.addEventListener('click', applySize);
+  clearBtn.addEventListener('click', clearAll);
+  saveBtn.addEventListener('click', saveLocal);
+  loadBtn.addEventListener('click', loadLocal);
+  exportBtn.addEventListener('click', exportPNG);
+
+  window.addEventListener('resize', resizeCanvas);
+
+  // Init
+  buildPalette();
+  syncHexLabels();
+  resizeCanvas();
+})();
+</script>
+</body>
+</html>
