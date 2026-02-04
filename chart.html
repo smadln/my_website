@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Pattern Chart</title>
+<style>
+  body {
+    background: #fff;
+    color: #000;
+    font-family: sans-serif;
+    padding: 20px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 120px;
+    font-family: monospace;
+  }
+
+  #chart {
+    display: grid;
+    gap: 1px;
+    margin-top: 20px;
+  }
+
+  .cell {
+    width: 10px;
+    height: 10px;
+  }
+
+  .palette {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .swatch {
+    text-align: center;
+  }
+
+  .color {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+<h3>Paste Pattern String</h3>
+<textarea id="pattern"></textarea>
+<button onclick="render()">Render</button>
+
+<div id="chart"></div>
+<div class="palette" id="palette"></div>
+
+<script src="chart.js"></script>
+</body>
+</html>
