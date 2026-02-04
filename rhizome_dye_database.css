@@ -82,7 +82,7 @@ body {
 .plant-caption {
     margin-top: 0px;
     font-size: 13px;
-    color: #29fa95;
+    color: #26fa94; /* optional colours - #29fa95, #26f691 */
     font-family: 'Courier New', Courier, monospace;
     font-weight: 500;
     position: relative;
@@ -92,7 +92,7 @@ body {
 
 
 .plant-link {
-    color: #29fa95;
+    color: #28fc95; /* optional colours - #29fa95 */
     text-decoration: none;
     font-family: inherit;
     font-size: inherit;
