@@ -307,7 +307,6 @@
 
   <main>
     <div class="stage" id="stage">
-      <div class="overlay" id="overlay"></div>
       <canvas id="c"></canvas>
     </div>
   </main>
@@ -617,9 +616,6 @@
       ctx.restore();
     }
 
-    // overlay info
-    overlay.textContent =
-      `Grid ${cols}×${rows} | cell ${cellSize}px | zoom ${viewScale.toFixed(2)}x`;
   }
 
   function cellFromEvent(e){
