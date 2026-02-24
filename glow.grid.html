@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Glow Grid</title>
+  <style>
+    :root{
+      --ui-bg:#0f1115;
+      --ui-fg:#e9edf5;
+      --ui-muted:#a9b3c7;
+      --panel:#151925;
+      --stroke:rgba(255,255,255,.10);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--ui-bg);
+      color:var(--ui-fg);
+      font:14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:0;
+      overflow:hidden;
+    }
+    aside{
+      padding:14px 14px 18px;
+      background:linear-gradient(180deg, #111522, #0f1115);
+      border-right:1px solid var(--stroke);
+      overflow:auto;
+    }
+    main{
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(1200px 600px at 60% 20%, rgba(0,255,180,.06), transparent 60%),
+        radial-gradient(800px 500px at 20% 70%, rgba(255,50,120,.06), transparent 55%),
+        #0b0d12;
+    }
+
+    .row{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:10px 0;}
+    .row > label{color:var(--ui-muted); min-width:110px;}
+    .panel{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--stroke);
+      border-radius:12px;
+      padding:12px;
+      margin:10px 0;
+    }
+    h1{
+      font-size:14px;
+      letter-spacing:.02em;
+      margin:0 0 10px;
+      color:var(--ui-fg);
+      font-weight:650;
+    }
+    h2{
+      font-size:12px;
+      margin:12px 0 8px;
+      color:var(--ui-muted);
+      font-weight:650;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    input[type="color"]{
+      width:44px; height:28px; padding:0; border:0; background:transparent;
+    }
+    input[type="range"]{width:160px;}
+    input[type="number"]{
+      width:74px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--stroke);
+      color:var(--ui-fg);
+      border-radius:8px;
+      padding:6px 8px;
+    }
+    select, button{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--stroke);
+      color:var(--ui-fg);
+      border-radius:10px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+    button:hover{background:rgba(255,255,255,.07);}
+    .btns{display:flex; gap:8px; flex-wrap:wrap;}
+
+    .palette{
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:8px;
+      margin-top:10px;
+    }
+    .swatch{
+      height:26px;
+      border-radius:9px;
+      border:1px solid rgba(255,255,255,.14);
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+    }
+    .swatch.active::after{
+      content:"";
+      position:absolute; inset:-3px;
+      border-radius:11px;
+      border:2px solid rgba(255,255,255,.65);
+      pointer-events:none;
+    }
+
+    .hint{color:var(--ui-muted); font-size:12px; line-height:1.35;}
+    .kbd{
+      display:inline-block;
+      padding:2px 6px;
+      border:1px solid rgba(255,255,255,.18);
+      border-bottom-color:rgba(255,255,255,.10);
+      border-radius:6px;
+      background:rgba(255,255,255,.04);
+      color:var(--ui-fg);
+      font-size:12px;
+      margin:0 2px;
+    }
+
+    /* Canvas frame */
+    .stage{
+      position:relative;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.02);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      overflow:hidden;
+      will-change: transform;
+      touch-action: none;
+    }
+    canvas{display:block;}
+    .overlay{
+      position:absolute; left:12px; top:10px;
+      color:rgba(255,255,255,.65);
+      font-size:12px;
+      user-select:none;
+      text-shadow:0 1px 0 rgba(0,0,0,.55);
+      pointer-events:none;
+    }
+
+    .mini-swatch{
+      height:22px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.14);
+      cursor:pointer;
+    }
+    .recent{
+      display:grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap:8px;
+      margin-top:10px;
+    }
+    .divider{
+      height:1px;
+      background:rgba(255,255,255,.10);
+      margin:10px 0;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div class="panel">
+      <h1>Glow Grid Painter</h1>
+      <div class="hint">
+        Click/drag to paint cells. Right-click to erase.<br>
+        <span class="kbd">E</span> eraser,
+        <span class="kbd">B</span> brush,
+        <span class="kbd">G</span> toggle grid preview,
+        <span class="kbd">Ctrl</span> to paint straight line (from last cell).<br>
+        <span class="kbd">Space</span> + drag to pan,
+        <span class="kbd">Ctrl</span> + wheel to zoom.
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Colors</h2>
+      <div class="row">
+        <label>Paint</label>
+        <input id="paintColor" type="color" value="#28d79b">
+        <span id="paintHex" class="hint"></span>
+      </div>
+
+      <div class="row">
+        <label>Background</label>
+        <input id="bgColor" type="color" value="#8d1f2d">
+        <span id="bgHex" class="hint"></span>
+      </div>
+
+      <div class="row">
+        <label>BG mode</label>
+        <select id="bgMode">
+          <option value="solid">Solid</option>
+          <option value="checker">Alternating</option>
+        </select>
+      </div>
+
+      <div class="row" id="bgAltRow" style="display:none;">
+        <label>Alt bg</label>
+        <input id="bgAltColor" type="color" value="#6f1421">
+        <span id="bgAltHex" class="hint"></span>
+      </div>
+
+      <div class="divider"></div>
+      <div class="hint">Recent (session). Click to use as paint. Right-click sets background.</div>
+      <div class="recent" id="recent"></div>
+
+      <div class="divider"></div>
+      <div class="hint">Palette</div>
+      <div class="palette" id="palette"></div>
+
+      <div class="row" style="margin-top:12px;">
+        <label>Tool</label>
+        <select id="tool">
+          <option value="brush">Brush</option>
+          <option value="eraser">Eraser</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Look</h2>
+      <div class="row">
+        <label>Cell shape</label>
+        <select id="shape">
+          <option value="roundSquare">Rounded square</option>
+          <option value="circle">Circle</option>
+        </select>
+      </div>
+      <div class="row">
+        <label>Fill coverage</label>
+        <input id="coverage" type="range" min="0.45" max="0.98" step="0.01" value="0.78">
+        <span id="coverageVal" class="hint"></span>
+      </div>
+      <div class="row">
+        <label>Glow strength</label>
+        <input id="glow" type="range" min="0" max="1" step="0.01" value="0.42">
+        <span id="glowVal" class="hint"></span>
+      </div>
+      <div class="row">
+        <label>Glow radius</label>
+        <input id="glowRadius" type="range" min="0" max="26" step="1" value="10">
+        <span id="glowRadiusVal" class="hint"></span>
+      </div>
+      <div class="row">
+        <label>Core contrast</label>
+        <input id="core" type="range" min="0" max="1" step="0.01" value="0.22">
+        <span id="coreVal" class="hint"></span>
+      </div>
+      <div class="row">
+        <label>Grid preview</label>
+        <select id="gridPreview">
+          <option value="off">Off</option>
+          <option value="on">On (subtle)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>View</h2>
+      <div class="row">
+        <label>Zoom</label>
+        <input id="zoom" type="range" min="0.25" max="6" step="0.01" value="1">
+        <span id="zoomVal" class="hint"></span>
+      </div>
+      <div class="btns" style="margin-top:8px;">
+        <button id="fit">Fit</button>
+        <button id="oneToOne">1:1</button>
+        <button id="resetPan">Center</button>
+      </div>
+      <div class="hint" style="margin-top:10px;">
+        Pan: hold Space and drag on the canvas. Zoom: slider or Ctrl + mouse wheel.
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Canvas</h2>
+      <div class="row">
+        <label>Cols</label>
+        <input id="cols" type="number" min="16" max="240" value="110">
+      </div>
+      <div class="row">
+        <label>Rows</label>
+        <input id="rows" type="number" min="16" max="240" value="150">
+      </div>
+      <div class="row">
+        <label>Cell px</label>
+        <input id="cellSize" type="number" min="4" max="22" value="6">
+      </div>
+      <div class="btns" style="margin-top:10px;">
+        <button id="applySize">Apply</button>
+        <button id="clear">Clear</button>
+        <button id="save">Save (local)</button>
+        <button id="load">Load (local)</button>
+        <button id="export">Export PNG</button>
+      </div>
+      <div class="hint" style="margin-top:10px;">
+        “Save” stores your grid in localStorage. Recent colors are session-only.
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="stage" id="stage">
+      <div class="overlay" id="overlay"></div>
+      <canvas id="c"></canvas>
+    </div>
+  </main>
+
+<script>
+(() => {
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d', { alpha: true });
+
+  // UI
+  const paintColor = document.getElementById('paintColor');
+  const bgColor = document.getElementById('bgColor');
+  const bgMode = document.getElementById('bgMode');
+  const bgAltColor = document.getElementById('bgAltColor');
+  const bgAltRow = document.getElementById('bgAltRow');
+
+  const paintHex = document.getElementById('paintHex');
+  const bgHex = document.getElementById('bgHex');
+  const bgAltHex = document.getElementById('bgAltHex');
+
+  const toolSel = document.getElementById('tool');
+  const shapeSel = document.getElementById('shape');
+  const coverage = document.getElementById('coverage');
+  const glow = document.getElementById('glow');
+  const glowRadius = document.getElementById('glowRadius');
+  const core = document.getElementById('core');
+  const gridPreview = document.getElementById('gridPreview');
+
+  const colsInput = document.getElementById('cols');
+  const rowsInput = document.getElementById('rows');
+  const cellSizeInput = document.getElementById('cellSize');
+  const applySizeBtn = document.getElementById('applySize');
+
+  const clearBtn = document.getElementById('clear');
+  const saveBtn = document.getElementById('save');
+  const loadBtn = document.getElementById('load');
+  const exportBtn = document.getElementById('export');
+
+  const overlay = document.getElementById('overlay');
+  const paletteEl = document.getElementById('palette');
+
+  const coverageVal = document.getElementById('coverageVal');
+  const glowVal = document.getElementById('glowVal');
+  const glowRadiusVal = document.getElementById('glowRadiusVal');
+  const coreVal = document.getElementById('coreVal');
+
+  // View / zoom
+  const stage = document.getElementById('stage');
+  const zoom = document.getElementById('zoom');
+  const zoomVal = document.getElementById('zoomVal');
+  const fitBtn = document.getElementById('fit');
+  const oneToOneBtn = document.getElementById('oneToOne');
+  const resetPanBtn = document.getElementById('resetPan');
+
+  // Recent colors
+  const recentEl = document.getElementById('recent');
+  const RECENT_KEY = 'glow-grid-recent-colors-v1'; // sessionStorage
+  const RECENT_MAX = 24;
+  let recent = [];
+
+  // Palette (edit these freely)
+  const palette = [
+    '#28d79b', '#1fbf89', '#2ef0b0',
+    '#f5f0ea', '#e9e3d9', '#cfd0d4',
+    '#8d1f2d', '#b03244', '#6f1421',
+    '#0f1115', '#1a2030', '#2a3248'
+  ];
+  let activeSwatch = 0;
+
+  // Grid state: store 32-bit colors (0 = empty = background shows)
+  let cols = +colsInput.value;
+  let rows = +rowsInput.value;
+  let cellSize = +cellSizeInput.value;
+  let data = new Uint32Array(cols * rows);
+
+  // Drawing state
+  let isDown = false;
+  let lastCell = null;
+  let lastHover = null;
+
+  // Pan/zoom state (applied to .stage)
+  let viewScale = 1;
+  let viewX = 0;
+  let viewY = 0;
+  let fitScale = 1;
+
+  // Helpers
+  function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+
+  function hexToRgba(hex, a=1){
+    const h = hex.replace('#','').trim();
+    const r = parseInt(h.slice(0,2),16);
+    const g = parseInt(h.slice(2,4),16);
+    const b = parseInt(h.slice(4,6),16);
+    return `rgba(${r},${g},${b},${a})`;
+  }
+  function hexToU32(hex){
+    const h = hex.replace('#','');
+    const r = parseInt(h.slice(0,2),16);
+    const g = parseInt(h.slice(2,4),16);
+    const b = parseInt(h.slice(4,6),16);
+    const a = 255;
+    return (a<<24) | (b<<16) | (g<<8) | (r);
+  }
+  function u32ToHex(u){
+    const r = u & 255;
+    const g = (u >>> 8) & 255;
+    const b = (u >>> 16) & 255;
+    const to2 = (n) => n.toString(16).padStart(2,'0');
+    return `#${to2(r)}${to2(g)}${to2(b)}`;
+  }
+  function idx(x,y){ return y*cols + x; }
+  function inBounds(x,y){ return x>=0 && y>=0 && x<cols && y<rows; }
+
+  function setStageTransform(){
+    stage.style.transformOrigin = 'center';
+    stage.style.transform = `translate(${viewX}px, ${viewY}px) scale(${viewScale})`;
+    zoom.value = String(viewScale);
+    zoomVal.textContent = `${viewScale.toFixed(2)}x`;
+  }
+
+  function computeFitScale(){
+    // Fit stage to viewport, but allow zoom > fit.
+    const canvasW = canvas.width;
+    const canvasH = canvas.height;
+    const maxW = Math.min(window.innerWidth - 360, canvasW + 2);
+    const maxH = Math.min(window.innerHeight - 40, canvasH + 2);
+    fitScale = Math.min(maxW / canvasW, maxH / canvasH, 1);
+  }
+
+  function fitToView(){
+    computeFitScale();
+    viewScale = fitScale;
+    viewX = 0;
+    viewY = 0;
+    setStageTransform();
+  }
+
+  function oneToOne(){
+    viewScale = 1;
+    viewX = 0;
+    viewY = 0;
+    setStageTransform();
+  }
+
+  function centerPan(){
+    viewX = 0;
+    viewY = 0;
+    setStageTransform();
+  }
+
+  function resizeCanvas(){
+    canvas.width = cols * cellSize;
+    canvas.height = rows * cellSize;
+    computeFitScale();
+
+    // If user hasn’t moved away from fit too much, keep it pleasant on resize.
+    // Otherwise, keep their zoom but clamp to slider range.
+    const z = clamp(+zoom.value || viewScale, +zoom.min, +zoom.max);
+    viewScale = clamp(viewScale || fitScale, +zoom.min, +zoom.max);
+    if (!Number.isFinite(viewScale)) viewScale = fitScale;
+    if (Math.abs(viewScale - fitScale) < 0.02) viewScale = fitScale;
+    viewScale = clamp(viewScale, +zoom.min, +zoom.max);
+
+    zoom.value = String(viewScale);
+    setStageTransform();
+    render();
+  }
+
+  function drawRoundedRect(x,y,w,h,r){
+    const rr = Math.min(r, w/2, h/2);
+    ctx.beginPath();
+    ctx.moveTo(x+rr, y);
+    ctx.arcTo(x+w, y, x+w, y+h, rr);
+    ctx.arcTo(x+w, y+h, x, y+h, rr);
+    ctx.arcTo(x, y+h, x, y, rr);
+    ctx.arcTo(x, y, x+w, y, rr);
+    ctx.closePath();
+  }
+
+  function drawBackground(){
+    if (bgMode.value === 'solid'){
+      ctx.fillStyle = bgColor.value;
+      ctx.fillRect(0,0,canvas.width, canvas.height);
+      return;
+    }
+
+    // Alternating per-cell checker, fast enough for this canvas size.
+    const a = bgColor.value;
+    const b = bgAltColor.value;
+    for (let y=0; y<rows; y++){
+      for (let x=0; x<cols; x++){
+        ctx.fillStyle = ((x + y) & 1) ? a : b;
+        ctx.fillRect(x*cellSize, y*cellSize, cellSize, cellSize);
+      }
+    }
+  }
+
+  function render(){
+    ctx.save();
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+    drawBackground();
+    ctx.restore();
+
+    const cov = +coverage.value;
+    const glowAmt = +glow.value;
+    const glowR = +glowRadius.value;
+    const coreAmt = +core.value;
+    const shape = shapeSel.value;
+
+    const pad = (1 - cov) * 0.5;
+    const size = cellSize * cov;
+    const offset = cellSize * pad;
+
+    if (gridPreview.value === 'on'){
+      ctx.save();
+      ctx.globalAlpha = 0.08;
+      ctx.strokeStyle = 'rgba(255,255,255,1)';
+      ctx.lineWidth = 1;
+      for (let x=0; x<=cols; x++){
+        const px = x * cellSize + 0.5;
+        ctx.beginPath();
+        ctx.moveTo(px, 0);
+        ctx.lineTo(px, canvas.height);
+        ctx.stroke();
+      }
+      for (let y=0; y<=rows; y++){
+        const py = y * cellSize + 0.5;
+        ctx.beginPath();
+        ctx.moveTo(0, py);
+        ctx.lineTo(canvas.width, py);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    for (let y=0; y<rows; y++){
+      for (let x=0; x<cols; x++){
+        const v = data[idx(x,y)];
+        if (v === 0) continue;
+
+        const colorHex = u32ToHex(v);
+        const cx = x*cellSize + offset;
+        const cy = y*cellSize + offset;
+
+        if (glowAmt > 0 && glowR > 0){
+          ctx.save();
+          ctx.globalAlpha = 0.75 * glowAmt;
+          ctx.shadowColor = hexToRgba(colorHex, 1);
+          ctx.shadowBlur = glowR;
+          ctx.fillStyle = hexToRgba(colorHex, 0.9);
+          if (shape === 'circle'){
+            const r = size/2;
+            ctx.beginPath();
+            ctx.arc(cx + r, cy + r, r * 0.98, 0, Math.PI*2);
+            ctx.fill();
+          } else {
+            drawRoundedRect(cx, cy, size, size, size*0.22);
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+
+        ctx.save();
+        const grad = ctx.createRadialGradient(
+          cx + size*0.50, cy + size*0.48, size*0.10,
+          cx + size*0.50, cy + size*0.50, size*0.70
+        );
+        grad.addColorStop(0, hexToRgba(colorHex, 1));
+        grad.addColorStop(1, hexToRgba(colorHex, Math.max(0.75, 1 - coreAmt)));
+
+        ctx.fillStyle = grad;
+        if (shape === 'circle'){
+          const r = size/2;
+          ctx.beginPath();
+          ctx.arc(cx + r, cy + r, r * 0.92, 0, Math.PI*2);
+          ctx.fill();
+        } else {
+          drawRoundedRect(cx, cy, size, size, size*0.20);
+          ctx.fill();
+        }
+
+        if (coreAmt > 0){
+          ctx.globalAlpha = coreAmt * 0.55;
+          ctx.fillStyle = 'rgba(255,255,255,1)';
+          if (shape === 'circle'){
+            const r = size/2;
+            ctx.beginPath();
+            ctx.arc(cx + r*0.85, cy + r*0.78, r*0.20, 0, Math.PI*2);
+            ctx.fill();
+          } else {
+            drawRoundedRect(cx + size*0.12, cy + size*0.10, size*0.28, size*0.20, size*0.10);
+            ctx.fill();
+          }
+        }
+        ctx.restore();
+      }
+    }
+
+    if (lastHover){
+      const {x,y} = lastHover;
+      ctx.save();
+      ctx.globalAlpha = 0.18;
+      ctx.fillStyle = 'rgba(255,255,255,1)';
+      ctx.fillRect(x*cellSize, y*cellSize, cellSize, cellSize);
+      ctx.restore();
+    }
+
+    // overlay info
+    overlay.textContent =
+      `Grid ${cols}×${rows} | cell ${cellSize}px | zoom ${viewScale.toFixed(2)}x`;
+  }
+
+  function cellFromEvent(e){
+    const rect = canvas.getBoundingClientRect();
+    const sx = canvas.width / rect.width;
+    const sy = canvas.height / rect.height;
+    const px = (e.clientX - rect.left) * sx;
+    const py = (e.clientY - rect.top) * sy;
+    const x = Math.floor(px / cellSize);
+    const y = Math.floor(py / cellSize);
+    return { x, y };
+  }
+
+  function setCell(x,y, value){
+    if (!inBounds(x,y)) return;
+    data[idx(x,y)] = value;
+  }
+
+  function drawLine(a, b, value){
+    let x0=a.x, y0=a.y, x1=b.x, y1=b.y;
+    const dx = Math.abs(x1-x0), sx = x0<x1 ? 1 : -1;
+    const dy = -Math.abs(y1-y0), sy = y0<y1 ? 1 : -1;
+    let err = dx + dy;
+    while (true){
+      setCell(x0,y0,value);
+      if (x0===x1 && y0===y1) break;
+      const e2 = 2*err;
+      if (e2 >= dy){ err += dy; x0 += sx; }
+      if (e2 <= dx){ err += dx; y0 += sy; }
+    }
+  }
+
+  function paintAt(e, forceEraser=false){
+    const {x,y} = cellFromEvent(e);
+    if (!inBounds(x,y)) return;
+
+    const tool = forceEraser ? 'eraser' : toolSel.value;
+    const value = (tool === 'eraser') ? 0 : hexToU32(paintColor.value);
+
+    const cur = {x,y};
+
+    if (e.ctrlKey && lastCell){
+      drawLine(lastCell, cur, value);
+    } else {
+      setCell(x,y,value);
+    }
+
+    lastCell = cur;
+    render();
+  }
+
+  // Palette UI
+  function buildPalette(){
+    paletteEl.innerHTML = '';
+    palette.forEach((hex, i) => {
+      const d = document.createElement('div');
+      d.className = 'swatch' + (i===activeSwatch ? ' active' : '');
+      d.style.background = hex;
+      d.title = hex;
+      d.addEventListener('click', () => {
+        activeSwatch = i;
+        paintColor.value = hex;
+        addRecent(hex);
+        syncHexLabels();
+        buildPalette();
+        render();
+      });
+      paletteEl.appendChild(d);
+    });
+  }
+
+  // Recent colors (session memory)
+  function loadRecent(){
+    try{
+      const raw = sessionStorage.getItem(RECENT_KEY);
+      recent = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(recent)) recent = [];
+    } catch {
+      recent = [];
+    }
+  }
+  function persistRecent(){
+    try{
+      sessionStorage.setItem(RECENT_KEY, JSON.stringify(recent));
+    } catch {}
+  }
+  function addRecent(hex){
+    if (!hex) return;
+    const h = hex.toLowerCase();
+    recent = recent.filter(x => (x||'').toLowerCase() !== h);
+    recent.unshift(hex);
+    if (recent.length > RECENT_MAX) recent.length = RECENT_MAX;
+    persistRecent();
+    buildRecent();
+  }
+  function buildRecent(){
+    recentEl.innerHTML = '';
+    recent.forEach((hex) => {
+      const d = document.createElement('div');
+      d.className = 'mini-swatch';
+      d.style.background = hex;
+      d.title = `${hex} (click: paint, right-click: bg)`;
+
+      d.addEventListener('click', () => {
+        paintColor.value = hex;
+        syncHexLabels();
+        render();
+      });
+
+      d.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        bgColor.value = hex;
+        addRecent(hex);
+        syncHexLabels();
+        render();
+      });
+
+      recentEl.appendChild(d);
+    });
+  }
+
+  function syncHexLabels(){
+    paintHex.textContent = paintColor.value.toUpperCase();
+    bgHex.textContent = bgColor.value.toUpperCase();
+    bgAltHex.textContent = bgAltColor.value.toUpperCase();
+    coverageVal.textContent = (+coverage.value).toFixed(2);
+    glowVal.textContent = (+glow.value).toFixed(2);
+    glowRadiusVal.textContent = (+glowRadius.value).toFixed(0);
+    coreVal.textContent = (+core.value).toFixed(2);
+
+    bgAltRow.style.display = (bgMode.value === 'checker') ? '' : 'none';
+    zoomVal.textContent = `${viewScale.toFixed(2)}x`;
+  }
+
+  // Storage (grid/looks in localStorage; recents in sessionStorage)
+  const STORE_KEY = 'glow-grid-painter-v1';
+  function saveLocal(){
+    const painted = [];
+    for (let i=0; i<data.length; i++){
+      if (data[i] !== 0) painted.push([i, u32ToHex(data[i])]);
+    }
+    const payload = {
+      cols, rows, cellSize,
+      bg: bgColor.value,
+      bgMode: bgMode.value,
+      bgAlt: bgAltColor.value,
+      cells: painted,
+      look: {
+        shape: shapeSel.value,
+        coverage: +coverage.value,
+        glow: +glow.value,
+        glowRadius: +glowRadius.value,
+        core: +core.value,
+        gridPreview: gridPreview.value
+      },
+      view: {
+        zoom: viewScale,
+        pan: [viewX, viewY]
+      }
+    };
+    localStorage.setItem(STORE_KEY, JSON.stringify(payload));
+  }
+
+  function loadLocal(){
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return;
+    const payload = JSON.parse(raw);
+
+    cols = payload.cols;
+    rows = payload.rows;
+    cellSize = payload.cellSize;
+
+    colsInput.value = cols;
+    rowsInput.value = rows;
+    cellSizeInput.value = cellSize;
+
+    bgColor.value = payload.bg || bgColor.value;
+    bgMode.value = payload.bgMode || bgMode.value;
+    bgAltColor.value = payload.bgAlt || bgAltColor.value;
+
+    if (payload.look){
+      shapeSel.value = payload.look.shape ?? shapeSel.value;
+      coverage.value = payload.look.coverage ?? coverage.value;
+      glow.value = payload.look.glow ?? glow.value;
+      glowRadius.value = payload.look.glowRadius ?? glowRadius.value;
+      core.value = payload.look.core ?? core.value;
+      gridPreview.value = payload.look.gridPreview ?? gridPreview.value;
+    }
+
+    data = new Uint32Array(cols * rows);
+    if (Array.isArray(payload.cells)){
+      for (const [i, hex] of payload.cells){
+        if (i >= 0 && i < data.length) data[i] = hexToU32(hex);
+      }
+    }
+
+    resizeCanvas();
+
+    if (payload.view && Number.isFinite(payload.view.zoom)){
+      viewScale = clamp(payload.view.zoom, +zoom.min, +zoom.max);
+      if (Array.isArray(payload.view.pan)){
+        viewX = +payload.view.pan[0] || 0;
+        viewY = +payload.view.pan[1] || 0;
+      }
+      setStageTransform();
+    } else {
+      fitToView();
+    }
+
+    syncHexLabels();
+    render();
+  }
+
+  function clearAll(){
+    data.fill(0);
+    lastCell = null;
+    render();
+  }
+
+  function exportPNG(){
+    const a = document.createElement('a');
+    a.download = 'glow-grid.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  }
+
+  function applySize(){
+    const newCols = Math.max(16, Math.min(240, +colsInput.value || cols));
+    const newRows = Math.max(16, Math.min(240, +rowsInput.value || rows));
+    const newCell = Math.max(4, Math.min(22, +cellSizeInput.value || cellSize));
+
+    const oldCols = cols, oldRows = rows;
+    const oldData = data;
+
+    cols = newCols; rows = newRows; cellSize = newCell;
+    data = new Uint32Array(cols * rows);
+
+    const copyCols = Math.min(oldCols, cols);
+    const copyRows = Math.min(oldRows, rows);
+    for (let y=0; y<copyRows; y++){
+      for (let x=0; x<copyCols; x++){
+        data[idx(x,y)] = oldData[y*oldCols + x];
+      }
+    }
+
+    lastCell = null;
+    resizeCanvas();
+    fitToView();
+  }
+
+  // Events
+  canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  // Pan (Space + drag)
+  let isPanning = false;
+  let panStart = null;
+
+  function shouldPan(e){
+    return e && e.getModifierState && e.getModifierState('Space');
+  }
+
+  canvas.addEventListener('mousedown', (e) => {
+    // Space-pan wins
+    if (shouldPan(e) || e.button === 1){
+      isPanning = true;
+      panStart = { x: e.clientX, y: e.clientY, ox: viewX, oy: viewY };
+      return;
+    }
+
+    isDown = true;
+    const forceEraser = (e.button === 2);
+    paintAt(e, forceEraser);
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDown = false;
+    lastCell = null;
+    isPanning = false;
+    panStart = null;
+  });
+
+  canvas.addEventListener('mousemove', (e) => {
+    if (isPanning && panStart){
+      const dx = e.clientX - panStart.x;
+      const dy = e.clientY - panStart.y;
+      viewX = panStart.ox + dx;
+      viewY = panStart.oy + dy;
+      setStageTransform();
+      return;
+    }
+
+    const {x,y} = cellFromEvent(e);
+    lastHover = inBounds(x,y) ? {x,y} : null;
+    if (isDown) paintAt(e, e.buttons === 2);
+    else render();
+  });
+
+  // Ctrl + wheel zoom (around center of stage visually)
+  canvas.addEventListener('wheel', (e) => {
+    if (!e.ctrlKey) return;
+    e.preventDefault();
+
+    const old = viewScale;
+    const delta = -e.deltaY;
+    const factor = Math.exp(delta * 0.0015);
+    const next = clamp(old * factor, +zoom.min, +zoom.max);
+
+    // Zoom around cursor: adjust pan so the point under cursor stays stable.
+    const rect = stage.getBoundingClientRect();
+    const cx = e.clientX - (rect.left + rect.width/2);
+    const cy = e.clientY - (rect.top + rect.height/2);
+
+    // Convert cursor offset into stage-space and reapply with new scale.
+    viewX = viewX + cx * (1 - next/old);
+    viewY = viewY + cy * (1 - next/old);
+
+    viewScale = next;
+    setStageTransform();
+    render();
+  }, { passive:false });
+
+  // Keyboard shortcuts
+  window.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'e') toolSel.value = 'eraser';
+    if (e.key.toLowerCase() === 'b') toolSel.value = 'brush';
+    if (e.key.toLowerCase() === 'g') gridPreview.value = (gridPreview.value === 'on' ? 'off' : 'on');
+    syncHexLabels();
+    render();
+  });
+
+  // UI reactive
+  [
+    paintColor, bgColor, bgMode, bgAltColor,
+    toolSel, shapeSel, coverage, glow, glowRadius, core, gridPreview
+  ].forEach(el => el.addEventListener('input', () => {
+    if (el === paintColor) addRecent(paintColor.value);
+    if (el === bgColor) addRecent(bgColor.value);
+    if (el === bgAltColor) addRecent(bgAltColor.value);
+    syncHexLabels();
+    render();
+  }));
+
+  zoom.addEventListener('input', () => {
+    viewScale = clamp(+zoom.value || viewScale, +zoom.min, +zoom.max);
+    setStageTransform();
+    render();
+  });
+
+  fitBtn.addEventListener('click', () => { fitToView(); render(); });
+  oneToOneBtn.addEventListener('click', () => { oneToOne(); render(); });
+  resetPanBtn.addEventListener('click', () => { centerPan(); render(); });
+
+  applySizeBtn.addEventListener('click', applySize);
+  clearBtn.addEventListener('click', clearAll);
+  saveBtn.addEventListener('click', saveLocal);
+  loadBtn.addEventListener('click', loadLocal);
+  exportBtn.addEventListener('click', exportPNG);
+
+  window.addEventListener('resize', () => { resizeCanvas(); });
+
+  // Init
+  loadRecent();
+  buildRecent();
+  buildPalette();
+  syncHexLabels();
+
+  // seed recents with current colors if empty
+  if (!recent.length){
+    addRecent(paintColor.value);
+    addRecent(bgColor.value);
+    addRecent(bgAltColor.value);
+  }
+
+  resizeCanvas();
+  fitToView();
+  render();
+})();
+</script>
+</body>
+</html>
