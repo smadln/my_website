@@ -11,7 +11,7 @@ html, body {
 #ascii-photo-2
 {
     position: absolute;
-    height: 50vh; 
+    height: 100vh; 
     max-height: 100%; 
     width: auto; 
     transform: translate(-50%, -50%);
@@ -20,13 +20,13 @@ html, body {
 }
 
 #ascii-photo-1 {
-    top: 50%; 
-    left: 25%; 
+    top: 49.6%; 
+    left: 50.3%; 
 }
 
 #ascii-photo-2 {
     top: 50%; 
-    left: 75%; 
+    left: 50%; 
 }
 
 
