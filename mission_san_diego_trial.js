@@ -76,7 +76,6 @@ function handleImage(img) {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    const images = document.querySelectorAll(".ascii-photo-1 img, .ascii-photo-2 img, .ascii-plant-3 img,.ascii-plant-4 img,\
-    .ascii-plant-5 img, .ascii-plant-6 img, .ascii-plant-7 img, .ascii-plant-8 img");
+    const images = document.querySelectorAll(".ascii-photo-1 img, .ascii-photo-2 img");
     images.forEach(handleImage);
 });

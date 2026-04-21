@@ -3,15 +3,13 @@ html, body {
     overflow: hidden; 
 }
 
-.bright-container {
+.container {
     height: 100vh; 
 }
 
 #ascii-photo-1,
-#ascii-photo-2,
-#lilac-ascii,
-#bright-pink-ascii,
-#light-yellow-ascii {
+#ascii-photo-2
+{
     position: absolute;
     height: 50vh; 
     max-height: 100%; 
@@ -31,27 +29,11 @@ html, body {
     left: 75%; 
 }
 
-#lilac-ascii {
-    top: 49%; 
-    left: 50%; 
-}
 
-#bright-pink-ascii {
-    top: 48%; 
-    left: 49.8%; 
-}
-
-#light-yellow-ascii {
-    top: 50%; 
-    left: 50%; 
-}
 
 @media screen and (max-height: 480px) {
     #ascii-photo-1,
-    #ascii-photo-2,
-    #lilac-ascii,
-    #bright-pink-ascii,
-    #light-yellow-ascii {
+    #ascii-photo-2 {
         height: 60vh; 
         max-height: 100%; 
     }
@@ -60,10 +42,7 @@ html, body {
 
 @media screen and (min-height: 800px) and (max-height: 1200px) {
     #ascii-photo-1,
-    #ascii-photo-2,
-    #lilac-ascii,
-    #bright-pink-ascii,
-    #light-yellow-ascii {
+    #ascii-photo-2 {
         height: 100vh; 
         max-height: 100%; 
     }
