@@ -14,7 +14,7 @@ function startResumeTimer() {
         resumeTimeout = setTimeout(() => {
             isAnimating = true;
             requestAnimationFrame(animate);
-        }, 4000);
+        }, 2000);
     }
 }
 
