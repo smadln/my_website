@@ -25,8 +25,8 @@ function animate() {
     const img2 = document.getElementById('ascii-photo-2');
 
     if (img1 && img2) {
-        animationPhase += 0.02;
-        const offset = Math.sin(animationPhase) * 0.5;
+        animationPhase += 0.01;
+        const offset = Math.sin(animationPhase) * 0.3;
 
         img1.style.transform = `translate(calc(-50% + ${offset}%), -50%)`;
         img2.style.transform = `translate(calc(-50% + ${-offset}%), -50%)`;
