@@ -1,3 +1,4 @@
+const maxMoveDistance = 15; 
 let isAnimating = true;
 let resumeTimeout;
 let activeInteractions = 0;
@@ -38,6 +39,8 @@ function animate() {
 function handleImage(img) {
     let isDragging = false;
     let offsetX, offsetY;
+    let initialLeft = null;
+    let initialTop = null;
     
     img.style.padding = "10px";
     
@@ -52,6 +55,9 @@ function handleImage(img) {
     img.addEventListener("mousedown", (e) => {
         e.preventDefault();
         isDragging = true;
+
+        if (initialLeft === null) initialLeft = img.offsetLeft;
+        if (initialTop === null) initialTop = img.offsetTop;
         
         activeInteractions++;
         pauseAnimation();
@@ -63,8 +69,14 @@ function handleImage(img) {
     
         function onMouseMove(e) {
             if (isDragging) {
-                img.style.left = (e.clientX - offsetX) + "px";
-                img.style.top = (e.clientY - offsetY) + "px";
+                let newLeft = e.clientX - offsetX;
+                let newTop = e.clientY - offsetY;
+
+                newLeft = Math.max(initialLeft - maxMoveDistance, Math.min(initialLeft + maxMoveDistance, newLeft));
+                newTop = Math.max(initialTop - maxMoveDistance, Math.min(initialTop + maxMoveDistance, newTop));
+
+                img.style.left = newLeft + "px";
+                img.style.top = newTop + "px";
             }
         }
     
@@ -86,6 +98,9 @@ function handleImage(img) {
     img.addEventListener("touchstart", (e) => {
         e.preventDefault();
         isDragging = true;
+
+        if (initialLeft === null) initialLeft = img.offsetLeft;
+        if (initialTop === null) initialTop = img.offsetTop;
         
         activeInteractions++;
         pauseAnimation();
@@ -99,8 +114,14 @@ function handleImage(img) {
         function onTouchMove(e) {
             if (isDragging) {
                 const touch = e.touches[0];
-                img.style.left = (touch.clientX - offsetX) + "px";
-                img.style.top = (touch.clientY - offsetY) + "px";
+                let newLeft = touch.clientX - offsetX;
+                let newTop = touch.clientY - offsetY;
+
+                newLeft = Math.max(initialLeft - maxMoveDistance, Math.min(initialLeft + maxMoveDistance, newLeft));
+                newTop = Math.max(initialTop - maxMoveDistance, Math.min(initialTop + maxMoveDistance, newTop));
+
+                img.style.left = newLeft + "px";
+                img.style.top = newTop + "px";
             }
         }
 
