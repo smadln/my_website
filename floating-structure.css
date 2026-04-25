@@ -11,7 +11,7 @@ html, body {
 #ascii-photo-2
 {
     position: absolute;
-    height: 90vh; 
+    height: 80vh; 
     max-height: 100%; 
     width: auto; 
     transform: translate(-50%, -50%);
