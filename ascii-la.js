@@ -1,9 +1,54 @@
-function handleImage(img) {
-    console.log('handleImage called on', img); 
-    let isDragging = false;
-    let offsetX, offsetY; 
+const maxMoveDistance = 15; 
+let isAnimating = true;
+let resumeTimeout;
+let activeInteractions = 0;
+let animationPhase = 0;
+
+function pauseAnimation() {
+    isAnimating = false;
+    clearTimeout(resumeTimeout);
+}
+
+function startResumeTimer() {
+    clearTimeout(resumeTimeout);
+    if (activeInteractions === 0) {
+        resumeTimeout = setTimeout(() => {
+            if (!isAnimating) {
+                isAnimating = true;
+                requestAnimationFrame(animate);
+            }
+        }, 1000);
+    }
+}
+
+function animate() {
+    if (!isAnimating) return;
+
+    const img1 = document.querySelector('.ascii-la-1 img');
+    const img2 = document.querySelector('.ascii-la-2 img');
+    const img3 = document.querySelector('.ascii-la-3 img');
+    const img4 = document.querySelector('.ascii-la-4 img');
     
-    img.style.padding = "10px"; 
+
+    animationPhase += 0.01;
+    const offset = Math.sin(animationPhase) * 5;
+
+    if (img1) img1.style.transform = `translate(-50%, calc(-50% + ${offset}px))`;
+    if (img2) img2.style.transform = `translate(-50%, calc(-50% + ${-offset}px))`;
+    if (img3) img3.style.transform = `translate(-50%, calc(-50% + ${-offset}px))`;
+    if (img4) img4.style.transform = `translate(-50%, calc(-50% + ${offset}px))`;
+    
+
+    requestAnimationFrame(animate);
+}
+
+function handleImage(img) {
+    let isDragging = false;
+    let offsetX, offsetY;
+    let initialLeft = null;
+    let initialTop = null;
+    
+    img.style.padding = "10px";
     
     img.addEventListener("mouseover", () => {
         img.style.cursor = "grab";
@@ -14,28 +59,42 @@ function handleImage(img) {
     });
     
     img.addEventListener("mousedown", (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         isDragging = true;
+
+        if (initialLeft === null) initialLeft = img.offsetLeft;
+        if (initialTop === null) initialTop = img.offsetTop;
+        
+        activeInteractions++;
+        pauseAnimation();
+        
         img.style.cursor = "grabbing";
     
         offsetX = e.clientX - img.offsetLeft;
         offsetY = e.clientY - img.offsetTop;
-        console.log('Drag started', offsetX, offsetY); 
     
         function onMouseMove(e) {
             if (isDragging) {
-                img.style.left = (e.clientX - offsetX) + "px";
-                img.style.top = (e.clientY - offsetY) + "px";
-                console.log('Dragging', img.style.left, img.style.top); 
+                let newLeft = e.clientX - offsetX;
+                let newTop = e.clientY - offsetY;
+
+                newLeft = Math.max(initialLeft - maxMoveDistance, Math.min(initialLeft + maxMoveDistance, newLeft));
+                newTop = Math.max(initialTop - maxMoveDistance, Math.min(initialTop + maxMoveDistance, newTop));
+
+                img.style.left = newLeft + "px";
+                img.style.top = newTop + "px";
             }
         }
     
         function onMouseUp() {
             isDragging = false;
+            
+            activeInteractions--;
+            startResumeTimer();
+            
             img.style.cursor = "grab";
             document.removeEventListener("mousemove", onMouseMove);
             document.removeEventListener("mouseup", onMouseUp);
-            console.log('Drag ended'); 
         }
     
         document.addEventListener("mousemove", onMouseMove);
@@ -43,30 +102,44 @@ function handleImage(img) {
     });
 
     img.addEventListener("touchstart", (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         isDragging = true;
+
+        if (initialLeft === null) initialLeft = img.offsetLeft;
+        if (initialTop === null) initialTop = img.offsetTop;
+        
+        activeInteractions++;
+        pauseAnimation();
+        
         img.style.cursor = "grabbing";
 
         const touch = e.touches[0];
         offsetX = touch.clientX - img.offsetLeft;
         offsetY = touch.clientY - img.offsetTop;
-        console.log('Touch start', offsetX, offsetY); 
 
         function onTouchMove(e) {
             if (isDragging) {
                 const touch = e.touches[0];
-                img.style.left = (touch.clientX - offsetX) + "px";
-                img.style.top = (touch.clientY - offsetY) + "px";
-                console.log('Touch dragging', img.style.left, img.style.top); 
+                let newLeft = touch.clientX - offsetX;
+                let newTop = touch.clientY - offsetY;
+
+                newLeft = Math.max(initialLeft - maxMoveDistance, Math.min(initialLeft + maxMoveDistance, newLeft));
+                newTop = Math.max(initialTop - maxMoveDistance, Math.min(initialTop + maxMoveDistance, newTop));
+
+                img.style.left = newLeft + "px";
+                img.style.top = newTop + "px";
             }
         }
 
         function onTouchEnd() {
             isDragging = false;
+            
+            activeInteractions--;
+            startResumeTimer();
+            
             img.style.cursor = "grab";
             document.removeEventListener("touchmove", onTouchMove);
             document.removeEventListener("touchend", onTouchEnd);
-            console.log('Touch drag ended'); 
         }
 
         document.addEventListener("touchmove", onTouchMove);
@@ -75,7 +148,8 @@ function handleImage(img) {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    const images = document.querySelectorAll(".ascii-la-1 img, .ascii-la-2 img, .ascii-la-3 img,.ascii-la-4 img,\
-    .ascii-la-5 img");
+    const images = document.querySelectorAll(".ascii-la-1 img, .ascii-la-2 img, .ascii-la-3 img, .ascii-la-4 img");
     images.forEach(handleImage);
+    
+    requestAnimationFrame(animate);
 });
