@@ -14,17 +14,17 @@ html, body {
 #bright-yellow-ascii,
 #green-ascii {
     position: absolute;
+    height: 100vh; 
     max-height: 100%; 
     width: auto; 
     transform: translate(-50%, -50%); 
     flex-grow: 1; 
-    max-width: none; 
+    max-width: none;
 }
 
 
 #peach-ascii {
     position: absolute;
-    width: 400px;
     top: 49%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
@@ -32,7 +32,6 @@ html, body {
 
 #bright-pink-ascii {
     position: absolute;
-    width: 400px;
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
@@ -40,7 +39,6 @@ html, body {
 
 #periwinkle-ascii {
     position: absolute;
-    width: 400px;
     top: 51%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
@@ -48,7 +46,6 @@ html, body {
 
 #bright-yellow-ascii {
     position: absolute;
-    width: 400px;
     top: 48.5%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
@@ -56,7 +53,6 @@ html, body {
 
 #green-ascii {
     position: absolute;
-    width: 400px;
     top: 49.1%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
@@ -143,7 +139,6 @@ html, body {
 #bright-yellow-ascii,
 #green-ascii {
   position: absolute;
-  width: 400px;
   height: auto;
   transform: translate(-50%, -50%);
 }
