@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII LA</title>
+  <link rel="stylesheet" href="ascii-la.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <div class="bright-container">
+    <div class="positioned-wrapper">
+      <div class="ascii-la-1"><img src="ascii_la_bright_pink.png" alt="Pink" id="bright-pink-ascii"></div>
+      <div class="ascii-la-2"><img src="ascii_la_peach.png" alt="Peach" id="peach-ascii"></div>
+      <div class="ascii-la-3"><img src="ascii_la_blue.png" alt="Blue" id="periwinkle-ascii"></div>
+      <div class="ascii-la-4"><img src="ascii_la_bright_yellow.png" alt="Yellow" id="bright-yellow-ascii"></div>
+      <div class="ascii-la-5"><img src="ascii_la_green.png" alt="Green" id="green-ascii"></div>
+    </div>
+  </div>
+
+  <script src="ascii-la.js"></script>
+  <script>
+    var url = window.location.href;
+    if (url.endsWith('.html')) {
+      history.replaceState({}, '', url.substring(0, url.length - 5));
+    }
+  </script>
+</body>
+</html>
