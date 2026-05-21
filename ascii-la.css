@@ -19,7 +19,7 @@ html, body {
     width: auto; 
     transform: translate(-50%, -50%); 
     flex-grow: 1; 
-    max-width: none;
+    max-width: none; 
 }
 
 
@@ -109,36 +109,4 @@ html, body {
   :root {
     --scale: 1; /* No scaling on large screens */
 }
-}
-
-html, body {
-  background-color: whitesmoke;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.bright-container {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.positioned-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform: scale(var(--scale));
-  transform-origin: center;
-}
-
-#peach-ascii,
-#bright-pink-ascii,
-#periwinkle-ascii,
-#bright-yellow-ascii,
-#green-ascii {
-  position: absolute;
-  height: auto;
-  transform: translate(-50%, -50%);
 }
