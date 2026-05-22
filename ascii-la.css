@@ -21,7 +21,7 @@ html, body {
 }
 
 #bright-pink-ascii {
-    filter: saturate(150%) contrast(110%)
+    filter: saturate(150%) contrast(110%);
 }
 
 #periwinkle-ascii,
