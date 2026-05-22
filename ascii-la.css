@@ -7,8 +7,6 @@ html, body {
     height: 100vh; 
 }
 
-
-#peach-ascii,
 #bright-pink-ascii,
 #periwinkle-ascii,
 #bright-yellow-ascii,
@@ -20,15 +18,9 @@ html, body {
     transform: translate(-50%, -50%); 
     flex-grow: 1; 
     max-width: none; 
+    filter: saturate(150%) contrast(110%);
 }
 
-
-#peach-ascii {
-    position: absolute;
-    top: 49%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-}
 
 #bright-pink-ascii {
     position: absolute;
@@ -59,7 +51,6 @@ html, body {
 }
 
 @media screen and (max-height: 480px) {
-    #peach-ascii,
     #bright-pink-ascii,
     #periwinkle-ascii,
     #bright-yellow-ascii,
@@ -71,7 +62,6 @@ html, body {
 
 
 @media screen and (min-height: 800px) and (max-height: 1200px) {
-    #peach-ascii,
     #bright-pink-ascii,
     #periwinkle-ascii,
     #bright-yellow-ascii,
