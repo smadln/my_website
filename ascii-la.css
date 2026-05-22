@@ -18,7 +18,16 @@ html, body {
     transform: translate(-50%, -50%); 
     flex-grow: 1; 
     max-width: none; 
-    filter: saturate(150%) contrast(110%);
+}
+
+#bright-pink-ascii {
+    filter: saturate(150%) contrast(110%)
+}
+
+#periwinkle-ascii,
+#bright-yellow-ascii,
+#green-ascii {
+    filter: saturate(200%) contrast(150%);
 }
 
 
