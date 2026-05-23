@@ -27,7 +27,7 @@ html, body {
 #periwinkle-ascii,
 #bright-yellow-ascii,
 #green-ascii {
-    filter: saturate(200%) contrast(150%);
+    filter: saturate(150%) contrast(110%);
 }
 
 
