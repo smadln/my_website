@@ -5,12 +5,11 @@
 }
 
 html {
-    background-color: darkred;
     overscroll-behavior-y: none;
 }
 
 body {
-    background-color: darkred;
+    background-color: rgb(136, 255, 56);
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
