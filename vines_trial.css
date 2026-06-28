@@ -6,6 +6,7 @@
 
 html {
     overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
 }
 
 body {
@@ -14,6 +15,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
 }
 
 .image-container,
@@ -28,4 +30,16 @@ body {
     width: 100%;
     height: auto;
     padding: 0 !important;
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    body {
+        overflow-x: auto;
+    }
+
+    #vines-ascii,
+    #vines-ascii-i {
+        width: 250vw;
+        max-width: none;
+    }
 }
