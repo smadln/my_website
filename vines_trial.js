@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     let lastScrollY = window.scrollY;
+    let lastScrollX = window.scrollX;
     let ticking = false;
     let scrollTimeout;
     let decayInterval;
@@ -23,8 +24,14 @@ window.addEventListener('DOMContentLoaded', () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 const currentScrollY = window.scrollY;
-                const velocity = Math.abs(currentScrollY - lastScrollY);
+                const currentScrollX = window.scrollX;
+                
+                const velocityY = currentScrollY - lastScrollY;
+                const velocityX = currentScrollX - lastScrollX;
+                const velocity = Math.hypot(velocityX, velocityY);
+
                 lastScrollY = currentScrollY;
+                lastScrollX = currentScrollX;
 
                 if (map && velocity > 0) {
                     const meldAmount = Math.min(velocity * 3, 250);
