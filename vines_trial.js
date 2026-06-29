@@ -27,8 +27,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 const currentScrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
                 const currentScrollX = window.scrollX || document.documentElement.scrollLeft || document.body.scrollLeft;
                 
-                const velocityY = currentScrollY - lastScrollY;
-                const velocityX = currentScrollX - lastScrollX;
+                const velocityY = Math.abs(currentScrollY - lastScrollY);
+                const velocityX = Math.abs(currentScrollX - lastScrollX) * 3.5; 
                 const velocity = Math.hypot(velocityX, velocityY);
 
                 lastScrollY = currentScrollY;

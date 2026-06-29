@@ -34,21 +34,20 @@ body {
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
     html, body {
-        overflow-x: auto;
-        min-height: 0;
-        height: fit-content;
-        width: fit-content;
+        overflow: auto;
     }
 
     .image-container,
     .ascii-vines {
-        width: fit-content;
+        width: max-content;
+        height: max-content;
     }
 
     #vines-ascii,
     #vines-ascii-i {
         width: 250vw;
-        height: auto;
+        height: 120vh;
         max-width: none;
+        object-fit: cover;
     }
 }
