@@ -11,20 +11,21 @@ window.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll("#vines-ascii, #vines-ascii-i, .siblings-i img");
     images.forEach(img => {
         img.style.filter = "url(#scroll-meld)";
+        img.style.transform = "translateZ(0)";
     });
 
-    let lastScrollY = window.scrollY;
-    let lastScrollX = window.scrollX;
+    let lastScrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+    let lastScrollX = window.scrollX || document.documentElement.scrollLeft || document.body.scrollLeft;
     let ticking = false;
     let scrollTimeout;
     let decayInterval;
     const map = document.getElementById("meld-map");
 
-    window.addEventListener("scroll", () => {
+    const onScroll = () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
-                const currentScrollY = window.scrollY;
-                const currentScrollX = window.scrollX;
+                const currentScrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+                const currentScrollX = window.scrollX || document.documentElement.scrollLeft || document.body.scrollLeft;
                 
                 const velocityY = currentScrollY - lastScrollY;
                 const velocityX = currentScrollX - lastScrollX;
@@ -34,11 +35,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 lastScrollX = currentScrollX;
 
                 if (map && velocity > 0) {
-                    const meldAmount = Math.min(velocity * 3, 250);
+                    const meldAmount = Math.min(velocity * 6, 350);
                     map.setAttribute("scale", meldAmount);
 
                     images.forEach(img => {
-                        img.style.transform = `scale(${1 + velocity * 0.0001})`;
+                        img.style.transform = `scale(${1 + velocity * 0.0001}) translateZ(0)`;
                     });
 
                     clearTimeout(scrollTimeout);
@@ -50,7 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             currentScale *= 0.8;
                             if (currentScale < 1) {
                                 currentScale = 0;
-                                images.forEach(img => img.style.transform = "scale(1)");
+                                images.forEach(img => img.style.transform = "scale(1) translateZ(0)");
                                 clearInterval(decayInterval);
                             }
                             map.setAttribute("scale", currentScale);
@@ -61,5 +62,9 @@ window.addEventListener('DOMContentLoaded', () => {
             });
             ticking = true;
         }
-    }, { passive: true });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.body.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("scroll", onScroll, { capture: true, passive: true });
 });
