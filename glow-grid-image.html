@@ -272,7 +272,7 @@
       </div>
     </div>
     
-    <!-- NEW IMAGE STAMP PANEL -->
+    <!-- UPDATED IMAGE STAMP PANEL -->
     <div class="panel">
       <h2>Image Stamp</h2>
       <div class="row">
@@ -280,12 +280,14 @@
         <input type="file" id="imageUpload" multiple accept="image/*">
       </div>
       <div class="row">
-        <label>Dark threshold</label>
-        <input id="darkThreshold" type="range" min="0" max="255" step="1" value="128">
-        <span id="darkThresholdVal" class="hint">128</span>
+        <label>Sensitivity</label>
+        <!-- Adjusted default to 245 to capture all faint shading out of the box -->
+        <input id="darkThreshold" type="range" min="0" max="255" step="1" value="245">
+        <span id="darkThresholdVal" class="hint">245</span>
       </div>
       <div class="hint" style="margin-top:10px;">
-        Upload image(s). Drag to place, corner to resize. Click <b>"Stamp"</b> on the image to convert its dark areas into grid cells using your current paint color.
+        Upload image(s). Drag to place, corner to resize. Click <b>"Stamp"</b> on the image to convert it into grid cells.<br><br>
+        <i>Note: Area-sampling ensures thin lines are perfectly preserved. High sensitivity captures even the faintest shading!</i>
       </div>
     </div>
 
@@ -895,31 +897,45 @@
 
     for (let cy = startY; cy <= endY; cy++) {
       for (let cx = startX; cx <= endX; cx++) {
-        // Pixel coordinates of the grid cell center, relative to the main canvas
-        const cellCenterX = cx * cellSize + (cellSize / 2);
-        const cellCenterY = cy * cellSize + (cellSize / 2);
+        
+        // Find exactly which region of the image this cell covers
+        const cellLeft = cx * cellSize;
+        const cellTop = cy * cellSize;
+        
+        const startImgX = Math.max(0, Math.floor(cellLeft - oLeft));
+        const startImgY = Math.max(0, Math.floor(cellTop - oTop));
+        const endImgX = Math.min(oWidth, Math.floor(cellLeft + cellSize - oLeft));
+        const endImgY = Math.min(oHeight, Math.floor(cellTop + cellSize - oTop));
+        
+        let minBrightness = 255;
+        let hasVisiblePixel = false;
 
-        // Convert those to pixel coordinates relative to the overlay image
-        const imgX = Math.floor(cellCenterX - oLeft);
-        const imgY = Math.floor(cellCenterY - oTop);
+        // AREA SAMPLING: Scan all pixels inside the cell's footprint.
+        // This guarantees that fine lines and details are never missed!
+        for (let iy = startImgY; iy < endImgY; iy++) {
+          for (let ix = startImgX; ix < endImgX; ix++) {
+            const index = (iy * oWidth + ix) * 4;
+            const a = imgData[index+3];
 
-        if (imgX >= 0 && imgX < oWidth && imgY >= 0 && imgY < oHeight) {
-          const index = (imgY * oWidth + imgX) * 4;
-          const r = imgData[index];
-          const g = imgData[index+1];
-          const b = imgData[index+2];
-          const a = imgData[index+3];
-
-          // Ignore largely transparent pixels
-          if (a > 50) {
-            // Luma (brightness) formula
-            const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
-            
-            // Map dark parts as paint cells. Leave light parts empty.
-            if (brightness <= threshold) {
-              setCell(cx, cy, paintVal);
+            // Ignore largely transparent pixels
+            if (a > 50) {
+              hasVisiblePixel = true;
+              const r = imgData[index];
+              const g = imgData[index+1];
+              const b = imgData[index+2];
+              
+              // Find the darkest (most shaded) pixel in this cell's territory
+              const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
+              if (brightness < minBrightness) {
+                minBrightness = brightness;
+              }
             }
           }
+        }
+
+        // If the darkest shading in this cell crosses the sensitivity threshold, stamp it!
+        if (hasVisiblePixel && minBrightness <= threshold) {
+          setCell(cx, cy, paintVal);
         }
       }
     }
