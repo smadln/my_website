@@ -272,7 +272,6 @@
       </div>
     </div>
     
-    <!-- UPDATED IMAGE STAMP PANEL -->
     <div class="panel">
       <h2>Image Stamp</h2>
       <div class="row">
@@ -281,7 +280,6 @@
       </div>
       <div class="row">
         <label>Sensitivity</label>
-        <!-- Adjusted default to 245 to capture all faint shading out of the box -->
         <input id="darkThreshold" type="range" min="0" max="255" step="1" value="245">
         <span id="darkThresholdVal" class="hint">245</span>
       </div>
@@ -455,6 +453,9 @@
   let lastCell = null;
   let lastHover = null;
 
+  // Render Throttle
+  let renderPending = false;
+
   // Pan/zoom state 
   let viewScale = 1;
   let viewX = 0;
@@ -491,6 +492,17 @@
   }
   function idx(x,y){ return y*cols + x; }
   function inBounds(x,y){ return x>=0 && y>=0 && x<cols && y<rows; }
+
+  // High Performance Rendering Throttle
+  function scheduleRender() {
+    if (!renderPending) {
+      renderPending = true;
+      requestAnimationFrame(() => {
+        render();
+        renderPending = false;
+      });
+    }
+  }
 
   function setStageTransform(){
     stage.style.transformOrigin = 'center';
@@ -723,14 +735,15 @@
 
     const cur = {x,y};
 
-    if (e.ctrlKey && lastCell){
+    // Interpolate points smoothly if we drag fast, OR point-to-point if holding Ctrl
+    if (lastCell && (isDown || e.ctrlKey)){
       drawLine(lastCell, cur, value);
     } else {
       setCell(x,y,value);
     }
 
     lastCell = cur;
-    render();
+    scheduleRender();
   }
 
   // --- IMAGE STAMP OVERLAY LOGIC ---
@@ -911,20 +924,17 @@
         let hasVisiblePixel = false;
 
         // AREA SAMPLING: Scan all pixels inside the cell's footprint.
-        // This guarantees that fine lines and details are never missed!
         for (let iy = startImgY; iy < endImgY; iy++) {
           for (let ix = startImgX; ix < endImgX; ix++) {
             const index = (iy * oWidth + ix) * 4;
             const a = imgData[index+3];
 
-            // Ignore largely transparent pixels
             if (a > 50) {
               hasVisiblePixel = true;
               const r = imgData[index];
               const g = imgData[index+1];
               const b = imgData[index+2];
               
-              // Find the darkest (most shaded) pixel in this cell's territory
               const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
               if (brightness < minBrightness) {
                 minBrightness = brightness;
@@ -933,13 +943,12 @@
           }
         }
 
-        // If the darkest shading in this cell crosses the sensitivity threshold, stamp it!
         if (hasVisiblePixel && minBrightness <= threshold) {
           setCell(cx, cy, paintVal);
         }
       }
     }
-    render();
+    scheduleRender();
   }
   // --- END IMAGE STAMP OVERLAY LOGIC ---
 
@@ -957,7 +966,7 @@
         addRecent(hex);
         syncHexLabels();
         buildPalette();
-        render();
+        scheduleRender();
       });
       paletteEl.appendChild(d);
     });
@@ -1000,7 +1009,7 @@
       d.addEventListener('click', () => {
         paintColor.value = hex;
         syncHexLabels();
-        render();
+        scheduleRender();
       });
 
       d.addEventListener('contextmenu', (e) => {
@@ -1008,7 +1017,7 @@
         bgColor.value = hex;
         addRecent(hex);
         syncHexLabels();
-        render();
+        scheduleRender();
       });
 
       recentEl.appendChild(d);
@@ -1153,6 +1162,13 @@
     return e && e.getModifierState && e.getModifierState('Space');
   }
 
+  window.addEventListener('mouseup', () => {
+    isDown = false;
+    isPanning = false;
+    panStart = null;
+    // Note: Do NOT set lastCell = null here! This preserves point-to-point drawing across clicks.
+  });
+
   canvas.addEventListener('mousedown', (e) => {
     if (shouldPan(e) || e.button === 1){
       isPanning = true;
@@ -1162,14 +1178,13 @@
 
     isDown = true;
     const forceEraser = (e.button === 2);
+    
+    // Only snap previous line context if not holding Ctrl for a straight-line jump
+    if (!e.ctrlKey) {
+      lastCell = null; 
+    }
+    
     paintAt(e, forceEraser);
-  });
-
-  window.addEventListener('mouseup', () => {
-    isDown = false;
-    lastCell = null;
-    isPanning = false;
-    panStart = null;
   });
 
   canvas.addEventListener('mousemove', (e) => {
@@ -1184,8 +1199,12 @@
 
     const {x,y} = cellFromEvent(e);
     lastHover = inBounds(x,y) ? {x,y} : null;
-    if (isDown) paintAt(e, e.buttons === 2);
-    else render();
+    
+    if (isDown) {
+      paintAt(e, e.buttons === 2);
+    } else {
+      scheduleRender();
+    }
   });
 
   canvas.addEventListener('wheel', (e) => {
@@ -1206,7 +1225,7 @@
 
     viewScale = next;
     setStageTransform();
-    render();
+    scheduleRender();
   }, { passive:false });
 
   window.addEventListener('keydown', (e) => {
@@ -1214,7 +1233,7 @@
     if (e.key.toLowerCase() === 'b') toolSel.value = 'brush';
     if (e.key.toLowerCase() === 'g') gridPreview.value = (gridPreview.value === 'on' ? 'off' : 'on');
     syncHexLabels();
-    render();
+    scheduleRender();
   });
 
   [
@@ -1225,18 +1244,18 @@
     if (el === bgColor) addRecent(bgColor.value);
     if (el === bgAltColor) addRecent(bgAltColor.value);
     syncHexLabels();
-    render();
+    scheduleRender();
   }));
 
   zoom.addEventListener('input', () => {
     viewScale = clamp(+zoom.value || viewScale, +zoom.min, +zoom.max);
     setStageTransform();
-    render();
+    scheduleRender();
   });
 
-  fitBtn.addEventListener('click', () => { fitToView(); render(); });
-  oneToOneBtn.addEventListener('click', () => { oneToOne(); render(); });
-  resetPanBtn.addEventListener('click', () => { centerPan(); render(); });
+  fitBtn.addEventListener('click', () => { fitToView(); scheduleRender(); });
+  oneToOneBtn.addEventListener('click', () => { oneToOne(); scheduleRender(); });
+  resetPanBtn.addEventListener('click', () => { centerPan(); scheduleRender(); });
 
   applySizeBtn.addEventListener('click', applySize);
   clearBtn.addEventListener('click', clearAll);
